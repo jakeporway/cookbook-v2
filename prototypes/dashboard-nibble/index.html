@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spreadsheet → Dashboard · Code Nibble</title>
+<style>
+  :root{
+    --cream:#FBF6EC; --card:#FFFFFF; --ink:#1A1A1A; --muted:#6B6457;
+    --blue:#1F46FF; --blue-soft:#EAEEFF; --line:#E7E0D2;
+    --green:#1F9D55; --amber:#D98A00; --red:#D1453B;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.45}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 22px 80px}
+  header.top{display:flex;align-items:baseline;justify-content:space-between;
+    border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:22px;gap:12px;flex-wrap:wrap}
+  .title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--blue)}
+  h1{font-size:26px;margin:4px 0 0;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .badge{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    color:var(--blue);border:1.5px solid var(--blue);border-radius:999px;padding:4px 11px}
+
+  .drop{border:2px dashed var(--line);border-radius:14px;background:var(--card);
+    padding:16px 18px;display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  .drop.drag{border-color:var(--blue);background:var(--blue-soft)}
+  .drop .dlabel{font-weight:600;font-size:14px}
+  .drop .dhint{color:var(--muted);font-size:13px}
+  .btn{background:var(--blue);color:#fff;border:none;border-radius:9px;padding:9px 15px;
+    font-weight:600;font-size:13px;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px}
+  .kpi .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .kpi .v{font-size:27px;font-weight:800;margin-top:6px;letter-spacing:-.02em}
+  .kpi .vsub{font-size:12px;color:var(--muted);margin-top:2px}
+
+  .notes{background:#FFFBF2;border:1px solid var(--line);border-left:4px solid var(--amber);
+    border-radius:10px;padding:13px 15px;margin-bottom:22px;font-size:13px;color:#5b5446}
+  .notes b{color:var(--ink)}
+  .notes ul{margin:8px 0 0;padding-left:18px}
+  .notes li{margin:3px 0}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px;margin-bottom:18px}
+  .panel h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 4px;color:var(--ink)}
+  .panel .ph{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  select{font-size:13px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-weight:600}
+  .barrow{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:13px}
+  .barrow .lab{width:185px;flex:none;text-align:right;color:#3a3528;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .barrow .track{flex:1;background:#F1ECE0;border-radius:6px;height:20px;position:relative;overflow:hidden}
+  .barrow .fill{position:absolute;left:0;top:0;bottom:0;background:var(--blue);border-radius:6px}
+  .barrow .val{width:92px;flex:none;font-variant-numeric:tabular-nums;color:var(--muted);font-weight:600}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none}
+  th:hover{color:var(--blue)}
+  tbody tr:hover{background:#FAF7F0}
+  .tablewrap{overflow:auto;max-height:360px;border:1px solid var(--line);border-radius:10px}
+  .search{font-size:13px;padding:8px 11px;border:1px solid var(--line);border-radius:8px;width:220px}
+
+  footer{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+  @media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}.barrow .lab{width:120px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="title">Decoded Futures · Code Nibble</div>
+      <h1>Spreadsheet → Dashboard</h1>
+      <div class="sub">Drop a CSV. It’s read right here in your browser — nothing is uploaded anywhere.</div>
+    </div>
+    <div class="badge">Runs on your machine</div>
+  </header>
+
+  <div class="drop" id="drop">
+    <div style="flex:1;min-width:200px">
+      <div class="dlabel">Loaded: <span id="fname">sample — City Harvest food rescue log</span></div>
+      <div class="dhint">Drag a .csv file here, or use the button. Your data never leaves this page.</div>
+    </div>
+    <button class="btn" id="pick">Choose CSV file</button>
+    <button class="btn ghost" id="reset">Reload sample</button>
+    <input type="file" id="file" accept=".csv,text/csv" hidden>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+  <div class="notes" id="notes"></div>
+
+  <div class="panel">
+    <div class="ph">
+      <div><h2>Total <span id="metricName">value</span> by group</h2></div>
+      <div>
+        <label style="font-size:12px;color:var(--muted);margin-right:6px">Group by</label>
+        <select id="dimSel"></select>
+      </div>
+    </div>
+    <div id="bars"></div>
+  </div>
+
+  <div class="panel" id="timePanel">
+    <div class="ph"><div><h2>Over time</h2></div></div>
+    <div id="timechart"></div>
+  </div>
+
+  <div class="panel">
+    <div class="ph">
+      <div><h2>Your rows</h2></div>
+      <input class="search" id="search" placeholder="Filter rows…">
+    </div>
+    <div class="tablewrap"><table id="tbl"></table></div>
+  </div>
+
+  <footer>Built by Claude in the chat window · single file, no install · open it offline and it still works.</footer>
+</div>
+
+<script>
+/* ---------- the sample data, baked in so the page works on first open ---------- */
+const SAMPLE = `Date,Source / Donor,Food Category,Pounds Rescued,Borough,Partner Agency,Route,Notes
+3/2/25,Whole Foods - Tribeca,Produce,"1,240",Manhattan,St. John's Pantry,M1,
+3/2/2025,Citarella,Dairy,310,Manhattan,St Johns Pantry,M1,partial - cold chain ok
+03/03/25,Restaurant Depot,Produce,880 lbs,Bronx,Mercy Center,BX2,
+3/3/25,Trader Joe's UWS,Bakery,145,Manhattan,Goddard Riverside,M3,
+March 4,Whole Foods - Tribeca,Produce,1560,Manhattan,St. John's Pantry,M1,
+2025-03-04,Costco - Bronx,Protein,2200,Bronx,Part of the Solution (POTS),BX2,frozen
+3/4/25,Fairway,Dairy,,Brooklyn,CHIPS Soup Kitchen,BK1,weight not recorded
+3/5/25,Restaurant Depot,Produce,"1,020",Bronx,Mercy Center,BX2,
+3/5/25,Trader Joes UWS,Bakery,210,Manhattan,Goddard Riverside,M3,
+3/5/2025,Citarella,Prepared,95,Manhattan,Holy Apostles,M3,
+3/6/25,Whole Foods Gowanus,Produce,1320,Brooklyn,CHIPS Soup Kitchen,BK1,
+3/6/25,Costco - Bronx,Protein,1890,Bronx,POTS,BX2,frozen
+3/6/25,Restaurant Depot,produce,760,Bronx,Mercy Center,BX2,
+3/7/25,Whole Foods - Tribeca,Dairy,440,Manhattan,St. John's Pantry,M1,
+3/7/25,Fairway,Produce,"1,110",Brooklyn,CHIPS Soup Kitchen,BK1,
+3/8/25,Trader Joe's UWS,Bakery,180,Manhattan,Goddard Riverside,M3,short pickup
+3/9/25,Costco - Bronx,Protein,2050,Bronx,Part of the Solution (POTS),BX2,frozen
+3/9/2025,Citarella,Dairy,260,Manhattan,Holy Apostles,M3,
+3/10/25,Whole Foods Gowanus,Produce,"1,470",Brooklyn,CHIPS Soup Kitchen,BK1,
+3/10/25,Restaurant Depot,Produce,940,Bronx,Mercy Center,BX2,
+3/10/25,Whole Foods - Tribeca,Produce,1290,Manhattan,St Johns Pantry,M1,
+3/11/25,Fairway,Bakery,165,Brooklyn,CHIPS Soup Kitchen,BK1,
+3/11/25,Trader Joes UWS,Produce,520,Manhattan,Goddard Riverside,M3,
+3/12/25,Costco - Bronx,Protein,1980,Bronx,POTS,BX2,frozen
+3/12/25,Citarella,Prepared,120,Manhattan,Holy Apostles,M3,
+3/13/25,Whole Foods - Tribeca,Produce,"1,610",Manhattan,St. John's Pantry,M1,
+3/13/25,Restaurant Depot,Produce,1050,Bronx,Mercy Center,BX2,
+03/14/2025,Fairway,Dairy,390,Brooklyn,CHIPS Soup Kitchen,BK1,
+3/14/25,Trader Joe's UWS,Bakery,205,Manhattan,Goddard Riverside,M3,
+3/15/25,Whole Foods Gowanus,Produce,1380,Brooklyn,CHIPS Soup Kitchen,BK1,
+3/15/25,Costco - Bronx,Protein,2310,Bronx,Part of the Solution (POTS),BX2,frozen
+3/16/25,Citarella,Dairy,275,Manhattan,Holy Apostles,M3,
+3/16/25,Restaurant Depot,produce,810,Bronx,Mercy Center,BX2,
+3/17/25,Whole Foods - Tribeca,Produce,1440,Manhattan,St Johns Pantry,M1,
+3/17/25,Trader Joes UWS,Bakery,190,Manhattan,Goddard Riverside,M3,
+3/18/25,Fairway,Produce,"1,230",Brooklyn,CHIPS Soup Kitchen,BK1,
+3/18/25,Costco - Bronx,Protein,2120,Bronx,POTS,BX2,frozen
+3/19/25,Whole Foods Gowanus,Produce,1295,Brooklyn,CHIPS Soup Kitchen,BK1,
+3/19/25,Citarella,Prepared,110,Manhattan,Holy Apostles,M3,
+3/20/25,Restaurant Depot,Produce,985,Bronx,Mercy Center,BX2,
+3/20/25,Whole Foods - Tribeca,Dairy,460,Manhattan,St. John's Pantry,M1,
+3/20/25,Trader Joe's UWS,Bakery,,Manhattan,Goddard Riverside,M3,scale broken
+3/21/25,Costco - Bronx,Protein,2240,Bronx,Part of the Solution (POTS),BX2,frozen
+3/21/25,Fairway,Produce,1175,Brooklyn,CHIPS Soup Kitchen,BK1,`;
+
+/* ---------- tiny tolerant CSV parser (handles quoted fields w/ commas) ---------- */
+function parseCSV(text){
+  const rows=[]; let row=[], field='', q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){
+      if(c==='"'){ if(text[i+1]==='"'){field+='"';i++;} else q=false; }
+      else field+=c;
+    } else {
+      if(c==='"') q=true;
+      else if(c===','){ row.push(field); field=''; }
+      else if(c==='\n'){ row.push(field); rows.push(row); row=[]; field=''; }
+      else if(c==='\r'){}
+      else field+=c;
+    }
+  }
+  if(field!==''||row.length){ row.push(field); rows.push(row); }
+  const headers=rows.shift().map(h=>h.trim());
+  return {headers, rows:rows.filter(r=>r.some(c=>c.trim()!==''))
+    .map(r=>{const o={};headers.forEach((h,i)=>o[h]=(r[i]||'').trim());return o;})};
+}
+
+/* ---------- type inference + cleaning ---------- */
+const MONTHS={january:0,february:1,march:2,april:3,may:4,june:5,july:6,august:7,september:8,october:9,november:10,december:11,jan:0,feb:1,mar:2,apr:3,jun:5,jul:6,aug:7,sep:8,sept:8,oct:9,nov:10,dec:11};
+function cleanNum(v){ if(v==null)return null; const s=String(v).replace(/[, ]/g,'').replace(/[^0-9.\-]/g,''); if(s===''||s==='-')return null; const n=parseFloat(s); return isNaN(n)?null:n; }
+function parseDate(v){
+  if(!v)return null; v=v.trim();
+  let m=v.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/); if(m)return new Date(+m[1],+m[2]-1,+m[3]);
+  m=v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+  if(m){let y=+m[3]; if(y<100)y+=2000; return new Date(y,+m[1]-1,+m[2]);}
+  m=v.match(/^([A-Za-z]+)\s+(\d{1,2})(?:,?\s*(\d{4}))?$/);
+  if(m){const mo=MONTHS[m[1].toLowerCase()]; if(mo!=null)return new Date(m[3]?+m[3]:2025,mo,+m[2]);}
+  return null;
+}
+function inferType(rows,col){
+  const vals=rows.map(r=>r[col]).filter(v=>v!=='');
+  if(!vals.length)return 'text';
+  const nums=vals.filter(v=>cleanNum(v)!=null).length;
+  const dates=vals.filter(v=>parseDate(v)!=null).length;
+  if(dates/vals.length>=0.7)return 'date';
+  if(nums/vals.length>=0.7)return 'number';
+  return 'text';
+}
+/* normalization key for catching near-duplicate labels */
+function normKey(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,'');}
+
+/* ---------- state ---------- */
+let DATA, COLS, metricCol, dateCol, dimCols, dimSel;
+
+function analyze(parsed){
+  const {headers,rows}=parsed;
+  const types={}; headers.forEach(h=>types[h]=inferType(rows,h));
+  COLS=headers;
+  metricCol=headers.find(h=>types[h]==='number');
+  dateCol=headers.find(h=>types[h]==='date');
+  dimCols=headers.filter(h=>{
+    if(h===metricCol||h===dateCol)return false;
+    const uniq=new Set(rows.map(r=>r[h]).filter(v=>v)).size;
+    return types[h]==='text' && uniq>1 && uniq<=Math.max(12,rows.length*0.6);
+  });
+  DATA={rows,types};
+  dimSel=dimCols[0];
+}
+
+function sumByDim(dim){
+  const map=new Map(), labelOf=new Map();
+  DATA.rows.forEach(r=>{
+    const raw=r[dim]; if(!raw)return;
+    const k=normKey(raw);
+    if(!labelOf.has(k))labelOf.set(k,raw);     // first-seen spelling wins as display label
+    const v=metricCol?cleanNum(r[metricCol]):1;
+    map.set(k,(map.get(k)||0)+(v||0));
+  });
+  return [...map.entries()].map(([k,v])=>({label:labelOf.get(k),value:v}))
+    .sort((a,b)=>b.value-a.value);
+}
+function fmt(n){return n.toLocaleString(undefined,{maximumFractionDigits:0});}
+
+/* ---------- render ---------- */
+function renderKPIs(){
+  const rows=DATA.rows;
+  let total=0,counted=0;
+  if(metricCol)rows.forEach(r=>{const v=cleanNum(r[metricCol]);if(v!=null){total+=v;counted++;}});
+  const dates=rows.map(r=>dateCol?parseDate(r[dateCol]):null).filter(Boolean).sort((a,b)=>a-b);
+  const span=dates.length?`${dates[0].toLocaleDateString()} – ${dates[dates.length-1].toLocaleDateString()}`:'—';
+  const groups=dimSel?new Set(rows.map(r=>normKey(r[dimSel])).filter(Boolean)).size:0;
+  const cards=[
+    {k:'Rows',v:fmt(rows.length),vsub:'records read'},
+    metricCol?{k:'Total '+metricCol,v:fmt(total),vsub:`${counted} of ${rows.length} rows had a value`}:null,
+    dimSel?{k:'Distinct '+dimSel,v:fmt(groups),vsub:'after merging spellings'}:null,
+    dateCol?{k:'Date range',v:dates.length,vsub:span}:null
+  ].filter(Boolean).slice(0,4);
+  document.getElementById('kpis').innerHTML=cards.map(c=>
+    `<div class="kpi"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="vsub">${c.vsub}</div></div>`).join('');
+}
+
+function renderNotes(){
+  const rows=DATA.rows, issues=[];
+  if(metricCol){
+    const blanks=rows.filter(r=>cleanNum(r[metricCol])==null).length;
+    if(blanks)issues.push(`<b>${blanks}</b> row(s) had a blank/unreadable <b>${metricCol}</b> — skipped in totals, kept in the table.`);
+    const messy=rows.filter(r=>r[metricCol]&&/[^0-9.,\-\s]/.test(r[metricCol])).length;
+    if(messy)issues.push(`<b>${messy}</b> value(s) like “880 lbs” or “1,240” had units/commas — read as numbers.`);
+  }
+  // near-duplicate labels across dim columns
+  dimCols.forEach(dim=>{
+    const groups={};
+    rows.forEach(r=>{if(!r[dim])return;(groups[normKey(r[dim])]=groups[normKey(r[dim])]||new Set()).add(r[dim]);});
+    Object.values(groups).forEach(set=>{
+      if(set.size>1)issues.push(`In <b>${dim}</b>, treated ${[...set].map(s=>`“${s}”`).join(' and ')} as the same.`);
+    });
+  });
+  if(dateCol){
+    const fmts=new Set(rows.map(r=>{const v=r[dateCol];if(!v)return null;
+      if(/^\d{4}-/.test(v))return'ISO';if(/\//.test(v))return'slash';return'word';}).filter(Boolean));
+    if(fmts.size>1)issues.push(`<b>${dateCol}</b> mixed ${fmts.size} date formats — all lined up to a real calendar.`);
+  }
+  const el=document.getElementById('notes');
+  if(!issues.length){el.style.display='none';return;}
+  el.style.display='block';
+  el.innerHTML=`<b>What I had to clean up to make this chart honest:</b><ul>${issues.slice(0,8).map(i=>`<li>${i}</li>`).join('')}</ul>`;
+}
+
+function renderBars(){
+  document.getElementById('metricName').textContent=metricCol||'count';
+  const data=sumByDim(dimSel), max=Math.max(...data.map(d=>d.value),1);
+  document.getElementById('bars').innerHTML=data.map(d=>
+    `<div class="barrow"><div class="lab" title="${d.label}">${d.label}</div>
+     <div class="track"><div class="fill" style="width:${(d.value/max*100).toFixed(1)}%"></div></div>
+     <div class="val">${fmt(d.value)}</div></div>`).join('');
+}
+
+function renderTime(){
+  const panel=document.getElementById('timePanel');
+  if(!dateCol||!metricCol){panel.style.display='none';return;} panel.style.display='block';
+  const byDay=new Map();
+  DATA.rows.forEach(r=>{const d=parseDate(r[dateCol]);const v=cleanNum(r[metricCol]);
+    if(!d||v==null)return;const key=d.getTime();byDay.set(key,(byDay.get(key)||0)+v);});
+  const pts=[...byDay.entries()].sort((a,b)=>a[0]-b[0]);
+  if(pts.length<2){panel.style.display='none';return;}
+  const W=1000,H=220,pad=34;
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+  const x0=Math.min(...xs),x1=Math.max(...xs),ymax=Math.max(...ys);
+  const px=t=>pad+(x1===x0?0:(t-x0)/(x1-x0))*(W-2*pad);
+  const py=v=>H-pad-(v/ymax)*(H-2*pad);
+  const line=pts.map((p,i)=>`${i?'L':'M'}${px(p[0]).toFixed(1)},${py(p[1]).toFixed(1)}`).join(' ');
+  const area=`${line} L${px(x1).toFixed(1)},${H-pad} L${px(x0).toFixed(1)},${H-pad} Z`;
+  const dots=pts.map(p=>`<circle cx="${px(p[0]).toFixed(1)}" cy="${py(p[1]).toFixed(1)}" r="3" fill="#1F46FF"/>`).join('');
+  const first=new Date(x0).toLocaleDateString(),last=new Date(x1).toLocaleDateString();
+  document.getElementById('timechart').innerHTML=
+    `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">
+       <path d="${area}" fill="#EAEEFF"/>
+       <path d="${line}" fill="none" stroke="#1F46FF" stroke-width="2.5"/>
+       ${dots}
+       <text x="${pad}" y="${H-8}" font-size="13" fill="#6B6457">${first}</text>
+       <text x="${W-pad}" y="${H-8}" font-size="13" fill="#6B6457" text-anchor="end">${last}</text>
+       <text x="${pad}" y="20" font-size="13" fill="#6B6457">peak ${fmt(ymax)} ${metricCol}</text>
+     </svg>`;
+}
+
+let sortCol=null,sortDir=1,searchTerm='';
+function renderTable(){
+  const tbl=document.getElementById('tbl');
+  let rows=DATA.rows;
+  if(searchTerm){const t=searchTerm.toLowerCase();
+    rows=rows.filter(r=>COLS.some(c=>String(r[c]).toLowerCase().includes(t)));}
+  if(sortCol){const num=DATA.types[sortCol]==='number',dt=DATA.types[sortCol]==='date';
+    rows=[...rows].sort((a,b)=>{let x=a[sortCol],y=b[sortCol];
+      if(num){x=cleanNum(x)??-Infinity;y=cleanNum(y)??-Infinity;}
+      else if(dt){x=parseDate(x)?.getTime()??-Infinity;y=parseDate(y)?.getTime()??-Infinity;}
+      else{x=String(x).toLowerCase();y=String(y).toLowerCase();}
+      return x<y?-sortDir:x>y?sortDir:0;});}
+  tbl.innerHTML=`<thead><tr>${COLS.map(c=>`<th data-c="${c}">${c}${sortCol===c?(sortDir>0?' ▲':' ▼'):''}</th>`).join('')}</tr></thead>`+
+    `<tbody>${rows.slice(0,300).map(r=>`<tr>${COLS.map(c=>`<td>${r[c]||'<span style="color:#bbb">—</span>'}</td>`).join('')}</tr>`).join('')}</tbody>`;
+  tbl.querySelectorAll('th').forEach(th=>th.onclick=()=>{
+    const c=th.dataset.c; if(sortCol===c)sortDir*=-1; else{sortCol=c;sortDir=1;} renderTable();});
+}
+
+function renderDimSelect(){
+  const sel=document.getElementById('dimSel');
+  sel.innerHTML=dimCols.map(d=>`<option ${d===dimSel?'selected':''}>${d}</option>`).join('');
+  sel.onchange=()=>{dimSel=sel.value;renderKPIs();renderBars();};
+}
+
+function renderAll(){renderKPIs();renderNotes();renderDimSelect();renderBars();renderTime();renderTable();}
+
+function load(text,name){
+  const parsed=parseCSV(text);
+  if(!parsed.headers.length){alert("Couldn't find any columns in that file.");return;}
+  analyze(parsed);
+  document.getElementById('fname').textContent=name;
+  sortCol=null;searchTerm='';document.getElementById('search').value='';
+  renderAll();
+}
+
+/* ---------- wiring ---------- */
+document.getElementById('pick').onclick=()=>document.getElementById('file').click();
+document.getElementById('file').onchange=e=>{const f=e.target.files[0];if(!f)return;
+  const rd=new FileReader();rd.onload=()=>load(rd.result,f.name);rd.readAsText(f);};
+document.getElementById('reset').onclick=()=>load(SAMPLE,'sample — City Harvest food rescue log');
+document.getElementById('search').oninput=e=>{searchTerm=e.target.value;renderTable();};
+const drop=document.getElementById('drop');
+['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag');}));
+drop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0];if(!f)return;
+  const rd=new FileReader();rd.onload=()=>load(rd.result,f.name);rd.readAsText(f);});
+
+load(SAMPLE,'sample — City Harvest food rescue log');
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe — Which District Is Everyone In? · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a></span>
+    <span>Enrich My Data · Recipe 09</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Enrich · Look Up</span>
+      <span class="num">R-09</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Enrich My Data · Look Up</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Which District Is Everyone In?</h1>
+      <p class="tagline">Paste your list of partner orgs or program sites with addresses; get back each one's city council district, the councilmember's name and contact, and a source link on every row — so you know exactly which elected to put each org in front of.</p>
+
+      <!-- TIER 1 — SCAN STRIP -->
+      <div class="scan">
+
+        <!-- PRIVACY -->
+        <div class="cell s-amber">
+          <div class="ico amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </div>
+          <div class="k">Where data goes</div>
+          <div class="v">Org addresses:<br>into the chat</div>
+          <div class="tip">
+            <b>Depends on whose addresses.</b> Organization addresses are public record — a rare "paste freely" case. Client <b>home</b> addresses are not: for those, use this recipe's local-tool variant so they never leave your machine.
+            <div class="scale"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+            <div style="margin-top:6px;font-size:11px;opacity:.8;">Green for org addresses · amber for anything about people</div>
+          </div>
+        </div>
+
+        <!-- AI LEVEL -->
+        <div class="cell s-blue">
+          <div class="ico blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M4.5 9h13M4.5 13h13"/></svg>
+          </div>
+          <div class="k">What you use</div>
+          <div class="v">Chat +<br>search</div>
+          <div class="tip">
+            <b>The normal chat, with web search on.</b> You stay in the same window you already use — Claude goes out to the public web to look each address up and comes back with links.
+            <div style="margin-top:7px;font-size:11px;opacity:.8;">No extension, no special mode — just ask it to search</div>
+          </div>
+        </div>
+
+        <!-- CONNECTIONS -->
+        <div class="cell s-green">
+          <div class="ico green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7V4M10 7V4M6 7h4v4a3 3 0 0 1-6 0V7z"/><path d="M7 17v3"/><circle cx="17" cy="14" r="3"/></svg>
+          </div>
+          <div class="k">Connections</div>
+          <div class="v">None<br>needed</div>
+          <div class="tip">
+            <b>Works out of the box.</b> No Drive, no CRM, no login anywhere. Web search is built into the chat.
+          </div>
+        </div>
+
+        <!-- GETS SMARTER? -->
+        <div class="cell s-blue">
+          <div class="ico navy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 2v18M4 6.5l8 4.5 8-4.5"/></svg>
+          </div>
+          <div class="k">Gets smarter?</div>
+          <div class="v">Reusable<br>prompt</div>
+          <div class="tip">
+            <b>A set recipe.</b> Save the prompt and rerun it when the list changes. It doesn't learn — the districts do the changing (redistricting, special elections), which is why the source links matter.
+          </div>
+        </div>
+
+        <!-- WHO SEES IT -->
+        <div class="cell s-green">
+          <div class="ico green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16"/><path d="M15 9h4a1 1 0 0 1 1 1v11"/><path d="M2 21h20"/><path d="M8 8h.01M8 12h.01M8 16h.01M11 8h.01M11 12h.01M11 16h.01"/></svg>
+          </div>
+          <div class="k">User</div>
+          <div class="v">You &amp;<br>your team</div>
+          <div class="tip">
+            <b>Internal.</b> A working table for your advocacy team — who to call before budget season. Verify before anything goes in a public-facing doc.
+            <div style="margin-top:7px;font-size:11px;opacity:.85;">3 levels: Individual → <b style="color:var(--glow);">Team</b> → Front-facing.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="meta">
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Beginner
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          ~10–15 min per batch
+        </span>
+        <span class="chip">
+          Effort after setup
+          <span class="meter set"><i></i><i></i><i></i></span>
+        </span>
+      </div>
+
+      <!-- INFORMATION YOU GIVE IT -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        </div>
+        <div>
+          <div class="gh">Information you give it</div>
+          <p>Your existing list of partner orgs or program sites with their street addresses — the spreadsheet you already keep. Org addresses are public record, so this is a rare paste-freely case. <b>Client home addresses are not</b> — see the caution below.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Check whose addresses these are</div>
+            <div class="st-b">Partner orgs, program sites, coalition members — public, paste away. Anyone's <em>home</em> address — stop; use the local-tool variant in step 6 instead.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Open a normal Claude chat and paste your list with this prompt</div>
+            <div class="st-b">Two columns is plenty: name and address. Swap in your city.</div>
+            <div class="prompt">
+              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
+              <pre>Here is a list of partner organizations in <span class="tok">[New York City]</span> with
+their public street addresses:
+
+<span class="tok">[paste your rows: Org name, Address]</span>
+
+For each row, search the web to find:
+1. Which <span class="tok">city council district</span> that address falls in.
+2. The current councilmember for that district — name, plus a
+   link to their official contact page.
+
+Return one table: Org | Address | District | Councilmember |
+Contact link | Source.
+
+For every row, include a source link for what you found (the
+official district-lookup or council page you used). If you can't
+find or confirm something, leave the cell blank and write
+UNKNOWN — do not guess. At the end, tell me which rows you are
+least confident about.</pre>
+            </div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Scan the UNKNOWNs and low-confidence rows first</div>
+            <div class="st-b">Ambiguous addresses (suite numbers, new buildings, streets that cross district lines) land here. Fix those rows by hand — they're usually only a few.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Spot-check 5 random rows against the linked sources</div>
+            <div class="st-b">Click the source link, confirm the district matches. Five clean rows is your green light; one wrong row means check them all.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Paste the table back into your spreadsheet</div>
+            <div class="st-b">Keep the source-link column. Future-you, mid-budget-season, will want to re-verify in one click.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Home addresses, or hundreds of rows? Build the local variant</div>
+            <div class="st-b">Ask Claude to build a single HTML page that looks districts up on your own machine using the free Census geocoder and public district boundaries. Addresses never enter the chat at all.</div>
+          </div></li>
+        </ol>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>Your partner list with a district, councilmember, and contact link attached to every org — and a source link per row so anyone on the team can verify before they pick up the phone. Exactly the map you need walking into budget season.</p>
+          </div>
+        </div>
+
+        <div class="browserline">
+          <b>Made-up data looks exactly like found data.</b> A hallucinated district number is indistinguishable from a real one. The rule on every enrichment recipe: a source link in every cell, unknowns stay blank, and spot-check 5 random rows before you act on any of it.
+        </div>
+
+        <div class="browserline">
+          <b>The lookup line.</b> Dozens of rows → this recipe handles it in chat. Hundreds of rows, or every month → ask Claude to build a tool that calls the public dataset directly (the free Census geocoder + district boundary files). Thousands → you've outgrown the recipe; that's a data service.
+        </div>
+
+        <div class="browserline">
+          <b>Org addresses are public. Client home addresses are not.</b> Never paste anyone's home address into a chat. For clients, use the local-tool variant (step 6) — the lookup runs entirely on your own computer.
+        </div>
+      </div>
+
+      <!-- HELPER -->
+      <div class="recipe" style="margin-top:26px;">
+        <div class="sech"><span class="px"><i></i><i></i></span> Stuck? Adapt it to your org</div>
+        <div class="helper">
+          <div class="hh">
+            <div class="av"><span>DF</span><i></i></div>
+            <div class="ht">
+              <b>Recipe helper</b>
+              <p>Tells you how to tailor this to your city, your list, and your kind of district.</p>
+            </div>
+          </div>
+          <div class="conv">
+            <div class="bub bot">What are you mapping — city council, state legislature, school board? And whose addresses are on the list?</div>
+            <div class="bub you">State assembly districts, and it's 40 partner food pantries. All org addresses.</div>
+            <div class="bub bot">Org addresses — you're in the green. Swap "city council district" for <b>state assembly district</b> in the prompt and add your state. One tip: ask Claude to use your state legislature's official district-lookup page as the source, so every link points somewhere you'd trust in a meeting.</div>
+          </div>
+          <div class="ask">
+            <input placeholder="Describe your list and your city…" aria-label="Ask the recipe helper">
+            <button>Ask</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span class="lg">DECODED FUTURES</span>
+        <div class="tags">
+          <span class="tag">Chat + web search</span>
+          <span class="tag">No connectors</span>
+          <span class="tag">Public addresses only</span>
+          <span class="tag">Local variant for home addresses</span>
+          <span class="tag">Teaches: the citation rule — no source link, no cell</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

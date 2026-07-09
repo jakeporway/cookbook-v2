@@ -329,6 +329,42 @@ drafts only, you send. Nothing leaves without your click.
 
 ---
 
+## Rev 3 addendum — Category 3 expansion (2026-07-09, Jake's calls)
+
+**The output-format decision heuristic (now in the category-3 intro):** pick the route by
+where the deliverable lives. A *file people edit* (deck, doc) → have the AI emit the real
+file (.pptx/.docx). *Used in a browser* → a clickable HTML page (nibble rules apply).
+*A platform* (podcast feed, LMS) → the AI writes the content; a **companion tool** performs it.
+
+**New class: "companion tool" recipes** — use one named outside tool alongside the chat.
+Inclusion bar (Jake's): clear, easy, reliable — one connector click or one simple prompt in a
+friendly tool; free or already owned; behaves the same every time. Marked on the homepage tag
+and in the card's "What you use" cell. Video explicitly does NOT clear the bar yet — it gets
+an honesty note on the homepage, not a recipe.
+
+### 25. One story, a real deck
+Your finished report + last year's deck as the design template → a real, editable .pptx.
+An HTML slideshow is a dead end for a board deck; the real file is the recipe.
+- **Information you give it:** the report + the deck your org already likes.
+- **Teaches:** template-by-example; file vs. browser. **Privacy:** 🟡 amber (report passes through).
+
+### 26. The quote-card press
+The certificates pattern pointed at social: a local HTML generator page — type a quote or
+stat, download a branded PNG. Brand carried by a screenshot + logo + one past post.
+- **Teaches:** the generator pattern generalizes. **Privacy:** 🟢 green (runs locally).
+
+### 27. Your annual report is a podcast *(companion tool: NotebookLM)*
+Public annual report → NotebookLM Audio Overview → a two-host conversation supporters will
+actually listen to. Public documents only; listen to every minute before it ships.
+- **Teaches:** the AI performs, you approve — draft-only architecture in audio form.
+- **Privacy:** 🟢 green (public material only, by rule).
+
+### 28. The volunteer training kit
+One training doc → facilitator guide + plain-language handout + local HTML practice quiz.
+The quiz teaches the browser line in situ: practice yes, completion tracking = an LMS.
+- **Teaches:** one source, many teaching formats; the browser line; source-of-truth stays
+  in your doc. **Privacy:** 🟡 amber with an R-01 pointer.
+
 ## Findings log
 
 **From rev 1 (still standing):**

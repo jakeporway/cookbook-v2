@@ -139,6 +139,7 @@
           <li><div>
             <div class="st-h">Paste this prompt with both documents dropped in</div>
             <div class="st-b">The accuracy rule is the load-bearing line: plain language must never change what people actually have to do.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Here is a document we give to the people we serve. Right now it
@@ -155,7 +156,9 @@ Rewrite the document three ways:
 
 1. PLAIN — 6th-grade reading level or below. Short sentences,
    everyday words, "you" instead of "the applicant". Score it
-   (Flesch-Kincaid) and tell me the grade level you reached.
+   (Flesch-Kincaid — a standard readability score; the number is
+   roughly the U.S. school grade needed to read it. Aim for 8 or
+   below; 6 is great) and tell me the grade level you reached.
 2. LARGE-PRINT-FRIENDLY — the plain version restructured for big
    type: short lines, one idea per chunk, clear headings, no
    dense paragraphs.
@@ -178,7 +181,7 @@ don't offer endless variations.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Send the translation to a fluent human</div>
-            <div class="st-b">A bilingual staff member, board member, or trusted volunteer reads the Spanish draft before anyone else does. Their edits are part of the recipe, not an optional extra.</div>
+            <div class="st-b">A bilingual staff member, board member, or trusted volunteer reads the Spanish draft before anyone else does. Their edits are part of the recipe, not an optional extra. No bilingual staff? A partner org, a stipended community member, or a professional translator reviewing a draft (much cheaper than translating from scratch) all work.</div>
           </div></li>
           <li><div>
             <div class="st-h">Format and put them into use</div>
@@ -217,6 +220,7 @@ don't offer endless variations.</pre>
             <div class="bub you">Our benefits checklist. And we need Haitian Creole more than Spanish, but nobody on staff speaks it.</div>
             <div class="bub bot">Swap "Spanish" for "Haitian Creole" in the prompt — the DRAFT label matters even more when no one in-house can check it. Before it goes out, find your fluent reviewer: a partner org, a community member you'd pay a small stipend, or a professional translator reviewing a draft (much cheaper than translating from scratch). No reviewer yet? Ship the plain-English and large-print versions now and hold the Creole one until you have one.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your document and your readers…" aria-label="Ask the recipe helper">
             <button>Ask</button>

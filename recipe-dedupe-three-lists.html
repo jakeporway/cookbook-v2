@@ -135,6 +135,7 @@
           <li><div>
             <div class="st-h">Copy the top row of each file, then paste this prompt</div>
             <div class="st-b">Open each CSV (or the platform's column list) and grab just the header line. Swap your three sets of headers into the highlighted parts.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>I have three CSV exports of people, and many people appear on more
@@ -191,7 +192,7 @@ never be uploaded anywhere — and show me:
         </div>
 
         <div class="browserline">
-          <b>The fuzzy match is a smart guess, not gospel.</b> "J. Martinez" and "Jose Martinez" at different emails might be one person or two. That's exactly why the "you decide" pile exists — it's the human-in-the-loop that catches bad merges before they reach a mail-merge. Never skip it, and never ask the tool to auto-merge everything.
+          <b>The fuzzy match is a smart guess, not gospel.</b> "J. Martinez" and "Jose Martinez" at different emails might be one person or two. It will catch the obvious ones — Bob/Robert, a typo'd email — but it won't catch everything. That's exactly what the "you decide" pile is for: the human-in-the-loop that catches bad merges before they reach a mail-merge. Never skip it, and never ask the tool to auto-merge everything.
         </div>
       </div>
 
@@ -211,6 +212,7 @@ never be uploaded anywhere — and show me:
             <div class="bub you">Eventbrite and Mailchimp, but our donor list is just an Excel sheet someone maintains by hand. Emails are missing for a lot of the older donors.</div>
             <div class="bub bot">That works — save the Excel sheet as a CSV first (File → Save As → CSV). Then add one line to the prompt: "List 3 often has no email — for those rows, match on name plus any phone number, and treat name-only matches as uncertain." Missing emails just means more pairs land in your you-decide pile, which is where they belong.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your three lists…" aria-label="Ask the recipe helper">
             <button>Ask</button>

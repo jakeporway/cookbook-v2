@@ -38,7 +38,7 @@
           <div class="k">Where data goes</div>
           <div class="v">Domains only,<br>no names</div>
           <div class="tip">
-            <b>Amber — strip it first.</b> You paste only the email <b>domains</b> (the part after the @). No names, no full addresses. Run your list through the redaction pass (Recipe 01) if names and domains live in the same column.
+            <b>Amber — strip it first.</b> You paste only the email <b>domains</b> (the part after the @). No names, no full addresses. Run your list through the redaction pass (Recipe 01) if names and domains live in the same column — or simpler: delete the Name column in your copy and paste only the domain column.
             <div class="scale"><i class="on"></i><i class="on"></i><i></i><i></i></div>
             <div style="margin-top:6px;font-size:11px;opacity:.8;">Level 2 of 4 — safe once the names are stripped</div>
           </div>
@@ -119,7 +119,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The email-domain column from the volunteer list you already have — just the part after the @, with the names stripped out first (Recipe 01, the redaction pass, does this in one step).</p>
+          <p>The email-domain column from the volunteer list you already have — just the part after the @, with the names stripped out first (Recipe 01, the redaction pass, does this in one step) — or simpler: delete the Name column in your copy and paste only the domain column.</p>
         </div>
       </div>
 
@@ -129,11 +129,12 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Pull the domain column, drop the names</div>
-            <div class="st-b">In your spreadsheet, split emails at the @ and copy only what's after it. If names and emails are tangled together, run the column through the redaction pass (Recipe 01) first.</div>
+            <div class="st-b">In your spreadsheet, split emails at the @ and copy only what's after it. (In Excel: select the column → Data → Text to Columns → Delimited → Other: @.) If names and emails are tangled together, run the column through the redaction pass (Recipe 01) first — or simpler: delete the Name column in your copy and paste only the domain column.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the domains with this prompt</div>
             <div class="st-b">Domain-sort first, search second — that order is the whole trick.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Here is the email-domain column from our volunteer list —
@@ -168,7 +169,7 @@ employers by volunteer count.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check 5 rows, especially the searched ones</div>
-            <div class="st-b">Click each source link and confirm the domain really belongs to that company. Domain-match rows are near-certain; searched rows are where errors hide.</div>
+            <div class="st-b">Click each source link and confirm the domain really belongs to that company. Domain-match rows are near-certain; searched rows are where errors hide. One catch: generic domains (mail.com, ISP addresses) and shared small-business domains can mislead — treat those as UNKNOWN, not near-certain.</div>
           </div></li>
           <li><div>
             <div class="st-h">Leave the UNKNOWNs unknown</div>
@@ -215,6 +216,7 @@ employers by volunteer count.</pre>
             <div class="bub you">It's a Salesforce export with name, email, and hours. We want corporate volunteer-day partners.</div>
             <div class="bub bot">Then add the <b>hours column</b> next to each domain (still no names) and ask for total hours per employer, not just headcount. A company with 6 volunteers and 300 hours is a stronger volunteer-day pitch than one with 10 people and 20 hours. And once you have the shortlist, Recipe 12 checks whether those same employers match gifts.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your volunteer list…" aria-label="Ask the recipe helper">
             <button>Ask</button>

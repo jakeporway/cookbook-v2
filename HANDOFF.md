@@ -71,6 +71,49 @@ Decoded Futures card design, all links verified, screenshots in `screenshots/`
 6. **Expand the org-grounding bank** (PRD §7) — arts, advocacy, direct-cash, healthcare,
    environmental orgs — before generating any more recipes.
 
+## Red-team pass (2026-07-09) — what changed and what's queued
+
+A persona red-team (nonprofit exec, low-to-medium technical) reviewed all 24 cards. Fixes
+already applied across the cards: a standard "you don't need to understand every word"
+`.prenote` above every prompt block; `.demo-note` labeling the fake helper chats as examples;
+jargon glosses (EIN, 990-PF, Flesch-Kincaid, web-search toggle); governance lines (handbook
+answerer HR disclaimer + owner, Ask Maria compliance skim + retention, Drive archaeologist
+Workspace-admin step 0, disconnect-doesn't-erase notes on R-23/R-24); time-estimate honesty
+where verification is the real cost (R-12, R-14, R-19); R-07's sensitivity checklist;
+Project-vs-Skill standardized on Project in category 5. Homepage got a "Which AI does this
+work with?" note.
+
+**Queued tasks (Jake's calls, not yet done):**
+1. **De-Claude-ify the whole book** — a dedicated pass replacing explicit Claude references
+   with model-agnostic language (ChatGPT Projects/GPTs, Gemini Gems equivalences), per Jake:
+   the cookbook should apply to any LLM. Keep one "tested with" note per card or centrally.
+2. **R-00 "Is my AI set up right?" pre-flight card** — plan check, web-search toggle,
+   training-data settings, where Projects live. Would absorb half the remaining HIGH findings.
+3. **Shared "When it doesn't work" troubleshooting page** linked from every card (file won't
+   open / browser security warning / message-too-long / silent drag-drop failure).
+4. **"Getting your data out" appendix** — CSV export click-paths for LGL, Eventbrite,
+   Mailchimp, Google Forms; unblocks five category-1 recipes.
+5. **Recipe candidates from the red-team:** board memo / AI-policy starter; renewal-deadline
+   extractor (award letters → calendar-importable deadline list); "handing the tool to a
+   teammate" (Project sharing mechanics).
+6. **Per-card privacy mini-legend** — cards get shared as bare links; the 4-level scale
+   currently only exists on the homepage.
+
+## Category-3 expansion (2026-07-09)
+
+Category 3 grew from 3 to 7 recipes after an output-format landscape pass (see slate rev-3
+addendum for the full logic): R-25 real .pptx deck, R-26 quote-card generator, R-27 report →
+NotebookLM podcast, R-28 volunteer training kit. New concepts introduced:
+- **"Where does the deliverable live?" heuristic** (file people edit / browser / platform) —
+  now in the category-3 homepage intro; candidate for the meta-skills spine.
+- **"Companion tool" recipe class** (Jake approved): one named outside tool, bar = clear/easy/
+  reliable, one click or one simple prompt, free or already owned. R-27 is the first. Marked
+  in the homepage legend, the recipe tag, and the card's "What you use" cell.
+- **Video = honesty note, not a recipe** (homepage callout in category 3) until generation
+  clears the companion bar.
+- Numbering: new cards appended as R-25–R-28 to avoid renumbering 24 existing cards, so
+  numbers no longer run in strict climb order past category 3. Reopen if it grates.
+
 ## Working style (from the PRD, still accurate)
 
 Talk back before building; one open question at a time; Jake owns audience calls; apply the

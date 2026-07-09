@@ -143,6 +143,7 @@
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
             <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. The last paragraph is the one that keeps this tool in its lane.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>You answer staff questions about <span class="tok">[our organization]</span>'s policies
@@ -160,7 +161,11 @@ a judgment call, or a situation the policy doesn't cleanly cover,
 answer what the document says AND add: "For your specific
 situation, confirm with <span class="tok">[the operations manager]</span>." Anything
 involving a dispute, accommodation, or personal circumstance goes
-to a human, full stop.</pre>
+to a human, full stop.
+
+End every answer with: "This is what the documents say — it is
+not official HR guidance. Confirm with <span class="tok">[name]</span> before
+acting on anything about leave, pay, or discipline."</pre>
             </div>
           </div></li>
           <li><div>
@@ -169,7 +174,7 @@ to a human, full stop.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Answer with it — then let people ask it themselves</div>
-            <div class="st-b">Start by using it yourself to reply faster. Once you trust it, walk a colleague through asking it directly. You've stopped being the bottleneck; you're now the editor of the documents it reads.</div>
+            <div class="st-b">Start by using it yourself to reply faster. Once you trust it, walk a colleague through asking it directly. You've stopped being the bottleneck; you're now the editor of the documents it reads. Write one name next to this tool — whoever owns the handbook owns updating this Project the same week a policy changes. A stale-but-confident answerer is worse than none.</div>
           </div></li>
         </ol>
 
@@ -204,6 +209,7 @@ to a human, full stop.</pre>
             <div class="bub you">Mostly PTO and expense stuff — but our handbook hasn't been updated since we changed the PTO policy last year.</div>
             <div class="bub bot">Then fix that first — this recipe amplifies whatever the documents say, right or wrong. If the full revision will take a while, a stopgap works: write a one-page "Policy updates since 2025" memo, get it approved, and upload it alongside the handbook with an instruction line saying the memo wins where they conflict.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Which questions do you answer on repeat?" aria-label="Ask the recipe helper">
             <button>Ask</button>

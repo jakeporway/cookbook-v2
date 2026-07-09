@@ -134,6 +134,7 @@
           <li><div>
             <div class="st-h">Open a normal Claude chat and paste this</div>
             <div class="st-b">Swap in your own list of identifying things. Claude never needs to see a real name to build this.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Build me a SINGLE self-contained HTML file (no internet needed, no
@@ -201,6 +202,7 @@ How it should work:
             <div class="bub you">We're a DV services org. Case notes mention client names, kids' schools, and sometimes the shelter location — that one can never leak.</div>
             <div class="bub bot">Then add all three to your list, and add one line to the prompt: "Also redact any place name that could reveal where someone is staying." For the shelter, list its actual name in the prompt only if you're comfortable — otherwise just say "our shelter's name" and type it into the tool's word list yourself after it's built, on your own machine. Want me to update your prompt?</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe what counts as identifying for you…" aria-label="Ask the recipe helper">
             <button>Ask</button>

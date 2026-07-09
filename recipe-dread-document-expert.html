@@ -130,15 +130,16 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Create a Project and name it after the document</div>
-            <div class="st-b">In Claude, click <b>Projects → New project</b>. Name it something you'll recognize in a hurry — "Medicaid Provider Manual 2026," not "My Project."</div>
+            <div class="st-b">In Claude, click <b>Projects → New project</b>. (Projects live in the left sidebar at claude.ai — or go straight to claude.ai/projects.) Name it something you'll recognize in a hurry — "Medicaid Provider Manual 2026," not "My Project."</div>
           </div></li>
           <li><div>
             <div class="st-h">Upload the PDF to Project knowledge</div>
-            <div class="st-b">On the Project page, use <b>Add content</b> (the knowledge panel) and upload the manual. If it lives in chapters or appendices as separate PDFs, upload them all — the expert should know the whole thing.</div>
+            <div class="st-b">Every Project has a files area — documents you put there are visible to every chat you start inside that Project. On the Project page, use <b>Add content</b> (the knowledge panel) and upload the manual. If it lives in chapters or appendices as separate PDFs, upload them all — the expert should know the whole thing.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
             <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. It's what makes the expert trustworthy instead of merely confident.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>You are an expert on the document(s) in this Project:
@@ -164,7 +165,7 @@ learn to search it myself too.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Use it all year — and verify the cite each time</div>
-            <div class="st-b">Every future chat in this Project already knows the manual. The habit that makes it safe: click through to the cited page before you act on the answer. It takes thirty seconds instead of the thirty minutes the search used to.</div>
+            <div class="st-b">Every future chat in this Project already knows the manual. The habit that makes it safe: click through to the cited page before you act on the answer. It takes thirty seconds instead of the thirty minutes the search used to. Put a recurring calendar reminder on it now — "check for new edition" — timed to when the agency usually republishes. Future-you will not remember otherwise.</div>
           </div></li>
         </ol>
 
@@ -199,6 +200,7 @@ learn to search it myself too.</pre>
             <div class="bub you">Our state's childcare licensing regs — mostly ratio rules and what counts as a reportable incident.</div>
             <div class="bub bot">Perfect fit. Name the Project "Childcare Licensing Regs [your state] 2026" and add one line to the instructions: "Ratio and reporting rules often depend on children's ages and license type — always ask me which applies before answering if I didn't say." One caution: regs get amended mid-year, so note the version date in the Project name and check the state site each quarter.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="What's your dread document?" aria-label="Ask the recipe helper">
             <button>Ask</button>

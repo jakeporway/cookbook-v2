@@ -104,7 +104,7 @@
         </span>
         <span class="chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
-          ~15 min per batch
+          ~15 min to run · plan ~2 min per YES to verify
         </span>
         <span class="chip">
           Effort after setup
@@ -134,6 +134,7 @@
           <li><div>
             <div class="st-h">Paste the companies with this prompt</div>
             <div class="st-b">The one rule that matters most: YES requires the company's own posted page. Everything else is UNKNOWN.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Here is the employer column from our donor list — company
@@ -160,7 +161,7 @@ hundred unknowns.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Click through every YES before you use it</div>
-            <div class="st-b">Open the linked page and confirm it's the company's own site, the program is current, and your org type is eligible (some programs exclude religious or political orgs). This is the spot-check — do it for all the YESes, not a sample, because these are the rows you'll act on.</div>
+            <div class="st-b">Open the linked page and confirm it's the company's own site, the program is current, and your org type is eligible (some programs exclude religious or political orgs — check the "who can apply" or eligibility section of the program page; it's usually one short paragraph). This is the spot-check — do it for all the YESes, not a sample, because the verifying IS the task — budget for it.</div>
           </div></li>
           <li><div>
             <div class="st-h">Match the YES companies back to donors — on your machine</div>
@@ -207,6 +208,7 @@ hundred unknowns.</pre>
             <div class="bub you">A mess. Maybe 300 donors, half have an employer, lots of variations like "JPMC" and "JP Morgan".</div>
             <div class="bub bot">Normal mess, easy fix. Add one line to the prompt: <b>"First, normalize the company names — merge obvious variants like JPMC / JP Morgan Chase — and show me the merges before looking anything up."</b> Skip blanks, "self", and "retired". 150 employers will collapse to maybe 60 real companies — a comfortable single batch.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your donor data…" aria-label="Ask the recipe helper">
             <button>Ask</button>

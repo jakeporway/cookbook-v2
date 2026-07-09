@@ -129,7 +129,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Switch on the Google Drive connector — and know what you just granted</div>
-            <div class="st-b">In Claude, open <em>Settings → Connectors</em> and connect Google Drive. Pause at the permission screen — this is the moment that makes this a connected workflow. You're granting <em>read</em> access: Claude can now search and open what that account can see. It can't edit or delete anything, and you can disconnect in the same settings screen any time, in one click.</div>
+            <div class="st-b">First, one org-level check: if your organization uses Google Workspace (most nonprofits do), your Workspace admin may need to approve third-party app access — ask before connecting, especially if HR or board folders live on the shared drive. In Claude, open <em>Settings → Connectors</em> and connect Google Drive. Pause at the permission screen — this is the moment that makes this a connected workflow. You're granting <em>read</em> access: Claude can now search and open what that account can see. It can't edit or delete anything, and you can disconnect in the same settings screen any time, in one click.</div>
           </div></li>
           <li><div>
             <div class="st-h">Connect the narrowest thing that works</div>
@@ -138,6 +138,7 @@
           <li><div>
             <div class="st-h">Ask your question — with the citation rule attached</div>
             <div class="st-b">The rule is what makes the answers trustworthy: every claim cites a file you can open yourself. Paste this, swapping in your own question.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Search my connected Google Drive and answer this question:
@@ -162,7 +163,7 @@ Give me your best answer first, then a short list of the
           </div></li>
           <li><div>
             <div class="st-h">When the dig is done, disconnect</div>
-            <div class="st-b">If this was a one-time excavation, go back to settings and disconnect Drive. Reconnecting later takes one click — leaving it connected should be a decision, not a leftover.</div>
+            <div class="st-b">If this was a one-time excavation, go back to settings and disconnect Drive. Reconnecting later takes one click — leaving it connected should be a decision, not a leftover. Disconnecting stops all future access. It doesn't erase past conversations — delete any chats you're uneasy about, and check your account's data-retention settings once while you're in there.</div>
           </div></li>
         </ol>
 
@@ -196,6 +197,7 @@ Give me your best answer first, then a short list of the
             <div class="bub you">I need to know what we told our biggest funder in past reports, but honestly I'm nervous about connecting anything.</div>
             <div class="bub bot">Then start narrow — connect just the folder where funder reports live, nothing else. Ask: "What commitments did we make to <b>[funder]</b> in any report here? Cite the file and section for each one." You read the cited files yourself, and you can disconnect the moment you're done. Want that written into your prompt?</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="What are you trying to find?" aria-label="Ask the recipe helper">
             <button>Ask</button>

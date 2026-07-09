@@ -129,7 +129,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Switch on the Gmail connector — and know what you just granted</div>
-            <div class="st-b">In Claude, open <em>Settings → Connectors</em> and connect Gmail. Read the permission screen before you click: Claude will be able to read your mail and create drafts. It cannot send — and even if it could, this recipe never asks it to. You can disconnect in the same settings screen any time, in one click.</div>
+            <div class="st-b">In Claude, open <em>Settings → Connectors</em> and connect Gmail. Read the permission screen before you click: Claude will be able to read your mail and create drafts. It cannot send — and even if it could, this recipe never asks it to. You can disconnect in the same settings screen any time, in one click. One honest note: disconnecting stops all <em>future</em> access — it doesn't erase past conversations. Delete any chats you're uneasy about, and check your account's data-retention settings once while you're in there.</div>
           </div></li>
           <li><div>
             <div class="st-h">Write your one-sentence definition of urgent</div>
@@ -138,6 +138,7 @@
           <li><div>
             <div class="st-h">Run the triage</div>
             <div class="st-b">Paste this, swapping in your time window and your urgent sentence. The draft-only rule is written in — leave it in.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Read my inbox from <span class="tok">[Friday 5pm]</span> to now and sort every unread
@@ -200,6 +201,7 @@ it for me.</pre>
             <div class="bub you">Urgent is anything from our fiscal sponsor or a parent in our program. And I answer the same volunteer-shift questions every single week.</div>
             <div class="bub bot">Swap your urgent sentence to "<b>anything from our fiscal sponsor or a program parent</b>," and add: "volunteer-shift questions are always routine — draft those." One suggestion: keep parent emails out of the drafting entirely, at least at first — triage them, but reply in your own words. Want that added?</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="What does urgent mean in your inbox?" aria-label="Ask the recipe helper">
             <button>Ask</button>

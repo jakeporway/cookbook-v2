@@ -134,7 +134,8 @@
           </div></li>
           <li><div>
             <div class="st-h">Create the skill and paste this in</div>
-            <div class="st-b">In Claude, make a new Project (or Skill) called <em>Intake Normalizer</em> and paste this as its instructions, with your examples where marked.</div>
+            <div class="st-b">In Claude, make a new Project called <em>Intake Normalizer</em> (If your AI tool offers "Skills" or custom instructions you can share, that's the same idea one step up — but a Project is all you need here.) and paste this as its instructions, with your examples where marked.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>You are our intake normalizer. I'm teaching you our data format
@@ -169,7 +170,7 @@ REAL FORMATS PARTNERS SEND:
           </div></li>
           <li><div>
             <div class="st-h">Test it on a fresh partner file</div>
-            <div class="st-b">Take this month's most annoying report, paste it in, and say "normalize." Check two things: spot-check a handful of values against the original, and read the COULDN'T MAP list. If it flagged something you understand, tell it the answer — that's the skill learning.</div>
+            <div class="st-b">Take this month's most annoying report, paste it in, and say "normalize." Check two things: spot-check a handful of values against the original, and read the COULDN'T MAP list. If it flagged something you understand, tell it the answer — that's the skill learning. If it hands back a wall of text instead of a file, just say: "give me that as a downloadable CSV file."</div>
           </div></li>
           <li><div>
             <div class="st-h">Share it with the team</div>
@@ -210,6 +211,7 @@ REAL FORMATS PARTNERS SEND:
             <div class="bub you">Monthly reports from about 30 food-rescue partners. Half send spreadsheets, but some send PDFs or just type numbers into the email.</div>
             <div class="bub bot">All three work — add one line to the prompt: "Reports may arrive as spreadsheets, PDFs, or pasted email text; extract the table first, then normalize." Include one PDF-ish example among your three weird formats so it's demonstrated, not just described. The COULDN'T MAP rule matters most on the email ones — that's where guessing is tempting.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your partner reports…" aria-label="Ask the recipe helper">
             <button>Ask</button>

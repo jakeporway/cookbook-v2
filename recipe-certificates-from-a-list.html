@@ -139,6 +139,7 @@
           <li><div>
             <div class="st-h">Open a Claude chat, attach the example, paste this</div>
             <div class="st-b">Swap in your column names and event details. The attached example does the design talking.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>I've attached <span class="tok">[last year's volunteer certificate]</span> — I want new
@@ -200,6 +201,7 @@ Details:
             <div class="bub you">We need name tags, not certificates — the peel-off kind, 6 to a sheet. Some volunteers put a nickname in a "Preferred Name" column.</div>
             <div class="bub bot">Two small changes. Ask for "name badges laid out 6 per sheet to match Avery 5395 labels" instead of one per page, and add: "use the Preferred Name column when it's filled in, otherwise First Name." Same recipe, same privacy — the names still never leave your machine. Want me to rewrite your prompt?</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe what you're printing…" aria-label="Ask the recipe helper">
             <button>Ask</button>

@@ -129,7 +129,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">First, pick your privacy tier — for this data, this time</div>
-            <div class="st-b">Would you email these three lists to a colleague at another org without thinking twice? Then paste away and continue to step 2. If the lists carry personal info you protect — clients, minors, home contacts — skip to the local-tool variant in the caution box below instead.</div>
+            <div class="st-b">A quick test: if the lists contain Social Security numbers, health information, anything about minors, or home addresses — use the on-your-computer variant below. If it's just names and work emails, pasting is fine. If that's you, continue to step 2. If not, skip to the local-tool variant in the caution box below instead.</div>
           </div></li>
           <li><div>
             <div class="st-h">Export or copy the three lists</div>
@@ -138,6 +138,7 @@
           <li><div>
             <div class="st-h">Paste this prompt with the three lists inside it</div>
             <div class="st-b">Swap in your own lists and, if you like, your own program name.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>I coordinate a <span class="tok">workforce training program</span> and I'm reconciling three
@@ -192,7 +193,30 @@ it has duplicate rows inside itself.</pre>
         </div>
 
         <div class="browserline">
-          <b>Choose your privacy tier for THIS data, this time.</b> If these are lists you'd email a colleague — staff trainings, a public workshop — paste freely. If they hold people's personal information — clients, minors, home contacts — use the green variant instead: paste <b>only the column headers</b> of the three lists and ask Claude to "build me a single self-contained HTML file where I drop the three CSVs and it shows me these same five groups, reading the files in my browser only, never uploading anything." Same answer; the names never leave your machine.
+          <b>Choose your privacy tier for THIS data, this time.</b> If these are lists you'd email a colleague — staff trainings, a public workshop — paste freely. If they hold people's personal information — clients, minors, home contacts — use the green variant instead: paste <b>only the column headers</b> of the three lists and use the prompt below. Same answer; the names never leave your machine.
+          <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+          <div class="prompt">
+            <div class="ph"><span>Prompt (green variant — headers only)</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
+            <pre>I will NOT paste the data — here are just the column headers of my
+three lists:
+
+LIST A — REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
+LIST B — ATTENDED: <span class="tok">[Name, Email, Check-in Time]</span>
+LIST C — COMPLETED THE SURVEY: <span class="tok">[Name, Email, Submitted Date]</span>
+
+Build me a SINGLE self-contained HTML file (no internet needed, no
+libraries loaded from the web) where I can drop the three CSVs onto
+the page. It must read the files in my browser only — my data should
+never be uploaded anywhere — and show me the same five groups as
+before:
+1. Registered but never attended
+2. Attended but never registered (walk-ins)
+3. Attended but didn't complete the survey
+4. Made it all the way through all three
+5. Uncertain matches you had to guess about, shown side by side
+
+End with a count for each group.</pre>
+          </div>
         </div>
       </div>
 
@@ -212,6 +236,7 @@ it has duplicate rows inside itself.</pre>
             <div class="bub you">Registered, attended, and completed. But we actually have four stages — there's a midpoint check-in too. And attendance is a paper sign-in sheet.</div>
             <div class="bub bot">Four lists work exactly the same — add "LIST D — completed the MIDPOINT CHECK-IN" and ask for the extra gap groups ("attended but missed the check-in"). For the paper sheet, type up just names — and add a line telling Claude that List B has names only, so match those by name and flag anything shaky as uncertain.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your lists and stages…" aria-label="Ask the recipe helper">
             <button>Ask</button>

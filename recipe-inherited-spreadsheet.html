@@ -129,7 +129,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Make a copy, and decide what to blank</div>
-            <div class="st-b">Save a copy of the workbook first — you'll attach the copy, never the original. If it holds donor gifts, salaries, or client info, select those value columns in the copy and delete the contents (leave the headers and formulas). The skeleton is what you need explained.</div>
+            <div class="st-b">Save a copy of the workbook first — you'll attach the copy, never the original. If it holds donor gifts, salaries, or client info, select those value columns in the copy and delete the contents (leave the headers and formulas). The skeleton is what you need explained. Not sure whether deleting a number will break a formula? Don't touch it — attach the file as-is and just tell the AI: "the dollar figures are sensitive; explain the structure but don't repeat the numbers back to me."</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a Claude chat and attach the copy</div>
@@ -138,6 +138,7 @@
           <li><div>
             <div class="st-h">Ask for the map</div>
             <div class="st-b">Paste this, with one sentence of context about what the workbook is supposed to track.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>I inherited this workbook from someone who has left the
@@ -203,6 +204,7 @@ I'll ask follow-ups about specific cells after I read this.</pre>
             <div class="bub you">It's our grants tracker — 11 tabs, and one called "DO NOT DELETE" that's just numbers with no labels. It has funder names and award amounts.</div>
             <div class="bub bot">Blank the award amounts in your copy; funder names are usually fine to leave since the structure won't make sense without them — your call. Then add one line to the prompt: "Pay special attention to the tab called DO NOT DELETE — tell me what references it and what breaks if it's gone." Mystery tabs like that are usually a lookup table another tab depends on. Want me to add that line?</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your inherited workbook…" aria-label="Ask the recipe helper">
             <button>Ask</button>

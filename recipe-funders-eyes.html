@@ -143,6 +143,7 @@
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
             <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. Note what it forbids: this expert reviews, it never writes.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>You are a grant reviewer for <span class="tok">[the Foundation Name]</span>. Everything
@@ -175,7 +176,7 @@ say so plainly — never invent what "funders generally" want.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Revise, re-review, repeat — then send the humans' version</div>
-            <div class="st-b">Run each revision through until the disqualifier list is empty and the rubric scores stop moving. You and your colleagues make every final call — the reviewer has opinions, not authority.</div>
+            <div class="st-b">Run each revision through until the disqualifier list is empty and the rubric scores stop moving. You and your colleagues make every final call — the reviewer has opinions, not authority. One check before you lean on this: some funders now ask you to disclose AI use in proposal development — scan the RFP for an AI policy before you submit.</div>
           </div></li>
         </ol>
 
@@ -210,6 +211,7 @@ say so plainly — never invent what "funders generally" want.</pre>
             <div class="bub you">A community foundation — they have guidelines and a grantee list, but I can't find a scoring rubric anywhere.</div>
             <div class="bub bot">Common situation. Use what's real: the guidelines plus 3–4 awarded project descriptions from that grantee list. Tell the reviewer to derive its criteria only from those documents and to label anything else as inference. And it's fair to just ask the program officer if review criteria are available — many will share them.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Which funder? What have they published?" aria-label="Ask the recipe helper">
             <button>Ask</button>

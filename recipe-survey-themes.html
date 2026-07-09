@@ -38,7 +38,7 @@
           <div class="k">Where data goes</div>
           <div class="v">Into the<br>chat</div>
           <div class="tip">
-            <b>Into the chat — after one safety pass.</b> The responses go to Claude when you paste them. Survey answers often name staff, sites, or other participants — run the column through the <b>redaction pass</b> (Recipe 01) first, and this moves a tier greener.
+            <b>Into the chat — after one safety pass.</b> The responses go to Claude when you paste them. Survey answers often name staff, sites, or other participants — run the column through <a href="recipe-redaction-pass.html">Recipe 01, the redaction pass</a> — a 5-minute tool that swaps names and places for placeholders like [PERSON-1] before you paste anything — first, and this moves a tier greener.
             <div class="scale"><i></i><i class="on"></i><i></i><i></i></div>
             <div style="margin-top:6px;font-size:11px;opacity:.8;">2nd of 4 levels · redact first</div>
           </div>
@@ -137,7 +137,8 @@
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt with the responses inside it</div>
-            <div class="st-b">Swap in your actual survey question and your responses.</div>
+            <div class="st-b">Swap in your actual survey question and your responses. If the chat says your message is too long, split the responses into two batches of ~150 and ask the same question twice — then ask it to merge the two theme lists.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Below are all the responses to one open-ended question from our
@@ -207,6 +208,7 @@ RESPONSES:
             <div class="bub you">We actually have two open-ended questions — "what worked" and "what didn't" — about 250 answers each. And our funder wants to see change over the two years.</div>
             <div class="bub bot">Run each question as its own paste — mixing them muddies the themes. For the change-over-time view, split one question's responses into "Year 1" and "Year 2" blocks in the same prompt and add: "Tell me which themes grew, shrank, or appeared for the first time in Year 2." Same spot-check rule applies to every quote.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your survey…" aria-label="Ask the recipe helper">
             <button>Ask</button>

@@ -52,7 +52,7 @@
           <div class="k">What you use</div>
           <div class="v">Chat +<br>search</div>
           <div class="tip">
-            <b>The normal chat, with web search on.</b> You stay in the same window you already use — Claude goes out to the public web to look each address up and comes back with links.
+            <b>The normal chat, with web search on.</b> You stay in the same window you already use — Claude goes out to the public web to look each address up and comes back with links. Not sure your chat can search the web? Look for a globe or search toggle near the message box — or just ask; if it says it can't browse, turn web search on in settings first.
             <div style="margin-top:7px;font-size:11px;opacity:.8;">No extension, no special mode — just ask it to search</div>
           </div>
         </div>
@@ -134,6 +134,7 @@
           <li><div>
             <div class="st-h">Open a normal Claude chat and paste your list with this prompt</div>
             <div class="st-b">Two columns is plenty: name and address. Swap in your city.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Here is a list of partner organizations in <span class="tok">[New York City]</span> with
@@ -162,7 +163,7 @@ least confident about.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check 5 random rows against the linked sources</div>
-            <div class="st-b">Click the source link, confirm the district matches. Five clean rows is your green light; one wrong row means check them all.</div>
+            <div class="st-b">Click the source link, confirm the district matches. You've confirmed a row when the page you land on names the address, street, or neighborhood — not just the district number. Five clean rows is your green light; one wrong row means check them all.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the table back into your spreadsheet</div>
@@ -213,6 +214,7 @@ least confident about.</pre>
             <div class="bub you">State assembly districts, and it's 40 partner food pantries. All org addresses.</div>
             <div class="bub bot">Org addresses — you're in the green. Swap "city council district" for <b>state assembly district</b> in the prompt and add your state. One tip: ask Claude to use your state legislature's official district-lookup page as the source, so every link points somewhere you'd trust in a meeting.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your list and your city…" aria-label="Ask the recipe helper">
             <button>Ask</button>

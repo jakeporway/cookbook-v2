@@ -139,6 +139,7 @@
           <li><div>
             <div class="st-h">Paste this prompt with your posts dropped in</div>
             <div class="st-b">The page-number rule matters: it turns every claim into something you can check in ten seconds.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Attached is our finished annual report. Here are three of our past
@@ -161,12 +162,13 @@ Label every post with the report page it came from so I can
 double-check it. Write for <span class="tok">[Instagram and LinkedIn]</span>.
 
 Give me your best draft of each. I'll pick and lightly edit —
-don't offer endless variations.</pre>
+don't offer endless variations. If you can't find 40 clean,
+well-sourced pieces, give me fewer. Don't stretch.</pre>
             </div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check the numbers against the pages</div>
-            <div class="st-b">Every post carries a page label — check each stat and quote against that page before it goes anywhere near a scheduler. Ten minutes now beats a correction post later.</div>
+            <div class="st-b">Every post carries a page label — check each stat and quote against that page before it goes anywhere near a scheduler. Checking 40 posts against their pages takes as long as generating them — that hour is the job, not overhead.</div>
           </div></li>
           <li><div>
             <div class="st-h">Pick, lightly edit, and cut without guilt</div>
@@ -209,6 +211,7 @@ don't offer endless variations.</pre>
             <div class="bub you">We don't have an annual report. We have an impact one-pager and a long program evaluation from last year. Mostly Facebook and the newsletter.</div>
             <div class="bub bot">Even better — the evaluation is dense with unmined stats. Attach both files, change the platform line to "Facebook and a monthly newsletter," and ask for 20 posts plus 5 newsletter blips instead of 40. Keep the page-label rule for the evaluation especially: that's the document a board member will fact-check you against.</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your source document and platforms…" aria-label="Ask the recipe helper">
             <button>Ask</button>

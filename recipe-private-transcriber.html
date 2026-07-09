@@ -135,6 +135,7 @@
           <li><div>
             <div class="st-h">Open a normal Claude chat and paste this</div>
             <div class="st-b">Swap in your file type and typical length. No audio is attached — you're describing, not sharing.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
               <pre>Build me a SINGLE self-contained HTML page that transcribes audio
@@ -160,11 +161,11 @@ The page should:
           </div></li>
           <li><div>
             <div class="st-h">Save the file and open it once with internet on</div>
-            <div class="st-b">First open, the page fetches its speech-recognition model — a one-time download, like installing an app. Every use after that is fully offline.</div>
+            <div class="st-b">First open, the page fetches its speech-recognition model — a one-time download, like installing an app. Every use after that is fully offline. The first time you open it, it downloads the recognition model — if it seems stuck for more than two or three minutes, close it and reopen once on a strong wifi connection. After that it works offline.</div>
           </div></li>
           <li><div>
             <div class="st-h">Test it on a recording that isn't sensitive</div>
-            <div class="st-b">Record yourself reading a paragraph, or use a staff-meeting clip. Check the transcript against what was actually said. Local models are good, not perfect — you'll fix the odd word.</div>
+            <div class="st-b">Record yourself reading a paragraph, or use a staff-meeting clip. Check the transcript against what was actually said. Local models are good, not perfect — you'll fix the odd word. Expect transcription to take roughly as long as the recording itself, sometimes faster, depending on your computer.</div>
           </div></li>
           <li><div>
             <div class="st-h">Now use it on the real thing</div>
@@ -201,6 +202,7 @@ The page should:
             <div class="bub you">Our intake conversations are mostly in Spanish, sometimes switching to English mid-sentence. Will this still work?</div>
             <div class="bub bot">Yes — the Whisper models handle Spanish well and cope with switching. Change one line in your prompt: instead of "in English," say "mostly Spanish with some English mixed in — use a multilingual model." One tradeoff: the multilingual model is a bigger first download, so that first open takes longer. Want me to update your prompt?</div>
           </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
           <div class="ask">
             <input placeholder="Describe your recordings…" aria-label="Ask the recipe helper">
             <button>Ask</button>

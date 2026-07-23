@@ -69,13 +69,16 @@
   .key .sw{display:flex;align-items:center;gap:6px}
   .key .sw b{width:10px;height:10px;border-radius:50%;display:inline-block}
 
-  /* ---- bench (editorial, remove before publish) ---- */
-  .bench{margin-top:56px;border-top:2px solid var(--ink);padding-top:26px}
-  .bench h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0}
-  .bench p.sub{color:var(--muted);font-size:13px;margin:6px 0 14px;max-width:74ch}
-  .benchlist{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .benchitem{font-size:13px;color:var(--muted);background:none;border:1px dashed var(--line);border-radius:9px;padding:9px 12px}
-  .benchitem b{color:#4a4436;font-weight:700}
+  /* ---- search ---- */
+  .search{margin:26px 0 0}
+  .search input{width:100%;max-width:560px;font-size:15.5px;padding:13px 18px;border-radius:12px;
+    border:2px solid var(--ink);background:var(--card);color:var(--ink);outline:none;
+    font-family:inherit;transition:border-color .12s,box-shadow .12s}
+  .search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+  .search input::placeholder{color:var(--muted)}
+  .search .hint{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .noresults{display:none;margin:40px 0;padding:22px;border:1px dashed var(--line);border-radius:12px;
+    color:var(--muted);font-size:14.5px;max-width:64ch}
 
   footer{border-top:2px solid var(--ink);margin-top:46px;padding:26px 0 60px;color:var(--muted);font-size:13px}
   footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
@@ -96,7 +99,6 @@
   <nav class="topnav">
     <a href="#start">Start here</a>
     <a href="#c1">The recipes</a>
-    <a href="#bench">Bench</a>
   </nav>
 </div></div>
 
@@ -109,6 +111,11 @@
     sheets, a spreadsheet nobody understands, a training video nobody has time to film — and shows you
     how to hand it to an AI assistant and get back something finished: a working tool, a clean file,
     a system your whole team can use.</p>
+    <div class="search">
+      <input type="search" id="recipeSearch" placeholder="Search the recipes — try &quot;receipts&quot;, &quot;board&quot;, or &quot;video&quot;"
+        aria-label="Search recipes" autocomplete="off">
+      <div class="hint" id="searchHint">Type to filter · matches titles and descriptions</div>
+    </div>
   </section>
 
   <!-- ===== start here ===== -->
@@ -562,26 +569,57 @@
     </div>
   </section>
 
-  <!-- ===== bench ===== -->
-  <section class="bench" id="bench">
-    <h2>The bench — cut from this draft, kept for later</h2>
-    <p class="sub">Editorial section for our curation pass — not part of the published book. Each of
-    these was considered and set aside; the reason is noted so we can reverse any of them.</p>
-    <div class="benchlist">
-      <div class="benchitem"><b>Annual report → social posts.</b> The recipe closest to what every other cookbook already covers; keeps its slot only if the mine-a-quarter-of-content framing carries it.</div>
-      <div class="benchitem"><b>Quote-card generator.</b> The certificates recipe already teaches the same generator pattern; a second instance is a variant, not a card.</div>
-      <div class="benchitem"><b>Volunteer training kit.</b> Its jobs are now covered by the captions, training-video, and interactive-page recipes.</div>
-      <div class="benchitem"><b>Who's missing (three-list reconcile).</b> Merged into "Match the same people across your lists."</div>
-      <div class="benchitem"><b>QR check-in scanner.</b> Real and buildable, but saving data across sessions is exactly where in-browser tools break; needs the persistence story told well first.</div>
-      <div class="benchitem"><b>PDF merger and form-filler.</b> Useful but low-differentiation; also carries the fake-redaction trap (a black box over text doesn't remove it).</div>
-      <div class="benchitem"><b>Scan printed archives to text.</b> Works today for clean printed pages; folded into the sign-in-sheets card as a variant rather than standing alone.</div>
-      <div class="benchitem"><b>Dictate field notes into data.</b> Strong idea, thin evidence of demand; revisit after the paper recipes prove out.</div>
-      <div class="benchitem"><b>Live meeting translation.</b> Real (Meet and Teams both ship it) but plan-gated; better as a pointer in the plain-language card than a recipe.</div>
-      <div class="benchitem"><b>Dub a training video into other languages.</b> Cheap and real; folded into the training-video card as its final step rather than standing alone.</div>
-    </div>
-  </section>
+  <div class="noresults" id="noResults">No recipes match that search. Try a different word — or a
+  problem, like "receipts", "captions", "contract", or "inbox".</div>
 
 </div>
+
+<script>
+(function(){
+  var input = document.getElementById('recipeSearch');
+  var hint = document.getElementById('searchHint');
+  var noResults = document.getElementById('noResults');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.cat, .starthere'));
+  var subheads = Array.prototype.slice.call(document.querySelectorAll('.subhead'));
+  var total = cards.length;
+  var idle = 'Type to filter · matches titles and descriptions';
+  hint.textContent = idle;
+
+  cards.forEach(function(c){
+    c.dataset.text = c.textContent.toLowerCase();
+  });
+
+  function filter(){
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(c){
+      var hit = !q || c.dataset.text.indexOf(q) !== -1;
+      c.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    sections.forEach(function(s){
+      var any = Array.prototype.some.call(s.querySelectorAll('.card'), function(c){
+        return c.style.display !== 'none';
+      });
+      s.style.display = any ? '' : 'none';
+    });
+    subheads.forEach(function(h){
+      var grid = h.nextElementSibling;
+      var any = grid && Array.prototype.some.call(grid.querySelectorAll('.card'), function(c){
+        return c.style.display !== 'none';
+      });
+      h.style.display = any ? '' : 'none';
+      if (grid) grid.style.display = any ? '' : 'none';
+    });
+    noResults.style.display = shown ? 'none' : 'block';
+    hint.textContent = q ? (shown + ' of ' + total + ' cards match') : idle;
+  }
+
+  input.addEventListener('input', filter);
+  input.addEventListener('search', filter);
+})();
+</script>
 
 <footer><div class="wrap">
   <div>Decoded Futures · The Nonprofit AI Cookbook, Second Edition — curation draft 3, July 2026.</div>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe — Pull Public Data Off Hard-to-Use Websites · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a></span>
+    <span>Your Data · Enrich · Recipe 39</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Your Data · Enrich</span>
+      <span class="num">R-39</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Your Data · Enrich</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Pull public data off hard-to-use websites</h1>
+      <p class="tagline">The county records, license lookups, and funder directories with no download button: an AI assistant in your browser pages through them for you, while you watch, and hands you a spreadsheet. For public data only.</p>
+
+      <!-- TIER 1 — SCAN STRIP -->
+      <div class="scan">
+
+        <!-- PRIVACY -->
+        <div class="cell s-red">
+          <div class="ico red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/><path d="M17 1.5a3 3 0 0 1 3 3V7"/></svg>
+          </div>
+          <div class="k">Where data goes</div>
+          <div class="v">Works inside<br>your browser</div>
+          <div class="tip">
+            <b>The assistant sees whatever the browser shows it.</b> Use a browser profile with no personal logins for this work — it should only ever see the public page you pointed it at.
+            <div class="scale"><i></i><i></i><i></i><i class="on"></i></div>
+            <div style="margin-top:6px;font-size:11px;opacity:.85;">Level 4 of 4 · handle with care</div>
+          </div>
+        </div>
+
+        <!-- WHAT YOU USE -->
+        <div class="cell s-amber">
+          <div class="ico amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><circle cx="6" cy="6" r="0.6"/><circle cx="8.5" cy="6" r="0.6"/></svg>
+          </div>
+          <div class="k">What you use</div>
+          <div class="v">Browser<br>extension</div>
+          <div class="tip">
+            <b>Claude in Chrome.</b> It needs permission per site, and it asks before acting. Included with paid Claude plans — heavier tasks want the higher tiers.
+            <div style="margin-top:7px;font-size:11px;opacity:.8;">More setup than plain chat</div>
+          </div>
+        </div>
+
+        <!-- CONNECTIONS -->
+        <div class="cell s-amber">
+          <div class="ico amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.2 11l9.6-4M7.2 13l9.6 4"/></svg>
+          </div>
+          <div class="k">Connections</div>
+          <div class="v">The websites<br>you point it at</div>
+          <div class="tip">
+            <b>Whatever site you send it to.</b> No integrations to set up — just the extension's permission for that one site.
+          </div>
+        </div>
+
+        <!-- GETS SMARTER? -->
+        <div class="cell s-blue">
+          <div class="ico navy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 2v18M4 6.5l8 4.5 8-4.5"/></svg>
+          </div>
+          <div class="k">Gets smarter?</div>
+          <div class="v">Set<br>tool</div>
+          <div class="tip">
+            <b>A saved instruction you reuse per source.</b> Build it once for a given site; run it again next month with a new list.
+            <div style="margin-top:7px;font-size:11px;opacity:.85;">↔ A <b style="color:var(--glow);">living tool</b> instead gets better as you feed it examples.</div>
+          </div>
+        </div>
+
+        <!-- WHO USES IT -->
+        <div class="cell s-green">
+          <div class="ico green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          </div>
+          <div class="k">User</div>
+          <div class="v">Just<br>you</div>
+          <div class="tip">
+            <b>Individual.</b> You supervise the browsing session yourself, start to finish.
+            <div style="margin-top:7px;font-size:11px;opacity:.85;">3 levels: <b style="color:var(--glow);">Individual</b> → Team → Front-facing.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="meta">
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          Intermediate
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          ~1 hr first source, faster after
+        </span>
+        <span class="chip">
+          Effort after setup
+          <span class="meter"><i style="background:var(--pulse)"></i><i style="background:var(--pulse)"></i><i></i></span>
+        </span>
+      </div>
+
+      <!-- INFORMATION YOU GIVE IT -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+        </div>
+        <div>
+          <div class="gh">Information you give it</div>
+          <p>The site's URL, the fields you want, and your list of things to look up — org names, addresses, license numbers, whatever the search box on that site takes.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Qualify the source</div>
+            <div class="st-b">This recipe is for <b>public</b> data on sites with no login — public records, government lookups, open directories. If the data is behind <b>your own</b> login, that's a different recipe — see <a href="recipe-export-button.html">Get your data out of a system with no export button</a>. If it's behind <b>someone else's</b> login or a paywall, stop. That's not this recipe.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Check first: does an export already exist?</div>
+            <div class="st-b">Many sites offer a real download or an API if you ask. A quick search for this is always cheaper than browsing — ask the assistant to check before you start paging through anything by hand.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Check the site's terms</div>
+            <div class="st-b">The prompt below has the assistant do this with you, first, before it touches anything.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Give it the instruction and your list</div>
+            <div class="st-b">Open the site in the browser extension, then give it this. It checks terms first, then works your list at a human pace, pausing for you to see its progress.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="prompt">
+              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
+              <pre>We are collecting public data from <span class="tok">[SITE]</span>. First, check
+whether this site's terms of service, or a bulk-download or API
+option, make browsing unnecessary or unwelcome — tell me what you
+find before we start.
+
+Then for each item on my list: search it, read the result page,
+and record <span class="tok">[FIELDS]</span> with the page URL as a source link per row. Leave
+any field you cannot find blank — never fill a blank with a guess.
+Pause every 15 records and show me the table so far. Go at a human
+pace — we are a guest on this site.</pre>
+            </div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Supervise — this runs while you watch</div>
+            <div class="st-b">Not overnight, not unattended. Spot-check 5 rows against the actual pages before you trust the rest. And keep the lookup line in mind: dozens by chat, hundreds this way, thousands means ask the agency for the dataset — it often exists.</div>
+          </div></li>
+        </ol>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A spreadsheet the site never offered you, each row sourced back to the page it came from, built while you watched instead of overnight and unsupervised.</p>
+          </div>
+        </div>
+
+        <div class="browserline">
+          <b>Two different lines here — legality and accuracy.</b> Public doesn't mean unlimited: hammering a small county server is rude at best. The human-pace instruction and the ask-for-the-dataset step are how good citizens do this. Separately, scraped fields inherit the confabulation rule: source link per row, blanks stay blank, spot-check before you act on anything.
+        </div>
+      </div>
+
+      <!-- HELPER -->
+      <div class="recipe" style="margin-top:26px;">
+        <div class="sech"><span class="px"><i></i><i></i></span> Stuck? Adapt it to your org</div>
+        <div class="helper">
+          <div class="hh">
+            <div class="av"><span>DF</span><i></i></div>
+            <div class="ht">
+              <b>Recipe helper</b>
+              <p>Helps you decide when browsing is worth it, and when to ask for the dataset instead.</p>
+            </div>
+          </div>
+          <div class="conv">
+            <div class="bub bot">What's the site, and roughly how many records are you after?</div>
+            <div class="bub you">The state site has a search form but results are one page at a time — 400 licensees.</div>
+            <div class="bub bot">That's exactly this recipe — but 400 is also the number where you email the licensing board first and ask for the spreadsheet. Agencies often send it same-day, and the browsing session becomes your fallback, not your plan.</div>
+          </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
+          <div class="ask">
+            <input placeholder="What's the site, and how many records?" aria-label="Ask the recipe helper">
+            <button>Ask</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span class="lg">DECODED FUTURES</span>
+        <div class="tags">
+          <span class="tag">Public data only</span>
+          <span class="tag">Claude in Chrome</span>
+          <span class="tag">Set tool</span>
+          <span class="tag">Source link per row</span>
+          <span class="tag">You watch it work</span>
+          <span class="tag">Teaches: ask for the dataset first</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

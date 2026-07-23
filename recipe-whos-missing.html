@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe — Who's Missing? (The Three-List Reconcile) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a></span>
+    <span>Your Data, Handled · Recipe 07</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Your Data · Reconcile</span>
+      <span class="num">R-07</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Your Data, Handled · Reconcile</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Who's Missing? (The Three-List Reconcile)</h1>
+      <p class="tagline">Registered vs. attended vs. completed-the-survey — who fell through which crack? Paste the three lists and get the gaps as plain lists of names, not a pivot-table lecture.</p>
+
+      <!-- TIER 1 — SCAN STRIP -->
+      <div class="scan">
+
+        <!-- PRIVACY -->
+        <div class="cell s-amber">
+          <div class="ico amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4"/><path d="M8 8l4-4 4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+          </div>
+          <div class="k">Where data goes</div>
+          <div class="v">Into the<br>chat</div>
+          <div class="tip">
+            <b>Into the chat — like emailing a colleague.</b> The names on your lists go to Claude when you paste them. Fine for many rosters; not for sensitive personal info. For those, there's a <b>green escape hatch</b>: paste headers only and have Claude build a local tool instead (see the caution below).
+            <div class="scale"><i></i><i class="on"></i><i></i><i></i></div>
+            <div style="margin-top:6px;font-size:11px;opacity:.8;">2nd of 4 levels · green variant available</div>
+          </div>
+        </div>
+
+        <!-- AI LEVEL -->
+        <div class="cell s-green">
+          <div class="ico green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 9.3 9.3 0 0 1-4-.9L3 21l1.9-5.5a8.5 8.5 0 0 1-.9-4A8.38 8.38 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>
+          </div>
+          <div class="k">What you use</div>
+          <div class="v">Just the<br>chat</div>
+          <div class="tip">
+            <b>Just the normal Claude chat.</b> No special mode, no tool to install. Paste the lists, read the answer.
+            <div style="margin-top:7px;font-size:11px;opacity:.8;">The simplest level · same window you already use</div>
+          </div>
+        </div>
+
+        <!-- CONNECTIONS -->
+        <div class="cell s-green">
+          <div class="ico green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7V4M10 7V4M6 7h4v4a3 3 0 0 1-6 0V7z"/><path d="M7 17v3"/><circle cx="17" cy="14" r="3"/></svg>
+          </div>
+          <div class="k">Connections</div>
+          <div class="v">None<br>needed</div>
+          <div class="tip">
+            <b>Works out of the box.</b> Nothing plugs into your registration platform or survey tool. Copy, paste, done.
+          </div>
+        </div>
+
+        <!-- GETS SMARTER? -->
+        <div class="cell s-blue">
+          <div class="ico navy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 2v18M4 6.5l8 4.5 8-4.5"/></svg>
+          </div>
+          <div class="k">Gets smarter?</div>
+          <div class="v">Reusable<br>prompt</div>
+          <div class="tip">
+            <b>A reusable prompt, not a standing tool.</b> Save the prompt somewhere; next quarter you paste fresh lists into it. If this becomes an every-month chore, upgrade to the built-tool variant in the caution below.
+          </div>
+        </div>
+
+        <!-- WHO SEES IT -->
+        <div class="cell s-green">
+          <div class="ico green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16"/><path d="M15 9h4a1 1 0 0 1 1 1v11"/><path d="M2 21h20"/><path d="M8 8h.01M8 12h.01M8 16h.01M11 8h.01M11 12h.01M11 16h.01"/></svg>
+          </div>
+          <div class="k">User</div>
+          <div class="v">You &amp;<br>your team</div>
+          <div class="tip">
+            <b>Internal.</b> A gap list for you and your program team before the quarterly review — not something participants see.
+            <div style="margin-top:7px;font-size:11px;opacity:.85;">3 levels: Individual → <b style="color:var(--glow);">Team</b> → Front-facing.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="meta">
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Beginner
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          ~5 min per run
+        </span>
+        <span class="chip">
+          Effort after setup
+          <span class="meter set"><i></i><i></i><i></i></span>
+        </span>
+      </div>
+
+      <!-- INFORMATION YOU GIVE IT -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        </div>
+        <div>
+          <div class="gh">Information you give it</div>
+          <p>The three lists you already have: the <b>registration export</b>, the <b>sign-in sheet or attendance export</b>, and the <b>survey-completion list</b>. Or — if this data is personal enough that you wouldn't email it around — just their <b>column headers</b>, for the local-tool variant below.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">First, pick your privacy tier — for this data, this time</div>
+            <div class="st-b">A quick test: if the lists contain Social Security numbers, health information, anything about minors, or home addresses — use the on-your-computer variant below. If it's just names and work emails, pasting is fine. If that's you, continue to step 2. If not, skip to the local-tool variant in the caution box below instead.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Export or copy the three lists</div>
+            <div class="st-b">Name and email per person is plenty. They don't need to match in format — one can be a CSV, one a sign-in sheet you typed up, one a survey export. Claude sorts out the mess.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Paste this prompt with the three lists inside it</div>
+            <div class="st-b">Swap in your own lists and, if you like, your own program name.</div>
+            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="prompt">
+              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
+              <pre>I coordinate a <span class="tok">workforce training program</span> and I'm reconciling three
+lists before a quarterly review.
+
+LIST A — people who REGISTERED:
+<span class="tok">[paste the registration list here]</span>
+
+LIST B — people who ATTENDED:
+<span class="tok">[paste the attendance list here]</span>
+
+LIST C — people who COMPLETED THE SURVEY:
+<span class="tok">[paste the survey-completion list here]</span>
+
+Match people across the lists by email address. Where an email is
+missing, match by name — but FLAG those matches as uncertain rather
+than assuming. Names may be spelled slightly differently between lists.
+
+Give me plain lists of names (please, no pivot tables):
+1. Registered but never attended
+2. Attended but never registered (walk-ins)
+3. Attended but didn't complete the survey
+4. Made it all the way through all three
+5. Uncertain matches you had to guess about, shown side by side
+
+End with a count for each group, and tell me if any list looks like
+it has duplicate rows inside itself.</pre>
+            </div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Read the gaps — and check the uncertain-match pile</div>
+            <div class="st-b">Group 5 is where mistakes hide. "Mike Chen" on the sign-in sheet and "Michael Chen" in the survey might be one person. You know your participants; Claude doesn't. Resolve those few by eye.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Spot-check three names before the numbers go anywhere</div>
+            <div class="st-b">Pick three people from the "attended but no survey" list and confirm them against the raw exports. Two minutes, and now you can stand behind the completion numbers in the review.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Save the prompt for next quarter</div>
+            <div class="st-b">The lists change; the prompt doesn't. Keep it wherever you keep your quarterly checklist.</div>
+          </div></li>
+        </ol>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>Named lists of exactly who fell through which crack — who to nudge about the survey, who registered and vanished — plus clean counts for the quarterly review. Follow-up you can act on today, instead of a pivot table you'd still have to decode.</p>
+          </div>
+        </div>
+
+        <div class="browserline">
+          <b>Choose your privacy tier for THIS data, this time.</b> If these are lists you'd email a colleague — staff trainings, a public workshop — paste freely. If they hold people's personal information — clients, minors, home contacts — use the green variant instead: paste <b>only the column headers</b> of the three lists and use the prompt below. Same answer; the names never leave your machine.
+          <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+          <div class="prompt">
+            <div class="ph"><span>Prompt (green variant — headers only)</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
+            <pre>I will NOT paste the data — here are just the column headers of my
+three lists:
+
+LIST A — REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
+LIST B — ATTENDED: <span class="tok">[Name, Email, Check-in Time]</span>
+LIST C — COMPLETED THE SURVEY: <span class="tok">[Name, Email, Submitted Date]</span>
+
+Build me a SINGLE self-contained HTML file (no internet needed, no
+libraries loaded from the web) where I can drop the three CSVs onto
+the page. It must read the files in my browser only — my data should
+never be uploaded anywhere — and show me the same five groups as
+before:
+1. Registered but never attended
+2. Attended but never registered (walk-ins)
+3. Attended but didn't complete the survey
+4. Made it all the way through all three
+5. Uncertain matches you had to guess about, shown side by side
+
+End with a count for each group.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- HELPER -->
+      <div class="recipe" style="margin-top:26px;">
+        <div class="sech"><span class="px"><i></i><i></i></span> Stuck? Adapt it to your org</div>
+        <div class="helper">
+          <div class="hh">
+            <div class="av"><span>DF</span><i></i></div>
+            <div class="ht">
+              <b>Recipe helper</b>
+              <p>Tells you how to tailor this to your program — your lists, your stages, your privacy call.</p>
+            </div>
+          </div>
+          <div class="conv">
+            <div class="bub bot">What are your three lists — and would you email them to a colleague as-is? That decides which version of this recipe you use.</div>
+            <div class="bub you">Registered, attended, and completed. But we actually have four stages — there's a midpoint check-in too. And attendance is a paper sign-in sheet.</div>
+            <div class="bub bot">Four lists work exactly the same — add "LIST D — completed the MIDPOINT CHECK-IN" and ask for the extra gap groups ("attended but missed the check-in"). For the paper sheet, type up just names — and add a line telling Claude that List B has names only, so match those by name and flag anything shaky as uncertain.</div>
+          </div>
+          <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
+          <div class="ask">
+            <input placeholder="Describe your lists and stages…" aria-label="Ask the recipe helper">
+            <button>Ask</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span class="lg">DECODED FUTURES</span>
+        <div class="tags">
+          <span class="tag">Amber — green variant available</span>
+          <span class="tag">Just the chat</span>
+          <span class="tag">No connectors</span>
+          <span class="tag">Reusable prompt</span>
+          <span class="tag">Teaches: picking the right privacy tier for this data, this time</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

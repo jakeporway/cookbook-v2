@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spreadsheet → Editor · Code Nibble</title>
+<style>
+  :root{
+    --cream:#FBF6EC; --card:#FFFFFF; --ink:#1A1A1A; --muted:#6B6457;
+    --blue:#1F46FF; --blue-soft:#EAEEFF; --line:#E7E0D2;
+    --green:#1F9D55; --amber:#D98A00; --amber-soft:#FFF3D6; --red:#D1453B;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.45}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 22px 80px}
+  header.top{display:flex;align-items:baseline;justify-content:space-between;
+    border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:18px;gap:12px;flex-wrap:wrap}
+  .title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--blue)}
+  h1{font-size:26px;margin:4px 0 0;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .badge{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    color:var(--amber);border:1.5px solid var(--amber);border-radius:999px;padding:4px 11px;text-align:center}
+
+  /* the browser-line lesson, built into the UI */
+  .browserline{background:var(--amber-soft);border:1px solid #EBD9A6;border-left:4px solid var(--amber);
+    border-radius:10px;padding:12px 15px;margin-bottom:18px;font-size:13.5px;color:#6b5a2a}
+  .browserline b{color:#5a4a1c}
+
+  .toolbar{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .btn{background:var(--blue);color:#fff;border:none;border-radius:9px;padding:10px 16px;
+    font-weight:700;font-size:13px;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
+  .btn.amber{background:var(--amber)}
+  .live{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
+  .live b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .savedflash{color:var(--green);font-weight:700;opacity:0;transition:opacity .2s}
+  .savedflash.show{opacity:1}
+
+  .gridwrap{overflow:auto;max-height:520px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{padding:0;border-bottom:1px solid var(--line);border-right:1px solid #F1ECE0}
+  th{position:sticky;top:0;background:#F6F1E6;z-index:1;text-align:left;padding:8px 9px;
+    font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  td input{width:100%;border:none;background:transparent;padding:7px 9px;font:inherit;color:var(--ink);min-width:90px}
+  td input:focus{outline:2px solid var(--blue);outline-offset:-2px;background:#fff}
+  td.flag input{background:var(--amber-soft)}
+  td.flag input::placeholder{color:#c79a3a}
+  .rowdel{cursor:pointer;color:#c9c0ad;font-weight:700;padding:0 10px;user-select:none}
+  .rowdel:hover{color:var(--red)}
+  th.actcol,td.actcol{width:30px;text-align:center;border-right:none}
+
+  .legend{font-size:12px;color:var(--muted);margin-top:10px}
+  .chip{display:inline-block;width:11px;height:11px;border-radius:3px;background:var(--amber-soft);
+    border:1px solid #EBD9A6;vertical-align:middle;margin-right:5px}
+  footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="title">Decoded Futures · Code Nibble</div>
+      <h1>Spreadsheet → Editor</h1>
+      <div class="sub">Fix the messy cells right here, then Export a clean file. Nothing is uploaded.</div>
+    </div>
+    <div class="badge">Runs on your machine<br>Forgets when closed</div>
+  </header>
+
+  <div class="browserline">
+    <b>This is a worksheet, not a database.</b> Your edits live only on this page. Make your fixes,
+    then hit <b>Export clean CSV</b> to save them to a file. Close this tab without exporting and it
+    starts fresh from your original. <em>(That’s the “browser line” — when a tool needs to truly
+    remember, you’ve outgrown a single file.)</em>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn ghost" id="addRow">+ Add row</button>
+    <button class="btn amber" id="export">⬇ Export clean CSV</button>
+    <span class="savedflash" id="flash">✓ Exported</span>
+    <span class="live" id="live"></span>
+  </div>
+
+  <div class="gridwrap"><table id="grid"></table></div>
+
+  <div class="legend"><span class="chip"></span> highlighted cells were blank or unreadable in your
+    original file — fix them and the total updates live.</div>
+
+  <footer>Built by Claude in the chat window · single file, no install · your data never leaves this page.</footer>
+</div>
+
+<script>
+const SAMPLE = `Date,Source / Donor,Food Category,Pounds Rescued,Borough,Partner Agency,Route,Notes
+3/2/25,Whole Foods - Tribeca,Produce,"1,240",Manhattan,St. John's Pantry,M1,
+03/03/25,Restaurant Depot,Produce,880 lbs,Bronx,Mercy Center,BX2,
+3/3/25,Trader Joe's UWS,Bakery,145,Manhattan,Goddard Riverside,M3,
+3/4/25,Fairway,Dairy,,Brooklyn,CHIPS Soup Kitchen,BK1,weight not recorded
+3/5/25,Restaurant Depot,Produce,"1,020",Bronx,Mercy Center,BX2,
+3/6/25,Costco - Bronx,Protein,1890,Bronx,Part of the Solution (POTS),BX2,frozen
+3/7/25,Whole Foods - Tribeca,Dairy,440,Manhattan,St. John's Pantry,M1,
+3/8/25,Trader Joe's UWS,Bakery,180,Manhattan,Goddard Riverside,M3,short pickup
+3/10/25,Whole Foods Gowanus,Produce,"1,470",Brooklyn,CHIPS Soup Kitchen,BK1,
+3/12/25,Costco - Bronx,Protein,1980,Bronx,POTS,BX2,frozen
+3/15/25,Whole Foods Gowanus,Produce,1380,Brooklyn,CHIPS Soup Kitchen,BK1,
+3/20/25,Trader Joe's UWS,Bakery,,Manhattan,Goddard Riverside,M3,scale broken
+3/21/25,Costco - Bronx,Protein,2240,Bronx,Part of the Solution (POTS),BX2,frozen`;
+
+/* tolerant CSV parser (handles quoted fields with commas) */
+function parseCSV(text){
+  const rows=[];let row=[],field='',q=false;
+  for(let i=0;i<text.length;i++){const c=text[i];
+    if(q){if(c==='"'){if(text[i+1]==='"'){field+='"';i++;}else q=false;}else field+=c;}
+    else{if(c==='"')q=true;else if(c===','){row.push(field);field='';}
+      else if(c==='\n'){row.push(field);rows.push(row);row=[];field='';}
+      else if(c==='\r'){}else field+=c;}}
+  if(field!==''||row.length){row.push(field);rows.push(row);}
+  const headers=rows.shift().map(h=>h.trim());
+  return {headers,rows:rows.filter(r=>r.some(c=>c.trim()!==''))};
+}
+function cleanNum(v){if(v==null)return null;const s=String(v).replace(/[, ]/g,'').replace(/[^0-9.\-]/g,'');
+  if(s===''||s==='-')return null;const n=parseFloat(s);return isNaN(n)?null:n;}
+const MONTHS={january:0,february:1,march:2,april:3,may:4,june:5,july:6,august:7,september:8,october:9,november:10,december:11,jan:0,feb:1,mar:2,apr:3,jun:5,jul:6,aug:7,sep:8,sept:8,oct:9,nov:10,dec:11};
+function isDateLike(v){if(!v)return false;v=v.trim();
+  if(/^\d{4}-\d{1,2}-\d{1,2}$/.test(v))return true;
+  if(/^\d{1,2}\/\d{1,2}\/\d{2,4}$/.test(v))return true;
+  const m=v.match(/^([A-Za-z]+)\s+\d{1,2}/);return !!(m&&MONTHS[m[1].toLowerCase()]!=null);}
+function fmt(n){return n.toLocaleString(undefined,{maximumFractionDigits:0});}
+/* CSV-safe quote on export */
+function q(v){v=v==null?'':String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
+
+let HEADERS=[], ROWS=[], metricCol=-1;
+
+function detectMetric(){
+  for(let c=0;c<HEADERS.length;c++){
+    const vals=ROWS.map(r=>r[c]).filter(v=>v&&v.trim()!=='');
+    if(!vals.length)continue;
+    const dateFrac=vals.filter(isDateLike).length/vals.length;
+    const numFrac=vals.filter(v=>cleanNum(v)!=null).length/vals.length;
+    if(dateFrac>=0.7)continue;                 // skip date columns — they fool naive number-cleaning
+    if(numFrac>=0.7){metricCol=c;return;}
+  }
+  metricCol=-1;
+}
+function isFlag(c,val){return c===metricCol && (val==null||val.trim()===''||cleanNum(val)==null);}
+
+function updateLive(){
+  let total=0,counted=0;
+  if(metricCol>=0)ROWS.forEach(r=>{const v=cleanNum(r[metricCol]);if(v!=null){total+=v;counted++;}});
+  const name=metricCol>=0?HEADERS[metricCol]:'value';
+  document.getElementById('live').innerHTML=
+    `Rows: <b>${ROWS.length}</b> &nbsp;·&nbsp; Total ${name}: <b>${fmt(total)}</b>` +
+    (metricCol>=0?` <span style="color:#b9b1a0">(${ROWS.length-counted} still blank)</span>`:'');
+}
+
+function render(){
+  const g=document.getElementById('grid');
+  let html='<thead><tr>'+HEADERS.map(h=>`<th>${h}</th>`).join('')+'<th class="actcol"></th></tr></thead><tbody>';
+  ROWS.forEach((r,ri)=>{
+    html+='<tr>'+HEADERS.map((h,ci)=>{
+      const val=r[ci]||'';const flag=isFlag(ci,val);
+      return `<td class="${flag?'flag':''}"><input data-r="${ri}" data-c="${ci}" value="${val.replace(/"/g,'&quot;')}" ${flag?'placeholder="add a number"':''}></td>`;
+    }).join('')+`<td class="actcol"><span class="rowdel" data-del="${ri}" title="delete row">✕</span></td></tr>`;
+  });
+  g.innerHTML=html+'</tbody>';
+
+  g.querySelectorAll('input').forEach(inp=>{
+    inp.oninput=e=>{const ri=+e.target.dataset.r,ci=+e.target.dataset.c;
+      ROWS[ri][ci]=e.target.value;
+      const flag=isFlag(ci,e.target.value);
+      e.target.parentElement.classList.toggle('flag',flag);
+      updateLive();};
+  });
+  g.querySelectorAll('.rowdel').forEach(x=>{
+    x.onclick=e=>{ROWS.splice(+e.target.dataset.del,1);render();updateLive();};
+  });
+  updateLive();
+}
+
+function load(text){
+  const p=parseCSV(text);HEADERS=p.headers;
+  ROWS=p.rows.map(r=>{const a=[];for(let i=0;i<HEADERS.length;i++)a[i]=(r[i]||'').trim();return a;});
+  detectMetric();render();
+}
+
+document.getElementById('addRow').onclick=()=>{ROWS.push(HEADERS.map(()=>''));render();
+  const inputs=document.querySelectorAll('#grid tbody tr:last-child input');if(inputs[0])inputs[0].focus();};
+
+document.getElementById('export').onclick=()=>{
+  const lines=[HEADERS.map(q).join(',')].concat(ROWS.map(r=>r.map(q).join(',')));
+  const blob=new Blob([lines.join('\n')],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='cleaned-export.csv';a.click();URL.revokeObjectURL(a.href);
+  const f=document.getElementById('flash');f.classList.add('show');setTimeout(()=>f.classList.remove('show'),1800);
+};
+
+load(SAMPLE);
+</script>
+</body>
+</html>

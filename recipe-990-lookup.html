@@ -52,7 +52,7 @@
           <div class="k">What you use</div>
           <div class="v">Chat +<br>search</div>
           <div class="tip">
-            <b>The normal chat, with web search on.</b> Claude pulls each org's numbers from ProPublica's free Nonprofit Explorer — a structured public dataset, which beats open-ended searching every time.
+            <b>The normal chat, with web search on.</b> The AI pulls each org's numbers from ProPublica's free Nonprofit Explorer — a structured public dataset, which beats open-ended searching every time.
             <div style="margin-top:7px;font-size:11px;opacity:.8;">When a public dataset exists, point at it</div>
           </div>
         </div>
@@ -133,7 +133,7 @@
           </div></li>
           <li><div>
             <div class="st-h">Paste the list with this prompt</div>
-            <div class="st-b">The key move: point Claude at the structured public dataset instead of letting it search loosely.</div>
+            <div class="st-b">The key move: point the AI at the structured public dataset instead of letting it search loosely.</div>
             <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
             <div class="prompt">
               <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
@@ -160,7 +160,7 @@ matches more than one nonprofit so I can pick the right one.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Resolve the flagged name collisions</div>
-            <div class="st-b">Where two orgs share a name, click both ProPublica links, pick yours by city, and tell Claude which one — it'll correct the row.</div>
+            <div class="st-b">Where two orgs share a name, click both ProPublica links, pick yours by city, and tell the AI which one — it'll correct the row.</div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check 5 random rows against the linked filings</div>
@@ -168,7 +168,7 @@ matches more than one nonprofit so I can pick the right one.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Sort and shortlist</div>
-            <div class="st-b">Ask Claude to sort the table by revenue, or to group orgs into rough size bands. Sixty names just became the fifteen worth calling first — with receipts.</div>
+            <div class="st-b">Ask the AI to sort the table by revenue, or to group orgs into rough size bands. Sixty names just became the fifteen worth calling first — with receipts.</div>
           </div></li>
         </ol>
 
@@ -191,7 +191,7 @@ matches more than one nonprofit so I can pick the right one.</pre>
         </div>
 
         <div class="browserline">
-          <b>The lookup line.</b> Dozens of orgs → this recipe. Hundreds, or a refresh every month → ask Claude to build a tool that calls ProPublica's free Nonprofit Explorer API directly. Thousands, or business-critical → you've outgrown the recipe; that's a data service.
+          <b>The lookup line.</b> Dozens of orgs → this recipe. Hundreds, or a refresh every month → ask the AI to build a tool that calls ProPublica's free Nonprofit Explorer API directly. Thousands, or business-critical → you've outgrown the recipe; that's a data service.
         </div>
       </div>
 
@@ -212,23 +212,9 @@ matches more than one nonprofit so I can pick the right one.</pre>
             <div class="bub bot">Foundations file a <b>990-PF</b> (the foundation version of the 990 — nothing changes on your end), which lists every grant they made. Ask for: total giving, number of grants, the range of grant sizes, and three example grantees near your budget size — all on ProPublica, all linked. If none of their grants land within shouting distance of your ask, you just saved yourself a proposal.</div>
           </div>
           <div class="demo-note">This is an example conversation, not a live chat — ask questions like these in your own AI chat window.</div>
-          <div class="ask">
-            <input placeholder="Describe your list and your decision…" aria-label="Ask the recipe helper">
-            <button>Ask</button>
-          </div>
         </div>
       </div>
 
-      <div class="footer">
-        <span class="lg">DECODED FUTURES</span>
-        <div class="tags">
-          <span class="tag">All public record</span>
-          <span class="tag">Chat + web search</span>
-          <span class="tag">No connectors</span>
-          <span class="tag">ProPublica 990 data</span>
-          <span class="tag">Teaches: when a structured public dataset exists, point at it</span>
-        </div>
-      </div>
     </div>
   </article>
 </body>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Drive Archaeologist · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css">
+<link rel="stylesheet" href="card-styles.css?v=flags1">
 </head>
 <body>
   <div class="backlink">
@@ -27,90 +27,15 @@
       <h1>The Drive Archaeologist</h1>
       <p class="tagline">Point the AI at your shared drive and ask the questions everyone actually has: which of these six "FINAL" budgets is final? Where's the current logo? What did we promise this funder last year? Read-only, every answer cites the file, and you open it yourself.</p>
 
-      <!-- TIER 1 — SCAN STRIP -->
-      <div class="scan">
-
-        <!-- PRIVACY -->
-        <div class="cell s-amber">
-          <div class="ico amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.5 19a4.5 4.5 0 0 0 .4-9A6 6 0 0 0 6.2 8.5 4.75 4.75 0 0 0 7 18h10.5z"/><path d="M12 12v5M9.5 14.5L12 12l2.5 2.5"/></svg>
-          </div>
-          <div class="k">Where data goes</div>
-          <div class="v">Reachable<br>by the AI</div>
-          <div class="tip">
-            <b>Your org's files flow through the chat.</b> Whatever the connector can see, the AI can read — that's the whole point, and the whole caution. <b>Scope the connection</b> to the narrowest folder that works, and you can disconnect it any time in settings.
-            <div class="scale"><i></i><i></i><i class="on"></i><i></i></div>
-            <div style="margin-top:6px;font-size:11px;opacity:.8;">3rd of 4 levels · amber — connect deliberately</div>
-          </div>
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <div class="flag amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3.5a5 5 0 0 1-10 0V8z"/><path d="M12 16.5V21"/></svg>
+          <span class="fl">Connects to your accounts</span>
+          <div class="tip"><b>Read-only Drive access.</b> A permission you grant — and can take back — in your the AI settings. The AI searches and reads; it never edits, moves, or deletes your files.</div>
         </div>
-
-        <!-- WHAT YOU USE -->
-        <div class="cell s-amber">
-          <div class="ico amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 7V3M15 7V3M8 7h8v5a4 4 0 0 1-8 0V7z"/><path d="M12 16v5"/></svg>
-          </div>
-          <div class="k">What you use</div>
-          <div class="v">Chat +<br>connector</div>
-          <div class="tip">
-            <b>The normal chat, plus one switch.</b> You turn on the Google Drive connector once, in settings. After that it's just a conversation — the connector works quietly behind it.
-            <div style="margin-top:7px;font-size:11px;opacity:.8;">First recipe where you grant a permission</div>
-          </div>
-        </div>
-
-        <!-- CONNECTIONS -->
-        <div class="cell s-amber">
-          <div class="ico amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/></svg>
-          </div>
-          <div class="k">Connections</div>
-          <div class="v">Google<br>Drive</div>
-          <div class="tip">
-            <b>Read-only Drive access.</b> A permission you grant — and can take back — in your the AI settings. The AI searches and reads; it never edits, moves, or deletes your files.
-          </div>
-        </div>
-
-        <!-- GETS SMARTER? -->
-        <div class="cell s-blue">
-          <div class="ico navy">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 2v18M4 6.5l8 4.5 8-4.5"/></svg>
-          </div>
-          <div class="k">Gets smarter?</div>
-          <div class="v">Set<br>workflow</div>
-          <div class="tip">
-            <b>Set — ask the same way every time.</b> Nothing to train or feed. The drive changes; the question pattern doesn't.
-          </div>
-        </div>
-
-        <!-- WHO SEES IT -->
-        <div class="cell s-green">
-          <div class="ico green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-          </div>
-          <div class="k">User</div>
-          <div class="v">Internal —<br>just you</div>
-          <div class="tip">
-            <b>Internal.</b> The answers are for you (or a colleague at the keyboard). Nothing here faces the public or the people you serve.
-            <div style="margin-top:7px;font-size:11px;opacity:.85;">3 levels: <b style="color:var(--glow);">Individual</b> → Team → Front-facing.</div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- TIER 2 -->
-      <div class="meta">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Confident beginner
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
-          ~5 min to connect
-        </span>
-        <span class="chip">
-          Effort after setup
-          <span class="meter set"><i></i><i></i><i></i></span>
-        </span>
-      </div>
 
       <!-- INFORMATION YOU GIVE IT -->
       <div class="give">

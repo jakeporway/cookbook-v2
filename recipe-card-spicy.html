@@ -107,6 +107,29 @@
   .cell:last-child:hover .tip{transform:translateX(0) translateY(0);}
   .cell:last-child .tip::after{left:auto;right:34px;}
 
+
+  /* ---- WARNING FLAGS (replaces scan strip + meta chips) ---- */
+  .flags{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .flag{position:relative;display:inline-flex;align-items:center;gap:9px;cursor:default;
+    background:#fff;border:1px solid var(--cloud);border-left-width:4px;border-radius:8px;
+    padding:9px 14px 9px 12px;transition:box-shadow .15s, transform .15s;}
+  .flag:hover{transform:translateY(-1px);}
+  .flag svg{width:17px;height:17px;flex:none;}
+  .flag .fl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;line-height:1.25;}
+  .flag.amber{border-left-color:var(--warn);background:#FFFAF0;}
+  .flag.amber svg,.flag.amber .fl{color:var(--warn);}
+  .flag.amber:hover{box-shadow:0 6px 18px -8px rgba(178,106,0,.45);}
+  .flag.red{border-left-color:var(--danger);background:#FDF3F1;}
+  .flag.red svg,.flag.red .fl{color:var(--danger);}
+  .flag.red:hover{box-shadow:0 6px 18px -8px rgba(163,38,28,.45);}
+  .flag .tip{width:250px;}
+  .flag:hover .tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  .flag:first-child .tip{left:0;transform:translateX(0) translateY(4px);}
+  .flag:first-child:hover .tip{transform:translateX(0) translateY(0);}
+  .flag:first-child .tip::after{left:34px;}
+  .flags .clear{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#5E8B2E;font-weight:600;}
+  .flags .clear svg{width:16px;height:16px;}
+
   /* ---- TIER 2 ---- */
   .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
   .chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--cloud);
@@ -209,97 +232,25 @@
       <h1>The outreach drafter</h1>
       <p class="tagline">Connect your CRM so the AI can pull real participant records and draft personalized outreach messages — a powerful workflow that also carries real privacy and accuracy risk you must manage.</p>
 
-      <!-- TIER 1 — ICON-LED SCAN STRIP -->
-      <div class="scan">
-
-        <!-- PRIVACY  (RED) -->
-        <div class="cell s-red">
-          <div class="ico red">
-            <!-- open lock / server eye = exposed -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/><path d="M17 1.5a3 3 0 0 1 3 3V7"/></svg>
-          </div>
-          <div class="k">Where data goes</div>
-          <div class="v">Out to a<br>company</div>
-          <div class="tip">
-            <b>Real records leave your system.</b> Participant data is sent to an outside company, passes through the AI, and is stored on their servers — where it could in principle be reached by a subpoena or used by the vendor under their terms.
-            <div class="scale"><i></i><i></i><i></i><i class="on"></i></div>
-            <div style="margin-top:6px;font-size:11px;opacity:.85;">Riskiest of 4 levels · check your data policy first</div>
-          </div>
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <div class="flag red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v10"/><path d="M8 7l4-4 4 4"/><rect x="4" y="13" width="16" height="8" rx="2"/></svg>
+          <span class="fl">Data leaves to a third party</span>
+          <div class="tip"><b>Real records leave your system.</b> Participant data is sent to an outside company, passes through the AI, and is stored on their servers — where it could in principle be reached by a subpoena or used by the vendor under their terms.</div>
         </div>
-
-        <!-- WHAT YOU USE  (AMBER) -->
-        <div class="cell s-amber">
-          <div class="ico amber">
-            <!-- plug / connector -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2v6M15 2v6"/><path d="M7 8h10v3a5 5 0 0 1-10 0V8z"/><path d="M12 16v6"/></svg>
-          </div>
-          <div class="k">What you use</div>
-          <div class="v">Connectors<br>(permission)</div>
-          <div class="tip">
-            <b>Needs connectors turned on.</b> Someone with admin rights must give the AI permission to reach your CRM. That's a deliberate step — and a good moment to confirm your org actually allows it.
-            <div style="margin-top:7px;font-size:11px;opacity:.8;">More setup than plain chat</div>
-          </div>
+        <div class="flag amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3.5a5 5 0 0 1-10 0V8z"/><path d="M12 16.5V21"/></svg>
+          <span class="fl">Connects to your accounts</span>
+          <div class="tip"><b>Connects to your CRM and Drive.</b> It reads contact records from your CRM and can pull message templates from your shared drive. Both must be linked before it works.</div>
         </div>
-
-        <!-- CONNECTIONS  (AMBER) -->
-        <div class="cell s-amber">
-          <div class="ico amber">
-            <!-- linked nodes -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.2 11l9.6-4M7.2 13l9.6 4"/></svg>
-          </div>
-          <div class="k">Connections</div>
-          <div class="v">CRM +<br>Drive</div>
-          <div class="tip">
-            <b>Connects to your CRM and Drive.</b> It reads contact records from your CRM and can pull message templates from your shared drive. Both must be linked before it works.
-            <div style="margin-top:7px;font-size:11px;opacity:.8;">Won't run out of the box</div>
-          </div>
+        <div class="flag red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg>
+          <span class="fl">Public-facing output</span>
+          <div class="tip"><b>Front-facing (constituent).</b> The output is written to go to the people you serve — so a human must read and approve every message before it's sent. Never let it send on its own.</div>
         </div>
-
-        <!-- GETS SMARTER?  (LIVING / brain) -->
-        <div class="cell s-blue">
-          <div class="ico blue">
-            <!-- brain = living tool -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3a3 3 0 0 0-3 3 3 3 0 0 0-1 5.8A3 3 0 0 0 7 17a3 3 0 0 0 5 1 3 3 0 0 0 5-1 3 3 0 0 0 2-5.2A3 3 0 0 0 15 6a3 3 0 0 0-3-3 3 3 0 0 0-3 0z"/><path d="M12 6v12"/></svg>
-          </div>
-          <div class="k">Gets smarter?</div>
-          <div class="v">Living<br>tool</div>
-          <div class="tip">
-            <b>A living tool — it improves as you use it.</b> Feed it examples of outreach that worked (and that flopped) and it keeps getting closer to your voice. Worth tuning over weeks, not minutes.
-            <div style="margin-top:7px;font-size:11px;opacity:.85;">↔ A <b style="color:var(--glow);">set tool</b> instead does the same fixed job every time.</div>
-          </div>
-        </div>
-
-        <!-- USER  (RED · front-facing) -->
-        <div class="cell s-red">
-          <div class="ico red">
-            <!-- people with caution -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M19 7v4M19 14h.01"/></svg>
-          </div>
-          <div class="k">User</div>
-          <div class="v">Front-<br>facing</div>
-          <div class="tip">
-            <b>Front-facing (constituent).</b> The output is written to go to the people you serve — so a human must read and approve every message before it's sent. Never let it send on its own.
-            <div style="margin-top:7px;font-size:11px;opacity:.85;">3 levels: Individual → Team → <b style="color:var(--glow);">Front-facing</b>. This is the one to handle with care.</div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- TIER 2 -->
-      <div class="meta">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Intermediate
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
-          ~45 min to set up
-        </span>
-        <span class="chip">
-          Effort after setup
-          <span class="meter"><i style="background:var(--pulse)"></i><i style="background:var(--pulse)"></i><i></i></span>
-        </span>
-      </div>
 
       <!-- TIER 3 -->
       <div class="recipe">

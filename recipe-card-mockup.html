@@ -107,6 +107,29 @@
   .cell:last-child:hover .tip{transform:translateX(0) translateY(0);}
   .cell:last-child .tip::after{left:auto;right:34px;}
 
+
+  /* ---- WARNING FLAGS (replaces scan strip + meta chips) ---- */
+  .flags{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .flag{position:relative;display:inline-flex;align-items:center;gap:9px;cursor:default;
+    background:#fff;border:1px solid var(--cloud);border-left-width:4px;border-radius:8px;
+    padding:9px 14px 9px 12px;transition:box-shadow .15s, transform .15s;}
+  .flag:hover{transform:translateY(-1px);}
+  .flag svg{width:17px;height:17px;flex:none;}
+  .flag .fl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;line-height:1.25;}
+  .flag.amber{border-left-color:var(--warn);background:#FFFAF0;}
+  .flag.amber svg,.flag.amber .fl{color:var(--warn);}
+  .flag.amber:hover{box-shadow:0 6px 18px -8px rgba(178,106,0,.45);}
+  .flag.red{border-left-color:var(--danger);background:#FDF3F1;}
+  .flag.red svg,.flag.red .fl{color:var(--danger);}
+  .flag.red:hover{box-shadow:0 6px 18px -8px rgba(163,38,28,.45);}
+  .flag .tip{width:250px;}
+  .flag:hover .tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  .flag:first-child .tip{left:0;transform:translateX(0) translateY(4px);}
+  .flag:first-child:hover .tip{transform:translateX(0) translateY(0);}
+  .flag:first-child .tip::after{left:34px;}
+  .flags .clear{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#5E8B2E;font-weight:600;}
+  .flags .clear svg{width:16px;height:16px;}
+
   /* ---- TIER 2 ---- */
   .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
   .chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--cloud);
@@ -209,96 +232,14 @@
       <h1>The private transcriber</h1>
       <p class="tagline">Turn recorded audio into text on a tool that runs entirely on your own computer — so sensitive conversations never touch an outside company's servers.</p>
 
-      <!-- TIER 1 — ICON-LED SCAN STRIP -->
-      <div class="scan">
-
-        <!-- PRIVACY -->
-        <div class="cell s-green">
-          <div class="ico green">
-            <!-- house = on your device -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9 20v-5h6v5"/></svg>
-          </div>
-          <div class="k">Where data goes</div>
-          <div class="v">Nowhere.<br>It's yours</div>
-          <div class="tip">
-            <b>Nowhere — it stays totally private to you.</b> The audio is handled by a tool running on your own computer. Nothing is ever uploaded — not to any AI company, not to anyone. No one else can see it.
-            <div class="scale"><i class="on"></i><i></i><i></i><i></i></div>
-            <div style="margin-top:6px;font-size:11px;opacity:.8;">Safest of 4 levels · safe even for constituent data</div>
-          </div>
-        </div>
-
-        <!-- AI LEVEL -->
-        <div class="cell s-green">
-          <div class="ico green">
-            <!-- speech bubble = plain chat -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 9.3 9.3 0 0 1-4-.9L3 21l1.9-5.5a8.5 8.5 0 0 1-.9-4A8.38 8.38 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>
-          </div>
-          <div class="k">What you use</div>
-          <div class="v">Just the<br>chat</div>
-          <div class="tip">
-            <b>Just the normal chat.</b> No special mode to turn on. The AI replies with a ready-made file — you click it to open the tool. Nothing to install or set up inside the AI.
-            <div style="margin-top:7px;font-size:11px;opacity:.8;">The simplest level · same window you already use</div>
-          </div>
-        </div>
-
-        <!-- CONNECTIONS -->
-        <div class="cell s-green">
-          <div class="ico green">
-            <!-- unplugged -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7V4M10 7V4M6 7h4v4a3 3 0 0 1-6 0V7z"/><path d="M7 17v3"/><circle cx="17" cy="14" r="3"/></svg>
-          </div>
-          <div class="k">Connections</div>
-          <div class="v">None<br>needed</div>
-          <div class="tip">
-            <b>Works out of the box.</b> No need to connect Google Drive, Slack, your CRM, or any other system. Nothing to hook up.
-          </div>
-        </div>
-
-        <!-- GETS SMARTER? -->
-        <div class="cell s-blue">
-          <div class="ico navy">
-            <!-- metal cube = fixed/set tool -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 2v18M4 6.5l8 4.5 8-4.5"/></svg>
-          </div>
-          <div class="k">Gets smarter?</div>
-          <div class="v">Set<br>tool</div>
-          <div class="tip">
-            <b>A set tool — build once, use as-is.</b> It does the same job every time and needs no ongoing tuning.
-            <div style="margin-top:7px;font-size:11px;opacity:.85;">↔ A <b style="color:var(--glow);">living tool</b> (🧠) instead gets better as you feed it examples — like a "write in my voice" bot.</div>
-          </div>
-        </div>
-
-        <!-- WHO SEES IT -->
-        <div class="cell s-green">
-          <div class="ico green">
-            <!-- building = internal -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16"/><path d="M15 9h4a1 1 0 0 1 1 1v11"/><path d="M2 21h20"/><path d="M8 8h.01M8 12h.01M8 16h.01M11 8h.01M11 12h.01M11 16h.01"/></svg>
-          </div>
-          <div class="k">User</div>
-          <div class="v">Just<br>you</div>
-          <div class="tip">
-            <b>Individual.</b> You use this one yourself — it isn't shared across the team or shown to the people you serve.
-            <div style="margin-top:7px;font-size:11px;opacity:.85;">3 levels: <b style="color:var(--glow);">Individual</b> → Team → Front-facing (constituent).</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- TIER 2 -->
-      <div class="meta">
-        <span class="chip">
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Beginner
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
-          ~15 min to build
-        </span>
-        <span class="chip">
-          Effort after setup
-          <span class="meter set"><i></i><i></i><i></i></span>
+          Nothing to flag &mdash; no sensitive data in, nothing published out
         </span>
       </div>
+
 
       <!-- TIER 3 -->
       <div class="recipe">

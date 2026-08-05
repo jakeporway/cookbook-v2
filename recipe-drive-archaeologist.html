@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Drive Archaeologist · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The Drive Archaeologist</h1>
-      <p class="tagline">Point the AI at your shared drive and ask the questions everyone actually has: which of these six "FINAL" budgets is final? Where's the current logo? What did we promise this funder last year? Read-only, every answer cites the file, and you open it yourself.</p>
+      <p class="tagline">Connect the AI to your shared drive and ask the questions that come up constantly: which of these six "FINAL" budgets is the real one, where the current logo lives, what you promised a funder last year. The access is read-only, every answer cites a file, and you open the file yourself to confirm.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3.5a5 5 0 0 1-10 0V8z"/><path d="M12 16.5V21"/></svg>
           <span class="fl">Connects to your accounts</span>
-          <div class="tip"><b>Read-only Drive access.</b> A permission you grant — and can take back — in your the AI settings. The AI searches and reads; it never edits, moves, or deletes your files.</div>
+          <div class="tip"><b>Read-only Drive access.</b> This is a permission you grant in your AI settings, and you can take it back the same way. The AI searches and reads. It never edits, moves, or deletes your files.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p><b>Nothing you have to write or paste.</b> You grant a permission: you connect Google Drive (read-only), and you can revoke it any time in settings. Then you just ask. The connection itself is the input — which is why granting it deliberately is step one of the recipe.</p>
+          <p><b>Nothing you have to write or paste.</b> You connect Google Drive with read-only access, which you can revoke any time in settings, and then you ask your question. The connection is the input, which is why granting it deliberately is the first step of the recipe.</p>
         </div>
       </div>
 
@@ -53,20 +53,24 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">Switch on the Google Drive connector — and know what you just granted</div>
-            <div class="st-b">First, one org-level check: if your organization uses Google Workspace (most nonprofits do), your Workspace admin may need to approve third-party app access — ask before connecting, especially if HR or board folders live on the shared drive. In your AI chat, open <em>Settings → Connectors</em> and connect Google Drive. Pause at the permission screen — this is the moment that makes this a connected workflow. You're granting <em>read</em> access: the AI can now search and open what that account can see. It can't edit or delete anything, and you can disconnect in the same settings screen any time, in one click.</div>
+            <div class="st-h">Switch on the Google Drive connector and check what you granted</div>
+            <div class="st-b">Start with one org-level check. If your organization uses Google Workspace, as most nonprofits do, your Workspace admin may need to approve third-party app access. Ask before connecting, especially if HR or board folders live on the shared drive. Then, in your AI chat, open <em>Settings → Connectors</em> and connect Google Drive. Read the permission screen before you accept it. You're granting <em>read</em> access, so the AI can search and open anything that account can see. It can't edit or delete anything, and you can disconnect from the same settings screen in one click.</div>
           </div></li>
           <li><div>
             <div class="st-h">Connect the narrowest thing that works</div>
-            <div class="st-b">If your setup lets you scope the connection to a specific folder — say, the shared drive you're actually digging through — do that instead of connecting everything. A folder, not the whole drive, if you can.</div>
+            <div class="st-b">If your setup lets you scope the connection to a specific folder, such as the shared drive you're actually searching, do that instead of connecting everything. Connect a single folder rather than the whole drive whenever you have the option.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Ask your question — with the citation rule attached</div>
-            <div class="st-b">The rule is what makes the answers trustworthy: every claim cites a file you can open yourself. Paste this, swapping in your own question.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-h">Ask your question, with the citation rule attached</div>
+            <div class="st-b">The citation rule is what makes the answers trustworthy: every claim has to name a file you can open yourself. Paste this, swapping in your own question.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Search my connected Google Drive and answer this question:
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Search my connected Google Drive and answer this question:
 <span class="tok">[We have six files with "FINAL" in the name for the FY25 budget.
 Which one is actually the current, final version?]</span>
 
@@ -80,15 +84,42 @@ Rules for how you answer — these are firm:
 
 Give me your best answer first, then a short list of the
 <span class="tok">[2–3]</span> files I should open myself to confirm.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are an archivist working in my connected Google Drive. You
+are read-only, and you never assert anything you cannot point to
+a file for.
+
+<span class="sec">GOAL:</span>
+Answer one question about what is actually in my Drive, and tell
+me which files to open myself to confirm it.
+
+<span class="sec">CONTEXT:</span>
+The question:
+<span class="tok">[We have six files with "FINAL" in the name for the FY25
+budget. Which one is actually the current, final version?]</span>
+
+<span class="sec">STEPS:</span>
+1. Search my connected Google Drive for material bearing on the
+   question.
+2. For every claim you make, cite the exact file name and its
+   path or link, so I can open the file myself and check.
+3. If you can't point to a specific file, say "I couldn't find
+   this." Never summarize a file you can't cite, and never fill
+   gaps from general knowledge.
+4. Read only. Don't change, move, rename, or create anything.
+
+<span class="sec">OUTPUT:</span>
+Your best answer first, with file names and links inline. Then a
+short list of the <span class="tok">[2–3]</span> files I should open myself to confirm it.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Open the cited files yourself</div>
-            <div class="st-b">The answer ends with file paths — that's on purpose. Click through and confirm before you act on anything. The AI found the trail; you make the call.</div>
+            <div class="st-b">The answer ends with file paths on purpose. Click through and confirm before you act on anything. The AI can find the trail, but the decision is still yours.</div>
           </div></li>
           <li><div>
-            <div class="st-h">When the dig is done, disconnect</div>
-            <div class="st-b">If this was a one-time excavation, go back to settings and disconnect Drive. Reconnecting later takes one click — leaving it connected should be a decision, not a leftover. Disconnecting stops all future access. It doesn't erase past conversations — delete any chats you're uneasy about, and check your account's data-retention settings once while you're in there.</div>
+            <div class="st-h">Disconnect when you're done</div>
+            <div class="st-b">If this was a one-time search, go back to settings and disconnect Drive. Reconnecting later takes one click, so there's no cost to switching it off when you're finished. Disconnecting stops all future access, but it doesn't erase past conversations. Delete any chats you're uneasy about, and check your account's data-retention settings while you're in there.</div>
           </div></li>
         </ol>
 
@@ -98,16 +129,17 @@ Give me your best answer first, then a short list of the
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Answers to the questions your drive has been hiding for years — which version is real, where the current asset lives, what you promised whom — each one pinned to a file path you can open and verify yourself. Plus a connection you know how to grant, scope, and revoke.</p>
+            <p>Answers to the questions your drive has never made easy: which version is real, where the current asset lives, what you promised to whom. Each answer is pinned to a file path you can open and verify. You also come away knowing how to grant, scope, and revoke a connection.</p>
           </div>
         </div>
 
-        <div class="browserline"><b>The one hard rule of connected work: nothing goes out without your click.</b> This recipe is read-only by design — the AI finds and cites, you open and decide. That posture is a choice you're making, and it's the right default for your first connector.</div>
-        <div class="browserline"><b>Treat the connection like a key you handed over.</b> Connect the narrowest thing that works — a folder, not the whole drive, if you can — and remember that the AI now reads whatever it's connected to. When the archaeology is done, take the key back: disconnect in settings.</div>
+        <div class="browserline"><b>The hard rule of connected work: nothing goes out without your click.</b> This recipe is read-only by design. The AI finds and cites; you open the file and decide what to do. That's the right default for your first connector.</div>
+        <div class="browserline"><b>Treat the connection like a key you handed over.</b> Connect the narrowest thing that works, a single folder rather than the whole drive where you can, and remember that the AI reads whatever it's connected to. When you're finished, disconnect in settings.</div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

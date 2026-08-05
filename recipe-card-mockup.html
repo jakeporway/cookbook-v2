@@ -230,13 +230,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The private transcriber</h1>
-      <p class="tagline">Turn recorded audio into text on a tool that runs entirely on your own computer — so sensitive conversations never touch an outside company's servers.</p>
+      <p class="tagline">Turn recorded audio into text using a tool that runs entirely on your own computer, so sensitive conversations never touch an outside company's servers.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -253,14 +253,45 @@
             <div class="st-h">Ask the AI to build the tool</div>
             <div class="st-b">Paste this. It tells the AI to use only open-source libraries that run locally, so nothing leaves your computer.</div>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Write me a transcription tool I can run on my own computer.
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Write me a transcription tool I can run on my own computer.
 Requirements: it must use only <span class="tok">open-source libraries</span> that
 run <span class="tok">fully offline</span> — no audio or text is ever sent to any
 outside service. I'll give it an audio file and it should
 return a text transcript. I'm not a coder, so give me the
 exact steps to set it up on <span class="tok">[Mac / Windows]</span>.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are writing a small tool for someone who is not a coder, and
+walking them through setting it up.
+
+<span class="sec">GOAL:</span>
+A transcription tool I can run on my own computer, turning an
+audio file into a text transcript without any of it leaving the
+machine.
+
+<span class="sec">CONTEXT:</span>
+The recordings are sensitive, so this is the hard requirement:
+use only <span class="tok">open-source libraries</span> that run <span class="tok">fully offline</span> — no audio or text is ever sent to
+any outside service. I work on <span class="tok">[Mac / Windows]</span>.
+
+<span class="sec">STEPS:</span>
+1. Choose libraries that run fully offline and say why you picked
+   them.
+2. Write the tool: I give it an audio file, it returns a text
+   transcript.
+3. Give me the exact setup steps for <span class="tok">[Mac / Windows]</span> — every command, in
+   order, assuming I have installed nothing yet.
+4. Tell me how to check that it is genuinely running offline.
+
+<span class="sec">OUTPUT:</span>
+The code, then numbered setup instructions in plain language, then
+how to run it on one file. No skipped steps, no "simply install
+the dependencies."</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Follow the setup steps once</div>
@@ -268,7 +299,7 @@ exact steps to set it up on <span class="tok">[Mac / Windows]</span>.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Transcribe anything, privately, forever</div>
-            <div class="st-b">Drop in a recording. The transcript appears — and that audio never left the room.</div>
+            <div class="st-b">Drop in a recording and the transcript appears. The audio never left the room.</div>
           </div></li>
         </ol>
 
@@ -278,7 +309,7 @@ exact steps to set it up on <span class="tok">[Mac / Windows]</span>.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A free transcription tool living on your computer that you can reuse on any recording — client interviews, focus groups, sensitive intakes — with zero privacy exposure.</p>
+            <p>A free transcription tool on your own computer that you can reuse on any recording: client interviews, focus groups, sensitive intakes. Nothing is exposed to an outside service.</p>
           </div>
         </div>
       </div>
@@ -286,5 +317,6 @@ exact steps to set it up on <span class="tok">[Mac / Windows]</span>.</pre>
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

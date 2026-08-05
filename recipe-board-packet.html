@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Assemble the Board Packet the Same Way Every Quarter · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Assemble the board packet the same way every quarter</h1>
-      <p class="tagline">The same inputs every quarter — program numbers, the financial summary, last meeting's minutes — assembled into your board packet format on schedule. The recurring half-day of formatting becomes an hour of reviewing.</p>
+      <p class="tagline">Every quarter you assemble the same inputs: program numbers, the financial summary, last meeting's minutes. This puts them into your board packet format on schedule, so the recurring half-day of formatting becomes an hour of reviewing.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>Internal governance documents.</b> Program stats, financial summaries, draft minutes. Personnel and legal matters stay out — see the caution below.</div>
+          <div class="tip"><b>Internal governance documents.</b> Program stats, financial summaries, and draft minutes all go in. Personnel and legal matters stay out. See the caution below.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Your last 2–3 actual board packets — the format, demonstrated not described — plus this quarter's raw inputs: program stats, the financial summary (see <a href="recipe-finance-explainer.html">the finance recipe</a>), draft minutes, and ED notes.</p>
+          <p>Your last 2–3 actual board packets, which show the format rather than describing it, plus this quarter's raw inputs: program stats, the financial summary (see <a href="recipe-finance-explainer.html">the finance recipe</a>), draft minutes, and ED notes.</p>
         </div>
       </div>
 
@@ -58,11 +58,15 @@
           </div></li>
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
-            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. Note the traceability rule — it's what makes ED review fast instead of a redo.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Copy it as-is.</p>
+            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. The traceability rule is what makes the ED's review fast instead of a rewrite.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Copy it exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You assemble our quarterly board packet in exactly the structure
+              <div class="ph">
+        <span>Project instructions</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You assemble our quarterly board packet in exactly the structure
 of the example packets in this Project. Each quarter I give you
 raw inputs. Produce:
 
@@ -78,7 +82,43 @@ Flag every place where this quarter's inputs are missing
 something the format expects — a [MISSING: x] flag beats a smooth
 guess, always. Never carry forward a number from a past packet as
 if it were current.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You assemble our quarterly board packet. You are an assembler
+working to a fixed format, not an analyst — you arrange what
+you're given, you do not produce new numbers.
+
+<span class="sec">GOAL:</span>
+Turn each quarter's raw inputs into a packet in exactly the
+structure of the example packets in this Project, so the board
+reads the same document shape every time.
+
+<span class="sec">CONTEXT:</span>
+The example packets in this Project define the format and the
+ED's voice. Each quarter I give you the raw inputs — program
+data, a finance summary, and whatever else the sections need.
+
+<span class="sec">STEPS:</span>
+1. Read the example packets first and follow their structure
+   and voice.
+2. Build the sections in order:
+   1. A cover memo in the ED's voice, from the examples.
+   2. A program dashboard using ONLY numbers from the inputs,
+      each traceable to its source document.
+   3. A financial summary from the finance summary I provide —
+      do not recompute it.
+   4. A consent agenda items list.
+   5. Discussion items, with one-paragraph framing each.
+3. Flag every place where this quarter's inputs are missing
+   something the format expects. A [MISSING: x] flag beats a
+   smooth guess, always.
+4. Never carry a number forward from a past packet as if it were
+   current.
+
+<span class="sec">OUTPUT:</span>
+The full packet in the example structure, with a short list at
+the top of every [MISSING: x] flag so I can chase them before
+the packet goes out.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Each quarter: drop in the inputs, get the draft</div>
@@ -86,7 +126,7 @@ if it were current.</pre>
           </div></li>
           <li><div>
             <div class="st-h">ED reviews every page</div>
-            <div class="st-b">Numbers checked against their sources, framing checked against reality. Fix what needs fixing, then finalize and send.</div>
+            <div class="st-b">Check the numbers against their sources and the framing against what actually happened. Fix what needs fixing, then finalize and send.</div>
           </div></li>
           <li><div>
             <div class="st-h">Add the final packet back to the Project</div>
@@ -100,17 +140,18 @@ if it were current.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A packet in your board's own format, with every number traceable to a source document and every gap flagged instead of smoothed over — an hour of review standing in for a half-day of formatting.</p>
+            <p>A packet in your board's own format, with every number traceable to a source document and every gap flagged rather than smoothed over. An hour of review replaces a half-day of formatting.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The packet is a governance document — the board acts on it.</b> The traceability rule is what makes ED review an hour instead of a redo. Personnel matters, legal matters, and anything privileged are drafted by humans and never enter the Project.
+          <b>The packet is a governance document, and the board acts on it.</b> The traceability rule is what keeps the ED's review to an hour instead of a rewrite. Personnel matters, legal matters, and anything privileged are drafted by people and never go into the Project.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Ask Maria · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Ask Maria <span style="font-weight:600;opacity:.65;">(the institutional-memory bot)</span></h1>
-      <p class="tagline">Your longtime coordinator is leaving in two weeks — with twelve years of "how we actually handle things." Before she goes, she picks 10–15 real threads where she's solving problems, and they become a Project her successor can ask.</p>
+      <p class="tagline">Your longtime coordinator is leaving in two weeks, taking twelve years of "how we actually handle things" with her. Before she goes, she picks 10–15 real threads where she's solving problems, and those become a Project her successor can ask questions of.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>Real emails and Slack threads go in — so consent is non-negotiable.</b> Maria picks the threads, Maria redacts them (client names, personal asides, anyone who'd mind), Maria says yes. Never build this from someone's messages without them.</div>
+          <div class="tip"><b>Real emails and Slack threads go in, so consent is required.</b> Maria picks the threads, Maria redacts them (client names, personal asides, anyone who'd mind), and Maria gives the final yes. Never build this from someone's messages without them.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>10–15 real email and Slack threads where Maria is <b>actually solving problems</b> — threads <b>she chooses and she redacts</b> — plus her handoff doc. Nobody writes a "how Maria thinks" essay. Ten real conversations carry her judgment better than any description of it, and she'd never write the essay anyway.</p>
+          <p>10–15 real email and Slack threads where Maria is <b>actually solving problems</b>, threads <b>she chooses and she redacts</b>, plus her handoff doc. Nobody has to write a "how Maria thinks" essay. Ten real conversations carry her judgment better than any description of it would, and she'd never find the time to write the essay anyway.</p>
         </div>
       </div>
 
@@ -53,24 +53,28 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">Ask Maria — and mean it as a question</div>
-            <div class="st-b">Explain what you want to build and why, and that she controls every thread that goes in. If she says no, this recipe ends here. If she says yes, block half a day on her calendar before her last week — this is real handoff work, not a favor.</div>
+            <div class="st-h">Ask Maria first, and mean it as a question</div>
+            <div class="st-b">Explain what you want to build and why, and make clear that she controls every thread that goes in. If she says no, this recipe ends here. If she says yes, block half a day on her calendar before her last week. This is real handoff work and should be scheduled like it.</div>
           </div></li>
           <li><div>
             <div class="st-h">Maria picks 10–15 threads where she's solving problems</div>
-            <div class="st-b">Not announcements — <em>judgment in action</em>: the site-visit scheduling mess, the vendor who needed the firm-but-warm email, the funder report that almost went out wrong. She copies each into a doc and <b>redacts as she goes</b>: client names, personal asides, anything a colleague wouldn't want preserved. Her threads mention other people — clients, colleagues, partners. Before anything is uploaded, have whoever handles HR or compliance skim the selected threads. Non-negotiable if you work in health, childcare, or social services.</div>
+            <div class="st-b">Look for <em>judgment in action</em> rather than announcements: the site-visit scheduling mess, the vendor who needed a firm but warm email, the funder report that almost went out wrong. She copies each into a doc and <b>redacts as she goes</b>, removing client names, personal asides, and anything a colleague wouldn't want preserved. Her threads will mention other people, including clients, colleagues, and partners. Before anything is uploaded, have whoever handles HR or compliance skim the selected threads. That step is required if you work in health, childcare, or social services.</div>
           </div></li>
           <li><div>
             <div class="st-h">Create the Project and upload her picks</div>
-            <div class="st-b">In your AI chat: <b>Projects → New project</b> → "Ask Maria." Upload the redacted threads (one file per thread, named for the problem: "site-visit-scheduling.pdf") and her handoff doc via <b>Add content</b>. Maria gets final look at the file list — her yes covers exactly what's in it.</div>
+            <div class="st-b">In your AI chat, go to <b>Projects → New project</b> and name it "Ask Maria." Upload the redacted threads using <b>Add content</b>, one file per thread, each named for the problem it covers, such as "site-visit-scheduling.pdf." Add her handoff doc as well. Maria gets a final look at the file list, since her consent covers exactly what's in it.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
-            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. The refusal line matters as much as the voice line.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. The line telling it to refuse when her threads don't cover something matters as much as the line about her voice.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You are "Ask Maria" — a record of how <span class="tok">[Maria]</span>, our longtime
+              <div class="ph">
+        <span>Project instructions</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You are "Ask Maria" — a record of how <span class="tok">[Maria]</span>, our longtime
 <span class="tok">[program coordinator]</span>, handled things during her <span class="tok">[12]</span> years here.
 Your ONLY knowledge is the threads and handoff doc in this
 Project, which she chose and redacted herself.
@@ -88,15 +92,49 @@ You describe how things WERE handled; you don't decide how they
 should be handled now. For current decisions, end with: "That's
 how Maria approached it — the call on today's situation is
 yours."</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are "Ask Maria" — a record of how <span class="tok">[Maria]</span>, our longtime
+<span class="tok">[program coordinator]</span>, handled things during her <span class="tok">[12]</span> years here. You are a
+record, not a stand-in: you report what she did, you do not
+decide what we should do now.
+
+<span class="sec">GOAL:</span>
+Let anyone here ask "how did we handle this?" and get Maria's
+actual approach, grounded in her own words, with the original
+exchange one click away.
+
+<span class="sec">CONTEXT:</span>
+Your ONLY knowledge is the threads and handoff doc in this
+Project, which she chose and redacted herself. Nothing outside
+this Project counts — not general nonprofit practice, not what
+someone in her role usually does.
+
+<span class="sec">STEPS:</span>
+1. When asked how something was handled, search the threads for
+   the closest real instance.
+2. Answer in Maria's voice and approach, grounded only in what
+   her threads actually show.
+3. Name the thread you are drawing from and quote the key lines,
+   so the reader can go read the real exchange.
+4. If the threads do not cover the question, say exactly that:
+   "Maria's threads don't cover this." Never guess what she
+   would have done — a wrong answer in her voice is worse than
+   no answer.
+
+<span class="sec">OUTPUT:</span>
+A short answer in her voice, the thread cited, and the key lines
+quoted. When the question is about a current decision, end with:
+"That's how Maria approached it — the call on today's situation
+is yours."</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Test it together before she leaves</div>
-            <div class="st-b">Maria and her successor ask it five real questions side by side. Maria grades the answers — "yes, that's what I'd say" or "no, that thread was a special case." Gaps she spots become one or two more threads while she can still add them.</div>
+            <div class="st-b">Maria and her successor sit together and ask it five real questions. Maria grades the answers: "yes, that's what I'd say," or "no, that thread was a special case." Any gaps she spots become one or two more threads while she's still here to add them.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Hand it to the successor — as a starting point, not an oracle</div>
-            <div class="st-b">The successor's first months change: instead of archaeology through a stranger's inbox, they ask "how did we handle the site-visit scheduling mess?" and get the actual thread. What they decide to do next is theirs.</div>
+            <div class="st-h">Hand it to the successor as a starting point</div>
+            <div class="st-b">The successor's first months get easier. Instead of digging through a stranger's inbox, they can ask "how did we handle the site-visit scheduling mess?" and get the actual thread back. What they decide to do next is still their call.</div>
           </div></li>
         </ol>
 
@@ -106,17 +144,18 @@ yours."</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Twelve years of tacit knowledge that doesn't walk out the door: an askable record of how Maria actually handled the hard stuff, in her words, with every answer traceable to a real thread. And Maria leaves knowing exactly what was kept — because she chose it. Decide now when this Project gets archived or deleted — a year after the successor is settled is a fine default. Write it down.</p>
+            <p>Twelve years of hard-won knowledge that doesn't walk out the door: an askable record of how Maria actually handled the hard situations, in her words, with every answer traceable to a real thread. Maria also leaves knowing exactly what was kept, because she chose it. Decide now when this Project gets archived or deleted. A year after the successor is settled is a reasonable default. Write the date down.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Consent is a step, not a footnote.</b> Maria picks the threads. Maria redacts them. Maria says yes — to the specific file list, not the general idea. Never build this from someone's messages without them: it isn't just an ethics problem, it's a quality problem too, because only Maria knows which threads show her real judgment and which were exceptions. And other people are in those threads — her redaction pass protects them as much as her.
+          <b>Consent is a step in the recipe, not a footnote.</b> Maria picks the threads, Maria redacts them, and Maria says yes to the specific file list rather than to the general idea. Building this from someone's messages without them is an ethics problem and a quality problem both, because only Maria knows which threads show her real judgment and which were exceptions. Other people appear in those threads too, and her redaction pass protects them as much as it protects her.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

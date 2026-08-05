@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Quote-Card Press · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The quote-card press</h1>
-      <p class="tagline">A little page on your own computer that turns any quote or stat into a branded, ready-to-post graphic — type, click, download. The certificates trick, pointed at social media.</p>
+      <p class="tagline">A small page on your own computer that turns any quote or statistic into a branded, ready-to-post graphic. You type, click, and download. It's the certificates recipe pointed at social media instead of a printer.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg>
           <span class="fl">Public-facing output</span>
-          <div class="tip"><b>These posts go straight to the public.</b> A human reads every card before it posts — typos are forever on the internet, so this is one place to slow down even though the tool is fast.</div>
+          <div class="tip"><b>These posts go straight to the public.</b> Someone reads every card before it posts. Typos live a long time on the internet, so this is a place to slow down even though the tool is fast.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Your <b>brand colors</b> — even just a screenshot of an old flyer works, the AI can read colors off a screenshot — your <b>logo file</b>, and <b>one past post you liked</b>. The example carries the design; you never have to describe fonts or spacing in words.</p>
+          <p>Your <b>brand colors</b>, where even a screenshot of an old flyer works, since the AI can read colors off a screenshot. Then your <b>logo file</b> and <b>one past post you liked</b>. The example carries the design, so you never have to describe fonts or spacing in words.</p>
         </div>
       </div>
 
@@ -54,15 +54,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Grab the three ingredients</div>
-            <div class="st-b">A screenshot of anything already branded (a flyer, a slide, your website header), your logo file, and a favorite past graphic if you have one. Five minutes of digging through folders.</div>
+            <div class="st-b">A screenshot of anything already branded, such as a flyer, a slide, or your website header, plus your logo file and a favorite past graphic if you have one. About five minutes of looking through folders.</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a chat, attach the images, paste this prompt</div>
-            <div class="st-b">Swap in your colors and sizing. The attached images do the design talking.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Swap in your colors and sizing. The attached images handle the design.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Build me a SINGLE self-contained HTML file: a quote-card
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Build me a SINGLE self-contained HTML file: a quote-card
 generator for social media. It runs entirely in my browser —
 nothing I type is sent anywhere.
 
@@ -78,24 +82,53 @@ The page needs:
 Embed our logo (attached) in the corner. Keep text big and
 readable on a phone. Give me a light and a dark version I can
 toggle.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+A quote-card generator so anyone here can produce an on-brand
+social graphic in a minute, without opening a design tool.
+
+<span class="sec">CONTEXT:</span>
+Look at the attached images and match <span class="tok">[our colors, fonts as close as web-safe fonts
+allow, and general style]</span>. Our logo is also
+attached. It runs entirely in my browser — nothing I type is sent
+anywhere.
+
+<span class="sec">STEPS:</span>
+Build a SINGLE self-contained HTML file with:
+1. A box where I type a quote (or a big stat plus one line of
+   context).
+2. A field for the person's name and title.
+3. A Download button that saves a <span class="tok">[1080×1080]</span> PNG.
+4. Our logo embedded in the corner.
+5. A light and a dark version I can toggle between.
+Keep the text big and readable on a phone — the card will mostly
+be seen at thumbnail size.
+
+<span class="sec">OUTPUT:</span>
+One HTML file with the logo and styles embedded, working offline,
+plus a note on where to change the colors later if our brand
+shifts.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Save the file and double-click it</div>
-            <div class="st-b">Download the HTML file it hands back, drop it somewhere memorable (a desktop folder called "Quote Cards" is fine), and double-click to open it in your browser any time.</div>
+            <div class="st-b">Download the HTML file it hands back and put it somewhere you'll remember, such as a desktop folder called "Quote Cards." Double-click it to open in your browser any time.</div>
           </div></li>
           <li><div>
             <div class="st-h">Test-drive with a real quote, download, post</div>
             <div class="st-b">Type in something you'd actually post, hit download, open the PNG, and check it on your phone screen before it goes anywhere near a caption box.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Want a second layout? Ask for a toggle</div>
-            <div class="st-b">When you want a stat version alongside the quote version, go back to the same chat and ask it to add a style toggle to the existing file — no need to start over.</div>
+            <div class="st-h">Ask for a toggle if you want a second layout</div>
+            <div class="st-b">When you want a stat version alongside the quote version, go back to the same chat and ask it to add a style toggle to the existing file. There's no need to start over.</div>
           </div></li>
         </ol>
 
         <div class="browserline">
-          <b>Fonts are the honest limit here.</b> The browser can't use your exact brand font unless you have the actual font file. "Close" is usually fine for social — but if your brand manager will notice, ask the chat how to embed the real font file in the page.
+          <b>Fonts are the real limitation here.</b> The browser can't use your exact brand font unless you have the actual font file. A close match is usually fine for social media, but if your brand manager will notice, ask the chat how to embed the real font file in the page.
         </div>
 
         <div class="yield">
@@ -104,7 +137,7 @@ toggle.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>An always-open browser tab that replaces about 20 minutes of Canva per post — plus the certificates pattern (Recipe 04), now pointed at social media instead of a printer.</p>
+            <p>A browser tab you keep open that replaces about 20 minutes of design work per post, and a second use for the certificates pattern from Recipe 04.</p>
           </div>
         </div>
       </div>
@@ -112,5 +145,6 @@ toggle.</pre>
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

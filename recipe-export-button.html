@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Get Your Data Out of a System With No Export Button · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Get your data out of a system with no export button</h1>
-      <p class="tagline">The legacy database or portal your organization pays for holds your data but won't let you download it. An AI assistant in your browser logs in as you, while you watch, pages through, and builds the spreadsheet the vendor never gave you.</p>
+      <p class="tagline">The legacy database or portal your organization pays for holds your data but won't let you download it. An AI assistant in your browser signs in as you, works through the records while you watch, and builds the spreadsheet the vendor never gave you.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag red">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3.5a5 5 0 0 1-10 0V8z"/><path d="M12 16.5V21"/></svg>
           <span class="fl">Connects to your accounts</span>
-          <div class="tip"><b>Your own login to your own system.</b> Not a colleague's account, not a partner's system — yours, and only that.</div>
+          <div class="tip"><b>Your own login to your own system.</b> Not a colleague's account, and not a partner's system. Only yours.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Which system, which records, which fields — and your supervision for the whole session.</p>
+          <p>Which system, which records, and which fields, plus your supervision for the whole session.</p>
         </div>
       </div>
 
@@ -58,19 +58,23 @@
           </div></li>
           <li><div>
             <div class="st-h">Check the boring exits first</div>
-            <div class="st-b">Before browsing, spend 15 minutes: is there an export hidden in an admin menu? Does support export on request? Is there an API? The assistant can research this — a support ticket that works beats an hour of browsing.</div>
+            <div class="st-b">Before browsing, spend 15 minutes checking for an easier route. Is there an export hidden in an admin menu? Will support export on request? Is there an API? The assistant can research this for you, and a support ticket that works saves an hour of browsing.</div>
           </div></li>
           <li><div>
             <div class="st-h">Check the vendor's terms on automated access</div>
-            <div class="st-b">Ask the assistant to find the vendor's terms and summarize what they say about automated access. Some vendors prohibit it — read what it finds and make the call deliberately. When in doubt, ask the vendor: you're a paying customer asking to access your own data, and that email often just works.</div>
+            <div class="st-b">Ask the assistant to find the vendor's terms and summarize what they say about automated access. Some vendors prohibit it, so read what it finds and make the decision deliberately. When in doubt, ask the vendor. You're a paying customer asking to access your own data, and that email often works.</div>
           </div></li>
           <li><div>
             <div class="st-h">Give it the instruction, then watch</div>
             <div class="st-b">Log in yourself in the browser extension, then give it this. It works record by record at a human pace and stops at the first surprise.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>We are exporting our organization's own records from <span class="tok">[SYSTEM]</span>,
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">We are exporting our organization's own records from <span class="tok">[SYSTEM]</span>,
 logged in as me, with me watching. Go record by record: open each,
 copy <span class="tok">[FIELDS]</span> exactly as shown — never infer or reformat values.
 Build a table with one row per record and the record's URL or ID
@@ -80,15 +84,45 @@ Pause every 20 records and show me progress. If the site shows an
 error, a captcha, or anything unexpected, stop and tell me — never
 retry repeatedly, and never touch settings, delete buttons, or
 anything that edits data.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are operating my browser to copy out our organization's own
+records. You are a careful transcriber, not an editor — you never
+change anything on the site.
+
+<span class="sec">GOAL:</span>
+A clean table of our records from <span class="tok">[SYSTEM]</span>, which has no export
+button, with every value exactly as the system shows it.
+
+<span class="sec">CONTEXT:</span>
+We are exporting our organization's own records from <span class="tok">[SYSTEM]</span>,
+logged in as me, with me watching the whole time. The fields I
+need are <span class="tok">[FIELDS]</span>.
+
+<span class="sec">STEPS:</span>
+1. Go record by record: open each one, copy <span class="tok">[FIELDS]</span> exactly as
+   shown — never infer, reformat, or tidy a value.
+2. Record each row with the record's URL or ID in the first
+   column.
+3. Pause every 20 records and show me progress.
+4. If the site shows an error, a captcha, or anything unexpected,
+   stop and tell me. Never retry repeatedly.
+5. Never touch settings, delete buttons, or anything that edits
+   data. If a field is only visible in an edit view, tell me
+   rather than opening it.
+
+<span class="sec">OUTPUT:</span>
+One table, one row per record, record URL or ID in the first
+column — shown to me in batches of 20 as you go, so I can stop
+you early if something looks wrong.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Supervise the whole run</div>
-            <div class="st-b">Repeated rapid logins and actions can look like a break-in to the vendor's security systems — the human pace and pauses reduce that, and your presence handles the rest.</div>
+            <div class="st-b">Repeated rapid logins and actions can look like a break-in to the vendor's security systems. The human pace and the pauses reduce that, and your presence handles the rest.</div>
           </div></li>
           <li><div>
             <div class="st-h">Verify, then store it properly</div>
-            <div class="st-b">Count the records — does the total match what the system reports? Spot-check 10 rows. Then treat the export like the sensitive file it is: this is real constituent data now living in a spreadsheet, so store it where such data belongs, per your org's rules.</div>
+            <div class="st-b">Count the records and check the total against what the system reports, then spot-check 10 rows. After that, treat the export as the sensitive file it is. This is real constituent data now sitting in a spreadsheet, so store it where your org's rules say that data belongs.</div>
           </div></li>
         </ol>
 
@@ -98,17 +132,18 @@ anything that edits data.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A verified export of your own data, built while you supervised every step, stored the way sensitive constituent data is supposed to be stored — not a workaround you have to hide from your own IT policy.</p>
+            <p>A verified export of your own data, built while you supervised every step and stored the way sensitive constituent data is supposed to be stored. It isn't a workaround you have to hide from your own IT policy.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Three lines here, all bright.</b> It's your data and your login. You watch every minute — this never runs unattended, and it stops at the first surprise. And read-only is absolute: the instruction forbids touching anything that edits, and so do you. If the vendor's terms clearly prohibit automated access, the deliberate path is the support-ticket route, plus a pointed question at renewal time about why the export button doesn't exist.
+          <b>Three rules, none of them flexible.</b> It's your data and your login. You watch every minute, so this never runs unattended and it stops at the first surprise. And it stays read-only: the instruction forbids touching anything that edits, and so should you. If the vendor's terms clearly prohibit automated access, take the support-ticket route instead, and ask at renewal time why there is no export button.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

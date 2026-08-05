@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Type Up Handwritten Sign-In Sheets · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Type Up Handwritten Sign-In Sheets</h1>
-      <p class="tagline">Photograph paper sign-in sheets from every session; get a clean attendance spreadsheet in your format. AI chat assistants now read ordinary handwriting from photos well.</p>
+      <p class="tagline">Photograph the paper sign-in sheets from every session and get back a clean attendance spreadsheet in your format. AI chat assistants read ordinary handwriting from photos reasonably well now.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>Participant names go to the AI vendor.</b> Check your plan's training settings (covered in the setup recipe) before you start. Consider whether your sign-in sheets are sensitive — for programs serving vulnerable people, this may be a no.</div>
+          <div class="tip"><b>Participant names go to the AI vendor.</b> Check your plan's training settings, which the setup recipe covers, before you start. Think about whether your sign-in sheets are sensitive. For programs serving vulnerable people, the answer may be that this recipe isn't appropriate.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Photos of the sheets, plus one row of your attendance spreadsheet showing your <b>exact column names</b>. It matches your format — you don't reshape anything after.</p>
+          <p>Photos of the sheets, plus one row of your attendance spreadsheet showing your <b>exact column names</b>. The output matches your format, so there's nothing to reshape afterward.</p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Photograph each sheet flat, in good light</div>
-            <div class="st-b">Lay the sheet flat, avoid glare and shadows, and get the whole page in frame. A blurry photo produces a blurry transcription.</div>
+            <div class="st-b">Lay the sheet flat, avoid glare and shadows, and get the whole page in frame. A blurry photo produces an unreliable transcription.</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a chat and attach up to about 10 photos</div>
@@ -62,10 +62,14 @@
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt, with your own column names</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Transcribe every row from these sign-in sheet photos into a table
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Transcribe every row from these sign-in sheet photos into a table
 with columns <span class="tok">[YOUR COLUMNS, e.g. Name, Program, Date, Phone]</span>.
 
 Mark any name you cannot read confidently as [UNREADABLE] rather
@@ -73,11 +77,36 @@ than guessing. Keep rows in the order they appear on each sheet.
 
 After the table, tell me how many entries were marked
 [UNREADABLE].</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a transcriber of handwriting. You copy what is on the
+page; you never improve it into a plausible name.
+
+<span class="sec">GOAL:</span>
+Get every row from these photographed sign-in sheets into a table
+I can work with.
+
+<span class="sec">CONTEXT:</span>
+The photos are attached. They're handwritten sheets from real
+events — crossed-out lines, cramped columns, and a few people who
+signed on the wrong row. The columns I need are <span class="tok">[YOUR COLUMNS, e.g. Name, Program, Date, Phone]</span>.
+
+<span class="sec">STEPS:</span>
+1. Transcribe every row from every sheet.
+2. Keep rows in the order they appear on each sheet.
+3. Mark any name you cannot read confidently as [UNREADABLE]
+   rather than guessing. A misread name is worse than a blank —
+   it silently becomes a wrong person in our records.
+4. Don't normalize spellings, expand nicknames, or fix
+   capitalization.
+
+<span class="sec">OUTPUT:</span>
+One table with columns <span class="tok">[YOUR COLUMNS, e.g. Name, Program, Date, Phone]</span>. After the table, tell me how many
+entries were marked [UNREADABLE].</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Copy the result into your spreadsheet</div>
-            <div class="st-b">Paste the table in directly — the columns already match what you asked for.</div>
+            <div class="st-b">Paste the table in directly. The columns already match what you asked for.</div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check 5 random rows against the photos</div>
@@ -85,7 +114,7 @@ After the table, tell me how many entries were marked
           </div></li>
           <li><div>
             <div class="st-h">Save the prompt for next week</div>
-            <div class="st-b">Keep it somewhere you'll find it — a note, a doc, a saved message. Next session, swap in new photos and reuse it as-is.</div>
+            <div class="st-b">Keep it somewhere you'll find it: a note, a doc, or a saved message. Next session, swap in new photos and reuse it unchanged.</div>
           </div></li>
         </ol>
 
@@ -95,17 +124,18 @@ After the table, tell me how many entries were marked
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A clean attendance table in your own column format, ready to paste into your spreadsheet — plus a flagged list of anything the model couldn't read, so you know exactly where to look.</p>
+            <p>A clean attendance table in your own column format, ready to paste into your spreadsheet, plus a list of anything the model couldn't read so you know exactly where to look.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>It will sometimes read a messy name wrong with total confidence.</b> The [UNREADABLE] rule and the 5-row spot-check are the recipe, not extras. Handwriting it genuinely can't read is real — expect a few per sheet, and that's the system working, not failing.
+          <b>It will sometimes read a messy name wrong and sound completely sure about it.</b> The [UNREADABLE] rule and the 5-row spot-check are part of the recipe rather than optional extras. Some handwriting genuinely can't be read, so expect a few flags per sheet. That's the system working correctly.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

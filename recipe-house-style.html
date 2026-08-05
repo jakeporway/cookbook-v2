@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The House Style, Bottled · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The House Style, Bottled</h1>
-      <p class="tagline">Your five proudest pieces go into a Skill. Now everyone's drafts — the intern's, the board chair's, the ED's — come out sounding like one organization. Feed it a new best example whenever one exists, and it keeps getting more <em>you</em>.</p>
+      <p class="tagline">Your five proudest pieces go into a Skill, and after that everyone's drafts come out sounding like one organization, whether they're from the intern, the board chair, or the ED. Add a new best example whenever one comes along and it keeps getting closer to your voice.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Your <b>5 best published pieces</b> — the ones you'd hold up and say "this is us" — plus <b>1 counter-example</b>: something that made you wince, labeled "we never sound like this." You never write a style guide. The pieces <b>are</b> the style guide, demonstrated instead of described.</p>
+          <p>Your <b>5 best published pieces</b>, the ones you'd hold up and say "this is us," plus <b>1 counter-example</b>: something that made you wince, labeled "we never sound like this." You never write a style guide. The pieces <b>are</b> the style guide, shown rather than described.</p>
         </div>
       </div>
 
@@ -52,16 +52,20 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">Gather your five proudest pieces — and the one that made you wince</div>
-            <div class="st-b">The newsletter people replied to. The appeal that worked. The annual report intro you'd frame. Then find one counter-example: jargon-heavy, stiff, off-key. You know it when you see it. Copy the text of all six somewhere handy.</div>
+            <div class="st-h">Gather your five proudest pieces and the one that made you wince</div>
+            <div class="st-b">The newsletter people replied to, the appeal that worked, the annual report intro you'd frame. Then find one counter-example: jargon-heavy, stiff, or off-key. Copy the text of all six somewhere you can get at it.</div>
           </div></li>
           <li><div>
             <div class="st-h">Create the skill and paste this in</div>
-            <div class="st-b">In your AI chat, make a new Project called <em>House Style</em> (If your AI tool offers "Skills" or custom instructions you can share, that's the same idea one step up — but a Project is all you need here.) and paste this as its instructions, with your six pieces where marked. That's the whole "teaching" — the examples do the work.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">In your AI chat, make a new Project called <em>House Style</em> and paste this as its instructions, with your six pieces where marked. (If your AI tool offers shareable "Skills" or custom instructions, those work the same way, but a Project is all you need here.) That's the whole setup. The examples do the teaching.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You are our organization's house-style editor. I'm teaching you
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You are our organization's house-style editor. I'm teaching you
 our voice from real examples — we will never write a style guide.
 
 Below are <span class="tok">[5]</span> pieces we're proudest of, and 1 counter-example
@@ -83,23 +87,58 @@ GOOD EXAMPLES:
 
 WE NEVER SOUND LIKE THIS:
 <span class="tok">[paste the 1 counter-example]</span></pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are our organization's house-style editor. You learn our
+voice from real examples, because we are never going to write a
+style guide.
+
+<span class="sec">GOAL:</span>
+When anyone on my team pastes a draft and says "house style,"
+return it sounding like us — and teach us a little about our own
+voice each time.
+
+<span class="sec">CONTEXT:</span>
+Below are <span class="tok">[5]</span> pieces we're proudest of, and 1 counter-example
+labeled WE NEVER SOUND LIKE THIS. Study the good ones for warmth,
+sentence length, and the way we talk about <span class="tok">[the people we serve]</span>.
+
+GOOD EXAMPLES:
+<span class="tok">[paste your 5 best pieces]</span>
+
+WE NEVER SOUND LIKE THIS:
+<span class="tok">[paste the 1 counter-example]</span>
+
+<span class="sec">STEPS:</span>
+1. Rewrite the pasted draft so it sounds like the good examples
+   and never like the counter-example.
+2. Keep every fact, name, and number exactly as written. Change
+   only the voice.
+3. Name the biggest changes you made, so we learn our own style
+   over time.
+4. When I say "new example," I'll paste a piece and tell you
+   whether it's a good one or a bad one — update how you work
+   accordingly.
+
+<span class="sec">OUTPUT:</span>
+The rewrite, then 2–3 short bullets on the biggest changes you
+made and why they sound more like us.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Test it on a fresh draft</div>
-            <div class="st-b">Take something rough that's on your desk right now — a "please share this" paragraph, a program update — paste it in and say "house style." Read the rewrite. Does it sound like you on a good day? If it's off, say <em>how</em> ("too formal," "we'd never say 'utilize'") and it adjusts.</div>
+            <div class="st-b">Take something rough that's on your desk right now, like a "please share this" paragraph or a program update, paste it in, and say "house style." Read the rewrite and ask whether it sounds like you on a good day. If it's off, say <em>how</em> it's off, such as "too formal" or "we'd never say 'utilize'," and it will adjust.</div>
           </div></li>
           <li><div>
             <div class="st-h">Share it with the team</div>
-            <div class="st-b">Invite your colleagues to the Project, or show them where the skill lives. The instruction to them is one sentence: "Paste your draft, say 'house style,' read what comes back before you use it." Everyone you invite can see everything in the Project — the writing samples and the instructions — so include only what you'd share org-wide anyway.</div>
+            <div class="st-b">Invite your colleagues to the Project, or show them where the skill lives. The instruction to them is one sentence: "Paste your draft, say 'house style,' and read what comes back before you use it." Everyone you invite can see everything in the Project, including the writing samples and the instructions, so only put in what you'd share across the org anyway.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Feed it whenever a great (or terrible) piece appears</div>
-            <div class="st-b">Next time something lands beautifully — or lands with a thud — paste it in and say "new example: good one" or "new example: bad one." Thirty seconds, and the bottle gets a little more concentrated. This is the habit that makes it a living tool.</div>
+            <div class="st-h">Add new examples when a great or a terrible piece appears</div>
+            <div class="st-b">Next time something lands well, or lands badly, paste it in and say "new example: good one" or "new example: bad one." It takes thirty seconds and sharpens the tool each time. This is the habit that keeps it useful.</div>
           </div></li>
         </ol>
 
-        <div class="browserline"><b>The counter-example is load-bearing.</b> One "we never sound like this" teaches more than three more "like this" — it draws the line the good examples only gesture at. Don't skip it, and don't soften it: pick something that genuinely misses your voice, and say so plainly.</div>
+        <div class="browserline"><b>The counter-example does a lot of work.</b> One "we never sound like this" teaches more than three more good examples would, because it draws a line the good examples only imply. Don't skip it and don't soften it. Pick something that genuinely misses your voice and say so plainly.</div>
 
         <div class="yield">
           <div class="ic">
@@ -107,7 +146,7 @@ WE NEVER SOUND LIKE THIS:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>One person's ear for the organization's voice, turned into something the whole team can use. The payoff isn't speed — it's <b>consistency across people</b>: the intern's first draft and the ED's board letter come out sounding like the same organization, and the comms lead stops being the bottleneck who rewrites everything.</p>
+            <p>One person's ear for the organization's voice, turned into something the whole team can use. The main gain is <b>consistency across people</b> rather than speed: the intern's first draft and the ED's board letter come out sounding like the same organization, and the comms lead stops having to rewrite everything.</p>
           </div>
         </div>
       </div>
@@ -115,5 +154,6 @@ WE NEVER SOUND LIKE THIS:
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

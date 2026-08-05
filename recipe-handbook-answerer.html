@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Handbook Answerer · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The handbook answerer</h1>
-      <p class="tagline">Your employee handbook, board bylaws, and fiscal policies — in one Project that answers "do I get bereavement leave for a grandparent?" with the section quoted. HR stops being the bottleneck for questions the documents already answer.</p>
+      <p class="tagline">Put your employee handbook, board bylaws, and fiscal policies into one Project, and it answers questions like "do I get bereavement leave for a grandparent?" with the section quoted. HR stops being the bottleneck for questions the documents already answer.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The PDFs you already have: the employee handbook, the board bylaws, the fiscal policies. <b>You write nothing new</b> — no summaries, no FAQ, no explanation of how your org works. The documents are the expertise; you're just making them answerable.</p>
+          <p>The PDFs you already have: the employee handbook, the board bylaws, and the fiscal policies. <b>You write nothing new.</b> No summaries, no FAQ, no explanation of how your org works. The documents hold the expertise, and you're just making them answerable.</p>
         </div>
       </div>
 
@@ -53,23 +53,27 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Round up the current versions</div>
-            <div class="st-b">Find the <em>latest</em> handbook, bylaws, and fiscal policies — not the 2019 draft in someone's Downloads folder. If you're not sure a version is current, this recipe just handed you a reason to find out.</div>
+            <div class="st-b">Find the <em>latest</em> handbook, bylaws, and fiscal policies, rather than the 2019 draft in someone's Downloads folder. If you're not sure a version is current, this is a good reason to find out.</div>
           </div></li>
           <li><div>
             <div class="st-h">Create a Project named "Policy Answerer"</div>
-            <div class="st-b">In your AI chat, click <b>Projects → New project</b>. Add the version date to the name ("Policy Answerer — docs as of Jul 2026") so future-you knows how fresh it is.</div>
+            <div class="st-b">In your AI chat, click <b>Projects → New project</b>. Put the version date in the name, such as "Policy Answerer, docs as of Jul 2026," so anyone can tell how current it is.</div>
           </div></li>
           <li><div>
             <div class="st-h">Upload the PDFs to Project knowledge</div>
-            <div class="st-b">Use <b>Add content</b> on the Project page and upload each document. Three or four files is typical; add the personnel-policy appendix and travel-reimbursement memo too if people actually ask about them.</div>
+            <div class="st-b">Use <b>Add content</b> on the Project page and upload each document. Three or four files is typical. Add the personnel-policy appendix and the travel-reimbursement memo as well if people actually ask about them.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
-            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. The last paragraph is the one that keeps this tool in its lane.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. The last paragraph is what keeps the tool inside its limits.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You answer staff questions about <span class="tok">[our organization]</span>'s policies
+              <div class="ph">
+        <span>Project instructions</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You answer staff questions about <span class="tok">[our organization]</span>'s policies
 using ONLY the documents in this Project: <span class="tok">[the employee handbook,
 board bylaws, and fiscal policies]</span>.
 
@@ -89,15 +93,50 @@ to a human, full stop.
 End every answer with: "This is what the documents say — it is
 not official HR guidance. Confirm with <span class="tok">[name]</span> before
 acting on anything about leave, pay, or discipline."</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You answer staff questions about <span class="tok">[our organization]</span>'s policies. You know what
+the documents SAY — not what the organization has since decided,
+and not what HR would advise.
+
+<span class="sec">GOAL:</span>
+Give staff a fast, verifiable answer to routine policy questions,
+and route everything else to a human.
+
+<span class="sec">CONTEXT:</span>
+Use ONLY the documents in this Project: <span class="tok">[the employee handbook, board bylaws,
+and fiscal policies]</span>. Staff asking are
+usually mid-task and will act on what you say, so verifiability
+matters more than fluency.
+
+<span class="sec">STEPS:</span>
+1. Answer from the documents only.
+2. Quote the exact passage and cite the document name and
+   page/section, so the reader can verify it.
+3. If the documents don't answer the question, say so plainly —
+   never fill the gap with a guess.
+4. If the question sounds like it involves an exception, a
+   judgment call, or a situation the policy doesn't cleanly
+   cover, answer what the document says AND add: "For your
+   specific situation, confirm with <span class="tok">[the operations manager]</span>."
+5. Anything involving a dispute, accommodation, or personal
+   circumstance goes to a human, full stop.
+
+<span class="sec">OUTPUT:</span>
+The quoted passage with its citation, a plain-language reading of
+it, and then always this closing line:
+
+"This is what the documents say — it is not official HR guidance.
+Confirm with <span class="tok">[name]</span> before acting on anything about leave, pay,
+or discipline."</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Test it with the questions you're sick of answering</div>
-            <div class="st-b">Ask the nine questions you field every month — bereavement leave, mileage rates, who signs checks over $5,000. Check each quoted section against the real PDF. When they all check out, you've got your answerer.</div>
+            <div class="st-b">Ask the questions you field every month: bereavement leave, mileage rates, who signs checks over $5,000. Check each quoted section against the real PDF. Once they all check out, the answerer is ready.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Answer with it — then let people ask it themselves</div>
-            <div class="st-b">Start by using it yourself to reply faster. Once you trust it, walk a colleague through asking it directly. You've stopped being the bottleneck; you're now the editor of the documents it reads. Write one name next to this tool — whoever owns the handbook owns updating this Project the same week a policy changes. A stale-but-confident answerer is worse than none.</div>
+            <div class="st-h">Use it yourself, then let people ask it directly</div>
+            <div class="st-b">Start by using it yourself to reply faster. Once you trust it, walk a colleague through asking it directly. Your role shifts from answering the questions to maintaining the documents it reads. Put one name against this tool: whoever owns the handbook also owns updating this Project the same week a policy changes. An out-of-date answerer that still sounds confident is worse than no answerer at all.</div>
           </div></li>
         </ol>
 
@@ -107,17 +146,18 @@ acting on anything about leave, pay, or discipline."</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A policy answerer that quotes the section, every time. The routine nine questions stop landing in your inbox — and when the answerer says "the handbook doesn't cover this," that's a signal the handbook needs a paragraph, which is useful too.</p>
+            <p>A policy answerer that quotes the section every time. The routine questions stop landing in your inbox, and when the answerer says "the handbook doesn't cover this," you've learned that the handbook needs a paragraph, which is useful in itself.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The expert knows what the document SAYS — not what the org has since DECIDED.</b> If the board voted a new leave policy last month and the handbook hasn't been reissued, the answerer is confidently wrong. When documents and decisions conflict, the humans win. Two habits keep this safe: update the Project's files the same week a policy changes, and keep the "confirm with a human" line in the instructions.
+          <b>The expert knows what the documents SAY, not what the org has since DECIDED.</b> If the board voted in a new leave policy last month and the handbook hasn't been reissued, the answerer will be confidently wrong. When the documents and the decisions conflict, the people are right. Two habits keep this safe: update the Project's files the same week a policy changes, and keep the "confirm with a human" line in the instructions.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

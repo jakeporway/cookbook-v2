@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Who's Missing? (The Three-List Reconcile) · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Who's Missing? (The Three-List Reconcile)</h1>
-      <p class="tagline">Registered vs. attended vs. completed-the-survey — who fell through which crack? Paste the three lists and get the gaps as plain lists of names, not a pivot-table lecture.</p>
+      <p class="tagline">Who registered, who attended, and who completed the survey, and where the gaps are between them. Paste the three lists and get the answers back as plain lists of names rather than a pivot table.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The three lists you already have: the <b>registration export</b>, the <b>sign-in sheet or attendance export</b>, and the <b>survey-completion list</b>. Or — if this data is personal enough that you wouldn't email it around — just their <b>column headers</b>, for the local-tool variant below.</p>
+          <p>The three lists you already have: the <b>registration export</b>, the <b>sign-in sheet or attendance export</b>, and the <b>survey-completion list</b>. If the data is personal enough that you wouldn't email it around, use just their <b>column headers</b> with the local-tool version below.</p>
         </div>
       </div>
 
@@ -52,20 +52,24 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">First, pick your privacy tier — for this data, this time</div>
-            <div class="st-b">A quick test: if the lists contain Social Security numbers, health information, anything about minors, or home addresses — use the on-your-computer variant below. If it's just names and work emails, pasting is fine. If that's you, continue to step 2. If not, skip to the local-tool variant in the caution box below instead.</div>
+            <div class="st-h">Pick your privacy tier for this data, this time</div>
+            <div class="st-b">A quick test: if the lists contain Social Security numbers, health information, anything about minors, or home addresses, use the on-your-computer version below. If they hold only names and work emails, pasting is fine. In that case continue to step 2. Otherwise, skip to the local-tool version in the caution box below.</div>
           </div></li>
           <li><div>
             <div class="st-h">Export or copy the three lists</div>
-            <div class="st-b">Name and email per person is plenty. They don't need to match in format — one can be a CSV, one a sign-in sheet you typed up, one a survey export. The AI sorts out the mess.</div>
+            <div class="st-b">A name and email per person is plenty. The formats don't need to match: one can be a CSV, one a sign-in sheet you typed up, and one a survey export. The AI sorts that out.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt with the three lists inside it</div>
             <div class="st-b">Swap in your own lists and, if you like, your own program name.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>I coordinate a <span class="tok">workforce training program</span> and I'm reconciling three
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">I coordinate a <span class="tok">workforce training program</span> and I'm reconciling three
 lists before a quarterly review.
 
 LIST A — people who REGISTERED:
@@ -90,19 +94,58 @@ Give me plain lists of names (please, no pivot tables):
 
 End with a count for each group, and tell me if any list looks like
 it has duplicate rows inside itself.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are reconciling three lists of people. Where you can't be
+certain two rows are the same person, you say so rather than
+deciding.
+
+<span class="sec">GOAL:</span>
+Know who fell out of the funnel between registering, attending,
+and finishing the survey — before a quarterly review.
+
+<span class="sec">CONTEXT:</span>
+I coordinate a <span class="tok">workforce training program</span> and I'm reconciling three lists.
+
+LIST A — people who REGISTERED:
+<span class="tok">[paste the registration list here]</span>
+
+LIST B — people who ATTENDED:
+<span class="tok">[paste the attendance list here]</span>
+
+LIST C — people who COMPLETED THE SURVEY:
+<span class="tok">[paste the survey-completion list here]</span>
+
+<span class="sec">STEPS:</span>
+1. Match people across the lists by email address.
+2. Where an email is missing, match by name — but FLAG those
+   matches as uncertain rather than assuming. Names may be
+   spelled slightly differently between lists.
+3. Sort everyone into the five groups below.
+4. Check each list for duplicate rows inside itself.
+5. Give me plain lists of names — please, no pivot tables.
+
+<span class="sec">OUTPUT:</span>
+1. Registered but never attended
+2. Attended but never registered (walk-ins)
+3. Attended but didn't complete the survey
+4. Made it all the way through all three
+5. Uncertain matches you had to guess about, shown side by side
+
+End with a count for each group, and tell me if any list looks
+like it has duplicate rows inside itself.</pre>
+      </div>
           </div></li>
           <li><div>
-            <div class="st-h">Read the gaps — and check the uncertain-match pile</div>
-            <div class="st-b">Group 5 is where mistakes hide. "Mike Chen" on the sign-in sheet and "Michael Chen" in the survey might be one person. You know your participants; the AI doesn't. Resolve those few by eye.</div>
+            <div class="st-h">Read the gaps, and check the uncertain-match pile</div>
+            <div class="st-b">Group 5 is where mistakes hide. "Mike Chen" on the sign-in sheet and "Michael Chen" in the survey might be the same person. You know your participants and the AI doesn't, so resolve those few yourself.</div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check three names before the numbers go anywhere</div>
-            <div class="st-b">Pick three people from the "attended but no survey" list and confirm them against the raw exports. Two minutes, and now you can stand behind the completion numbers in the review.</div>
+            <div class="st-b">Pick three people from the "attended but no survey" list and confirm them against the raw exports. Two minutes of checking means you can stand behind the completion numbers in the review.</div>
           </div></li>
           <li><div>
             <div class="st-h">Save the prompt for next quarter</div>
-            <div class="st-b">The lists change; the prompt doesn't. Keep it wherever you keep your quarterly checklist.</div>
+            <div class="st-b">The lists change but the prompt doesn't. Keep it wherever you keep your quarterly checklist.</div>
           </div></li>
         </ol>
 
@@ -112,16 +155,20 @@ it has duplicate rows inside itself.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Named lists of exactly who fell through which crack — who to nudge about the survey, who registered and vanished — plus clean counts for the quarterly review. Follow-up you can act on today, instead of a pivot table you'd still have to decode.</p>
+            <p>Named lists showing exactly where each person dropped off: who to nudge about the survey, who registered and never appeared, plus clean counts for the quarterly review. It's follow-up you can act on today rather than a pivot table you'd still have to decode.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Choose your privacy tier for THIS data, this time.</b> If these are lists you'd email a colleague — staff trainings, a public workshop — paste freely. If they hold people's personal information — clients, minors, home contacts — use the green variant instead: paste <b>only the column headers</b> of the three lists and use the prompt below. Same answer; the names never leave your machine.
-          <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+          <b>Choose your privacy tier for THIS data, this time.</b> If these are lists you'd email a colleague, such as staff trainings or a public workshop, paste them freely. If they hold people's personal information, such as clients, minors, or home contacts, use the green version instead: paste <b>only the column headers</b> of the three lists and use the prompt below. You get the same answer, and the names never leave your machine.
+          <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
           <div class="prompt">
-            <div class="ph"><span>Prompt (green variant — headers only)</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-            <pre>I will NOT paste the data — here are just the column headers of my
+            <div class="ph">
+        <span>Prompt (green version, headers only)</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">I will NOT paste the data — here are just the column headers of my
 three lists:
 
 LIST A — REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
@@ -140,12 +187,49 @@ before:
 5. Uncertain matches you had to guess about, shown side by side
 
 End with a count for each group.</pre>
-          </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+The same three-list reconcile as above, but as a page I keep — so
+the participant data never leaves my computer.
+
+<span class="sec">CONTEXT:</span>
+I will NOT paste the data — here are just the column headers of
+my three lists:
+
+LIST A — REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
+LIST B — ATTENDED: <span class="tok">[Name, Email, Check-in Time]</span>
+LIST C — COMPLETED THE SURVEY: <span class="tok">[Name, Email, Submitted Date]</span>
+
+<span class="sec">STEPS:</span>
+Build a SINGLE self-contained HTML file (no internet needed, no
+libraries loaded from the web) where I drop the three CSVs onto
+the page. It must read the files in my browser only — my data
+should never be uploaded anywhere. It should:
+1. Match people by email address first.
+2. Where an email is missing, match by name, allowing for
+   slightly different spellings — and show those matches as
+   uncertain rather than merging them.
+3. Sort everyone into the same five groups as before.
+
+<span class="sec">OUTPUT:</span>
+In the page:
+1. Registered but never attended
+2. Attended but never registered (walk-ins)
+3. Attended but didn't complete the survey
+4. Made it all the way through all three
+5. Uncertain matches you had to guess about, shown side by side
+
+End with a count for each group.</pre>
+      </div>
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

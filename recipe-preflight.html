@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Set Up Your AI the Right Way · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Set up your AI the right way</h1>
-      <p class="tagline">A ten-minute check before anything else: which plan you're on, whether web search is on, what your privacy and training settings say, and where Projects live. Half the problems people hit with these recipes trace back to setup.</p>
+      <p class="tagline">A ten-minute check before anything else: which plan you're on, whether web search is turned on, what your privacy and training settings say, and where Projects live. Half the problems people hit with these recipes come back to setup.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Nothing. This one is a checklist, not a prompt — with one exception, below.</p>
+          <p>Nothing. This one is a checklist rather than a prompt, with one exception below.</p>
         </div>
       </div>
 
@@ -54,11 +54,11 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Know your plan</div>
-            <div class="st-b">Free plans have tighter limits and fewer features. These recipes assume a paid individual plan (any provider's paid tier). Check <b>Settings → Plan</b> to see what you're on.</div>
+            <div class="st-b">Free plans have tighter limits and fewer features. These recipes assume a paid individual plan on any provider. Check <b>Settings → Plan</b> to see what you're on.</div>
           </div></li>
           <li><div>
             <div class="st-h">Check the training setting</div>
-            <div class="st-b">In <b>Settings → Privacy</b>, find whether your conversations can be used to train models, and set it the way your org wants. On a workplace or team plan, this is typically already protected. Write down what you found — every amber recipe in this book leans on your answer.</div>
+            <div class="st-b">In <b>Settings → Privacy</b>, find out whether your conversations can be used to train models, and set it the way your org wants. On a workplace or team plan this is usually already protected. Write down what you found, because every amber recipe in this book depends on that answer.</div>
           </div></li>
           <li><div>
             <div class="st-h">Turn on web search</div>
@@ -66,24 +66,56 @@
           </div></li>
           <li><div>
             <div class="st-h">Find Projects in the sidebar</div>
-            <div class="st-b">Categories 4 and 5 of this book live in Projects. Open one, find the <b>Instructions</b> box and the <b>Add content</b> button, then close it. You just need to know it's there.</div>
+            <div class="st-b">Categories 4 and 5 of this book are built in Projects. Open one, find the <b>Instructions</b> box and the <b>Add content</b> button, then close it again. You only need to know where they are.</div>
           </div></li>
           <li><div>
             <div class="st-h">Ask it what it can see</div>
-            <div class="st-b">The AI can't always see your account details. The point of this prompt is learning to ask — and learning that "check Settings yourself" is sometimes the right answer.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Copy it as-is.</p>
+            <div class="st-b">The AI can't always see your account details. The point of this prompt is to practice asking, and to learn that "check Settings yourself" is sometimes the correct answer.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Copy it exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>What plan am I on, is web search available to me, and can my
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">What plan am I on, is web search available to me, and can my
 conversations here be used for model training with my current
 settings? Answer only from what you can actually determine about
 this account. For anything you can't determine, say plainly:
 "I can't see that from here — check Settings → [location]."</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are reporting on this account's actual configuration. You are
+not describing how the product generally works.
+
+<span class="sec">GOAL:</span>
+Tell me what I'm actually working with here before I put anything
+real into it.
+
+<span class="sec">CONTEXT:</span>
+I'm about to use this tool for work that may involve other
+people's information, so the settings matter more than the
+features.
+
+<span class="sec">STEPS:</span>
+Answer three things, only from what you can actually determine
+about this account:
+1. What plan am I on?
+2. Is web search available to me?
+3. Can my conversations here be used for model training with my
+   current settings?
+
+For anything you can't determine, do not infer it from the
+typical default.
+
+<span class="sec">OUTPUT:</span>
+A one-line answer to each. Where you can't see something, say
+plainly: "I can't see that from here — check Settings →
+[location]."</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Write down the three answers</div>
-            <div class="st-b">Plan, training setting, web search — on a sticky note, or wherever your team will actually see it. That's your org's one-line AI policy until it has a real one.</div>
+            <div class="st-b">Write down your plan, your training setting, and your web search status on a sticky note, or wherever your team will actually see it. That serves as your org's AI policy until it has a fuller one.</div>
           </div></li>
         </ol>
 
@@ -93,17 +125,18 @@ this account. For anything you can't determine, say plainly:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Three answers you actually checked instead of assumed: your plan, your training setting, and your search status. Every other recipe in this book assumes you did this once.</p>
+            <p>Three answers you checked rather than assumed: your plan, your training setting, and your search status. Every other recipe in this book assumes you've done this once.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Settings screens move, and plans change names.</b> This checklist names what to look FOR, not pixel-exact paths. Whichever assistant your org uses — ChatGPT, Gemini, Copilot, or another — the same four checks exist under different names — ask the chat itself where its equivalents live.
+          <b>Settings screens move, and plans change names.</b> This checklist describes what to look for rather than exact menu paths. Whichever assistant your org uses, whether that's ChatGPT, Gemini, Copilot, or another, the same four checks exist under different names. Ask the chat itself where its equivalents live.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

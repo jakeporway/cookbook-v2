@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Turn a Pile of Receipts Into an Expense Report · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Turn a Pile of Receipts Into an Expense Report</h1>
-      <p class="tagline">Photograph the month's receipts, give it your budget categories, and get a categorized expense table ready for your bookkeeper — with anything uncertain flagged, not guessed at.</p>
+      <p class="tagline">Photograph the month's receipts, give it your budget categories, and get back a categorized expense table ready for your bookkeeper, with anything uncertain flagged rather than guessed at.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>Vendor names and amounts go to the AI vendor.</b> This is usually fine for ordinary operating expenses — but skip any receipt that would reveal information about a client (a purchase made on their behalf, a service tied to their name).</div>
+          <div class="tip"><b>Vendor names and amounts go to the AI vendor.</b> That's usually fine for ordinary operating expenses. Skip any receipt that would reveal information about a client, such as a purchase made on their behalf or a service tied to their name.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Receipt photos, plus your <b>actual budget category list</b> — paste it directly from your chart of accounts. Don't describe your categories from memory; paste the real list so nothing gets invented.</p>
+          <p>Receipt photos, plus your <b>actual budget category list</b>, pasted directly from your chart of accounts. Don't describe your categories from memory. Paste the real list so nothing gets invented.</p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Photograph the receipts</div>
-            <div class="st-b">Several per photo is fine, as long as each one lies flat and the printed text is readable. Faded thermal-paper receipts are the usual problem spot — angle them to reduce glare.</div>
+            <div class="st-b">Several per photo is fine, as long as each one lies flat and the printed text is readable. Faded thermal-paper receipts cause the most trouble, so angle them to reduce glare.</div>
           </div></li>
           <li><div>
             <div class="st-h">Attach the photos in batches</div>
@@ -62,10 +62,14 @@
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt, with your real category list</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>For each receipt, extract the date, vendor, and amount, and assign
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">For each receipt, extract the date, vendor, and amount, and assign
 one category from this list: <span class="tok">[PASTE YOUR CATEGORIES]</span>.
 
 If the category is not obvious, assign "REVIEW" instead of
@@ -75,15 +79,43 @@ guessing.
 Output one table sorted by date. After the table, list every REVIEW
 and [UNREADABLE] item separately. Then total the amount column so I
 can check it against the receipts.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a bookkeeping assistant reading receipts. You transcribe
+what's printed; you don't decide what something probably was.
+
+<span class="sec">GOAL:</span>
+Turn this pile of receipt images into an expense report I can
+reconcile.
+
+<span class="sec">CONTEXT:</span>
+The receipts are attached — photographed, not scanned, so some
+will be crooked, faded, or partly cut off. Assign categories from
+this list: <span class="tok">[PASTE YOUR CATEGORIES]</span>.
+
+<span class="sec">STEPS:</span>
+1. For each receipt, extract the date, the vendor, and the
+   amount.
+2. Assign exactly one category from my list.
+3. If the category is not obvious, assign "REVIEW" instead of
+   guessing.
+4. If a total is unreadable, write [UNREADABLE] instead of
+   guessing.
+5. Do not merge or split receipts, even when two look like the
+   same purchase.
+
+<span class="sec">OUTPUT:</span>
+One table sorted by date. After the table, list every REVIEW and
+[UNREADABLE] item separately. Then total the amount column so I
+can check it against the receipts.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Add up the pile on a calculator once</div>
             <div class="st-b">Total the actual receipts by hand (or with a calculator app) and compare it to the total the model gave you. The totals must match before any of this goes to the books.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Hand the REVIEW and unreadable items to a human</div>
-            <div class="st-b">Whoever knows the budget best — you or your bookkeeper — makes the final call on anything the model wouldn't guess at.</div>
+            <div class="st-h">Hand the REVIEW and unreadable items to a person</div>
+            <div class="st-b">Whoever knows the budget best, whether that's you or your bookkeeper, makes the final call on anything the model wouldn't guess at.</div>
           </div></li>
         </ol>
 
@@ -93,17 +125,18 @@ can check it against the receipts.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A categorized expense table sorted by date, a separate list of anything uncertain, and a total you've already checked against the physical pile — ready to hand your bookkeeper for the final review.</p>
+            <p>A categorized expense table sorted by date, a separate list of anything uncertain, and a total you've already checked against the physical pile, ready to hand your bookkeeper for the final review.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>This is data entry help, not bookkeeping.</b> Your bookkeeper's review stays in the loop on every batch. The calculator check is not optional — a misread digit looks exactly like a real one, and the only way to catch it is to add up the receipts yourself.
+          <b>This is help with data entry, not bookkeeping.</b> Your bookkeeper still reviews every batch. The calculator check isn't optional: a misread digit looks exactly like a real one, and the only way to catch it is to add up the receipts yourself.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

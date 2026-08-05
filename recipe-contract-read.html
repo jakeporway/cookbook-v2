@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Read a Contract Before You Sign · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Review a contract before you sign it</h1>
-      <p class="tagline">The venue contract, the office lease, the insurance renewal — read closely and returned in plain language: what you're committing to, what's unusual for this kind of agreement, and the questions to ask before signing. Preparation for a decision, not legal advice.</p>
+      <p class="tagline">The venue contract, the office lease, the insurance renewal, read closely and returned in plain language: what you're committing to, what's unusual for this kind of agreement, and the questions to ask before signing. This prepares you for the decision. It isn't legal advice.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>A draft contract is a business document — usually fine.</b> Check for a confidentiality clause in the draft itself before pasting it anywhere, including into a chat.</div>
+          <div class="tip"><b>A draft contract is a business document, so this is usually fine.</b> Check the draft for a confidentiality clause before pasting it anywhere, including into a chat.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The contract PDF, plus one sentence of context — "we're a 12-person nonprofit renting this space for a one-day event."</p>
+          <p>The contract PDF, plus one sentence of context, such as "we're a 12-person nonprofit renting this space for a one-day event."</p>
         </div>
       </div>
 
@@ -59,10 +59,14 @@
           <li><div>
             <div class="st-h">Paste this prompt</div>
             <div class="st-b">Swap in the type of agreement it is.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Chat prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Read this contract completely and give me:
+              <div class="ph">
+        <span>Chat prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Read this contract completely and give me:
 1. Every obligation we take on, in plain language, with the
    section cited for each.
 2. Every obligation the other party takes on, cited.
@@ -74,19 +78,50 @@
 If a section is ambiguous, say it's ambiguous — do not resolve
 ambiguity in either side's favor. You are helping me prepare, not
 giving legal advice.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a careful reader preparing me to review a contract. You
+are not my lawyer and you do not give legal advice — you make
+sure I know what is in the document before I talk to someone who
+does.
+
+<span class="sec">GOAL:</span>
+A complete, cited map of what this contract commits each side to,
+and the questions worth asking before I sign.
+
+<span class="sec">CONTEXT:</span>
+The contract is attached. Treat it as a [TYPE OF AGREEMENT] and
+compare it against what is standard for that kind of agreement.
+
+<span class="sec">STEPS:</span>
+1. Read the contract completely before summarizing anything.
+2. List every obligation we take on, in plain language, with the
+   section cited for each.
+3. List every obligation the other party takes on, cited.
+4. Pull out all dates, deadlines, auto-renewals, and notice
+   periods, cited.
+5. Flag anything unusual, one-sided, or missing compared to a
+   standard [TYPE OF AGREEMENT], and say why it is worth
+   attention.
+6. Where a section is ambiguous, say it is ambiguous. Do not
+   resolve ambiguity in either side's favor.
+
+<span class="sec">OUTPUT:</span>
+Those five sections in order, every point carrying its section
+citation, ending with the five most useful questions to ask
+before signing.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Read the flagged sections yourself in the original</div>
-            <div class="st-b">The cited sections make this fast — go straight to what was flagged rather than rereading the whole contract cold.</div>
+            <div class="st-b">The cited sections make this fast. Go straight to what was flagged rather than rereading the whole contract from the top.</div>
           </div></li>
           <li><div>
             <div class="st-h">Ask the other party your questions</div>
-            <div class="st-b">Most "unusual" clauses have a boring explanation, and asking is free. Bring the five questions to the conversation.</div>
+            <div class="st-b">Most unusual clauses have an ordinary explanation, and asking costs nothing. Bring the five questions to the conversation.</div>
           </div></li>
           <li><div>
             <div class="st-h">Know the escalation line</div>
-            <div class="st-b">Real money, real liability, or anything you'd lose sleep over → a lawyer reviews it. Many state nonprofit associations and legal-aid clinics offer low-cost contract review — this recipe makes that hour efficient, not unnecessary.</div>
+            <div class="st-b">If the contract involves real money, real liability, or anything you'd lose sleep over, a lawyer should review it. Many state nonprofit associations and legal-aid clinics offer low-cost contract review. This recipe makes that hour more efficient; it doesn't make it unnecessary.</div>
           </div></li>
         </ol>
 
@@ -96,17 +131,18 @@ giving legal advice.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A plain-language map of the contract — obligations on both sides, deadlines, and the unusual clauses — with a citation behind every claim, and five questions ready for the other party.</p>
+            <p>A plain-language map of the contract: obligations on both sides, deadlines, and the unusual clauses, with a citation behind every claim, and five questions ready for the other party.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>This is a reading aid, not counsel.</b> It makes you the best-prepared person in the negotiation who hasn't been to law school — it does not replace the person who has. The escalation line is part of the recipe, not an afterthought.
+          <b>This is a reading aid, not legal counsel.</b> It makes you well prepared for the negotiation, but it doesn't replace someone who has been to law school. Knowing when to escalate is part of the recipe.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

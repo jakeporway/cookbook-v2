@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Turn a Report Into an Interactive Web Page · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Turn a report into an interactive web page</h1>
-      <p class="tagline">For the audiences who will never open a PDF — your annual report or program overview becomes a single web page you send as a link: scrollable, readable on a phone, with your charts rendered live.</p>
+      <p class="tagline">For the audiences who will never open a PDF, your annual report or program overview becomes a single web page you send as a link: scrollable, readable on a phone, with your charts rendered live.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg>
           <span class="fl">Public-facing output</span>
-          <div class="tip"><b>The public sees this.</b> A human reviews every word before the link goes out — same as any publication. Nothing here skips your normal sign-off.</div>
+          <div class="tip"><b>The public sees this.</b> Someone reviews every word before the link goes out, the same as with any publication. Nothing here skips your normal sign-off.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The finished report as a PDF, your logo, and one existing page of yours whose look you like — a screenshot is fine. That's it. No rewriting the report first.</p>
+          <p>The finished report as a PDF, your logo, and one existing page of yours whose look you like. A screenshot of that page is fine. There's no need to rewrite the report first.</p>
         </div>
       </div>
 
@@ -53,35 +53,66 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">Attach the report, your logo, and a page you like</div>
-            <div class="st-b">Open a normal chat. Attach the finished report (PDF), your logo file, and a screenshot of one existing page — your website, a past newsletter, anything whose colors and feel you want matched.</div>
+            <div class="st-h">Attach the report, your logo, and a page whose look you like</div>
+            <div class="st-b">Open a normal chat and attach the finished report as a PDF, your logo file, and a screenshot of one existing page: your website, a past newsletter, or anything whose colors and feel you want matched.</div>
           </div></li>
           <li><div>
             <div class="st-h">Ask for a single self-contained page</div>
-            <div class="st-b">Paste this. The "keep every fact exact" line is the most important sentence in the prompt — it's what makes the review step in a minute fast instead of painful.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Copy it as-is.</p>
+            <div class="st-b">Paste this. The "keep every fact exact" line is the most important sentence in the prompt, and it's what keeps the review step in the next minute quick.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Copy it exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Turn this report into a single self-contained HTML page I can send
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Turn this report into a single self-contained HTML page I can send
 as a link.
 
 Keep every fact and number exactly as written — do not summarize,
 rewrite, or add anything. Match the colors and feel of the attached
 screenshot. Make it readable on a phone. Keep the sections in the
 same order as the report. Render the key numbers as simple charts.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building a web version of a report someone else wrote.
+You are a designer and typesetter, not an editor.
+
+<span class="sec">GOAL:</span>
+A single self-contained HTML page carrying the whole report, that
+I can send as a link.
+
+<span class="sec">CONTEXT:</span>
+The report is attached, along with a screenshot showing the
+colors and feel to match. Most people will open the link on a
+phone.
+
+<span class="sec">STEPS:</span>
+1. Keep every fact and number exactly as written — do not
+   summarize, rewrite, condense, or add anything.
+2. Keep the sections in the same order as the report.
+3. Match the colors and feel of the attached screenshot.
+4. Render the key numbers as simple charts, built from the
+   report's own figures.
+5. Make it readable on a phone — real text sizes, nothing that
+   requires pinching.
+
+<span class="sec">OUTPUT:</span>
+One self-contained HTML file, no external files or fonts needed,
+plus a one-line note on anything from the report you could not
+represent cleanly on the page.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Open the file and check every number</div>
-            <div class="st-b">Double-click the file the AI hands back. Go section by section and check every number against the source report — the no-new-words rule in the prompt makes this fast, because there's nothing new to fact-check, only matching to confirm.</div>
+            <div class="st-b">Double-click the file the AI hands back. Go section by section and check every number against the source report. The no-new-words rule in the prompt makes this quick, because there's nothing new to fact-check, only matching to confirm.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Fix with specific asks — cap it at two rounds</div>
-            <div class="st-b">If something's off, ask for the exact change: "make the third chart a bar chart, not a pie" — not "make it better." Give yourself two rounds of revisions and stop there; a page that's 90% right after two rounds is ready to publish, not ready for a third round of tinkering.</div>
+            <div class="st-h">Fix it with specific requests, and stop after two rounds</div>
+            <div class="st-b">If something's off, ask for the exact change, such as "make the third chart a bar chart instead of a pie," rather than "make it better." Give yourself two rounds of revisions and stop there. A page that's 90% right after two rounds is ready to publish.</div>
           </div></li>
           <li><div>
             <div class="st-h">Put it at a real link</div>
-            <div class="st-b">The page can be hosted free — GitHub Pages or Netlify Drop both work — or you can just attach the HTML file itself to an email, since it opens in any browser. Ask the AI for click-by-click instructions for whichever option you pick; it can walk you through either one.</div>
+            <div class="st-b">You can host the page free on GitHub Pages or Netlify Drop, or simply attach the HTML file to an email, since it opens in any browser. Ask the AI for click-by-click instructions for whichever option you pick.</div>
           </div></li>
         </ol>
 
@@ -91,17 +122,18 @@ same order as the report. Render the key numbers as simple charts.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A single link that opens the same report on any phone or laptop — scrollable, on-brand, and checked number by number against the source. No PDF viewer required.</p>
+            <p>A single link that opens the same report on any phone or laptop: scrollable, on-brand, and checked number by number against the source. No PDF viewer required.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The risk here isn't code — it's drift.</b> A "helpful" rewrite of your numbers is the failure mode that matters. The keep-every-fact-exact instruction plus your line-by-line check is what makes this publishable. Nothing goes to the public unreviewed.
+          <b>The risk here isn't the code, it's drift in the content.</b> A "helpful" rewrite of your numbers is the failure that matters. The keep-every-fact-exact instruction, plus your line-by-line check, is what makes this publishable. Nothing goes to the public unreviewed.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

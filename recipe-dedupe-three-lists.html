@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Find the Same People Across Your Three Lists · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Find the Same People Across Your Three Lists</h1>
-      <p class="tagline">Your event platform, your mailing list, and your donor CRM each have their own version of everybody. Get one deduplicated list — plus a "these might be the same person, you decide" pile — from a tool that runs on your own computer.</p>
+      <p class="tagline">Your event platform, your mailing list, and your donor CRM each hold their own version of everybody. This builds a tool that runs on your own computer and gives you one deduplicated list, plus a separate pile of possible matches for you to decide on.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Just the <b>column headers</b> of each export — the single top row from your Eventbrite, Mailchimp, and donor-CRM CSVs. Not the rows underneath, not a single name or email. The tool does all the actual matching on your machine.</p>
+          <p>Just the <b>column headers</b> of each export: the single top row from your Eventbrite, Mailchimp, and donor-CRM CSVs. Not the rows underneath, and not a single name or email. The tool does all the actual matching on your own machine.</p>
         </div>
       </div>
 
@@ -52,16 +52,20 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">Export each list as a CSV — and set the files aside</div>
-            <div class="st-b">Eventbrite, Mailchimp, your donor CRM: each has an export button. Save all three files somewhere handy. You won't paste any of this into the AI.</div>
+            <div class="st-h">Export each list as a CSV and set the files aside</div>
+            <div class="st-b">Eventbrite, Mailchimp, and your donor CRM each have an export button. Save all three files somewhere you can find them. None of this gets pasted into the AI.</div>
           </div></li>
           <li><div>
             <div class="st-h">Copy the top row of each file, then paste this prompt</div>
             <div class="st-b">Open each CSV (or the platform's column list) and grab just the header line. Swap your three sets of headers into the highlighted parts.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>I have three CSV exports of people, and many people appear on more
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">I have three CSV exports of people, and many people appear on more
 than one list. I will NOT paste the data — here are just the column
 headers of each file:
 
@@ -84,7 +88,45 @@ never be uploaded anywhere — and show me:
 3. On each merged row, a note showing which of the three lists that
    person came from.
 4. A button to download the final combined list as a CSV.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+Merge three exported people-lists into one deduplicated list,
+without ever guessing that two people are the same person.
+
+<span class="sec">CONTEXT:</span>
+I have three CSV exports of people, and many people appear on more
+than one list. I will NOT paste the data — here are just the
+column headers of each file:
+
+List 1 — <span class="tok">Eventbrite export</span>: <span class="tok">[First Name, Last Name, Email, Order Date]</span>
+List 2 — <span class="tok">Mailchimp export</span>: <span class="tok">[Email Address, First Name, Last Name, Tags]</span>
+List 3 — <span class="tok">Little Green Light export</span>: <span class="tok">[Name, Email, Phone, Last Gift Date]</span>
+
+<span class="sec">STEPS:</span>
+Build a SINGLE self-contained HTML file (no internet needed, no
+libraries loaded from the web) where I drop all three CSVs onto
+the page. It must read the files in my browser only — my data
+should never be uploaded anywhere. It should:
+1. Match people by email address first. Where emails differ or
+   are missing, compare names — catching nicknames ("Bob" /
+   "Robert"), small typos, and reversed first/last names.
+2. NEVER auto-merge an uncertain match. Every uncertain pair goes
+   to a separate review table instead.
+3. Note on each merged row which of the three lists that person
+   came from.
+
+<span class="sec">OUTPUT:</span>
+In the page:
+1. One merged, deduplicated list.
+2. A "These might be the same person — you decide" table showing
+   each uncertain pair side by side, with "Same person" /
+   "Different people" buttons.
+3. The source-list note on every merged row.
+4. A button to download the final combined list as a CSV.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Download the HTML file the AI hands back</div>
@@ -92,11 +134,11 @@ never be uploaded anywhere — and show me:
           </div></li>
           <li><div>
             <div class="st-h">Drop all three real CSVs onto the page</div>
-            <div class="st-b">The merged list and the "you decide" pile appear instantly — and none of those names ever left your computer.</div>
+            <div class="st-b">The merged list and the "you decide" pile appear right away, and none of those names ever left your computer.</div>
           </div></li>
           <li><div>
             <div class="st-h">Work through the "you decide" pile yourself</div>
-            <div class="st-b">This is the step that matters. The tool shows you each uncertain pair side by side; you click Same or Different. Five minutes of your judgment beats a bad auto-merge that mails one donor twice — or thanks the wrong Roberta.</div>
+            <div class="st-b">This is the step that matters. The tool shows you each uncertain pair side by side and you click Same or Different. Five minutes of your judgment is worth more than a bad automatic merge that mails one donor twice or thanks the wrong Roberta.</div>
           </div></li>
           <li><div>
             <div class="st-h">Download the clean list and reuse the tool before every mailing</div>
@@ -110,17 +152,18 @@ never be uploaded anywhere — and show me:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>One clean, deduplicated mailing list you can download as a CSV — plus a reusable tool you'll open before every mailing. And because the uncertain matches land in a pile that <em>you</em> resolve, no one gets merged out of existence without a human saying so.</p>
+            <p>One clean, deduplicated mailing list you can download as a CSV, plus a reusable tool you'll open before every mailing. Because the uncertain matches land in a pile that <em>you</em> resolve, nobody gets merged out of existence without a person saying so.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The fuzzy match is a smart guess, not gospel.</b> "J. Martinez" and "Jose Martinez" at different emails might be one person or two. It will catch the obvious ones — Bob/Robert, a typo'd email — but it won't catch everything. That's exactly what the "you decide" pile is for: the human-in-the-loop that catches bad merges before they reach a mail-merge. Never skip it, and never ask the tool to auto-merge everything.
+          <b>The fuzzy match is a smart guess rather than a certainty.</b> "J. Martinez" and "Jose Martinez" at different emails might be one person or two. It will catch the obvious cases, like Bob and Robert or a typo'd email, but it won't catch everything. That's what the "you decide" pile is for: it puts a person between a questionable merge and your next mailing. Never skip it, and never ask the tool to merge everything automatically.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

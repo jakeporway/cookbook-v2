@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Make a Training Video Without Filming Anyone · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,19 +25,19 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Make a training video without filming anyone</h1>
-      <p class="tagline">Record yourself once — a short video and voice sample — then type any script and your avatar presents it on camera. When the policy changes, you edit the script instead of re-booking a filming afternoon.</p>
+      <p class="tagline">Record yourself once, a short video and a voice sample, then type any script and your avatar presents it on camera. When the policy changes, you edit the script instead of booking another filming afternoon.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag red">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v10"/><path d="M8 7l4-4 4 4"/><rect x="4" y="13" width="16" height="8" rx="2"/></svg>
           <span class="fl">Data leaves to a third party</span>
-          <div class="tip"><b>Your likeness is stored by the vendor.</b> It's locked to your own account, and every video this makes carries an invisible SynthID watermark that marks it as AI-made. Still — a recording of your face and voice, kept by a company, is a real step up in what's at stake.</div>
+          <div class="tip"><b>Your likeness is stored by the vendor.</b> It's locked to your own account, and every video it makes carries an invisible SynthID watermark identifying it as AI-made. Even so, a recording of your face and voice held by a company raises the stakes considerably.</div>
         </div>
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg>
           <span class="fl">Public-facing output</span>
-          <div class="tip"><b>Viewers should be told it's an AI presenter.</b> A human approves every script before it becomes a video, and the disclosure — spoken and written — travels with it every time.</div>
+          <div class="tip"><b>Viewers should be told it's an AI presenter.</b> A person approves every script before it becomes a video, and the disclosure travels with it every time, both spoken and written.</div>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>One selfie-style recording and a voice sample — made once, inside Vids — then a script per video. Draft each script in your AI chat from your existing training document; the chat never sees your face or voice.</p>
+          <p>One selfie-style recording and a voice sample, both made once inside Vids, and then a script for each video. Draft the scripts in your AI chat from your existing training document. The chat never sees your face or voice.</p>
         </div>
       </div>
 
@@ -59,31 +59,61 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Check your access first</div>
-            <div class="st-b">Personal avatars in Google Vids are available on Google AI Pro/Ultra and on Workspace business tiers, and are region- and 18+-gated. If your org is on Google Workspace for Nonprofits, check your current Gemini/Vids access in the admin console — entitlements have been changing during 2026, so verify what your plan includes today rather than trusting a blog post.</div>
+            <div class="st-b">Personal avatars in Google Vids are available on Google AI Pro/Ultra and on Workspace business tiers, and they're restricted by region and to users 18 and over. If your org is on Google Workspace for Nonprofits, check your current Gemini/Vids access in the admin console. Entitlements have changed several times during 2026, so verify what your plan includes today rather than trusting a blog post.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Create your avatar in Vids — your own likeness only</div>
-            <div class="st-b">The tool enforces this, and so should your policy: no avatars of colleagues, ever, even with permission in writing this year. Follow the recording prompts once; that recording is reused for every future video.</div>
+            <div class="st-h">Create your avatar in Vids, using your own likeness only</div>
+            <div class="st-b">The tool enforces this and your policy should too: no avatars of colleagues, even with written permission. Follow the recording prompts once. That recording is reused for every future video.</div>
           </div></li>
           <li><div>
             <div class="st-h">Draft the script in your AI chat</div>
-            <div class="st-b">Turn your existing training document into something meant to be heard, not read.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] part; copy the rest exactly as-is.</p>
+            <div class="st-b">Turn your existing training document into a script meant to be heard rather than read.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] part and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Turn this training document into a 3-minute spoken script. Short
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Turn this training document into a 3-minute spoken script. Short
 sentences, one idea per sentence, written to be heard, not read.
 Plain words. Add a spoken note at the start that this presenter is
 a digital avatar of <span class="tok">[name]</span>.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a scriptwriter for spoken video. You write for the ear,
+not the page.
+
+<span class="sec">GOAL:</span>
+Turn the attached training document into a script a presenter can
+read aloud in about three minutes.
+
+<span class="sec">CONTEXT:</span>
+The document is attached. It will be delivered by a digital
+avatar of <span class="tok">[name]</span>, not by a person on camera — so the script has
+to disclose that up front.
+
+<span class="sec">STEPS:</span>
+1. Read the document and keep only what a viewer needs to hear.
+2. Write short sentences, one idea per sentence, in plain words.
+   Read each line back to yourself — if it needs a second pass to
+   follow, rewrite it.
+3. Open with a spoken note that this presenter is a digital
+   avatar of <span class="tok">[name]</span>.
+4. Keep every instruction, number, and safety point exactly as
+   the document states it.
+
+<span class="sec">OUTPUT:</span>
+A clean spoken script of about three minutes, disclosure line
+first, no stage directions or slide notes unless I ask.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the script into Vids, generate, and watch every second</div>
             <div class="st-b">Don't skim it. Watch the whole thing before it goes anywhere, the same as you'd review a real recording.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Disclose it, every time</div>
-            <div class="st-b">The video says it's an avatar, and the description says so too. This isn't optional polish — it's the line that keeps this recipe honest.</div>
+            <div class="st-h">Disclose it every time</div>
+            <div class="st-b">The video itself says it's an avatar, and the description says so too. Treat the disclosure as required rather than as optional polish.</div>
           </div></li>
         </ol>
 
@@ -93,17 +123,18 @@ a digital avatar of <span class="tok">[name]</span>.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A presenter you never have to re-book. Policy changes become a script edit and a five-minute regeneration, not a filming afternoon.</p>
+            <p>A presenter you never have to re-book. A policy change becomes a script edit and a five-minute regeneration instead of a filming afternoon.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>This is the one recipe in the book where the tool imitates a person.</b> The lines that keep it clean: your likeness only, disclosure always, a human approves every script, and nothing constituent-facing goes out unwatched. If any of those feel heavy for your org, that's a sign to keep using it for internal training only.
+          <b>This is the one recipe in the book where the tool imitates a person.</b> Four rules keep it in bounds: your likeness only, disclosure every time, a person approves every script, and nothing constituent-facing goes out unwatched. If any of those feel like too much for your org, use this for internal training only.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

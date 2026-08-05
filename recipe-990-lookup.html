@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Size Up Any Nonprofit in 30 Seconds · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Size Up Any Nonprofit in 30 Seconds</h1>
-      <p class="tagline">Paste a list of org names; get back each one's budget size, staff count, and program focus from their public 990 filings — the triage that turns "60 potential partners" into "the 15 worth calling first."</p>
+      <p class="tagline">Paste a list of org names and get back each one's budget size, staff count, and program focus from their public 990 filings. It's a fast way to narrow a list of 60 possible partners down to the 15 worth calling first.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Just the org names (or EINs, if you have them — an EIN is the org's federal tax ID, like a Social Security number for nonprofits; don't have them? Names work fine) from whatever list you're already staring at — a coalition roster, a conference attendee list, a funder's grantee page. Everything from there is public record.</p>
+          <p>Just the org names, from a list you already have: a coalition roster, a conference attendee list, a funder's grantee page. If you have EINs, include them (an EIN is the org's federal tax ID, like a Social Security number for nonprofits). If you don't, names work fine. Everything the AI looks up from there is public record.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Gather your list of org names</div>
-            <div class="st-b">Names alone work; adding a city or state helps when a name is common ("Community Action" exists in every county in America). EINs, if you have them, remove all ambiguity.</div>
+            <div class="st-b">Names alone work. Adding a city or state helps when a name is common, since there's a "Community Action" in almost every county. EINs remove any ambiguity if you have them.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the list with this prompt</div>
-            <div class="st-b">The key move: point the AI at the structured public dataset instead of letting it search loosely.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Point the AI at the structured public dataset instead of letting it search the web loosely. That's what keeps the results consistent.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Here is a list of nonprofits I want a quick read on:
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Here is a list of nonprofits I want a quick read on:
 
 <span class="tok">[paste org names or EINs, one per line — add city/state
 if the name is common]</span>
@@ -80,24 +84,66 @@ ProPublica page or the 990 itself. If you can't find an
 org or a specific figure, leave the cell blank and write
 UNKNOWN — do not guess or estimate. Flag any name that
 matches more than one nonprofit so I can pick the right one.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a nonprofit research assistant who works only from primary
+sources — the filings themselves, not summaries or third-party
+write-ups of them.
+
+<span class="sec">GOAL:</span>
+Give me a one-screen triage read on the organizations listed below:
+how big each one is, how many people it employs, and what it
+actually does — with every figure traceable back to the filing it
+came from.
+
+<span class="sec">CONTEXT:</span>
+The organizations:
+
+<span class="tok">[paste org names or EINs, one per line — add city/state
+if the name is common]</span>
+
+Form 990 is the annual return every US nonprofit files publicly.
+<span class="tok">ProPublica's Nonprofit Explorer
+(projects.propublica.org/nonprofits)</span> has every
+filing, free — start there. Note that 990s run one to two years
+behind, so "most recent" may describe a two-year-old picture.
+
+<span class="sec">STEPS:</span>
+1. For each organization, find its most recent public Form 990.
+2. Record: EIN, filing year, total revenue, total expenses,
+   number of employees, and a one-line program focus drawn from
+   the mission statement in the filing.
+3. Capture a source link per row that points to that org's
+   ProPublica page or the 990 itself.
+4. Where a name matches more than one nonprofit, do not pick one.
+   Flag it and list the candidates so I can choose.
+5. Where you cannot find an org or a specific figure, leave the
+   cell blank and write UNKNOWN. Do not guess, estimate, or
+   interpolate from a different year.
+
+<span class="sec">OUTPUT:</span>
+One table: Org | EIN | Most recent 990 year | Total revenue |
+Total expenses | Employees | One-line program focus | Source link.
+
+Below the table, two short lists: names that matched more than one
+nonprofit, and rows where anything came back UNKNOWN.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Resolve the flagged name collisions</div>
-            <div class="st-b">Where two orgs share a name, click both ProPublica links, pick yours by city, and tell the AI which one — it'll correct the row.</div>
+            <div class="st-b">Where two orgs share a name, click both ProPublica links and pick yours by city. Tell the AI which one is right and it will correct the row.</div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check 5 random rows against the linked filings</div>
-            <div class="st-b">Open the source link and confirm revenue and year match. Also note the filing year — 990s run one to two years behind, so "most recent" may mean 2024's picture, not today's.</div>
+            <div class="st-b">Open the source link and confirm the revenue and year match. Note the filing year while you're there. 990s run one to two years behind, so "most recent" may describe 2024 rather than today.</div>
           </div></li>
           <li><div>
             <div class="st-h">Sort and shortlist</div>
-            <div class="st-b">Ask the AI to sort the table by revenue, or to group orgs into rough size bands. Sixty names just became the fifteen worth calling first — with receipts.</div>
+            <div class="st-b">Ask the AI to sort the table by revenue, or to group the orgs into rough size bands. Now you have a short list of who to call first, with a source link behind every number.</div>
           </div></li>
         </ol>
 
         <div class="browserline">
-          <b>990s run one to two years behind.</b> The "current" budget you quote in a meeting may be two years old — say the filing year out loud when you cite it.
+          <b>990s run one to two years behind.</b> The "current" budget you quote in a meeting may be two years old. Say the filing year out loud when you cite it.
         </div>
 
         <div class="yield">
@@ -106,21 +152,22 @@ matches more than one nonprofit so I can pick the right one.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A one-screen triage table — budget size, staff count, and program focus for every org on your list, each row linked to the actual filing. The 30-second size-up that used to mean opening sixty PDFs.</p>
+            <p>A one-screen table with budget size, staff count, and program focus for every org on your list, each row linked to the filing it came from. Work that used to mean opening sixty PDFs now takes about half a minute per org.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Made-up data looks exactly like found data.</b> An invented revenue figure looks just as plausible as a real one. The rule: a source link in every row, unknowns stay blank, and spot-check 5 random rows against the filings before you act on any of it.
+          <b>Made-up data looks exactly like found data.</b> An invented revenue figure reads just as plausibly as a real one. So: a source link in every row, unknowns left blank, and a spot-check of 5 random rows against the filings before you act on any of it.
         </div>
 
         <div class="browserline">
-          <b>The lookup line.</b> Dozens of orgs → this recipe. Hundreds, or a refresh every month → ask the AI to build a tool that calls ProPublica's free Nonprofit Explorer API directly. Thousands, or business-critical → you've outgrown the recipe; that's a data service.
+          <b>When to stop using this recipe.</b> For dozens of orgs, this recipe is the right tool. For hundreds, or a refresh every month, ask the AI to build a small tool that calls ProPublica's free Nonprofit Explorer API directly. For thousands, or anything business-critical, you need a real data service.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

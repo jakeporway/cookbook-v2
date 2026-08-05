@@ -230,14 +230,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The outreach drafter</h1>
-      <p class="tagline">Connect your CRM so the AI can pull real participant records and draft personalized outreach messages — a powerful workflow that also carries real privacy and accuracy risk you must manage.</p>
+      <p class="tagline">Connect your CRM so the AI can pull real participant records and draft personalized outreach messages. It saves a lot of time, and it carries privacy and accuracy risks you have to manage.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag red">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v10"/><path d="M8 7l4-4 4 4"/><rect x="4" y="13" width="16" height="8" rx="2"/></svg>
           <span class="fl">Data leaves to a third party</span>
-          <div class="tip"><b>Real records leave your system.</b> Participant data is sent to an outside company, passes through the AI, and is stored on their servers — where it could in principle be reached by a subpoena or used by the vendor under their terms.</div>
+          <div class="tip"><b>Real records leave your system.</b> Participant data is sent to an outside company, passes through the AI, and is stored on their servers, where it could in principle be reached by a subpoena or used by the vendor under their terms.</div>
         </div>
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3.5a5 5 0 0 1-10 0V8z"/><path d="M12 16.5V21"/></svg>
@@ -247,7 +247,7 @@
         <div class="flag red">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg>
           <span class="fl">Public-facing output</span>
-          <div class="tip"><b>Front-facing (constituent).</b> The output is written to go to the people you serve — so a human must read and approve every message before it's sent. Never let it send on its own.</div>
+          <div class="tip"><b>Front-facing (constituent).</b> The output is written to go to the people you serve, so someone has to read and approve every message before it's sent. Never let it send on its own.</div>
         </div>
       </div>
 
@@ -258,7 +258,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Confirm you're allowed to do this</div>
-            <div class="st-b">Before anything else: check that your org's data policy permits sending participant records to an outside AI service. If you're unsure, stop and ask. This is the real gate.</div>
+            <div class="st-b">Before anything else, check that your org's data policy permits sending participant records to an outside AI service. If you're unsure, stop and ask. This is the step that decides whether the rest of the recipe is available to you.</div>
           </div></li>
           <li><div>
             <div class="st-h">Connect your CRM in a Project</div>
@@ -266,20 +266,51 @@
           </div></li>
           <li><div>
             <div class="st-h">Give it your voice and your rules</div>
-            <div class="st-b">Paste a few of your best past messages and your hard rules (tone, what never to say, how to address people). This is what makes it a living tool that improves over time.</div>
+            <div class="st-b">Paste a few of your best past messages and your hard rules: tone, what never to say, how to address people. You can keep adding to both as you go, which is what makes it improve over time.</div>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You draft outreach to our participants. Pull the contact's
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You draft outreach to our participants. Pull the contact's
 history from the CRM, then write a short, warm message in
 <span class="tok">our voice</span>. Here are examples of messages that worked:
 <span class="tok">[paste 3]</span>. Hard rules: <span class="tok">[never promise funding, always</span>
 <span class="tok">use their preferred name, keep under 120 words]</span>.
 Draft only — I will review and send every message myself.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You draft outreach to our participants in our voice. You are a
+drafter only — you never send anything.
+
+<span class="sec">GOAL:</span>
+A short, warm, personal message to a contact, informed by their
+actual history with us.
+
+<span class="sec">CONTEXT:</span>
+Pull the contact's history from the CRM before writing. Here are
+examples of messages that worked, and they define <span class="tok">our voice</span>:
+<span class="tok">[paste 3]</span>
+
+<span class="sec">STEPS:</span>
+1. Read the contact's CRM history — past contact, program
+   involvement, anything already promised to them.
+2. Draft one short message in our voice, referencing their real
+   history rather than generic warmth.
+3. Hold to these hard rules: <span class="tok">[never promise funding, always use their
+preferred name, keep under 120 words]</span>
+4. If the CRM history is thin or contradictory, say so instead of
+   filling the gap with something plausible.
+
+<span class="sec">OUTPUT:</span>
+One draft message, plus a line naming what in their history you
+drew on. Draft only — I will review and send every message
+myself.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Review every draft by hand, then send</div>
-            <div class="st-b">The AI drafts; you are the editor and the sender. Read each message for accuracy and tone before it ever reaches a person. The AI never sends on its own.</div>
+            <div class="st-b">The AI drafts and you edit and send. Read each message for accuracy and tone before it reaches a person. The AI never sends on its own.</div>
           </div></li>
         </ol>
 
@@ -289,7 +320,7 @@ Draft only — I will review and send every message myself.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A reusable drafting partner that pulls real context from your CRM and writes personalized outreach in your voice — cutting hours of writing to minutes, as long as a human stays in the loop on every send.</p>
+            <p>A reusable drafting partner that pulls real context from your CRM and writes personalized outreach in your voice, cutting hours of writing down to minutes, as long as someone reviews every message before it goes.</p>
           </div>
         </div>
       </div>
@@ -297,5 +328,6 @@ Draft only — I will review and send every message myself.</pre>
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

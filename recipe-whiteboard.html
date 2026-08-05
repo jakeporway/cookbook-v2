@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Turn Whiteboard Photos Into a Real Document · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Turn Whiteboard Photos Into a Real Document</h1>
-      <p class="tagline">The flip-charts and whiteboards from your retreat, photographed and handed over, come back as a structured document — themes, decisions, owners, parking lot — before everyone forgets what the arrows meant.</p>
+      <p class="tagline">Photograph the flip-charts and whiteboards from your retreat and hand them over, and they come back as a structured document covering themes, decisions, owners, and the parking lot, while people still remember what the arrows meant.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Photos of each board, plus one line of context per board — for example, "this one is from the fundraising breakout." That one line does more work than you'd expect.</p>
+          <p>Photos of each board, plus one line of context per board, such as "this one is from the fundraising breakout." That single line does more work than you might expect.</p>
         </div>
       </div>
 
@@ -53,18 +53,22 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Photograph every board before anyone erases it</div>
-            <div class="st-b">Straight-on, whole board in frame. This is the habit that makes the whole recipe possible — a half-erased board can't be reconstructed by anyone, AI or human.</div>
+            <div class="st-b">Shoot straight on with the whole board in frame. This habit is what makes the rest of the recipe possible, since nobody can reconstruct a half-erased board, AI or otherwise.</div>
           </div></li>
           <li><div>
             <div class="st-h">Attach the photos with a one-line label for each</div>
-            <div class="st-b">"Board 1 — fundraising breakout," "Board 2 — full group wrap-up," and so on.</div>
+            <div class="st-b">Label them "Board 1, fundraising breakout," "Board 2, full group wrap-up," and so on.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Transcribe everything on these whiteboard photos. Keep each board
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Transcribe everything on these whiteboard photos. Keep each board
 separate, using the labels I've given them: <span class="tok">[Board 1 — fundraising
 breakout, Board 2 — full group wrap-up, ...]</span>. Preserve lists and
 groupings as they appear.
@@ -81,15 +85,46 @@ Then organize everything into:
 Mark anything you cannot read as [UNREADABLE], and anything you
 inferred — like what an arrow or circle means — as [INFERRED], so I
 can check it.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are transcribing whiteboards from a working session. You
+report what's on the board and label anything you interpreted.
+
+<span class="sec">GOAL:</span>
+Turn photos of our whiteboards into a document the people who
+weren't in the room can actually use.
+
+<span class="sec">CONTEXT:</span>
+The photos are attached. The boards are labeled: <span class="tok">[Board 1 — fundraising breakout, Board 2 — full group
+wrap-up, ...]</span>. Keep
+each board separate — they were different conversations.
+
+<span class="sec">STEPS:</span>
+1. Transcribe everything on each board, preserving lists and
+   groupings as they appear.
+2. Where arrows or circles connect items, describe the connection
+   in words rather than just noting that a line exists.
+3. Then organize everything across the boards into:
+   1. Themes discussed
+   2. Decisions made
+   3. Action items, with an owner if one is written down
+   4. Open questions (parking lot)
+4. Mark anything you cannot read as [UNREADABLE], and anything
+   you inferred — like what an arrow or circle means — as
+   [INFERRED], so I can check it.
+
+<span class="sec">OUTPUT:</span>
+The per-board transcription first, then the four organized
+sections, with every [UNREADABLE] and [INFERRED] tag left in
+place.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Review it with one other person who was in the room</div>
-            <div class="st-b">A co-reader check. Two people who were actually there catch a wrong [INFERRED] connection far faster than one person working alone.</div>
+            <div class="st-b">Two people who were actually in the room will catch a wrong [INFERRED] connection much faster than one person working alone.</div>
           </div></li>
           <li><div>
             <div class="st-h">Share the document while memories are fresh</div>
-            <div class="st-b">Send it to the team the same day if you can. A week later, the arrows are just as hard for humans to remember as they were for the model.</div>
+            <div class="st-b">Send it to the team the same day if you can. A week later, people find the arrows just as hard to interpret as the model did.</div>
           </div></li>
         </ol>
 
@@ -99,17 +134,18 @@ can check it.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A structured retreat document — themes, decisions, owners, and an open-questions list — checked by someone who was in the room, sent out before anyone's memory of the arrows fades.</p>
+            <p>A structured retreat document covering themes, decisions, owners, and open questions, checked by someone who was in the room and sent out while people still remember what the arrows meant.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The transcription is trustworthy; the interpretation of arrows and circles is a guess wearing a label.</b> That's exactly why [INFERRED] items get checked by someone who was there. And photograph before erasing — it's the one habit that makes this recipe possible at all.
+          <b>The transcription is reliable, but the interpretation of arrows and circles is a labeled guess.</b> That's why [INFERRED] items need checking by someone who was there. And photograph before erasing, since that's the one habit the whole recipe depends on.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

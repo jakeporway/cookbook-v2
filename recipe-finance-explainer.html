@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Board-Ready Finances · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Explain your finances in board-ready language</h1>
-      <p class="tagline">Your budget-versus-actuals export becomes a plain-language summary a board member can absorb in five minutes: where the money went, what's off track and by how much, and the questions worth asking. You verify the numbers; it does the translation.</p>
+      <p class="tagline">Your budget-versus-actuals export becomes a plain-language summary a board member can read in five minutes: where the money went, what's off track and by how much, and the questions worth asking. It handles the translation and you verify the numbers.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>Internal, but usually not personal.</b> Budget-vs-actuals numbers are organizational, not individual — but skip payroll detail rows if your export includes them by name.</div>
+          <div class="tip"><b>Internal, but usually not personal.</b> Budget-vs-actuals numbers describe the organization rather than individuals. Leave out payroll detail rows if your export lists them by name.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The budget-vs-actuals export from your accounting system (CSV or PDF), plus last quarter's board narrative if one exists — that's the voice to match.</p>
+          <p>The budget-vs-actuals export from your accounting system, as a CSV or PDF, plus last quarter's board narrative if you have one. That narrative is the voice to match.</p>
         </div>
       </div>
 
@@ -63,10 +63,14 @@
           <li><div>
             <div class="st-h">Attach the file and paste this prompt</div>
             <div class="st-b">Attach the cleaned export to a new chat, then paste this. Swap in last quarter's narrative if you have one.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Chat prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Write a plain-language financial summary for a nonprofit board
+              <div class="ph">
+        <span>Chat prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Write a plain-language financial summary for a nonprofit board
 using ONLY the numbers in the attached file. Never compute a
 number that isn't derivable from it, and cite the line item for
 every figure you mention.
@@ -81,15 +85,44 @@ Structure it as:
 If a row is ambiguous, flag it and say why — don't interpret it
 for me. [Optional: match the tone of this prior board narrative:
 PASTE PRIOR NARRATIVE]</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a nonprofit finance translator. You explain numbers that
+already exist; you do not produce new ones.
+
+<span class="sec">GOAL:</span>
+A plain-language financial summary a board can read in five
+minutes and ask good questions about.
+
+<span class="sec">CONTEXT:</span>
+Use ONLY the numbers in the attached file. Never compute a number
+that isn't derivable from it. The audience is a volunteer board —
+smart people, not accountants.
+[Optional: match the tone of this prior board narrative: PASTE
+PRIOR NARRATIVE]
+
+<span class="sec">STEPS:</span>
+1. Read the whole file before writing.
+2. State the overall position in two sentences.
+3. Identify the 3–5 variances that matter most. For each, give
+   the budget figure, the actual figure, and the difference.
+4. Name anything trending toward a problem if the pattern
+   continues.
+5. Cite the line item for every figure you mention.
+6. If a row is ambiguous, flag it and say why — don't interpret
+   it for me.
+
+<span class="sec">OUTPUT:</span>
+Four short sections in that order, then three questions a board
+member should ask, then the list of ambiguous rows you flagged.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Check every number against the export</div>
-            <div class="st-b">The citations make this a 10-minute job, not an afternoon — line up each cited figure against the source file.</div>
+            <div class="st-b">The citations make this a 10-minute job rather than an afternoon. Line up each cited figure against the source file.</div>
           </div></li>
           <li><div>
             <div class="st-h">Rewrite the judgment calls in your own words</div>
-            <div class="st-b">The AI knows arithmetic, not your context. "The variance is a timing issue with the state contract" is knowledge only you have — add it yourself.</div>
+            <div class="st-b">The AI can do the arithmetic but it doesn't know your context. "The variance is a timing issue with the state contract" is something only you know, so add it yourself.</div>
           </div></li>
           <li><div>
             <div class="st-h">ED reviews before the packet goes out</div>
@@ -103,17 +136,18 @@ PASTE PRIOR NARRATIVE]</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A cited, plain-language draft of the financial narrative section — the kind of translation that used to take an afternoon of writing and rewriting, ready for your own judgment calls and the ED's sign-off.</p>
+            <p>A cited, plain-language draft of the financial narrative section, ready for your own judgment calls and the ED's sign-off. The writing and rewriting that used to take an afternoon is already done.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The numbers are yours to verify, and the interpretation is yours to own.</b> This recipe translates; it does not analyze strategy. A variance explanation you can't personally defend to the board doesn't go in the summary.
+          <b>The numbers are yours to verify, and the interpretation is yours to own.</b> This recipe translates the figures. It doesn't analyze strategy. If you can't personally defend a variance explanation to the board, it doesn't go in the summary.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

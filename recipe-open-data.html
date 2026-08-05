@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Pull Public Data Off Hard-to-Use Websites · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Pull public data off hard-to-use websites</h1>
-      <p class="tagline">The county records, license lookups, and funder directories with no download button: an AI assistant in your browser pages through them for you, while you watch, and hands you a spreadsheet. For public data only.</p>
+      <p class="tagline">The county records, license lookups, and funder directories that have no download button. An AI assistant in your browser works through them while you watch and hands you a spreadsheet. For public data only.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3.5a5 5 0 0 1-10 0V8z"/><path d="M12 16.5V21"/></svg>
           <span class="fl">Connects to your accounts</span>
-          <div class="tip"><b>Whatever site you send it to.</b> No integrations to set up — just the extension's permission for that one site.</div>
+          <div class="tip"><b>Whatever site you send it to.</b> There are no integrations to set up, just the extension's permission for that one site.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The site's URL, the fields you want, and your list of things to look up — org names, addresses, license numbers, whatever the search box on that site takes.</p>
+          <p>The site's URL, the fields you want, and your list of things to look up: org names, addresses, license numbers, or whatever the search box on that site takes.</p>
         </div>
       </div>
 
@@ -54,11 +54,11 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Qualify the source</div>
-            <div class="st-b">This recipe is for <b>public</b> data on sites with no login — public records, government lookups, open directories. If the data is behind <b>your own</b> login, that's a different recipe — see <a href="recipe-export-button.html">Get your data out of a system with no export button</a>. If it's behind <b>someone else's</b> login or a paywall, stop. That's not this recipe.</div>
+            <div class="st-b">This recipe is for <b>public</b> data on sites with no login: public records, government lookups, and open directories. If the data sits behind <b>your own</b> login, use <a href="recipe-export-button.html">Get your data out of a system with no export button</a> instead. If it sits behind <b>someone else's</b> login or a paywall, stop. This recipe doesn't cover that.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Check first: does an export already exist?</div>
-            <div class="st-b">Many sites offer a real download or an API if you ask. A quick search for this is always cheaper than browsing — ask the assistant to check before you start paging through anything by hand.</div>
+            <div class="st-h">Check whether an export already exists</div>
+            <div class="st-b">Many sites offer a real download or an API if you ask. Checking takes a few minutes and saves much longer, so have the assistant look before you start working through pages one at a time.</div>
           </div></li>
           <li><div>
             <div class="st-h">Check the site's terms</div>
@@ -66,11 +66,15 @@
           </div></li>
           <li><div>
             <div class="st-h">Give it the instruction and your list</div>
-            <div class="st-b">Open the site in the browser extension, then give it this. It checks terms first, then works your list at a human pace, pausing for you to see its progress.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Open the site in the browser extension and give it this. It checks the terms first, then works through your list at a human pace, pausing so you can see its progress.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>We are collecting public data from <span class="tok">[SITE]</span>. First, check
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">We are collecting public data from <span class="tok">[SITE]</span>. First, check
 whether this site's terms of service, or a bulk-download or API
 option, make browsing unnecessary or unwelcome — tell me what you
 find before we start.
@@ -80,11 +84,40 @@ and record <span class="tok">[FIELDS]</span> with the page URL as a source link 
 any field you cannot find blank — never fill a blank with a guess.
 Pause every 15 records and show me the table so far. Go at a human
 pace — we are a guest on this site.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are collecting public data from someone else's website. You
+are a polite guest there: slow, visible, and read-only.
+
+<span class="sec">GOAL:</span>
+A sourced table of the public information I need — gathered the
+least intrusive way available.
+
+<span class="sec">CONTEXT:</span>
+We are collecting public data from <span class="tok">[SITE]</span>. The fields I need are
+<span class="tok">[FIELDS]</span>. My list of items to look up follows.
+
+<span class="sec">STEPS:</span>
+1. First, check whether this site's terms of service, or a
+   bulk-download or API option, make browsing unnecessary or
+   unwelcome. Tell me what you find before we start.
+2. Then, for each item on my list: search it, read the result
+   page, and record <span class="tok">[FIELDS]</span>, with the page URL as a source link
+   on that row.
+3. Leave any field you cannot find blank — never fill a blank
+   with a guess.
+4. Pause every 15 records and show me the table so far.
+5. Go at a human pace. If the site errors, rate-limits, or shows
+   a captcha, stop and tell me rather than retrying.
+
+<span class="sec">OUTPUT:</span>
+First, what you found about bulk downloads, an API, and the terms
+of service. Then the table, one row per item with a source link,
+shown to me in batches of 15.</pre>
+      </div>
           </div></li>
           <li><div>
-            <div class="st-h">Supervise — this runs while you watch</div>
-            <div class="st-b">Not overnight, not unattended. Spot-check 5 rows against the actual pages before you trust the rest. And keep the lookup line in mind: dozens by chat, hundreds this way, thousands means ask the agency for the dataset — it often exists.</div>
+            <div class="st-h">Supervise the run from start to finish</div>
+            <div class="st-b">Don't leave this running overnight or unattended. Spot-check 5 rows against the actual pages before you trust the rest. Keep the scale in mind too: dozens of items work in a chat, hundreds work this way, and for thousands you should ask the agency for the dataset, which often exists.</div>
           </div></li>
         </ol>
 
@@ -94,17 +127,18 @@ pace — we are a guest on this site.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A spreadsheet the site never offered you, each row sourced back to the page it came from, built while you watched instead of overnight and unsupervised.</p>
+            <p>A spreadsheet the site never offered you, with each row sourced back to the page it came from, built while you watched rather than overnight and unsupervised.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Two different lines here — legality and accuracy.</b> Public doesn't mean unlimited: hammering a small county server is rude at best. The human-pace instruction and the ask-for-the-dataset step are how good citizens do this. Separately, scraped fields inherit the confabulation rule: source link per row, blanks stay blank, spot-check before you act on anything.
+          <b>Two separate concerns here: what's permitted, and what's accurate.</b> Public doesn't mean unlimited, and hammering a small county server is rude at best. The human-pace instruction and the step where you ask for the dataset are how to do this considerately. Separately, collected fields follow the same accuracy rule as every lookup recipe: a source link per row, blanks left blank, and a spot-check before you act on anything.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

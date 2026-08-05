@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Every Meeting, the Same Follow-Through · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Every Meeting, the Same Follow-Through</h1>
-      <p class="tagline">A Skill that turns any transcript or messy notes into your team's exact format — decisions, owners, deadlines, parking lot — plus a draft follow-up message. The consistency is the point: follow-through stops depending on who took notes.</p>
+      <p class="tagline">A Skill that turns any transcript or set of messy notes into your team's exact format, covering decisions, owners, deadlines, and the parking lot, plus a draft follow-up message. The consistency is the point. Follow-through stops depending on who took notes.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p><b>2 past sets of meeting notes</b> plus <b>the follow-up email your best note-taker actually sent</b> afterward. That email is your template, demonstrated instead of described — you never sit down to write a process doc, because someone on your team already showed the process at its best.</p>
+          <p><b>2 past sets of meeting notes</b> plus <b>the follow-up email your best note-taker actually sent</b> afterward. That email is your template, shown rather than described. Nobody has to sit down and write a process document, because someone on your team already demonstrated the process at its best.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Find the follow-up email everyone wished they'd written</div>
-            <div class="st-b">Somewhere in your sent mail is the one where the decisions were clear, every action item had a name and a date, and the loose ends were parked, not lost. Grab it, plus two past sets of raw meeting notes (messy is fine — messy is the point).</div>
+            <div class="st-b">Somewhere in your sent mail is the one where the decisions were clear, every action item had a name and a date, and the loose ends were parked rather than lost. Take that one, plus two past sets of raw meeting notes. Messy notes are what you want here, since that's what the skill has to handle.</div>
           </div></li>
           <li><div>
             <div class="st-h">Create the skill and paste this in</div>
-            <div class="st-b">In your AI chat, make a new Project called <em>Meeting Follow-Through</em> (If your AI tool offers "Skills" or custom instructions you can share, that's the same idea one step up — but a Project is all you need here.) and paste this as its instructions, with your examples where marked.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">In your AI chat, make a new Project called <em>Meeting Follow-Through</em> and paste this as its instructions, with your examples where marked. (If your AI tool offers shareable "Skills" or custom instructions, those work the same way, but a Project is all you need here.)</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You are our team's meeting follow-through assistant. I'm teaching
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You are our team's meeting follow-through assistant. I'm teaching
 you our routine from real examples, not a template document.
 
 Below are 2 past sets of meeting notes, and the follow-up email
@@ -88,23 +92,62 @@ PAST NOTES:
 
 THE FOLLOW-UP EMAIL WE LOVED:
 <span class="tok">[paste it]</span></pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are our team's meeting follow-through assistant. You learn
+our routine from real examples, not from a template document.
+
+<span class="sec">GOAL:</span>
+Turn any transcript or pile of messy notes into the same
+follow-through every time: what we decided, who owes what, and
+what's still open.
+
+<span class="sec">CONTEXT:</span>
+Below are 2 past sets of meeting notes, and the follow-up email
+our best note-taker actually sent. That email IS our format —
+study how it pulls out decisions, owners, deadlines, and a
+parking lot for the unresolved things.
+
+PAST NOTES:
+<span class="tok">[paste 2 past sets of notes]</span>
+
+THE FOLLOW-UP EMAIL WE LOVED:
+<span class="tok">[paste it]</span>
+
+<span class="sec">STEPS:</span>
+From now on, when anyone pastes a meeting transcript or messy
+notes and says "follow-through":
+1. Extract only decisions and owners that were actually stated in
+   the notes.
+2. If an owner or deadline was never said out loud, write
+   "[not assigned — confirm]" instead of inventing one.
+3. Put everything unresolved in the parking lot rather than
+   forcing it into an action item.
+4. When I say "new example," I'll paste one and tell you whether
+   it's a good one or a bad one — update how you work
+   accordingly.
+
+<span class="sec">OUTPUT:</span>
+1. Our exact format: DECISIONS / ACTION ITEMS (owner + deadline) /
+   PARKING LOT.
+2. A draft follow-up message ready to send to <span class="tok">[the team channel / by email]</span>, in the same
+   tone as the example.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Test it on a fresh meeting</div>
-            <div class="st-b">After your next team meeting, paste the transcript or your raw notes and say "follow-through." Check it against your own memory: are the decisions the ones you heard? Are any owners marked "[not assigned — confirm]"? Those flags are it doing its job.</div>
+            <div class="st-b">After your next team meeting, paste the transcript or your raw notes and say "follow-through." Check the result against your own memory. Are the decisions the ones you heard? Are any owners marked "[not assigned, confirm]"? Those flags mean it's working correctly.</div>
           </div></li>
           <li><div>
             <div class="st-h">Share it with the team</div>
-            <div class="st-b">Invite colleagues to the Project. New rule, one sentence long: whoever took notes runs the skill and sends the draft — <em>after reading it</em>. Now the format doesn't depend on who held the pen.</div>
+            <div class="st-b">Invite colleagues to the Project. The new rule is one sentence: whoever took notes runs the skill and sends the draft, <em>after reading it</em>. The format no longer depends on who held the pen.</div>
           </div></li>
           <li><div>
             <div class="st-h">Feed it a new example when one appears</div>
-            <div class="st-b">When a follow-up lands especially well — or a confusing one causes a week of "wait, who owned that?" — paste it in with "new example: good one" or "new example: bad one." The routine keeps tightening.</div>
+            <div class="st-b">When a follow-up lands especially well, or a confusing one leads to a week of "wait, who owned that?", paste it in with "new example: good one" or "new example: bad one." The routine gets sharper each time.</div>
           </div></li>
         </ol>
 
-        <div class="browserline"><b>It formats what was said — it can't recover a decision nobody stated out loud.</b> If the meeting ended without a real owner or a real deadline, the skill will (correctly) flag it, not fill it in. Read the draft before it goes to the team: you're checking it against the meeting in your head, and you're the only one who was there.</div>
+        <div class="browserline"><b>It formats what was said, and it can't recover a decision nobody stated out loud.</b> If the meeting ended without a real owner or a real deadline, the skill will flag that rather than fill it in, which is the correct behavior. Read the draft before it goes to the team. You're checking it against the meeting in your head, and you're the one who was there.</div>
 
         <div class="yield">
           <div class="ic">
@@ -112,7 +155,7 @@ THE FOLLOW-UP EMAIL WE LOVED:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Your best note-taker's habit, turned into an org function. The payoff isn't the ten minutes saved per meeting — it's <b>consistency across people</b>: every meeting produces the same decisions-owners-deadlines record no matter who took notes, so follow-through stops being a personality trait and becomes how the team works.</p>
+            <p>Your best note-taker's habit, turned into something the organization does by default. The main gain is <b>consistency across people</b> rather than the ten minutes saved per meeting: every meeting produces the same record of decisions, owners, and deadlines no matter who took notes, so follow-through becomes part of how the team works rather than a trait of one person.</p>
           </div>
         </div>
       </div>
@@ -120,5 +163,6 @@ THE FOLLOW-UP EMAIL WE LOVED:
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

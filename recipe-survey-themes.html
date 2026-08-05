@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Three Hundred Survey Answers, Five Themes · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Three Hundred Survey Answers, Five Themes</h1>
-      <p class="tagline">Your post-program survey has one open-ended question and 300 answers nobody has read. Paste the column and get the recurring themes, how often each appears, and verbatim quotes — with a rule about checking them before anyone gets quoted to a funder.</p>
+      <p class="tagline">Your post-program survey has one open-ended question and 300 answers nobody has read. Paste the column and get back the recurring themes, how often each appears, and verbatim quotes, along with a rule for checking those quotes before anyone gets quoted to a funder.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>One column from the survey export you already have: the <b>answers to the open-ended question</b>, copied straight out of the spreadsheet. If any answers name people — staff, participants, sites — run the column through the <b><a href="recipe-redaction-pass.html">redaction pass (Recipe 01)</a></b> first.</p>
+          <p>One column from the survey export you already have: the <b>answers to the open-ended question</b>, copied straight out of the spreadsheet. If any answers name people, whether staff, participants, or sites, run the column through the <b><a href="recipe-redaction-pass.html">redaction pass (Recipe 01)</a></b> first.</p>
         </div>
       </div>
 
@@ -53,19 +53,23 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Copy just the response column</div>
-            <div class="st-b">Open the survey export, click the column header for the open-ended question, copy. Leave the names, emails, and demographics columns behind — the themes don't need them.</div>
+            <div class="st-b">Open the survey export, click the column header for the open-ended question, and copy it. Leave the names, emails, and demographics columns behind, since the themes don't need them.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Skim for names — and redact if you find any</div>
-            <div class="st-b">"Ms. Rivera was amazing" and "the guy at the Dorchester site" are both identifying. If answers mention people or places like that, run the column through the <a href="recipe-redaction-pass.html">redaction pass</a> before pasting. Takes two minutes and makes every step after this one safe.</div>
+            <div class="st-h">Skim for names, and redact if you find any</div>
+            <div class="st-b">"Ms. Rivera was amazing" and "the guy at the Dorchester site" are both identifying. If answers mention people or places like that, run the column through the <a href="recipe-redaction-pass.html">redaction pass</a> before pasting. It takes two minutes and makes every step after this one safe.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt with the responses inside it</div>
-            <div class="st-b">Swap in your actual survey question and your responses. If the chat says your message is too long, split the responses into two batches of ~150 and ask the same question twice — then ask it to merge the two theme lists.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Swap in your actual survey question and your responses. If the chat says your message is too long, split the responses into two batches of about 150 and ask the same question twice, then ask it to merge the two theme lists.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Below are all the responses to one open-ended question from our
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Below are all the responses to one open-ended question from our
 post-program survey. The question was:
 "<span class="tok">What could we improve about the program?</span>"
 
@@ -85,19 +89,54 @@ separately rather than promoting it to a theme.
 
 RESPONSES:
 <span class="tok">[paste the response column here]</span></pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are analyzing open-ended survey responses. You report what
+respondents actually said, in their words where it counts.
+
+<span class="sec">GOAL:</span>
+Turn several hundred free-text answers into the handful of themes
+that genuinely recur — without losing the outliers.
+
+<span class="sec">CONTEXT:</span>
+Below are all the responses to one open-ended question from our
+post-program survey. The question was:
+"<span class="tok">What could we improve about the program?</span>"
+
+The audience for your summary is our board, so plain language
+beats research vocabulary.
+
+<span class="sec">STEPS:</span>
+1. Read every response before naming a single theme.
+2. Identify the 4–6 themes that genuinely recur, named in plain
+   language a board member would understand — no jargon.
+3. Count how many responses touch each theme (one response can
+   count toward more than one) and rank roughly by frequency.
+4. Pull three VERBATIM quotes per theme — copied word for word,
+   typos and all. Do not paraphrase, trim, or clean up grammar.
+5. Don't invent a theme to reach a rounder number. If something
+   comes up only two or three times but seems serious, call it
+   out separately rather than promoting it to a theme.
+
+RESPONSES:
+<span class="tok">[paste the response column here]</span>
+
+<span class="sec">OUTPUT:</span>
+The themes with counts and verbatim quotes, the separate
+"serious but rare" callouts, and a short "didn't fit any theme"
+list so nothing disappears silently.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check the quotes against the source</div>
-            <div class="st-b">Search your spreadsheet (Ctrl+F / Cmd+F) for a distinctive phrase from each quote and confirm it's really there, word for word. AI can occasionally blend two answers into a quote nobody actually wrote — this two-minute check is what makes the quotes safe to use.</div>
+            <div class="st-b">Search your spreadsheet with Ctrl+F or Cmd+F for a distinctive phrase from each quote and confirm it's there, word for word. The AI can occasionally blend two answers into a quote nobody actually wrote, and this two-minute check is what makes the quotes safe to use.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Dig into the theme that matters most</div>
-            <div class="st-b">Ask a follow-up in the same chat: "Show me every response that touched the scheduling theme." Now you're reading the 40 answers that matter instead of all 300.</div>
+            <div class="st-h">Look more closely at the theme that matters most</div>
+            <div class="st-b">Ask a follow-up in the same chat, such as "show me every response that touched the scheduling theme." Now you're reading the 40 answers that matter rather than all 300.</div>
           </div></li>
           <li><div>
             <div class="st-h">Save the prompt for the next survey cycle</div>
-            <div class="st-b">Two years of unread feedback took one afternoon. The next batch takes ten minutes.</div>
+            <div class="st-b">Two years of unread feedback took one afternoon. The next batch will take about ten minutes.</div>
           </div></li>
         </ol>
 
@@ -107,17 +146,18 @@ RESPONSES:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A plain-language theme summary with counts, verified verbatim quotes ready for the board deck or funder report, and an "other" pile that proves nothing got swept under the rug. Feedback that finally got read — all of it.</p>
+            <p>A plain-language theme summary with counts, verified verbatim quotes ready for the board deck or funder report, and an "other" pile showing that nothing was quietly dropped. All of the feedback finally gets read.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Two rules before this leaves your desk.</b> First: if answers name people, run the column through the <a href="recipe-redaction-pass.html">redaction pass (Recipe 01)</a> <b>before</b> pasting — survey respondents didn't sign up to be pasted into a chat. Second: <b>spot-check every verbatim quote against the source spreadsheet</b> before quoting anyone to a funder. A blended or misremembered quote in a funder report costs trust you can't buy back.
+          <b>Two rules before this leaves your desk.</b> First, if answers name people, run the column through the <a href="recipe-redaction-pass.html">redaction pass (Recipe 01)</a> <b>before</b> pasting. Survey respondents didn't agree to have their words pasted into a chat. Second, <b>spot-check every verbatim quote against the source spreadsheet</b> before quoting anyone to a funder. A blended or misremembered quote in a funder report costs trust that's hard to rebuild.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

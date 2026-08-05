@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Which District Is Everyone In? · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Which District Is Everyone In?</h1>
-      <p class="tagline">Paste your list of partner orgs or program sites with addresses; get back each one's city council district, the councilmember's name and contact, and a source link on every row — so you know exactly which elected to put each org in front of.</p>
+      <p class="tagline">Paste your list of partner orgs or program sites with their addresses and get back each one's city council district, the councilmember's name and contact details, and a source link on every row. You end up knowing which elected official to put each org in front of.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Your existing list of partner orgs or program sites with their street addresses — the spreadsheet you already keep. Org addresses are public record, so this is a rare paste-freely case. <b>Client home addresses are not</b> — see the caution below.</p>
+          <p>Your existing list of partner orgs or program sites with their street addresses, which is the spreadsheet you already keep. Org addresses are public record, so this is one of the few cases where you can paste freely. <b>Client home addresses are not public.</b> See the caution below.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Check whose addresses these are</div>
-            <div class="st-b">Partner orgs, program sites, coalition members — public, paste away. Anyone's <em>home</em> address — stop; use the local-tool variant in step 6 instead.</div>
+            <div class="st-b">Partner orgs, program sites, and coalition members are public, so you can paste them. If the list contains anyone's <em>home</em> address, stop and use the local-tool version in step 6 instead.</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a normal chat and paste your list with this prompt</div>
             <div class="st-b">Two columns is plenty: name and address. Swap in your city.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Here is a list of partner organizations in <span class="tok">[New York City]</span> with
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Here is a list of partner organizations in <span class="tok">[New York City]</span> with
 their public street addresses:
 
 <span class="tok">[paste your rows: Org name, Address]</span>
@@ -79,22 +83,58 @@ official district-lookup or council page you used). If you can't
 find or confirm something, leave the cell blank and write
 UNKNOWN — do not guess. At the end, tell me which rows you are
 least confident about.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a civic research assistant. You work from official
+district-lookup and council sources, and you show your work.
+
+<span class="sec">GOAL:</span>
+Tell me which political district each of our partner
+organizations sits in, and who represents it — with a link I can
+check for every row.
+
+<span class="sec">CONTEXT:</span>
+Here is a list of partner organizations in <span class="tok">[New York City]</span> with their
+public street addresses:
+
+<span class="tok">[paste your rows: Org name, Address]</span>
+
+These are business addresses, already public. Boundaries change
+with redistricting, so use current official sources rather than
+memory.
+
+<span class="sec">STEPS:</span>
+1. For each row, search the web to find which <span class="tok">city council district</span> that
+   address falls in.
+2. Find the current representative for that district — name, plus
+   a link to their official contact page.
+3. Record a source link for what you found: the official
+   district-lookup tool or council page you actually used.
+4. If you cannot find or confirm something, leave the cell blank
+   and write UNKNOWN. Do not guess, and do not infer a district
+   from a nearby address.
+
+<span class="sec">OUTPUT:</span>
+One table: Org | Address | District | Councilmember | Contact
+link | Source.
+
+After the table, tell me which rows you are least confident about
+and why.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Scan the UNKNOWNs and low-confidence rows first</div>
-            <div class="st-b">Ambiguous addresses (suite numbers, new buildings, streets that cross district lines) land here. Fix those rows by hand — they're usually only a few.</div>
+            <div class="st-b">Ambiguous addresses land here: suite numbers, new buildings, streets that cross district lines. Fix those rows by hand. There are usually only a few.</div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check 5 random rows against the linked sources</div>
-            <div class="st-b">Click the source link, confirm the district matches. You've confirmed a row when the page you land on names the address, street, or neighborhood — not just the district number. Five clean rows is your green light; one wrong row means check them all.</div>
+            <div class="st-b">Click the source link and confirm the district matches. A row counts as confirmed when the page you land on names the address, street, or neighborhood, rather than only the district number. Five clean rows means you can trust the rest. One wrong row means you check them all.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the table back into your spreadsheet</div>
-            <div class="st-b">Keep the source-link column. Future-you, mid-budget-season, will want to re-verify in one click.</div>
+            <div class="st-b">Keep the source-link column. In the middle of budget season you'll want to re-verify a row in one click.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Home addresses, or hundreds of rows? Build the local variant</div>
+            <div class="st-h">Build the local version for home addresses or hundreds of rows</div>
             <div class="st-b">Ask the AI to build a single HTML page that looks districts up on your own machine using the free Census geocoder and public district boundaries. Addresses never enter the chat at all.</div>
           </div></li>
         </ol>
@@ -105,25 +145,26 @@ least confident about.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Your partner list with a district, councilmember, and contact link attached to every org — and a source link per row so anyone on the team can verify before they pick up the phone. Exactly the map you need walking into budget season.</p>
+            <p>Your partner list with a district, councilmember, and contact link attached to every org, and a source link on each row so anyone on the team can verify before they pick up the phone. It's the map you want going into budget season.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Made-up data looks exactly like found data.</b> A hallucinated district number is indistinguishable from a real one. The rule on every enrichment recipe: a source link in every cell, unknowns stay blank, and spot-check 5 random rows before you act on any of it.
+          <b>Made-up data looks exactly like found data.</b> A hallucinated district number is indistinguishable from a real one. The rule on every lookup recipe is the same: a source link in every cell, unknowns left blank, and a spot-check of 5 random rows before you act on any of it.
         </div>
 
         <div class="browserline">
-          <b>The lookup line.</b> Dozens of rows → this recipe handles it in chat. Hundreds of rows, or every month → ask the AI to build a tool that calls the public dataset directly (the free Census geocoder + district boundary files). Thousands → you've outgrown the recipe; that's a data service.
+          <b>When to stop using this recipe.</b> For dozens of rows, chat handles it. For hundreds of rows, or a refresh every month, ask the AI to build a tool that calls the public dataset directly, using the free Census geocoder and district boundary files. For thousands of rows, you need a real data service.
         </div>
 
         <div class="browserline">
-          <b>Org addresses are public. Client home addresses are not.</b> Never paste anyone's home address into a chat. For clients, use the local-tool variant (step 6) — the lookup runs entirely on your own computer.
+          <b>Org addresses are public. Client home addresses are not.</b> Never paste anyone's home address into a chat. For clients, use the local-tool version in step 6, where the lookup runs entirely on your own computer.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

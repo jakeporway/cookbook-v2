@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Dread-Document Expert · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The dread-document expert</h1>
-      <p class="tagline">Load the Medicaid manual, the HUD handbook, or your state's licensing regs into a Project once — then ask it questions all year. It cites the page every time, so you can verify before you act.</p>
+      <p class="tagline">Load the Medicaid manual, the HUD handbook, or your state's licensing regulations into a Project once, then ask it questions all year. It cites the page every time, so you can verify before you act.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The public document itself — the exact 400-page PDF you already ctrl-F through every week. That's it. <b>You write nothing and explain nothing</b>; the expertise is already sitting in the manual, you're just making it answerable.</p>
+          <p>The public document itself: the same 400-page PDF you already search through every week. That's all. <b>You write nothing and explain nothing.</b> The expertise is already in the manual, and you're just making it answerable.</p>
         </div>
       </div>
 
@@ -53,19 +53,23 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Create a Project and name it after the document</div>
-            <div class="st-b">In your AI chat, click <b>Projects → New project</b>. (In ChatGPT they're Projects in the left sidebar; Gemini calls them Gems.) Name it something you'll recognize in a hurry — "Medicaid Provider Manual 2026," not "My Project."</div>
+            <div class="st-b">In your AI chat, click <b>Projects → New project</b>. (In ChatGPT they're Projects in the left sidebar; Gemini calls them Gems.) Name it something you'll recognize in a hurry, such as "Medicaid Provider Manual 2026" rather than "My Project."</div>
           </div></li>
           <li><div>
             <div class="st-h">Upload the PDF to Project knowledge</div>
-            <div class="st-b">Every Project has a files area — documents you put there are visible to every chat you start inside that Project. On the Project page, use <b>Add content</b> (the knowledge panel) and upload the manual. If it lives in chapters or appendices as separate PDFs, upload them all — the expert should know the whole thing.</div>
+            <div class="st-b">Every Project has a files area, and documents you put there are visible to every chat you start inside that Project. On the Project page, use <b>Add content</b> and upload the manual. If it comes as separate PDFs for chapters or appendices, upload all of them so the expert knows the whole document.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
-            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. It's what makes the expert trustworthy instead of merely confident.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. It's what makes the answers verifiable rather than just confident.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You are an expert on the document(s) in this Project:
+              <div class="ph">
+        <span>Project instructions</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You are an expert on the document(s) in this Project:
 <span class="tok">[the 2026 State Medicaid Provider Manual]</span>. I work at a nonprofit
 and use this manual to make real compliance decisions, so accuracy
 matters more than speed.
@@ -80,15 +84,47 @@ in the manual, point those out even if I didn't ask. If my question
 uses different words than the manual does (I say
 <span class="tok">"copay," it says "cost-sharing"</span>), tell me the manual's term so I
 learn to search it myself too.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are an expert on the document(s) in this Project: <span class="tok">[the 2026 State Medicaid Provider Manual]</span>. Your
+expertise is bounded by those documents and nothing else.
+
+<span class="sec">GOAL:</span>
+Answer my questions about this material accurately enough that I
+can act on the answer — or tell me plainly that the documents
+don't answer it.
+
+<span class="sec">CONTEXT:</span>
+I work at a nonprofit and use this manual to make real compliance
+decisions, so accuracy matters more than speed. I am not a
+specialist in this material; I may use everyday words where the
+document uses a term of art.
+
+<span class="sec">STEPS:</span>
+1. Answer using ONLY the documents in this Project.
+2. Quote the exact passage you are drawing from and cite the page
+   or section number, so I can verify it before I act.
+3. If the documents don't answer the question, say so plainly.
+   Never fill the gap with a guess or with general knowledge of
+   how these rules usually work.
+4. If a rule has exceptions, conditions, or cross-references
+   elsewhere in the manual, point those out even if I didn't ask.
+5. If my question uses different words than the manual does (I
+   say <span class="tok">"copay," it says "cost-sharing"</span>), tell me the manual's term, so I learn to search
+   it myself too.
+
+<span class="sec">OUTPUT:</span>
+A direct answer, the quoted passage with its page or section, any
+exceptions or cross-references, and the manual's own terminology
+where mine differed.</pre>
+      </div>
           </div></li>
           <li><div>
-            <div class="st-h">Ask your first real question — a question you already know the answer to</div>
+            <div class="st-h">Ask a first question you already know the answer to</div>
             <div class="st-b">Start a chat inside the Project and ask something you've looked up before. Check that the quote and page number match the actual PDF. This one calibration question tells you how much to trust the rest.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Use it all year — and verify the cite each time</div>
-            <div class="st-b">Every future chat in this Project already knows the manual. The habit that makes it safe: click through to the cited page before you act on the answer. It takes thirty seconds instead of the thirty minutes the search used to. Put a recurring calendar reminder on it now — "check for new edition" — timed to when the agency usually republishes. Future-you will not remember otherwise.</div>
+            <div class="st-h">Use it all year, and check the citation each time</div>
+            <div class="st-b">Every future chat in this Project already knows the manual. The habit that keeps it safe is clicking through to the cited page before you act on the answer, which takes about thirty seconds instead of the thirty minutes the search used to. Set a recurring calendar reminder now to check for a new edition, timed to when the agency usually republishes. It's easy to forget otherwise.</div>
           </div></li>
         </ol>
 
@@ -98,17 +134,18 @@ learn to search it myself too.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A standing expert on the document you dread. Your weekly ctrl-F session becomes a question and a page number to double-check. When the agency publishes a new edition, you swap one file and the expert is current again.</p>
+            <p>A standing expert on the document you dread. Your weekly search session becomes a question and a page number to double-check. When the agency publishes a new edition, you swap one file and the expert is current again.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Never act on an uncited answer.</b> The cite-the-page rule isn't decoration — it's the entire safety mechanism of this recipe. An answer with a page number is a lead you can verify in seconds; an answer without one is just a plausible-sounding sentence. If the expert ever answers without quoting the manual, ask it to show you the passage — and if it can't, treat the question as unanswered.
+          <b>Never act on an uncited answer.</b> The cite-the-page rule is the entire safety mechanism of this recipe. An answer with a page number is something you can verify in seconds. An answer without one is just a plausible-sounding sentence. If the expert answers without quoting the manual, ask it to show you the passage. If it can't, treat the question as unanswered.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Your Annual Report Is a Podcast · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Your annual report is a podcast</h1>
-      <p class="tagline">Drop your finished annual report into a free tool and get back a listenable two-host conversation about your year — for the supporters who will never read 40 pages, but will listen for 12 minutes on a commute.</p>
+      <p class="tagline">Drop your finished annual report into a free tool and get back a two-host conversation about your year. It's for the supporters who will never read 40 pages but will listen for 12 minutes on a commute.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg>
           <span class="fl">Public-facing output</span>
-          <div class="tip"><b>Supporters hear this.</b> Listen to every minute before you send it — AI hosts occasionally overstate, and an overstated claim in your org's name is your problem, not the tool's.</div>
+          <div class="tip"><b>Supporters hear this.</b> Listen to every minute before you send it. The AI hosts occasionally overstate things, and an overstated claim in your org's name becomes your problem.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The published annual report PDF — and, optionally, <b>a one-paragraph note on what to emphasize</b>. That's it. The report supplies everything the two AI hosts talk about.</p>
+          <p>The published annual report PDF, plus an optional <b>one-paragraph note on what to emphasize</b>. That's all. The report supplies everything the two AI hosts talk about.</p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Confirm you're holding the public version</div>
-            <div class="st-b">No draft, no donor appendix, no internal notes tucked into the PDF — just the report exactly as it went out the door.</div>
+            <div class="st-b">No draft, no donor appendix, and no internal notes tucked into the PDF. Use the report exactly as it went out the door.</div>
           </div></li>
           <li><div>
             <div class="st-h">Go to notebooklm.google.com and upload the PDF</div>
@@ -62,16 +62,45 @@
           </div></li>
           <li><div>
             <div class="st-h">Before generating, click customize and paste the focus prompt</div>
-            <div class="st-b">This tells the two hosts what to spend their 10 minutes on, instead of wandering the whole document evenly.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">This tells the two hosts what to spend their 10 minutes on, rather than covering the whole document evenly.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Focus on <span class="tok">[our three biggest outcomes this year]</span> and the
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Focus on <span class="tok">[our three biggest outcomes this year]</span> and the
 story of <span class="tok">[one program]</span>. Keep every number exactly as it
 appears in the report. Warm but factual — no hype, no
 superlatives the report doesn't use. Mention that the full
 report is on our website.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are two hosts talking through our annual report for people
+who will never open the PDF.
+
+<span class="sec">GOAL:</span>
+A conversational audio overview that gets our year across
+accurately in the time it takes to drive somewhere.
+
+<span class="sec">CONTEXT:</span>
+The source is the published annual report, and it is the only
+source. Listeners include supporters, partners, and staff — they
+will repeat what they hear, so a wrong number travels.
+
+<span class="sec">STEPS:</span>
+1. Focus on <span class="tok">[our three biggest outcomes this year]</span> and the story of <span class="tok">[one program]</span>.
+2. Keep every number exactly as it appears in the report — no
+   rounding, no "more than," no combining figures.
+3. Stay warm but factual: no hype, and no superlatives the report
+   doesn't use itself.
+4. Don't add context, comparisons, or sector background that
+   isn't in the report.
+
+<span class="sec">OUTPUT:</span>
+A conversation covering those points, ending with a mention that
+the full report is on our website.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Generate the Audio Overview and listen to all of it</div>
@@ -79,7 +108,7 @@ report is on our website.</pre>
           </div></li>
           <li><div>
             <div class="st-h">If a claim is off, regenerate with a steering line</div>
-            <div class="st-b">Add something like "do not discuss X; keep every number exactly as written," and try once more. One retry, then decide whether to ship or fall back to text.</div>
+            <div class="st-b">Add something like "do not discuss X, and keep every number exactly as written," then try once more. Give it one retry, then decide whether to publish it or fall back to text.</div>
           </div></li>
           <li><div>
             <div class="st-h">Download the audio and put it to work</div>
@@ -93,20 +122,21 @@ report is on our website.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A shareable ~10-minute audio piece, plus the pattern underneath it: the AI writes and performs, you edit and approve — the same "draft-only, you send" architecture as everything else in this book.</p>
+            <p>A shareable audio piece of about 10 minutes, plus the pattern underneath it: the AI writes and performs, and you edit and approve. It's the same draft-and-approve structure as everything else in this book.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The honesty rule for anything front-facing:</b> you are publishing this in your org's voice. Listen to every minute; if you wouldn't say it to a funder's face, it doesn't ship.
+          <b>The rule for anything front-facing:</b> you are publishing this in your org's voice. Listen to every minute, and if you wouldn't say it to a funder in person, it doesn't go out.
         </div>
         <div class="browserline">
-          <b>Data note:</b> uploads to a Big Tech tool are governed by that tool's terms — which is exactly why this recipe is only for documents that are already public.
+          <b>Data note:</b> anything you upload to a large tech company's tool is governed by that tool's terms, which is why this recipe is only for documents that are already public.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

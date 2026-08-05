@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Intake Normalizer · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The Intake Normalizer</h1>
-      <p class="tagline">Thirty partners, thirty formats — different columns, different date styles, different everything. One Skill takes whatever they send and returns it in your canonical format, flagging what it couldn't map instead of guessing silently.</p>
+      <p class="tagline">Thirty partners send you thirty formats, with different columns, different date styles, and different conventions throughout. One Skill takes whatever they send and returns it in your canonical format, flagging what it couldn't map rather than guessing silently.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Your <b>canonical template</b> — the exact columns, date format, and units you need — plus <b>3 real examples of the weird formats partners actually send</b> (lightly fictionalized values are fine; headers plus a few rows each is plenty). You never write a mapping spec. The weird examples <b>are</b> the spec.</p>
+          <p>Your <b>canonical template</b>, meaning the exact columns, date format, and units you need, plus <b>3 real examples of the formats partners actually send</b>. Lightly fictionalized values are fine, and headers plus a few rows each is plenty. You never write a mapping spec. The examples <b>are</b> the spec.</p>
         </div>
       </div>
 
@@ -52,16 +52,20 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">Gather your template and three genuinely weird partner files</div>
-            <div class="st-b">Your canonical format: headers plus one filled-in example row. Then pick the three formats that make you sigh — the one with dates written three ways, the one with merged headers, the one in a PDF. Headers and a few rows each is enough; swap in made-up values if the real ones are sensitive.</div>
+            <div class="st-h">Gather your template and three genuinely awkward partner files</div>
+            <div class="st-b">Start with your canonical format: headers plus one filled-in example row. Then pick the three formats that give you the most trouble, such as the one with dates written three ways, the one with merged headers, and the one that arrives as a PDF. Headers and a few rows each is enough, and you can swap in made-up values if the real ones are sensitive.</div>
           </div></li>
           <li><div>
             <div class="st-h">Create the skill and paste this in</div>
-            <div class="st-b">In your AI chat, make a new Project called <em>Intake Normalizer</em> (If your AI tool offers "Skills" or custom instructions you can share, that's the same idea one step up — but a Project is all you need here.) and paste this as its instructions, with your examples where marked.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">In your AI chat, make a new Project called <em>Intake Normalizer</em> and paste this as its instructions, with your examples where marked. (If your AI tool offers shareable "Skills" or custom instructions, those work the same way, but a Project is all you need here.)</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You are our intake normalizer. I'm teaching you our data format
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You are our intake normalizer. I'm teaching you our data format
 from real examples.
 
 Below is our CANONICAL TEMPLATE — the exact columns, date format,
@@ -89,23 +93,58 @@ OUR CANONICAL TEMPLATE:
 
 REAL FORMATS PARTNERS SEND:
 <span class="tok">[paste 3 examples — headers + a few rows each]</span></pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are our intake normalizer. You learn our data format from
+real examples, and you never silently guess a mapping.
+
+<span class="sec">GOAL:</span>
+Turn whatever weird format a partner sends us into our canonical
+format, with everything you couldn't confidently map surfaced
+rather than buried.
+
+<span class="sec">CONTEXT:</span>
+OUR CANONICAL TEMPLATE — the exact columns, date format, and
+units we need:
+<span class="tok">[paste your headers + one example row]</span>
+
+REAL FORMATS PARTNERS SEND:
+<span class="tok">[paste 3 examples — headers + a few rows each]</span>
+
+<span class="sec">STEPS:</span>
+From now on, when anyone pastes or attaches a partner report and
+says "normalize":
+1. Map columns by meaning, not name — <span class="tok">["lbs rescued," "pounds," and "weight (lb)"]</span> all belong in
+   our <span class="tok">[Pounds]</span> column.
+2. Convert dates and units to match the template exactly.
+3. Flag anything you couldn't confidently map instead of guessing
+   silently.
+4. When I say "new example," I'll paste a new weird format and
+   show you how it should have been mapped — update how you work
+   accordingly.
+
+<span class="sec">OUTPUT:</span>
+The data in our canonical format, as <span class="tok">[a table I can copy into a spreadsheet / a CSV file]</span>.
+
+Then end EVERY response with a "COULDN'T MAP" list — the column,
+the value, and why — even when the list is empty, so we know you
+checked.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Test it on a fresh partner file</div>
-            <div class="st-b">Take this month's most annoying report, paste it in, and say "normalize." Check two things: spot-check a handful of values against the original, and read the COULDN'T MAP list. If it flagged something you understand, tell it the answer — that's the skill learning. If it hands back a wall of text instead of a file, just say: "give me that as a downloadable CSV file."</div>
+            <div class="st-b">Take this month's most awkward report, paste it in, and say "normalize." Check two things: spot-check a handful of values against the original, and read the COULDN'T MAP list. If it flagged something you know the answer to, tell it, and it will handle that case next time. If it hands back a wall of text instead of a file, say "give me that as a downloadable CSV file."</div>
           </div></li>
           <li><div>
             <div class="st-h">Share it with the team</div>
-            <div class="st-b">Invite the ops team to the Project. The routine is the same for everyone: paste the report, say "normalize," review the COULDN'T MAP list, copy the clean table out. Intake stops depending on who knows which partner's quirks.</div>
+            <div class="st-b">Invite the ops team to the Project. The routine is the same for everyone: paste the report, say "normalize," review the COULDN'T MAP list, and copy the clean table out. Intake stops depending on who happens to know which partner's quirks.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Feed it every new weird format</div>
-            <div class="st-b">When a partner sends something the skill fumbles, don't just fix it by hand — fix it once, then paste it back with "new example" and the correct mapping. Thirty partners means the first few months are training season; after that, the surprises get rare.</div>
+            <div class="st-h">Add every new format it fumbles</div>
+            <div class="st-b">When a partner sends something the skill fumbles, fix it once and then paste it back with "new example" and the correct mapping. With thirty partners, the first few months are mostly training. After that the surprises get rare.</div>
           </div></li>
         </ol>
 
-        <div class="browserline"><b>The COULDN'T MAP list is your human-in-the-loop — review it every time.</b> An empty list means "I checked and it's clean," not "skip this step." A silent wrong guess in a data pipeline compounds: one mismapped column this month is a wrong annual total next year. The flag list is the whole reason this design is safe; reading it is the job.</div>
+        <div class="browserline"><b>The COULDN'T MAP list is where you come in, so review it every time.</b> An empty list means "I checked and it's clean," not "you can skip this step." A silent wrong guess compounds: one mismapped column this month becomes a wrong annual total next year. The flag list is what makes this design safe, and reading it is part of the work.</div>
 
         <div class="yield">
           <div class="ic">
@@ -113,7 +152,7 @@ REAL FORMATS PARTNERS SEND:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Thirty formats in, one format out — with a paper trail of what needed a human. The payoff isn't just the hours of retyping saved; it's <b>consistency across people</b>: the canonical file looks the same whoever ran intake, and the partner-quirk knowledge that used to live in one person's head now lives in a tool the whole team shares — and keeps teaching.</p>
+            <p>Thirty formats in, one format out, with a record of everything that needed a person's judgment. Beyond the hours of retyping saved, you get <b>consistency across people</b>: the canonical file looks the same whoever ran intake, and the knowledge of each partner's quirks now sits in a tool the whole team shares and keeps adding to.</p>
           </div>
         </div>
       </div>
@@ -121,5 +160,6 @@ REAL FORMATS PARTNERS SEND:
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

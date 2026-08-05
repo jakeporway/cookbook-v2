@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Spreadsheet → Viewer · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,18 +25,18 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Spreadsheet → Viewer</h1>
-      <p class="tagline">Hand the AI a messy spreadsheet and get back a clickable dashboard — sortable table, charts, totals — that runs on your own computer. No coding, nothing uploaded.</p>
+      <p class="tagline">Hand the AI a description of your messy spreadsheet and get back a clickable dashboard with a sortable table, charts, and totals, running on your own computer. No coding, and nothing uploaded.</p>
 
       <a class="demo-cta" href="prototypes/dashboard-nibble/index.html">
         <span class="play">▶</span>
-        <span>See the working tool we built<small>A live City Harvest food-rescue dashboard — drag your own CSV onto it</small></span>
+        <span>See the working tool we built<small>A live City Harvest food-rescue dashboard. Drag your own CSV onto it.</small></span>
       </a>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -48,7 +48,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p><b>Two or three made-up rows</b> showing your column names — that's all the AI needs.
+          <p><b>Two or three made-up rows</b> showing your column names. That's all the AI needs.
           Your real spreadsheet never gets pasted anywhere; you drop it on the finished tool, on your own computer.</p>
         </div>
       </div>
@@ -63,11 +63,15 @@
           </div></li>
           <li><div>
             <div class="st-h">Describe your columns and paste two <em>fake</em> rows</div>
-            <div class="st-b">The AI only needs the shape of your data, not the real thing. Paste this, swapping in your own column names. (Your column names are the words in row 1 when you open the file in Excel or Google Sheets.)</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">The AI only needs the shape of your data rather than the real thing. Paste this, swapping in your own column names. Your column names are the words in row 1 when you open the file in Excel or Google Sheets.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>I export a spreadsheet as CSV. The columns are:
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">I export a spreadsheet as CSV. The columns are:
 <span class="tok">[Date, Source/Donor, Category, Amount, Location, Notes]</span>.
 
 Build me a SINGLE self-contained HTML file (no internet needed, no
@@ -81,15 +85,44 @@ uploaded anywhere. My file is messy: mixed date formats, some numbers
 blank or written like "880 lbs" or "1,240", and the same name spelled
 two ways. Handle that, and <span class="tok">show me a short note listing what you cleaned</span>
 so I can trust the numbers.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+See what's actually in my spreadsheet — totals, trends, and every
+row — without uploading it anywhere.
+
+<span class="sec">CONTEXT:</span>
+I export a spreadsheet as CSV. The columns are: <span class="tok">[Date, Source/Donor, Category, Amount, Location, Notes]</span>.
+
+My file is messy: mixed date formats, some numbers blank or
+written like "880 lbs" or "1,240", and the same name spelled two
+ways.
+
+<span class="sec">STEPS:</span>
+Build a SINGLE self-contained HTML file (no internet needed, no
+libraries loaded from the web) that lets me <span class="tok">drag my CSV onto the page</span> and shows:
+1. Totals and the date range at the top.
+2. A bar chart by a group I can switch.
+3. A line chart over time.
+4. A sortable, searchable table of every row.
+It must read the CSV <span class="tok">in my browser only</span> — my data should never be uploaded
+anywhere. Handle the mess above, and <span class="tok">show me a short note listing what you cleaned</span> so I can trust the
+numbers.
+
+<span class="sec">OUTPUT:</span>
+One HTML file I can double-click, with the cleaning note visible
+on the page rather than buried in a tooltip.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Download the HTML file the AI hands back</div>
-            <div class="st-b">It arrives as a file you can click. Save it somewhere you'll find it. This isn't a program you install — it's a single webpage that opens in Chrome or Safari like any website, just stored on your own computer.</div>
+            <div class="st-b">It arrives as a file you can click. Save it somewhere you'll find it. This isn't a program you install. It's a single webpage that opens in Chrome or Safari like any website, stored on your own computer.</div>
           </div></li>
           <li><div>
             <div class="st-h">Drag your <em>real</em> CSV onto it</div>
-            <div class="st-b">The charts and table fill in instantly — and that file never left your computer.</div>
+            <div class="st-b">The charts and table fill in right away, and the file never left your computer.</div>
           </div></li>
           <li><div>
             <div class="st-h">Reuse it every month</div>
@@ -103,7 +136,7 @@ so I can trust the numbers.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A reusable, offline dashboard tool. Not a one-time answer — drop in next month's export and it refreshes itself. It even tells you what it had to clean up, so you can trust the totals.</p>
+            <p>A reusable, offline dashboard tool. It isn't a one-time answer: drop in next month's export and it refreshes itself. It also tells you what it had to clean up, so you can trust the totals.</p>
           </div>
         </div>
       </div>
@@ -111,5 +144,6 @@ so I can trust the numbers.</pre>
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

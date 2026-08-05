@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Spreadsheet → Editor · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,7 +25,7 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Spreadsheet → Editor</h1>
-      <p class="tagline">The Viewer showed you the mess. This one lets you fix it right in the page — edit cells, add rows — then Export a clean file. Still nothing uploaded, ever.</p>
+      <p class="tagline">The Viewer showed you the mess. This version lets you fix it in the page itself, editing cells and adding rows, then export a clean file. Still nothing uploaded.</p>
 
       <a class="demo-cta" href="prototypes/dashboard-nibble/editor.html">
         <span class="play">▶</span>
@@ -36,7 +36,7 @@
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -48,7 +48,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p><b>The same two or three made-up rows</b> from the Viewer recipe — plus the extra prompt lines below.
+          <p><b>The same two or three made-up rows</b> from the Viewer recipe, plus the extra prompt lines below.
           Your real file only ever touches the finished tool, on your own computer.</p>
         </div>
       </div>
@@ -56,19 +56,23 @@
       <!-- TIER 3 -->
       <div class="recipe">
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
-        <p class="prenote" style="margin-top:0;">New here? Build the <a href="recipe-spreadsheet-viewer.html">Viewer (Recipe 02)</a> first — this recipe adds editing on top of that prompt.</p>
+        <p class="prenote" style="margin-top:0;">New here? Build the <a href="recipe-spreadsheet-viewer.html">Viewer (Recipe 02)</a> first. This recipe adds editing on top of that prompt.</p>
         <ol class="steps">
           <li><div>
             <div class="st-h">Start from the Viewer prompt</div>
-            <div class="st-b">Same move as <a href="recipe-spreadsheet-viewer.html" style="color:var(--pulse);font-weight:700;">Spreadsheet → Viewer</a> — describe your columns to a normal chat — then add the lines below to make it editable.</div>
+            <div class="st-b">Start the same way as <a href="recipe-spreadsheet-viewer.html" style="color:var(--pulse);font-weight:700;">Spreadsheet → Viewer</a>, describing your columns to a normal chat, then add the lines below to make it editable.</div>
           </div></li>
           <li><div>
             <div class="st-h">Ask for an editable grid and an Export button</div>
             <div class="st-b">These extra lines turn the read-only view into a tool you can fix data in.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt (add to the Viewer prompt)</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Also make the table <span class="tok">editable</span> — I want to fix values directly in
+              <div class="ph">
+        <span>Prompt (add to the Viewer prompt)</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Also make the table <span class="tok">editable</span> — I want to fix values directly in
 the page, add rows, and delete rows. <span class="tok">Highlight any cell that was blank
 or unreadable</span> in my file so I know what to fix, and show a running
 total at the top that updates as I edit.
@@ -76,17 +80,42 @@ total at the top that updates as I edit.
 Add an <span class="tok">"Export clean CSV" button</span> that downloads my edited data as
 a new file. Important: it should <span class="tok">NOT try to save or remember anything
 on its own</span> — I'll export when I'm done.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are extending the viewer page you just built for me. Same
+tool, same file — now it writes as well as reads.
+
+<span class="sec">GOAL:</span>
+Let me fix the messy cells in the page itself and export a clean
+CSV, without the page ever storing my data.
+
+<span class="sec">CONTEXT:</span>
+This adds to the Viewer prompt above — keep everything that
+prompt asked for. My file is messy: blank cells, unreadable
+values, and names spelled two ways.
+
+<span class="sec">STEPS:</span>
+1. Make the table <span class="tok">editable</span> — I want to fix values directly in
+   the page, add rows, and delete rows.
+2. <span class="tok">Highlight any cell that was blank or unreadable</span> in my file so I know what to fix.
+3. Show a running total at the top that updates as I edit.
+4. Add an <span class="tok">"Export clean CSV" button</span> that downloads my edited data as a new file.
+5. Important: it should <span class="tok">NOT try to save or remember anything on its own</span> — I'll export when I'm done.
+
+<span class="sec">OUTPUT:</span>
+The same single self-contained HTML file, now editable, with the
+export button and the running total. Nothing saved to the browser
+or sent anywhere.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Open it and fix the highlighted cells</div>
-            <div class="st-b">The blanks the Viewer flagged are marked here. Type the right value and the running total updates live, so a fix feels real.</div>
+            <div class="st-b">The blanks the Viewer flagged are marked here. Type the correct value and the running total updates as you go.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Hit Export — and understand what just happened</div>
-            <div class="st-b">A corrected file downloads. Read the note below before you rely on it.</div>
+            <div class="st-h">Export, and understand what that does</div>
+            <div class="st-b">A corrected file downloads to your computer. Read the note below before you rely on it.</div>
             <div class="browserline">
-              <b>This is a worksheet, not a database.</b> Your edits live only on the page until you Export. That's the <b>browser line</b>: the moment a tool needs to truly remember on its own, talk to other systems, or be used by many people at once, you've outgrown a single file — and that's okay. Here, <b>Export is how you keep your work</b>. Close the tab without exporting and it starts fresh from your original.
+              <b>This is a worksheet, not a database.</b> Your edits exist only on the page until you export. That's the <b>browser line</b>: once a tool needs to remember things on its own, talk to other systems, or serve several people at once, a single file isn't enough, and that's fine. Here, <b>exporting is how you keep your work</b>. Close the tab without exporting and it starts fresh from your original.
             </div>
           </div></li>
         </ol>
@@ -97,7 +126,7 @@ on its own</span> — I'll export when I'm done.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A clean, corrected CSV you can hand to anyone — fixed in minutes, without uploading a thing. Plus the reusable worksheet tool itself, and a real feel for the browser line you'll meet again and again.</p>
+            <p>A clean, corrected CSV you can hand to anyone, fixed in minutes without uploading anything. You also keep the worksheet tool itself, and a practical sense of the browser line you'll run into again.</p>
           </div>
         </div>
       </div>
@@ -105,5 +134,6 @@ on its own</span> — I'll export when I'm done.</pre>
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Funder's Eyes · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The funder's eyes</h1>
-      <p class="tagline">Not a generic critic — a reviewer built from the funder's actual published guidelines, scoring rubric, and past awarded abstracts. It reads your draft the way they will, before they do. It writes nothing.</p>
+      <p class="tagline">A reviewer built from the funder's own published guidelines, scoring rubric, and past awarded abstracts, rather than a generic critic. It reads your draft the way they will, before they do, and it writes nothing itself.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>The funder's documents are public — your draft isn't yet.</b> An unsubmitted proposal, with budget figures and strategy, goes into the chat. Fine for most orgs on a paid plan, but check your data policy, and leave out anything a partner asked you to hold in confidence.</div>
+          <div class="tip"><b>The funder's documents are public, but your draft isn't yet.</b> An unsubmitted proposal, including budget figures and strategy, goes into the chat. That's fine for most orgs on a paid plan, but check your data policy first, and leave out anything a partner asked you to hold in confidence.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The funder's <b>published</b> materials — their guidelines, their scoring rubric, and past awarded abstracts (most foundations post these) — plus your draft when it's ready for review. <b>You never write a description of "how funders think."</b> The funder already wrote down how they think; you just collect it.</p>
+          <p>The funder's <b>published</b> materials: their guidelines, their scoring rubric, and past awarded abstracts, which most foundations post. Then your draft, once it's ready for review. <b>You never write a description of "how funders think."</b> The funder has already written that down, and you're just collecting it.</p>
         </div>
       </div>
 
@@ -54,23 +54,27 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Collect what the funder actually published</div>
-            <div class="st-b">From their website: the application guidelines, the scoring rubric or review criteria, and 2–4 abstracts of grants they've actually awarded (check their "grantees" or annual-report pages). Save each as a PDF. If they publish reviewer FAQs or a "what we look for" page, grab that too.</div>
+            <div class="st-b">From their website, collect the application guidelines, the scoring rubric or review criteria, and 2–4 abstracts of grants they've actually awarded, which are usually on their grantees or annual-report pages. Save each as a PDF. If they publish reviewer FAQs or a "what we look for" page, take that too.</div>
           </div></li>
           <li><div>
             <div class="st-h">Create a Project named after the funder</div>
-            <div class="st-b">In your AI chat: <b>Projects → New project</b> → "Reviewer — [Foundation Name] 2026 cycle." One Project per funder; their eyes are not interchangeable.</div>
+            <div class="st-b">In your AI chat, go to <b>Projects → New project</b> and name it "Reviewer, [Foundation Name] 2026 cycle." Build one Project per funder, since no two of them review the same way.</div>
           </div></li>
           <li><div>
             <div class="st-h">Upload the funder's documents to Project knowledge</div>
-            <div class="st-b">Use <b>Add content</b> and upload everything from step 1. This pile of documents <em>is</em> the reviewer — the instructions just tell it how to behave.</div>
+            <div class="st-b">Use <b>Add content</b> and upload everything from step 1. These documents <em>are</em> the reviewer. The instructions only tell it how to behave.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
-            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. Note what it forbids: this expert reviews, it never writes.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. Note what it forbids: this expert reviews and never writes.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You are a grant reviewer for <span class="tok">[the Foundation Name]</span>. Everything
+              <div class="ph">
+        <span>Project instructions</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You are a grant reviewer for <span class="tok">[the Foundation Name]</span>. Everything
 you know about this funder comes from the documents in this
 Project — their published guidelines, scoring rubric, and past
 awarded abstracts. You are a REVIEWER, not a writer: never draft,
@@ -92,15 +96,48 @@ will:
 Be frank. A polite review that hides a fatal weakness costs me
 the grant. If the funder's documents don't address something,
 say so plainly — never invent what "funders generally" want.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a grant reviewer for <span class="tok">[the Foundation Name]</span>. You are a REVIEWER, not a
+writer: never draft, rewrite, or suggest replacement text.
+Critique only.
+
+<span class="sec">GOAL:</span>
+Review my draft proposal the way this funder actually will, so
+the bad news arrives from you instead of from them.
+
+<span class="sec">CONTEXT:</span>
+Everything you know about this funder comes from the documents in
+this Project — their published guidelines, scoring rubric, and
+past awarded abstracts. Nothing about what "funders generally"
+want counts here.
+
+<span class="sec">STEPS:</span>
+1. First, check the draft against every stated requirement — word
+   counts, attachments, eligibility. Report those violations
+   separately and first; they are disqualifiers, not style notes.
+2. Score the draft against each criterion in their rubric, with a
+   short justification per score.
+3. For every critique, quote the specific guideline or rubric
+   language it rests on, with the document and section cited. No
+   free-floating opinions.
+4. Compare the draft to the awarded abstracts: what do the
+   winners do that this draft doesn't?
+5. If the funder's documents don't address something, say so
+   plainly rather than inventing a preference.
+
+<span class="sec">OUTPUT:</span>
+Disqualifiers first, then the rubric scorecard with justifications
+and citations, then the comparison against the winners. Be frank —
+a polite review that hides a fatal weakness costs me the grant.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Paste in your draft and take the review</div>
-            <div class="st-b">Start a chat inside the Project and paste your draft (or attach it to the chat — the funder's docs stay in the Project; drafts come and go). Expect it to sting a little. That's the point of hearing it now instead of in a decline letter.</div>
+            <div class="st-b">Start a chat inside the Project and paste your draft, or attach it to the chat. The funder's documents stay in the Project while drafts come and go. Expect the review to sting a little. Hearing it now is better than reading it in a decline letter.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Revise, re-review, repeat — then send the humans' version</div>
-            <div class="st-b">Run each revision through until the disqualifier list is empty and the rubric scores stop moving. You and your colleagues make every final call — the reviewer has opinions, not authority. One check before you lean on this: some funders now ask you to disclose AI use in proposal development — scan the RFP for an AI policy before you submit.</div>
+            <div class="st-h">Revise, re-review, and repeat, then send the version your team signed off on</div>
+            <div class="st-b">Run each revision through until the disqualifier list is empty and the rubric scores stop moving. You and your colleagues make every final call; the reviewer has opinions but no authority. One thing to check before you rely on this: some funders now ask you to disclose AI use in proposal development, so scan the RFP for an AI policy before you submit.</div>
           </div></li>
         </ol>
 
@@ -110,17 +147,18 @@ say so plainly — never invent what "funders generally" want.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A rehearsal in front of the real audience: a rubric-by-rubric score, every critique pinned to the funder's own language, and the requirement violations caught while they're still fixable. Your first read from this funder happens before you submit, not after.</p>
+            <p>A rehearsal in front of the real audience: a rubric-by-rubric score, every critique pinned to the funder's own language, and the requirement violations caught while they're still fixable. You get your first read from this funder before you submit rather than after.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>It's only as sharp as the real documents behind it.</b> A made-up "typical funder" critic is astrology — it will produce confident, generic feedback that matches no actual reviewer. Feed it this funder's actual published guidelines and rubric, or don't build it. And if the funder publishes almost nothing, say so to yourself plainly: this recipe has less to work with, and its reviews deserve less weight.
+          <b>It's only as good as the real documents behind it.</b> A made-up "typical funder" critic will produce confident, generic feedback that matches no actual reviewer. Give it this funder's published guidelines and rubric, or don't build it at all. If the funder publishes almost nothing, be clear with yourself that the recipe has less to work with and its reviews deserve less weight.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

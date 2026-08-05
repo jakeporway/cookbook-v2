@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Volunteer Training Kit · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The volunteer training kit</h1>
-      <p class="tagline">The training doc you already have becomes a full kit — a facilitator guide, a plain-language handout, and a click-through practice quiz that runs on any laptop or phone, no login required.</p>
+      <p class="tagline">The training document you already have becomes a full kit: a facilitator guide, a plain-language handout, and a click-through practice quiz that runs on any laptop or phone with no login required.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The training document you already use, plus <b>the questions new volunteers actually ask</b> — from memory or your inbox. Five is plenty. Real questions beat a description of what people find confusing.</p>
+          <p>The training document you already use, plus <b>the questions new volunteers actually ask</b>, taken from memory or your inbox. Five is plenty. Real questions work better than a description of what people find confusing.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Gather the doc and jot the real questions</div>
-            <div class="st-b">Pull up your current training document, then list the 5 or so questions new volunteers actually ask you — not the ones you wish they'd ask.</div>
+            <div class="st-b">Pull up your current training document, then list the five or so questions new volunteers actually ask you, rather than the ones you wish they'd ask.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the prompt and attach the document</div>
-            <div class="st-b">One prompt, three outputs: a facilitator guide, a plain-language handout, and a self-contained practice quiz.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">One prompt produces three things: a facilitator guide, a plain-language handout, and a self-contained practice quiz.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Attached is our volunteer training document. Build me three
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Attached is our volunteer training document. Build me three
 things from it:
 
 1. A one-page FACILITATOR GUIDE — the session in 6 steps, with
@@ -81,11 +85,45 @@ Questions the volunteers actually ask:
 Every fact must come from the attached document — invent
 nothing; if the document doesn't cover one of the questions,
 say so instead of answering.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a volunteer trainer building a kit from our existing
+training document. The document is your only source of fact.
+
+<span class="sec">GOAL:</span>
+Three usable pieces from one document: something to run the
+session from, something volunteers keep, and something that
+checks they got it.
+
+<span class="sec">CONTEXT:</span>
+Our volunteer training document is attached. Here are the
+questions the volunteers actually ask, which the kit needs to
+answer:
+<span class="tok">[list them]</span>
+
+<span class="sec">STEPS:</span>
+Build three things from the document:
+1. A one-page FACILITATOR GUIDE — the session in 6 steps, with
+   timing, and the <span class="tok">[5]</span> questions above answered plainly.
+2. A PLAIN-LANGUAGE HANDOUT volunteers keep — 6th-grade reading
+   level (a readability score of 6 — roughly the school grade
+   needed to read it), with the safety rules impossible to miss.
+3. A PRACTICE QUIZ as a single self-contained HTML file that runs
+   in a browser with no internet — <span class="tok">[10]</span> questions, instant
+   feedback with a one-line explanation quoting the handout, a
+   score at the end, nothing recorded or sent anywhere.
+
+Every fact must come from the attached document — invent nothing.
+If the document doesn't cover one of the questions, say so
+instead of answering.
+
+<span class="sec">OUTPUT:</span>
+The three pieces, plus a short list of the volunteer questions
+the document doesn't answer — those are for a human to fill in.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Review it like a trainer, not a proofreader</div>
-            <div class="st-b">Is anything wrong, out of date, or unsafe to leave ambiguous? Fix the content in YOUR document first — it stays the source of truth — then regenerate from the corrected doc.</div>
+            <div class="st-b">Look for anything wrong, out of date, or too ambiguous to be safe. Fix the content in YOUR document first, since it stays the source of truth, then regenerate from the corrected version.</div>
           </div></li>
           <li><div>
             <div class="st-h">Save the quiz file and take it yourself</div>
@@ -93,7 +131,7 @@ say so instead of answering.</pre>
           </div></li>
           <li><div>
             <div class="st-h">Run one cohort, then feed back what confused people</div>
-            <div class="st-b">After the first training, note where volunteers stumbled and regenerate that section. This is the living-tool loop — the kit gets sharper cohort over cohort.</div>
+            <div class="st-b">After the first training, note where volunteers stumbled and regenerate that section. The kit gets better with each cohort this way.</div>
           </div></li>
         </ol>
 
@@ -103,20 +141,21 @@ say so instead of answering.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A training kit that gets sharper each cohort, plus the pattern underneath it: one source document, many teaching formats — a facilitator guide, a handout, and a quiz, all traceable back to the same doc.</p>
+            <p>A training kit that improves with each cohort, plus the pattern underneath it: one source document turned into several teaching formats, with the facilitator guide, the handout, and the quiz all traceable back to the same file.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>The browser line, taught here:</b> the quiz gives volunteers practice — it does NOT track completion. The moment you need "who passed, on record," that's an LMS (learning management system — training software with logins), not a clickable file. Ask the chat what a good next step would be when you get there.
+          <b>Here's where the browser line falls:</b> the quiz gives volunteers practice, but it does NOT track completion. As soon as you need a record of who passed, you need a learning management system, meaning training software with logins, rather than a clickable file. Ask the chat about good options when you reach that point.
         </div>
         <div class="browserline">
-          <b>The doc is the boss:</b> if the AI's guide says something your document doesn't, the fix goes in your document first, then regenerate — never let the kit drift from the source.
+          <b>The document is the authority.</b> If the AI's guide says something your document doesn't, fix the document first and then regenerate. Don't let the kit drift away from its source.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

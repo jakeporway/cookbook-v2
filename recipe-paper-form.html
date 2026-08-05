@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Rebuild a Paper Form as a Digital One · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Rebuild a Paper Form as a Digital One</h1>
-      <p class="tagline">Photograph your paper intake or registration form; get a working digital version people can fill in, plus a cleaner print version. Only the blank form goes in — never a filled-in copy.</p>
+      <p class="tagline">Photograph your paper intake or registration form and get back a working digital version people can fill in, plus a cleaner print version. Only the blank form goes in, never a filled-in copy.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>A photo or scan of the <b>blank</b> form, plus where the responses should end up — email, print, or a spreadsheet. That answer decides which of the two builds below you ask for.</p>
+          <p>A photo or scan of the <b>blank</b> form, plus a decision about where the responses should end up: email, print, or a spreadsheet. That answer decides which of the two builds below you ask for.</p>
         </div>
       </div>
 
@@ -53,18 +53,22 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Photograph or scan the blank form</div>
-            <div class="st-b">Straight-on, whole form in frame, nothing filled in. Only ever use a blank copy for this recipe.</div>
+            <div class="st-b">Shoot it straight on, with the whole form in frame and nothing filled in. Only ever use a blank copy for this recipe.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Decide where responses should land — this decides the build</div>
+            <div class="st-h">Decide where responses should land, which decides the build</div>
             <div class="st-b">For a form people fill out on a shared computer at your front desk, ask for a single HTML file version. For a form people fill out from home, ask it to draft the exact question list and settings to build in Google Forms instead, since Google Forms saves responses properly on its own.</div>
           </div></li>
           <li><div>
             <div class="st-h">For the front-desk version, paste this prompt</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Rebuild this paper form as a single self-contained HTML file. Same
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Rebuild this paper form as a single self-contained HTML file. Same
 fields, same order, in plain language labels with large, readable
 text.
 
@@ -76,7 +80,33 @@ and it must send the data nowhere — everything stays on the
 computer it's opened on.
 
 This form is for: <span class="tok">[e.g. new-member intake at our front desk]</span></pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+The attached paper form, rebuilt as a digital one that works on a
+front-desk computer with no internet.
+
+<span class="sec">CONTEXT:</span>
+This form is for: <span class="tok">[e.g. new-member intake at our front desk]</span>. The people filling it in may be older,
+in a hurry, or reading in a second language, so plain labels and
+large type matter more than density.
+
+<span class="sec">STEPS:</span>
+Rebuild the paper form as a single self-contained HTML file:
+1. Same fields, same order as the paper version.
+2. Plain-language labels, with large, readable text.
+3. Include a "Print completed form" button and a "Download
+   responses as CSV" button.
+4. It must work completely offline, with no internet connection.
+5. It must send the data nowhere — everything stays on the
+   computer it's opened on.
+
+<span class="sec">OUTPUT:</span>
+One HTML file I can double-click, plus a one-line note on where
+the downloaded CSV lands and how to back it up.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Test it yourself with fake answers</div>
@@ -98,17 +128,18 @@ This form is for: <span class="tok">[e.g. new-member intake at our front desk]</
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A working digital version of your form — either a self-contained offline file for a shared computer, or a ready-to-build Google Forms plan for people filling it out from home — plus a cleaner print version as backup.</p>
+            <p>A working digital version of your form, either a self-contained offline file for a shared computer or a ready-to-build Google Forms plan for people filling it out from home, plus a cleaner print version as a backup.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>A double-clicked HTML file does not remember anything after it closes.</b> That's a feature for privacy and a trap for collection — if you need responses to accumulate on their own, that's Google Forms territory, and this recipe has the AI draft that build for you instead. Choosing the right side of this line is the actual skill here.
+          <b>A double-clicked HTML file does not remember anything after it closes.</b> That's good for privacy and a problem for collection. If you need responses to accumulate on their own, use Google Forms, and this recipe will have the AI draft that build for you instead. Choosing correctly between the two is the real skill here.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Prepare Photos Safely Before You Publish Them · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Prepare photos safely before you publish them</h1>
-      <p class="tagline">Before photos of clients, volunteers, or kids go on your website: a small local tool that strips the hidden location and device data from each file and blurs the faces you choose — on your own computer.</p>
+      <p class="tagline">Before photos of clients, volunteers, or kids go on your website, run them through a small local tool that strips the hidden location and device data from each file and blurs the faces you choose, all on your own computer.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Nothing, at build time. Your photos never enter the chat — that's the point. You only describe what the finished tool should do.</p>
+          <p>Nothing while you build it. Your photos never enter the chat, which is the whole point. You only describe what the finished tool should do.</p>
         </div>
       </div>
 
@@ -53,26 +53,59 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Open a normal chat and describe the tool</div>
-            <div class="st-b">No photos needed yet — you're describing what the finished tool should do.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Copy it as-is.</p>
+            <div class="st-b">No photos needed yet. You're describing what the finished tool should do.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Copy it exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Build a single self-contained HTML file: I drag photos onto it;
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Build a single self-contained HTML file: I drag photos onto it;
 for each photo it (1) removes ALL metadata — GPS location, device
 info, timestamps — and shows me what it removed, (2) detects faces
 and draws a box on each so I can click which ones to blur (blur
 strongly enough that the face is unrecognizable), (3) lets me
 download the cleaned copies, originals untouched. Everything runs
 locally in the browser — photos must never upload anywhere.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+Get photos ready to publish safely: strip what they reveal about
+where they were taken, and blur the faces we don't have
+permission for.
+
+<span class="sec">CONTEXT:</span>
+These are program photos. The risk isn't only the faces — phone
+photos carry GPS coordinates and device details in their
+metadata. Everything must run locally in the browser; photos must
+never upload anywhere.
+
+<span class="sec">STEPS:</span>
+Build a single self-contained HTML file where I drag photos onto
+it, and for each photo it:
+1. Removes ALL metadata — GPS location, device info, timestamps —
+   and shows me what it removed.
+2. Detects faces and draws a box on each, so I can click which
+   ones to blur. Blur strongly enough that the face is
+   unrecognizable, not merely softened.
+3. Lets me download the cleaned copies, leaving my originals
+   untouched.
+
+<span class="sec">OUTPUT:</span>
+One HTML file, plus the per-photo list of what metadata was
+stripped so I can see what was in there.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Test it on a phone photo of yourself</div>
-            <div class="st-b">Confirm the GPS data it shows you before cleaning, then confirm the downloaded copy shows none — ask for the tool to include a "verify" view if it doesn't already, so you can check this yourself each time.</div>
+            <div class="st-b">Look at the GPS data it shows you before cleaning, then confirm the downloaded copy shows none. Ask for a "verify" view if the tool doesn't already have one, so you can check this yourself each time.</div>
           </div></li>
           <li><div>
             <div class="st-h">Use it for real, per your consent records</div>
-            <div class="st-b">Faces without a signed release get blurred, click by click. Keep your originals in your own files and publish only the cleaned copies.</div>
+            <div class="st-b">Blur every face without a signed release, one click at a time. Keep your originals in your own files and publish only the cleaned copies.</div>
           </div></li>
         </ol>
 
@@ -82,17 +115,18 @@ locally in the browser — photos must never upload anywhere.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Clean copies ready to publish, with the hidden location and device data stripped and every chosen face blurred beyond recognition — and your originals untouched in your own files.</p>
+            <p>Clean copies ready to publish, with the hidden location and device data stripped and every face you selected blurred beyond recognition. Your originals stay untouched in your own files.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Face detection is good, not perfect.</b> It misses faces at sharp angles and in mirrors and windows. The click-to-choose step means a human looks at every face in every photo before it publishes — that look-over is also when you catch the reflection nobody noticed. And blur tools don't fix a consent problem: no release, no publish, blurred or not.
+          <b>Face detection is good but not perfect.</b> It misses faces at sharp angles and in mirrors and windows. The click-to-choose step means someone looks at every face in every photo before it publishes, and that pass is also where you catch the reflection nobody noticed. Blurring doesn't solve a consent problem either: no release, no publishing, blurred or not.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

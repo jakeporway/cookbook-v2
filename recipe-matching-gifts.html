@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Does Their Employer Match Gifts? · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Does Their Employer Match Gifts?</h1>
-      <p class="tagline">Your donors' employers, checked against publicly posted corporate matching-gift programs — with a link to each program page and a plain "unknown" where nothing was found. The free version of a paywalled fundraising database.</p>
+      <p class="tagline">Your donors' employers, checked against publicly posted corporate matching-gift programs, with a link to each program page and a plain "unknown" where nothing was found. It covers much of what a paywalled fundraising database would tell you.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The employer column from your donor records — the field nobody has looked at since the donors filled it in. Company names only; no donor names, no gift amounts.</p>
+          <p>The employer column from your donor records, which is the field nobody has looked at since the donors filled it in. Company names only, with no donor names and no gift amounts.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Export the employer column, alone</div>
-            <div class="st-b">From your CRM or spreadsheet, copy just the company names. De-duplicate if it's easy; if not, the AI will do it in the next step.</div>
+            <div class="st-b">From your CRM or spreadsheet, copy just the company names. De-duplicate them if that's easy to do. If not, the AI will handle it in the next step.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the companies with this prompt</div>
-            <div class="st-b">The one rule that matters most: YES requires the company's own posted page. Everything else is UNKNOWN.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">The rule that matters most is that a YES requires the company's own posted page. Everything else is UNKNOWN.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Here is the employer column from our donor list — company
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Here is the employer column from our donor list — company
 names only, no donor names:
 
 <span class="tok">[paste your company list]</span>
@@ -81,19 +85,52 @@ blog posts don't count as a YES on their own. If you find
 nothing either way, write UNKNOWN and leave the rest of the
 row blank — do not guess. A made-up "yes" is worse than a
 hundred unknowns.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a prospect researcher. You only report what a company
+itself has published, and you would rather return a hundred
+unknowns than one invented yes.
+
+<span class="sec">GOAL:</span>
+Find out which of our donors' employers run a matching-gift
+program, so we know where a donation can be doubled.
+
+<span class="sec">CONTEXT:</span>
+Here is the employer column from our donor list — company names
+only, no donor names:
+
+<span class="tok">[paste your company list]</span>
+
+Third-party matching-gift databases and blog roundups are often
+out of date; they don't count as evidence on their own.
+
+<span class="sec">STEPS:</span>
+1. De-duplicate the company list first.
+2. For each company, search the web for its <span class="tok">publicly posted employee matching-gift program</span> — the
+   company's own giving page, HR benefits page, or published
+   matching-gift policy.
+3. Only answer YES if you found the company's own posted page or
+   policy, and link it in that row.
+4. If you find nothing either way, write UNKNOWN and leave the
+   rest of the row blank. Do not guess. A made-up "yes" is worse
+   than a hundred unknowns.
+
+<span class="sec">OUTPUT:</span>
+One table: Company | Matches gifts? (YES / NO / UNKNOWN) | Match
+ratio & annual cap, if posted | Link to the company's own program
+page.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Click through every YES before you use it</div>
-            <div class="st-b">Open the linked page and confirm it's the company's own site, the program is current, and your org type is eligible (some programs exclude religious or political orgs — check the "who can apply" or eligibility section of the program page; it's usually one short paragraph). This is the spot-check — do it for all the YESes, not a sample, because the verifying IS the task — budget for it.</div>
+            <div class="st-b">Open the linked page and confirm three things: that it's the company's own site, that the program is current, and that your org type is eligible. Some programs exclude religious or political orgs, so check the "who can apply" or eligibility section, which is usually one short paragraph. Do this for all the YESes rather than a sample. The verifying is the actual work here, so leave time for it.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Match the YES companies back to donors — on your machine</div>
-            <div class="st-b">Back in your own spreadsheet, filter donors by the confirmed employers. The donor names never entered the chat; the join happens in your CRM, where they already live.</div>
+            <div class="st-h">Match the YES companies back to donors on your own machine</div>
+            <div class="st-b">Back in your own spreadsheet, filter donors by the confirmed employers. The donor names never entered the chat, since the matching happens in your CRM where they already live.</div>
           </div></li>
           <li><div>
             <div class="st-h">Send the "your gift could double" note</div>
-            <div class="st-b">Include the company's own program link in the email — the donor files the paperwork, you get the match. UNKNOWN employers get nothing; a wrong "your employer matches!" costs you a donor's trust.</div>
+            <div class="st-b">Include the company's own program link in the email. The donor files the paperwork and your org gets the match. Send nothing to the UNKNOWN employers, because a wrong "your employer matches!" costs you a donor's trust.</div>
           </div></li>
         </ol>
 
@@ -103,21 +140,22 @@ hundred unknowns.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A verified matching-gift list — every YES linked to the company's own program page, ratios and caps where posted, and clean UNKNOWNs everywhere else. The employer field your CRM has been sitting on, finally earning its keep in December.</p>
+            <p>A verified matching-gift list, with every YES linked to the company's own program page, ratios and caps where they're posted, and clean UNKNOWNs everywhere else. The employer field your CRM has been sitting on finally does some work in December.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Made-up data looks exactly like found data.</b> A confabulated "yes, they match 2:1" reads exactly like a real one — until a donor calls HR and finds out there's no program. The rule: a source link per YES, unknowns stay UNKNOWN, and click through every YES before anyone acts on it.
+          <b>Made-up data looks exactly like found data.</b> An invented "yes, they match 2:1" reads exactly like a real one, right up until a donor calls HR and finds out there's no program. So: a source link on every YES, unknowns left as UNKNOWN, and a click through every YES before anyone acts on it.
         </div>
 
         <div class="browserline">
-          <b>The lookup line.</b> Dozens of employers → this recipe. Hundreds, or a re-check every giving season → ask the AI to build a small tool that re-verifies your YES list against the posted pages. Thousands → you've outgrown the recipe; that's what the paid databases are for.
+          <b>When to stop using this recipe.</b> For dozens of employers, this recipe is the right tool. For hundreds, or a re-check every giving season, ask the AI to build a small tool that re-verifies your YES list against the posted pages. For thousands, this is what the paid databases are for.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

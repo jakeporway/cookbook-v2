@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — What a Rule Change Means for You · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Understand what a rule change means for you</h1>
-      <p class="tagline">A proposed regulation or bill, read against your own program documents: what actually changes for your organization, what doesn't, and a first draft of a public comment if you choose to respond.</p>
+      <p class="tagline">A proposed regulation or bill, read against your own program documents, so you know what actually changes for your organization and what doesn't. It will also draft a public comment if you decide to respond.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The proposed rule (PDF from the register or legislature site), plus your current program description or the policies it touches.</p>
+          <p>The proposed rule as a PDF from the register or legislature site, plus your current program description or the policies it touches.</p>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Get the actual text</div>
-            <div class="st-b">Not a news story about it — the PDF from the register or legislature site itself. Coverage summarizes; the text is what governs you.</div>
+            <div class="st-b">Use the PDF from the register or legislature site rather than a news story about it. Coverage summarizes, but the text is what governs you.</div>
           </div></li>
           <li><div>
             <div class="st-h">Attach the rule and your program documents</div>
@@ -61,11 +61,15 @@
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt</div>
-            <div class="st-b">This is the comparison step — the rule against your own practice, not the rule in the abstract.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">This is the comparison step: the rule against your own practice, rather than the rule in the abstract.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Chat prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Compare this proposed rule to my organization's current
+              <div class="ph">
+        <span>Chat prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Compare this proposed rule to my organization's current
 practice as described in the attached documents. Give me:
 1. Provisions that would require us to change something, with
    the rule section AND our document cited for each.
@@ -76,7 +80,37 @@ practice as described in the attached documents. Give me:
 
 Be precise about proposed versus final, and about effective
 dates.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a policy analyst reading a proposed rule against how we
+actually operate. You cite both sides of every comparison.
+
+<span class="sec">GOAL:</span>
+Tell me what this rule change would actually require of us —
+separated from what the coverage says it requires.
+
+<span class="sec">CONTEXT:</span>
+The proposed rule is attached, along with documents describing my
+organization's current practice. Be precise about proposed versus
+final, and about effective dates — much of what gets circulated
+about rules like this blurs both.
+
+<span class="sec">STEPS:</span>
+1. Read the proposed rule against our current practice as
+   described in the attached documents.
+2. Identify provisions that would require us to change something,
+   citing the rule section AND our document for each.
+3. Identify provisions that sound alarming but don't apply to us,
+   and explain why not.
+4. Identify what the rule does NOT say that coverage might claim
+   it says.
+5. Where our documents don't tell you enough about our practice,
+   ask me rather than assume.
+
+<span class="sec">OUTPUT:</span>
+Those four sections in order, every point double-cited (rule
+section + our document), with the open questions for me listed
+last.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Answer its open questions and re-run</div>
@@ -88,7 +122,7 @@ dates.</pre>
           </div></li>
           <li><div>
             <div class="st-h">If responding, draft a grounded public comment</div>
-            <div class="st-b">Base the comment on the specific provisions and your specific operational experience — agencies read specific comments; form letters get counted, not read. A human with authority signs off before anything is submitted.</div>
+            <div class="st-b">Base the comment on the specific provisions and your own operational experience. Agencies read specific comments closely, while form letters are counted but rarely read. Someone with authority signs off before anything is submitted.</div>
           </div></li>
         </ol>
 
@@ -98,17 +132,18 @@ dates.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A clear read on what actually changes for your organization, cited against both the rule and your own documents — plus a grounded first draft of a public comment if you choose to submit one.</p>
+            <p>A clear read on what actually changes for your organization, cited against both the rule and your own documents, plus a first draft of a public comment if you choose to submit one.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Rules change between proposal and final, and secondhand summaries are where nonprofits get burned.</b> Always feed it the actual text. The "what it does NOT say" section is often the most valuable output — calm is a deliverable too.
+          <b>Rules change between proposal and final, and secondhand summaries are where nonprofits get caught out.</b> Always give it the actual text. The "what it does NOT say" section is often the most useful part of the output, since a good deal of what circulates about a rule turns out not to be in it.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — One Story, a Real Deck · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>One story, a real deck</h1>
-      <p class="tagline">You wrote the quarterly report. The board meets Thursday. Turn the report you already finished into a real PowerPoint file — branded like last year's deck, editable by anyone, ready to email the board chair tonight.</p>
+      <p class="tagline">You wrote the quarterly report and the board meets Thursday. Turn the report you already finished into a real PowerPoint file, branded like last year's deck, editable by anyone, and ready to email the board chair tonight.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The finished report or story (the <b>content</b>) plus <b>last year's deck attached as the design template</b> — "make it look like this one." Never a paragraph describing your colors and fonts. The old deck <b>is</b> your brand; adjectives never will be.</p>
+          <p>The finished report or story, which is the <b>content</b>, plus <b>last year's deck attached as the design template</b>, with the instruction to make it look like that one. Don't write a paragraph describing your colors and fonts. The old deck <b>is</b> your brand in a way that adjectives never manage.</p>
         </div>
       </div>
 
@@ -53,19 +53,23 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Pick the source content</div>
-            <div class="st-b">The quarterly report, the program story, the annual letter — whatever's already written and finished. This is the deck's backbone; you're not writing anything new.</div>
+            <div class="st-b">The quarterly report, the program story, or the annual letter: whatever is already written and finished. That becomes the deck's backbone, and you're not writing anything new.</div>
           </div></li>
           <li><div>
             <div class="st-h">Dig up the deck your org already likes</div>
-            <div class="st-b">Last year's board deck, a program-review deck, anything with your colors and layout already baked in. It doesn't need to be recent — it needs to look like "us."</div>
+            <div class="st-b">Last year's board deck, a program-review deck, or anything with your colors and layout already built in. It doesn't need to be recent. It needs to look like your organization.</div>
           </div></li>
           <li><div>
             <div class="st-h">Attach both files and paste this prompt</div>
-            <div class="st-b">The report gives the story; the old deck gives the look. Swap the highlighted parts for your details.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">The report supplies the story and the old deck supplies the look. Swap the highlighted parts for your details.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Attached are two files: my written report (the content) and a
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Attached are two files: my written report (the content) and a
 slide deck we made before (the design to match).
 
 Build me a PowerPoint deck (a real downloadable .pptx file) that
@@ -80,20 +84,47 @@ Rules:
 - End with <span class="tok">[what we're asking the board for]</span>.
 - If a chart would help, build it from the report's numbers and
   note which page they came from in the slide notes.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building a presentation from a report someone else wrote.
+You are a deck designer, not a co-author — every fact comes from
+the report.
+
+<span class="sec">GOAL:</span>
+A real, downloadable .pptx deck that tells the report's story to
+<span class="tok">[our board]</span> in <span class="tok">[8-10]</span> slides.
+
+<span class="sec">CONTEXT:</span>
+Attached are two files: my written report (the content) and a
+slide deck we made before (the design to match). Match the
+attached deck's colors, fonts, and general layout.
+
+<span class="sec">STEPS:</span>
+1. Find the report's actual argument first, then decide what
+   earns a slide.
+2. One idea per slide. Headlines a board member can read from the
+   back of the room.
+3. Every number must come from the report — invent nothing.
+4. If a chart would help, build it from the report's numbers and
+   note which page they came from in the slide notes.
+5. End with <span class="tok">[what we're asking the board for]</span>.
+
+<span class="sec">OUTPUT:</span>
+A downloadable .pptx file of <span class="tok">[8-10]</span> slides, on-brand, with source
+pages in the slide notes wherever a figure appears.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Open the .pptx and fix what a human should fix</div>
-            <div class="st-b">Open it in PowerPoint or Google Slides. Charts and layout land about 90% right — alignment nitpicks and the last 10% of polish are yours to finish.</div>
+            <div class="st-b">Open it in PowerPoint or Google Slides. The charts and layout usually land about 90% right, and the alignment fixes and final polish are yours to finish.</div>
           </div></li>
           <li><div>
             <div class="st-h">Sanity-check every number against the source</div>
-            <div class="st-b">Walk each slide against the original report line by line before it goes anywhere near the board. A wrong figure in front of your board does more damage than a plain slide ever will.</div>
+            <div class="st-b">Check each slide against the original report line by line before it goes anywhere near the board. A wrong figure in front of your board does more damage than a plain slide ever will.</div>
           </div></li>
         </ol>
 
         <div class="browserline">
-          <b>A real file beats a fancy one.</b> An HTML slideshow is a dead end for a board deck — nobody can edit it, forward it, or fix a typo Thursday morning. Always ask for the .pptx.
+          <b>A real file beats a fancy one.</b> An HTML slideshow doesn't work for a board deck, because nobody can edit it, forward it, or fix a typo on Thursday morning. Always ask for the .pptx.
         </div>
         <div class="browserline" style="margin-top:10px;">
           If the file won't download, or arrives as plain text instead of a file, say exactly this back: <b>"give it to me as a downloadable .pptx file."</b>
@@ -105,7 +136,7 @@ Rules:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>An editable, branded deck ready for Thursday — plus a reusable move: template by example. Next quarter, same two attachments, same prompt, new numbers.</p>
+            <p>An editable, branded deck ready for Thursday, plus a technique you can reuse: providing a template by example. Next quarter it's the same two attachments and the same prompt with new numbers.</p>
           </div>
         </div>
       </div>
@@ -113,5 +144,6 @@ Rules:
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

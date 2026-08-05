@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Say It So Everyone Can Read It · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Say it so everyone can read it</h1>
-      <p class="tagline">Turn your program flyer or intake instructions into a 6th-grade reading level version, a large-print version, and a first-draft Spanish version — reading level scored, and a fluent human reviews every translation before it goes out.</p>
+      <p class="tagline">Turn your program flyer or intake instructions into a 6th-grade reading level version, a large-print version, and a first-draft Spanish version. The reading level is scored, and a fluent speaker reviews every translation before it goes out.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The current document, plus <b>the plainest thing your org has ever published</b> — a welcome flyer, a text-message script, whatever a real person actually understood on the first read. That artifact <em>is</em> the target register. Don't describe "simple and friendly"; show it.</p>
+          <p>The current document, plus <b>the plainest thing your org has ever published</b>: a welcome flyer, a text-message script, or whatever a real person understood on the first read. That piece <em>is</em> the target. Show what "simple and friendly" means rather than describing it.</p>
         </div>
       </div>
 
@@ -53,19 +53,23 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Find your plainest published piece</div>
-            <div class="st-b">Dig up the clearest thing your org has ever put in front of the public. It doesn't have to be related to this document — it just has to sound the way you wish everything did.</div>
+            <div class="st-b">Find the clearest thing your org has ever put in front of the public. It doesn't have to relate to this document. It only has to sound the way you wish everything did.</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a normal chat</div>
-            <div class="st-b">Paste the current document in (or attach the PDF). No special mode.</div>
+            <div class="st-b">Paste the current document in, or attach the PDF. No special mode is needed.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt with both documents dropped in</div>
-            <div class="st-b">The accuracy rule is the load-bearing line: plain language must never change what people actually have to do.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">The accuracy rule is the most important part: plain language must never change what people actually have to do.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Here is a document we give to the people we serve. Right now it
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Here is a document we give to the people we serve. Right now it
 reads like the regulation it summarizes:
 
 <span class="tok">[PASTE YOUR CURRENT DOCUMENT]</span>
@@ -96,19 +100,63 @@ flag it for me instead.
 
 Give me your best draft of each. I'll pick and lightly edit —
 don't offer endless variations.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a plain-language editor for documents that people rely on
+to get something they need. Accuracy outranks simplicity every
+time.
+
+<span class="sec">GOAL:</span>
+Three usable versions of this document: plain, large-print
+friendly, and a first-draft translation.
+
+<span class="sec">CONTEXT:</span>
+Here is a document we give to the people we serve. Right now it
+reads like the regulation it summarizes:
+
+<span class="tok">[PASTE YOUR CURRENT DOCUMENT]</span>
+
+And here is the plainest thing our org has ever published — this
+is the register I want, so match how it sounds:
+
+<span class="tok">[PASTE YOUR PLAINEST PAST PIECE]</span>
+
+<span class="sec">STEPS:</span>
+Rewrite the document three ways:
+1. PLAIN — 6th-grade reading level or below. Short sentences,
+   everyday words, "you" instead of "the applicant." Score it
+   (Flesch-Kincaid — a standard readability score; the number is
+   roughly the U.S. school grade needed to read it. Aim for 8 or
+   below; 6 is great) and tell me the grade level you reached.
+2. LARGE-PRINT-FRIENDLY — the plain version restructured for big
+   type: short lines, one idea per chunk, clear headings, no
+   dense paragraphs.
+3. SPANISH FIRST DRAFT — translate the plain version into <span class="tok">[Spanish]</span>.
+   Mark it "DRAFT — pending human review" at the top. Flag any
+   term you weren't sure how to translate.
+
+The hard rule throughout: every requirement, document name,
+deadline, phone number, and address stays exactly accurate. If
+simplifying a sentence would change what someone has to do, keep
+it precise and flag it for me instead.
+
+<span class="sec">OUTPUT:</span>
+The three versions, labeled, with the readability score on the
+plain one and a list of anything you kept complicated on purpose.
+Your best draft of each — I'll pick and lightly edit, so don't
+offer endless variations.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Check the requirements line by line</div>
-            <div class="st-b">Put the plain version next to the original and verify every deadline, document, and phone number survived. This is the ten minutes that makes the rest trustworthy.</div>
+            <div class="st-b">Put the plain version next to the original and check that every deadline, document name, and phone number survived. These ten minutes are what make the rest trustworthy.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Send the translation to a fluent human</div>
-            <div class="st-b">A bilingual staff member, board member, or trusted volunteer reads the Spanish draft before anyone else does. Their edits are part of the recipe, not an optional extra. No bilingual staff? A partner org, a stipended community member, or a professional translator reviewing a draft (much cheaper than translating from scratch) all work.</div>
+            <div class="st-h">Send the translation to a fluent speaker</div>
+            <div class="st-b">A bilingual staff member, board member, or trusted volunteer reads the Spanish draft before anyone else does. Their edits are part of the recipe rather than an optional extra. If you have no bilingual staff, a partner org, a stipended community member, or a professional translator reviewing the draft all work. Reviewing a draft costs much less than translating from scratch.</div>
           </div></li>
           <li><div>
             <div class="st-h">Format and put them into use</div>
-            <div class="st-b">Drop each version into your template — 18pt+ type for the large-print one — and retire the old letter. Keep all three files together so the next update touches all three.</div>
+            <div class="st-b">Put each version into your template, using 18pt or larger type for the large-print one, and retire the old letter. Keep all three files together so the next update covers all three.</div>
           </div></li>
         </ol>
 
@@ -118,17 +166,18 @@ don't offer endless variations.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>Three accessible versions of a document people were struggling with — plain-language (with a reading-level score), large-print, and human-reviewed Spanish — plus a repeatable move for every confusing document your org hands out.</p>
+            <p>Three accessible versions of a document people were struggling with: plain-language with a reading-level score, large-print, and Spanish reviewed by a fluent speaker. You also have a repeatable process for every other confusing document your org hands out.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Machine translation is a first draft — always.</b> A fluent human reviews any translation before it reaches the people you serve; a wrong word in intake instructions can cost someone a benefit. And treat the reading-level score as a guide, not a guarantee: the real test is whether an actual person understands it on the first read.
+          <b>Machine translation is always a first draft.</b> A fluent speaker reviews any translation before it reaches the people you serve, because a wrong word in intake instructions can cost someone a benefit. Treat the reading-level score as a guide rather than a guarantee. The real test is whether an actual person understands it on the first read.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

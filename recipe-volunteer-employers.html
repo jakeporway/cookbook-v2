@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Where Do Our Volunteers Work? · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Where Do Our Volunteers Work?</h1>
-      <p class="tagline">Before searching anything: their email domains already told you. jane@salesforce.com is not a mystery. Sort your volunteer list by employer from the domain column alone, then search only the domains that don't explain themselves.</p>
+      <p class="tagline">Most of the answer is already in your data. An address like jane@salesforce.com tells you the employer without any searching. Sort your volunteer list by employer using the domain column alone, then search only the domains that don't explain themselves.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The email-domain column from the volunteer list you already have — just the part after the @, with the names stripped out first (Recipe 01, the redaction pass, does this in one step) — or simpler: delete the Name column in your copy and paste only the domain column.</p>
+          <p>The email-domain column from the volunteer list you already have, meaning just the part after the @, with the names stripped out first. Recipe 01, the redaction pass, does this in one step, or you can simply delete the Name column in your copy and paste only the domain column.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Pull the domain column, drop the names</div>
-            <div class="st-b">In your spreadsheet, split emails at the @ and copy only what's after it. (In Excel: select the column → Data → Text to Columns → Delimited → Other: @.) If names and emails are tangled together, run the column through the redaction pass (Recipe 01) first — or simpler: delete the Name column in your copy and paste only the domain column.</div>
+            <div class="st-b">In your spreadsheet, split the emails at the @ and copy only what comes after it. In Excel, that's select the column → Data → Text to Columns → Delimited → Other: @. If names and emails are tangled together, run the column through the redaction pass (Recipe 01) first, or simply delete the Name column in your copy and paste only the domain column.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste the domains with this prompt</div>
-            <div class="st-b">Domain-sort first, search second — that order is the whole trick.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Sort by domain first and search second. That order is what makes this efficient.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Here is the email-domain column from our volunteer list —
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Here is the email-domain column from our volunteer list —
 domains only, no names attached:
 
 <span class="tok">[paste your domain column, e.g. salesforce.com, gmail.com,
@@ -85,19 +89,57 @@ know (domain match / web search) | Source link for anything
 you searched. If you can't confirm a domain, leave it blank
 and write UNKNOWN — do not guess. Then list the top 5
 employers by volunteer count.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are doing employer research from email domains only. You
+research domains, never people.
+
+<span class="sec">GOAL:</span>
+Find out where our volunteers work in aggregate, so we know which
+companies we already have a foothold in.
+
+<span class="sec">CONTEXT:</span>
+Here is the email-domain column from our volunteer list — domains
+only, no names attached:
+
+<span class="tok">[paste your domain column, e.g. salesforce.com,
+gmail.com, con-ed.com, nyu.edu…]</span>
+
+Never search for an individual. The unit of research is the
+domain.
+
+<span class="sec">STEPS:</span>
+1. Sort by domain FIRST, before searching anything. A domain like
+   salesforce.com already tells you the employer. Group the
+   recognizable company domains and count how many volunteers are
+   at each.
+2. For company-looking domains you don't recognize, search the
+   web for the DOMAIN itself to confirm which company it belongs
+   to.
+3. Personal and generic domains (gmail, yahoo, aol, ISPs) and
+   school domains (.edu): mark the employer UNKNOWN. Do not try
+   to look those people up.
+4. If you can't confirm a domain, leave it blank and write
+   UNKNOWN — do not guess.
+
+<span class="sec">OUTPUT:</span>
+A table: Domain | Employer | Volunteer count | How you know
+(domain match / web search) | Source link for anything you
+searched.
+
+Then list the top 5 employers by volunteer count.</pre>
+      </div>
           </div></li>
           <li><div>
-            <div class="st-h">Read the top-5 list — that's your sponsorship shortlist</div>
-            <div class="st-b">Eight volunteers at one company is a warm door. That cluster is the conversation your partnerships lead has been looking for.</div>
+            <div class="st-h">Read the top-5 list, which is your sponsorship shortlist</div>
+            <div class="st-b">Eight volunteers at one company is a genuine opening. That cluster is the conversation your partnerships lead has been looking for.</div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check 5 rows, especially the searched ones</div>
-            <div class="st-b">Click each source link and confirm the domain really belongs to that company. Domain-match rows are near-certain; searched rows are where errors hide. One catch: generic domains (mail.com, ISP addresses) and shared small-business domains can mislead — treat those as UNKNOWN, not near-certain.</div>
+            <div class="st-b">Click each source link and confirm the domain really belongs to that company. Rows matched by domain are close to certain, while searched rows are where errors hide. Watch for generic domains like mail.com and ISP addresses, along with shared small-business domains, all of which can mislead. Treat those as UNKNOWN.</div>
           </div></li>
           <li><div>
             <div class="st-h">Leave the UNKNOWNs unknown</div>
-            <div class="st-b">Gmail addresses don't reveal employers, and that's fine — you're looking for clusters, not a complete census. Resist the urge to go find those people online (see the red zone below).</div>
+            <div class="st-b">Gmail addresses don't reveal employers, and that's fine, because you're looking for clusters rather than a complete census. Don't go looking those people up online. See the warning below.</div>
           </div></li>
         </ol>
 
@@ -107,25 +149,26 @@ employers by volunteer count.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>An employer-cluster map of your volunteer base — which companies keep showing up, how many people at each, and a shortlist of the warmest sponsorship conversations. Built almost entirely from data you already held.</p>
+            <p>A map of where your volunteers work: which companies keep showing up, how many people are at each, and a shortlist of the most promising sponsorship conversations. Built almost entirely from data you already had.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Made-up data looks exactly like found data.</b> A guessed employer reads exactly like a confirmed one. The rule: a source link for anything searched, unknowns stay blank, and spot-check 5 random rows before you act on any of it.
+          <b>Made-up data looks exactly like found data.</b> A guessed employer reads exactly like a confirmed one. So: a source link for anything searched, unknowns left blank, and a spot-check of 5 random rows before you act on any of it.
         </div>
 
         <div class="browserline">
-          <b>The lookup line.</b> Dozens of domains → this recipe. Hundreds, or a refresh every month → ask the AI to build a small tool that does the domain sort automatically. Thousands → you've outgrown the recipe.
+          <b>When to stop using this recipe.</b> For dozens of domains, this recipe is the right tool. For hundreds, or a refresh every month, ask the AI to build a small tool that does the domain sort automatically. For thousands, you need something more substantial.
         </div>
 
         <div class="browserline">
-          <b>LinkedIn is the red zone.</b> Looking volunteers up one by one on LinkedIn is the tempting shortcut — don't. Logged-in scraping violates LinkedIn's terms, and batch-browsing people's profiles isn't something to automate quietly. If a specific lookup ever matters that much, make it a deliberate, disclosed, by-hand choice — never a batch job.
+          <b>Don't use LinkedIn for this.</b> Looking volunteers up one by one on LinkedIn is the tempting shortcut. Logged-in scraping violates LinkedIn's terms, and browsing people's profiles in bulk isn't something to automate quietly. If one specific lookup genuinely matters, do it deliberately, by hand, and openly, rather than as a batch job.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

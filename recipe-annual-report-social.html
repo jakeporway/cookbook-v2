@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Your Annual Report Is 40 Social Posts · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Your annual report is 40 social posts</h1>
-      <p class="tagline">The report you sweated over contains months of content: stat callouts, story excerpts, milestone posts, quote-graphic copy. Mine it once, schedule it all quarter. You're sitting on more than you think.</p>
+      <p class="tagline">The report you already finished contains months of social content: stat callouts, story excerpts, milestone posts, and quote-graphic copy. Pull it all out in one pass and schedule it across the quarter.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The finished annual report PDF, plus <b>3 past posts that actually performed well</b>. The report supplies the substance; the three posts supply your voice — real artifacts, not a brand guide or a description of your tone.</p>
+          <p>The finished annual report PDF, plus <b>3 past posts that performed well</b>. The report supplies the substance and the three posts supply your voice. Use real posts rather than a brand guide or a description of your tone.</p>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Grab the report PDF and your 3 best posts</div>
-            <div class="st-b">Open your analytics (or just your memory) and copy the three posts from the past year that got real engagement. Those three are your voice sample — choose ones you'd happily post again.</div>
+            <div class="st-b">Open your analytics, or just go from memory, and copy the three posts from the past year that got real engagement. Those three are your voice sample, so choose ones you'd happily post again.</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a normal chat and attach the report</div>
@@ -61,11 +61,15 @@
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt with your posts dropped in</div>
-            <div class="st-b">The page-number rule matters: it turns every claim into something you can check in ten seconds.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">The page-number rule matters. It turns every claim into something you can check in about ten seconds.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Attached is our finished annual report. Here are three of our past
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Attached is our finished annual report. Here are three of our past
 social posts that performed well — match their voice and length,
 not a generic nonprofit voice:
 
@@ -87,19 +91,57 @@ double-check it. Write for <span class="tok">[Instagram and LinkedIn]</span>.
 Give me your best draft of each. I'll pick and lightly edit —
 don't offer endless variations. If you can't find 40 clean,
 well-sourced pieces, give me fewer. Don't stretch.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are our social media writer. You write in our voice, learned
+from our own past posts — not in a generic nonprofit voice.
+
+<span class="sec">GOAL:</span>
+Mine our finished annual report for everything postable, so one
+document becomes a season of social content.
+
+<span class="sec">CONTEXT:</span>
+The annual report is attached. Here are three past posts of ours
+that performed well — match their voice and length:
+
+POST 1: <span class="tok">[paste it]</span>
+POST 2: <span class="tok">[paste it]</span>
+POST 3: <span class="tok">[paste it]</span>
+
+Write for <span class="tok">[Instagram and LinkedIn]</span>.
+
+<span class="sec">STEPS:</span>
+1. Read the whole report before writing anything.
+2. Pull material into four groups of ten:
+   - STAT CALLOUTS — one striking number each, plus a line of
+     context that makes the number mean something.
+   - STORY EXCERPTS — short human moments from the narratives.
+   - MILESTONES — anniversaries, firsts, "this year we…" moments.
+   - QUOTE GRAPHICS — a pull-quote plus a one-line caption to
+     post it with.
+3. Use only what is actually in the report. Invent nothing — no
+   rounded-up numbers, no implied outcomes.
+4. Label every post with the report page it came from so I can
+   check it.
+5. If you cannot find <span class="tok">40 posts</span> clean, well-sourced pieces, give me
+   fewer. Do not stretch.
+
+<span class="sec">OUTPUT:</span>
+<span class="tok">40 posts</span>, in the four labeled groups, each post tagged with its source
+page. Your best draft of each — I will pick and lightly edit, so
+do not offer endless variations.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Spot-check the numbers against the pages</div>
-            <div class="st-b">Every post carries a page label — check each stat and quote against that page before it goes anywhere near a scheduler. Checking 40 posts against their pages takes as long as generating them — that hour is the job, not overhead.</div>
+            <div class="st-b">Every post carries a page label. Check each stat and quote against that page before it goes anywhere near a scheduler. Checking 40 posts takes about as long as generating them, and that hour is part of the work rather than overhead.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Pick, lightly edit, and cut without guilt</div>
-            <div class="st-b">If 28 of the 40 are keepers, that's still a full quarter of content. One editing pass, then stop.</div>
+            <div class="st-h">Pick the keepers, edit lightly, and cut the rest</div>
+            <div class="st-b">If 28 of the 40 are keepers, that's still a full quarter of content. Make one editing pass and stop there.</div>
           </div></li>
           <li><div>
             <div class="st-h">Load your scheduler for the quarter</div>
-            <div class="st-b">Paste the keepers into your scheduling tool, two or three a week. A human schedules and sends everything — the queue is yours, not the chat's.</div>
+            <div class="st-b">Paste the keepers into your scheduling tool, two or three a week. A person schedules and sends everything; the AI never posts on its own.</div>
           </div></li>
         </ol>
 
@@ -109,17 +151,18 @@ well-sourced pieces, give me fewer. Don't stretch.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A quarter's social calendar mined from work you already did — 30–40 page-cited posts in four content types, ready for your scheduler. And the remix-matrix habit: one strong source document is never just one thing.</p>
+            <p>A quarter's social calendar built from work you already did: 30–40 page-cited posts in four content types, ready for your scheduler. You also get into the habit of treating one strong document as a source for many pieces.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>If the posts sound generic, the fix is a better example — not a longer description.</b> Swap in a past post that sounds more like you and run it once more. Cap iteration at one pass: the "make it punchier… warmer… shorter?" spiral wastes the afternoon this recipe just gave back. Draft, spot-check, pick, schedule.
+          <b>If the posts sound generic, give it a better example rather than a longer description.</b> Swap in a past post that sounds more like you and run it once more. Stop after that extra pass. Asking repeatedly for punchier, warmer, or shorter versions will use up the afternoon this recipe just saved you.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

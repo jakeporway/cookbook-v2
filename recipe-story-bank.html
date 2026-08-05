@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Story Bank · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Build a quote library from recorded interviews</h1>
-      <p class="tagline">Ten-minute recorded conversations with participants become a searchable library of transcribed quotes, tagged by theme and program, that your communications work draws on all year. Consent is a step in the recipe, not a footnote.</p>
+      <p class="tagline">Ten-minute recorded conversations with participants become a searchable library of transcribed quotes, tagged by theme and program, that your communications work can draw on all year. Consent is a step in the recipe rather than a footnote.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>Real people's words and stories go into the chat — handle them that way.</b> Transcribe locally first with the private transcriber recipe, and only quotes cleared by consent enter the chat.</div>
+          <div class="tip"><b>Real people's words and stories go into the chat, so handle them accordingly.</b> Transcribe locally first using the private transcriber recipe, and only put quotes covered by consent into the chat.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Transcripts of recorded conversations — record with a signed consent form that names the uses (website, reports, social) before you press record — plus your program names as the tagging vocabulary.</p>
+          <p>Transcripts of recorded conversations, made with a signed consent form that names the uses, such as website, reports, and social, before you press record. You'll also need your program names to use as tags.</p>
         </div>
       </div>
 
@@ -53,12 +53,12 @@
         <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
         <ol class="steps">
           <li><div>
-            <div class="st-h">Record a 10-minute conversation — consent first</div>
-            <div class="st-b">The consent form is signed <b>before</b> recording starts, and it names where quotes may appear. The participant can decline any specific use (website, but not social; internal only; anonymous only) and can say no to the whole thing.</div>
+            <div class="st-h">Get consent, then record a 10-minute conversation</div>
+            <div class="st-b">The consent form is signed <b>before</b> recording starts, and it names where quotes may appear. The participant can decline any specific use, such as agreeing to the website but not social, or to internal use only, or to anonymous quotes only. They can also decline the whole thing.</div>
           </div></li>
           <li><div>
             <div class="st-h">Transcribe on your own machine</div>
-            <div class="st-b">Use <a href="recipe-private-transcriber.html">the private transcriber recipe</a> so the recording never leaves your computer. Interview audio is not something to upload to an unfamiliar tool.</div>
+            <div class="st-b">Use <a href="recipe-private-transcriber.html">the private transcriber recipe</a> so the recording never leaves your computer. Interview audio isn't something to upload to an unfamiliar tool.</div>
           </div></li>
           <li><div>
             <div class="st-h">Review the transcript and cut anything off the record</div>
@@ -66,15 +66,19 @@
           </div></li>
           <li><div>
             <div class="st-h">Create a Project called "Story bank"</div>
-            <div class="st-b">In your AI chat: <b>Projects → New project</b> → "Story bank." Add each cleared transcript to Project knowledge as it's ready.</div>
+            <div class="st-b">In your AI chat, go to <b>Projects → New project</b> and name it "Story bank." Add each cleared transcript to the Project knowledge as it becomes ready.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste these Project instructions</div>
-            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. Note what it forbids: it never paraphrases, ever.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Open the Project's <b>Instructions</b> box and paste this. Note what it forbids: it never paraphrases.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Project instructions</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>You hold interview transcripts from people in our programs. When
+              <div class="ph">
+        <span>Project instructions</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">You hold interview transcripts from people in our programs. When
 I ask for quotes, return EXACT verbatim sentences with the
 speaker and transcript cited — never paraphrase, never smooth
 grammar, never merge sentences from different places in the
@@ -86,11 +90,42 @@ Tag each quote with a theme and a program from this list:
 If nothing in the transcripts fits what I asked for, say so —
 never adapt a quote to fit the request. A close paraphrase is
 still not a quote.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You hold interview transcripts from people in our programs. You
+are a quote librarian — you retrieve their exact words, you never
+improve them.
+
+<span class="sec">GOAL:</span>
+Find me usable verbatim quotes on a theme, with enough
+attribution that I can go back to the source before publishing.
+
+<span class="sec">CONTEXT:</span>
+The transcripts in this Project are the only source. These are
+real people describing real experiences; a smoothed quote is a
+words-in-mouth problem, not a style problem.
+
+<span class="sec">STEPS:</span>
+1. Search the transcripts for material that genuinely fits what I
+   asked for.
+2. Return EXACT verbatim sentences with the speaker and
+   transcript cited.
+3. Never paraphrase, never smooth grammar, never merge sentences
+   from different places in the transcript.
+4. Tag each quote with a theme and a program from this list:
+   [YOUR THEME AND PROGRAM LIST]
+5. If nothing in the transcripts fits what I asked for, say so.
+   Never adapt a quote to fit the request — a close paraphrase is
+   still not a quote.
+
+<span class="sec">OUTPUT:</span>
+Each quote verbatim, with speaker, transcript, theme, and
+program. Plus a line telling me what I asked for that the
+transcripts don't actually contain.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Ask for quotes, then verify each one</div>
-            <div class="st-b">Try: "three short quotes about confidence-building from the youth program." Check each quote against the transcript before publishing anywhere — the citation it gives you makes this fast, not slow. Refresh consent when a quote is used somewhere new from what the original form named.</div>
+            <div class="st-b">Try something like "three short quotes about confidence-building from the youth program." Check each quote against the transcript before publishing it anywhere. The citation it gives you makes that quick. Go back for fresh consent when a quote will be used somewhere the original form didn't name.</div>
           </div></li>
         </ol>
 
@@ -100,17 +135,18 @@ still not a quote.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A growing, tagged library of real quotes, each traceable to its transcript and its consent form. Any writer on your team can pull a verified quote in minutes instead of hunting through old recordings.</p>
+            <p>A growing, tagged library of real quotes, each one traceable to its transcript and its consent form. Any writer on your team can pull a verified quote in minutes rather than hunting through old recordings.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>A paraphrase presented as a quote is a fabricated quote, even when it's close.</b> The never-paraphrase instruction, plus checking against the transcript, is what makes this a library and not a liability. People's stories are theirs: consent, the right to decline, and the right to withdraw are permanent parts of the system — not a step you do once and forget.
+          <b>A paraphrase presented as a quote is a fabricated quote, even when it's close.</b> The never-paraphrase instruction, together with checking against the transcript, is what keeps this useful rather than risky. People's stories belong to them, so consent, the right to decline, and the right to withdraw are permanent parts of the system rather than a step you complete once and forget.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Add Captions to Any Video · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Add captions to any video</h1>
-      <p class="tagline">A small tool that runs on your own computer: drop a video on it, get the video back with captions burned in — for accessibility, social, and everyone watching with the sound off. The video never uploads anywhere.</p>
+      <p class="tagline">A small tool that runs on your own computer. Drop a video on it and get the video back with captions burned in, for accessibility, for social, and for everyone watching with the sound off. The video never uploads anywhere.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Nothing sensitive — you describe what you want the tool to do. No video is attached at build time; your first real video only ever touches the finished tool, in your own browser.</p>
+          <p>Nothing sensitive. You describe what you want the tool to do, and no video is attached while you build it. Your first real video only ever touches the finished tool, in your own browser.</p>
         </div>
       </div>
 
@@ -53,11 +53,15 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Open a normal chat and describe the tool</div>
-            <div class="st-b">No video needed yet — you're describing what the finished tool should do, not showing it anything.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Copy it as-is.</p>
+            <div class="st-b">No video needed yet. You're describing what the finished tool should do, not showing it anything.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Copy it exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Build me a single self-contained HTML file: I drop a video file on
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Build me a single self-contained HTML file: I drop a video file on
 it, it transcribes the speech on my own machine using a browser
 speech-recognition model (such as Whisper via transformers.js),
 shows me the captions as editable text with timestamps, lets me
@@ -66,18 +70,49 @@ fix any word, then burns the corrected captions into the video
 download the result. Everything must run locally in the browser —
 the video must never upload to any server. Show a clear progress
 bar, because this takes time.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+A single HTML file that captions a video from start to finish on
+my own machine: transcribe, let me correct, burn the captions in,
+hand me the finished file.
+
+<span class="sec">CONTEXT:</span>
+The video is sensitive enough that it must never leave this
+computer. Everything runs locally in the browser — a browser
+speech-recognition model (such as Whisper via transformers.js)
+for the transcript, and ffmpeg compiled for the browser is
+acceptable for burning captions in.
+
+<span class="sec">STEPS:</span>
+Build the page so that:
+1. I drop a video file onto it.
+2. It transcribes the speech locally and shows me the captions as
+   editable text with timestamps.
+3. I can fix any word before anything is rendered.
+4. It burns the corrected captions into the video and lets me
+   download the result.
+5. A clear progress bar runs throughout, because this takes time
+   and a frozen-looking page reads as broken.
+
+<span class="sec">OUTPUT:</span>
+One self-contained HTML file, plus a short plain-language note on
+how to open it and what to expect the first time. The video must
+never upload to any server.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Save the file, then test with a short clip first</div>
-            <div class="st-b">Something under a minute. The first run downloads a speech-recognition model — hundreds of megabytes, one time only — so give it a minute before you decide something's broken.</div>
+            <div class="st-b">Something under a minute. The first run downloads a speech-recognition model, several hundred megabytes, one time only. Give it a minute before you decide something's broken.</div>
           </div></li>
           <li><div>
             <div class="st-h">Edit the captions before you burn them in</div>
-            <div class="st-b">Names and program terms are exactly what it gets wrong. The editing pane is the human-in-the-loop step — use it every time, not just when something looks off.</div>
+            <div class="st-b">Names and program terms are exactly what it gets wrong. The editing pane is where you catch that, so use it every time rather than only when something looks off.</div>
           </div></li>
           <li><div>
-            <div class="st-h">Expect it to be slow — that's the trade for local</div>
+            <div class="st-h">Expect it to be slow, which is the trade-off for keeping it local</div>
             <div class="st-b">A ten-minute video can take a while on an older laptop, especially the first time. That slowness is the price of the video never leaving your machine.</div>
           </div></li>
         </ol>
@@ -88,17 +123,18 @@ bar, because this takes time.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A downloaded video with captions burned in, and a reusable tool for the next one — with no per-minute fee and no upload, ever.</p>
+            <p>A downloaded video with captions burned in, and a reusable tool for the next one. No per-minute fee, and nothing uploaded.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>Local isn't always the right call, and that's fine.</b> If a video is public anyway and speed matters more than privacy, uploading it to a captioning service is a legitimate choice. This recipe exists for the videos you'd never upload — and for never paying per-minute again.
+          <b>Local isn't always the right call, and that's fine.</b> If a video is public anyway and speed matters more than privacy, uploading it to a captioning service is a reasonable choice. This recipe is for the videos you'd never upload, and for getting off per-minute pricing.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

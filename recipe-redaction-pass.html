@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Redaction Pass · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The Redaction Pass</h1>
-      <p class="tagline">A little tool on your own computer that strips names, emails, phone numbers, and addresses from any text you paste in — so you can safely use every other recipe in this book on real material. Read this one first.</p>
+      <p class="tagline">A small tool on your own computer that strips names, emails, phone numbers, and addresses out of any text you paste in, so you can use every other recipe in this book on real material. Read this one first.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>A description of what counts as identifying in <b>your</b> context — nothing real. Something like: "client names, staff names, school names, phone numbers, and our internal case IDs, which look like CL-1234." You already know this list by heart; you just say it out loud.</p>
+          <p>A description of what counts as identifying in <b>your</b> context, with no real examples. Something like "client names, staff names, school names, phone numbers, and our internal case IDs, which look like CL-1234." You already know this list by heart.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">List what counts as identifying at your org</div>
-            <div class="st-b">Names, obviously — but also the sneaky ones: school names, shelter locations, your internal ID format. Two minutes with a sticky note. No real examples needed.</div>
+            <div class="st-b">Names, of course, but also the less obvious ones: school names, shelter locations, and your internal ID format. Two minutes with a sticky note is enough, and you don't need any real examples.</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a normal chat and paste this</div>
             <div class="st-b">Swap in your own list of identifying things. The AI never needs to see a real name to build this.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Build me a SINGLE self-contained HTML file (no internet needed, no
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Build me a SINGLE self-contained HTML file (no internet needed, no
 libraries loaded from the web) that redacts identifying information
 from text I paste in. It must work entirely in my browser — nothing
 I paste should ever be sent anywhere.
@@ -81,23 +85,56 @@ How it should work:
   that word to the list for next time.
 - Include a note on the page reminding me to spot-check before
   pasting the result anywhere.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+Strip identifying details out of text before I paste it anywhere
+else, without the text turning into nonsense.
+
+<span class="sec">CONTEXT:</span>
+What counts as identifying for me:
+<span class="tok">[people's names, email addresses, phone numbers, street
+addresses, school names, and our internal case IDs, which
+look like CL-1234]</span>
+
+Nothing I paste should ever be sent anywhere — this is the tool I
+use precisely because the text is sensitive.
+
+<span class="sec">STEPS:</span>
+Build a SINGLE self-contained HTML file (no internet needed, no
+libraries loaded from the web) that works entirely in my browser:
+1. One big box where I paste text, a Redact button, and the
+   cleaned version below with a Copy button.
+2. Replace each item with a consistent placeholder — the same
+   person becomes [PERSON-1] every time they appear, so the text
+   still makes sense.
+3. Highlight everything it changed so I can review each one.
+4. Let me click any word it MISSED to redact it by hand, and add
+   that word to the list for next time.
+5. Include a note on the page reminding me to spot-check before
+   pasting the result anywhere.
+
+<span class="sec">OUTPUT:</span>
+One HTML file I can double-click and use offline.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Save the HTML file the AI hands back</div>
-            <div class="st-b">Put it somewhere you'll actually find it — your desktop is fine. Double-click to open. It works with your wifi off, and that's the point.</div>
+            <div class="st-b">Put it somewhere you'll actually find it, such as your desktop, and double-click to open. It works with your wifi off, which is the point.</div>
           </div></li>
           <li><div>
             <div class="st-h">Test it on text you already know</div>
-            <div class="st-b">Write a fake case note with made-up names, a fake phone number, and a fake ID in your format. Run it through. Did it catch everything? Click anything it missed to teach it.</div>
+            <div class="st-b">Write a fake case note with made-up names, a fake phone number, and a fake ID in your format, then run it through. Check whether it caught everything, and click anything it missed so it learns that pattern.</div>
           </div></li>
           <li><div>
             <div class="st-h">Make it the habit</div>
-            <div class="st-b">From now on: real text goes through this tool first, then into any chat. That one pass is what turns this book's amber recipes green for you.</div>
+            <div class="st-b">From now on, real text goes through this tool first and into a chat second. That one pass is what turns this book's amber recipes green for you.</div>
           </div></li>
         </ol>
 
-        <div class="browserline"><b>Test before you trust.</b> This tool is the key that unlocks the amber recipes in this book — so make sure the key works. Run it on text you know well and check that it caught every name, number, and ID. A pattern-matcher is thorough but literal: "Dr. J." or a nickname can slip past. Spot-check the output every time; you are the last line.</div>
+        <div class="browserline"><b>Test it before you trust it.</b> This tool is what makes the amber recipes in this book usable, so confirm it works. Run it on text you know well and check that it caught every name, number, and ID. Pattern matching is thorough but literal, so "Dr. J." or a nickname can slip past. Spot-check the output every time, because you're the last check.</div>
 
         <div class="yield">
           <div class="ic">
@@ -105,7 +142,7 @@ How it should work:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A redaction tool that lives on your own computer and never phones home — plus a new habit. Every recipe in this book that says "paste your text in" now has a safe on-ramp: redact first, paste second. This one tool moves whole categories of your work from "can't touch AI" to "can."</p>
+            <p>A redaction tool that lives on your own computer and never sends anything out, plus a habit worth keeping. Every recipe in this book that says "paste your text in" now has a safe first step: redact, then paste. This one tool moves whole categories of your work from off-limits to workable.</p>
           </div>
         </div>
       </div>
@@ -113,5 +150,6 @@ How it should work:
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

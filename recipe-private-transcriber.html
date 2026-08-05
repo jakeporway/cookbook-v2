@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — The Private Transcriber · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>The Private Transcriber</h1>
-      <p class="tagline">A page that turns a recorded meeting or interview into a transcript entirely on your own computer. The audio never leaves your machine — usable even for sensitive client conversations.</p>
+      <p class="tagline">A page that turns a recorded meeting or interview into a transcript entirely on your own computer. The audio never leaves your machine, so you can use it even for sensitive client conversations.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Nothing sensitive at build time — just the plain facts about the recordings you already have: what format your phone or recorder saves (<b>.m4a</b>, <b>.mp3</b>, <b>.wav</b>), roughly how long they run, and how many voices are on them. The recordings themselves only ever touch your own browser, after the tool exists.</p>
+          <p>Nothing sensitive while you build it, just the plain facts about the recordings you already have: the format your phone or recorder saves (<b>.m4a</b>, <b>.mp3</b>, <b>.wav</b>), roughly how long they run, and how many voices are on them. The recordings themselves only ever touch your own browser, once the tool exists.</p>
         </div>
       </div>
 
@@ -53,15 +53,19 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Check what your recordings look like</div>
-            <div class="st-b">Find one recording on your phone or recorder and note the file type — usually .m4a or .mp3. That's the only homework.</div>
+            <div class="st-b">Find one recording on your phone or recorder and note the file type, usually .m4a or .mp3. That's the only preparation needed.</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a normal chat and paste this</div>
-            <div class="st-b">Swap in your file type and typical length. No audio is attached — you're describing, not sharing.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <div class="st-b">Swap in your file type and typical length. No audio is attached, since you're describing the recordings rather than sharing them.</div>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Build me a SINGLE self-contained HTML page that transcribes audio
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Build me a SINGLE self-contained HTML page that transcribes audio
 recordings ENTIRELY in my browser, so the audio is never uploaded
 anywhere. Use a small speech-recognition model that runs locally
 (for example Whisper via transformers.js). It's OK if the page
@@ -80,23 +84,56 @@ The page should:
   plain text file.
 - State plainly on the page that the audio never leaves this
   computer.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are building me a small, self-contained tool. I am not a
+coder — assume I will open one file and use it.
+
+<span class="sec">GOAL:</span>
+Transcribe recordings on my own machine, so the audio never
+leaves this computer.
+
+<span class="sec">CONTEXT:</span>
+My recordings are <span class="tok">[.m4a files from my phone]</span>, usually <span class="tok">[30–60 minutes]</span> long, in <span class="tok">[English]</span>, with
+<span class="tok">[two speakers]</span>. They contain things I am not free to upload to a
+transcription service.
+
+<span class="sec">STEPS:</span>
+Build a SINGLE self-contained HTML page that transcribes audio
+ENTIRELY in my browser. Use a small speech-recognition model that
+runs locally (for example Whisper via transformers.js). It's OK
+if the page downloads the model the first time I open it — after
+that it should work with no internet connection. The page should:
+1. Let me drag an audio file onto it and show clear progress
+   while it works — and tell me honestly that long files take a
+   while.
+2. Show the transcript with timestamps every so often, so I can
+   find my place in the audio.
+3. Give me buttons to copy the transcript and download it as a
+   plain text file.
+4. State plainly on the page that the audio never leaves this
+   computer.
+
+<span class="sec">OUTPUT:</span>
+One HTML file, plus a line on what to expect the first time I
+open it (the model download) and roughly how long an hour of
+audio takes.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Save the file and open it once with internet on</div>
-            <div class="st-b">First open, the page fetches its speech-recognition model — a one-time download, like installing an app. Every use after that is fully offline. The first time you open it, it downloads the recognition model — if it seems stuck for more than two or three minutes, close it and reopen once on a strong wifi connection. After that it works offline.</div>
+            <div class="st-b">The first time you open the page, it downloads its speech-recognition model, which is a one-time download much like installing an app. If it seems stuck for more than two or three minutes, close it and reopen once on a strong wifi connection. Every use after that is fully offline.</div>
           </div></li>
           <li><div>
             <div class="st-h">Test it on a recording that isn't sensitive</div>
-            <div class="st-b">Record yourself reading a paragraph, or use a staff-meeting clip. Check the transcript against what was actually said. Local models are good, not perfect — you'll fix the odd word. Expect transcription to take roughly as long as the recording itself, sometimes faster, depending on your computer.</div>
+            <div class="st-b">Record yourself reading a paragraph, or use a clip from a staff meeting. Check the transcript against what was actually said. Local models are good but not perfect, so expect to fix the odd word. Transcription usually takes roughly as long as the recording itself, sometimes less, depending on your computer.</div>
           </div></li>
           <li><div>
             <div class="st-h">Now use it on the real thing</div>
-            <div class="st-b">Drag an intake recording on, let it run while you do something else, and paste the transcript into your case notes. The dreaded typing-up evening is gone.</div>
+            <div class="st-b">Drag an intake recording onto the page, let it run while you do something else, and paste the transcript into your case notes. The evening of typing it up is no longer part of the job.</div>
           </div></li>
         </ol>
 
-        <div class="browserline"><b>Private isn't the same as permitted.</b> The audio never leaves your machine — but recording a conversation still requires the other person's consent, every time, per your org's policy and your state's law. This tool changes where the transcript is made; it doesn't change the ethics of making the recording.</div>
+        <div class="browserline"><b>Private isn't the same as permitted.</b> The audio never leaves your machine, but recording a conversation still requires the other person's consent every time, following your org's policy and your state's law. This tool changes where the transcript is made. It doesn't change the rules about making the recording.</div>
 
         <div class="yield">
           <div class="ic">
@@ -104,7 +141,7 @@ The page should:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A transcriber that lives on your own computer, costs nothing per use, and can be trusted with your most sensitive conversations — because there is no "somewhere" for the audio to go. Every hour of recording stops costing you an hour of typing.</p>
+            <p>A transcriber that lives on your own computer, costs nothing per use, and can be trusted with your most sensitive conversations, because there is nowhere for the audio to go. Every hour of recording stops costing you an hour of typing.</p>
           </div>
         </div>
       </div>
@@ -112,5 +149,6 @@ The page should:
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

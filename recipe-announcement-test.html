@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Test How an Announcement Will Land · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,14 +25,14 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Test how an announcement will land before you send it</h1>
-      <p class="tagline">Before the difficult announcement goes out — a program closing, a fee increase, a leadership change — it reads your draft as each audience: the worried parent, the longtime donor, the skeptical board member. You hear the objections while you can still edit.</p>
+      <p class="tagline">Before a difficult announcement goes out, whether it's a program closing, a fee increase, or a leadership change, the AI reads your draft as each of your audiences: the worried parent, the longtime donor, the skeptical board member. You hear the objections while you can still edit.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <div class="flag amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
           <span class="fl">Sensitive data goes in</span>
-          <div class="tip"><b>Unannounced news is confidential by definition.</b> Check who at your org should know this exists before it goes into any chat — treat it like the sensitive draft it is.</div>
+          <div class="tip"><b>Unannounced news is confidential by definition.</b> Check who at your org should know this draft exists before it goes into any chat, and handle it as carefully as you would the announcement itself.</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>Your draft, plus one honest paragraph of context you'd never publish — what's really driving the decision, what you're worried about — and a list of your real audiences.</p>
+          <p>Your draft, a list of your real audiences, and one honest paragraph of context you'd never publish: what's actually driving the decision, and what you're worried about.</p>
         </div>
       </div>
 
@@ -58,15 +58,19 @@
           </div></li>
           <li><div>
             <div class="st-h">Define audiences specifically</div>
-            <div class="st-b">"A parent whose child is in the closing program," not "stakeholders." Specific audiences produce specific, useful reactions.</div>
+            <div class="st-b">Write "a parent whose child is in the closing program" rather than "stakeholders." Specific audiences produce specific, useful reactions.</div>
           </div></li>
           <li><div>
             <div class="st-h">Paste this prompt</div>
             <div class="st-b">Fill in your real audiences and paste your draft along with the honest context paragraph.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Chat prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>Read this draft announcement as each of the following people,
+              <div class="ph">
+        <span>Chat prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Read this draft announcement as each of the following people,
 one at a time: [YOUR AUDIENCES — e.g. a parent whose child is in
 the closing program; a longtime monthly donor; a skeptical board
 member]
@@ -85,15 +89,49 @@ costs me a hard Monday later. Do NOT rewrite the announcement.
 
 Context you should know but that never gets published:
 [YOUR HONEST PARAGRAPH]</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a panel of the specific people who will receive this
+announcement. You read as they read — with their history, their
+stake, and their skepticism intact. You are not an editor.
+
+<span class="sec">GOAL:</span>
+Show me how this draft will actually land with each audience
+before I send it, so the hard reactions happen here instead of
+on Monday.
+
+<span class="sec">CONTEXT:</span>
+The audiences to read as, one at a time:
+[YOUR AUDIENCES — e.g. a parent whose child is in the closing
+program; a longtime monthly donor; a skeptical board member]
+
+Context you should know but that never gets published:
+[YOUR HONEST PARAGRAPH]
+
+<span class="sec">STEPS:</span>
+1. Take on each audience in turn. Read the draft the whole way
+   through as that person.
+2. For each one, report their first emotional reaction —
+   sentence by sentence where a specific line triggers it.
+3. List the questions they would immediately have that the draft
+   does not answer.
+4. Name anything they could reasonably misread, and give the
+   worst-faith reading a critic could quote back at us.
+5. Say what this person most needs to hear that is missing.
+6. Do not soften your readings to spare me. A gentle reading now
+   costs me a hard Monday later.
+
+<span class="sec">OUTPUT:</span>
+One section per audience, each with those four parts. Do NOT
+rewrite the announcement — critique only, no replacement text.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Read the reactions and revise yourself</div>
-            <div class="st-b">The judgment calls — what to concede, what to hold — are leadership, not editing. Make them yourself.</div>
+            <div class="st-b">The judgment calls about what to concede and what to hold are leadership decisions rather than editing ones. Make them yourself.</div>
           </div></li>
           <li><div>
             <div class="st-h">Re-run once on the revision, then stop</div>
-            <div class="st-b">Two passes is rehearsal; more is stalling. Send the final version through your real approval chain.</div>
+            <div class="st-b">Two passes is enough to surface the real problems. After that, send the final version through your usual approval chain.</div>
           </div></li>
         </ol>
 
@@ -103,17 +141,18 @@ Context you should know but that never gets published:
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A list of the real objections and gaps your announcement will meet, from each audience that matters, while you can still edit — plus a revised draft that answers what it can before it goes out.</p>
+            <p>A list of the objections and gaps your announcement will run into, from each audience that matters, while you can still edit. Plus a revised draft that answers what it can before it goes out.</p>
           </div>
         </div>
 
         <div class="browserline">
-          <b>It predicts reactions plausibly, not perfectly — treat the output as rehearsal, not research.</b> If the stakes are high enough, this recipe complements — never replaces — showing the draft to one real, trusted member of the affected audience.
+          <b>It predicts reactions plausibly, but not perfectly.</b> Treat the output as a rehearsal rather than as research. When the stakes are high, this recipe should sit alongside showing the draft to one real, trusted member of the affected audience. It doesn't replace that.
         </div>
       </div>
 
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

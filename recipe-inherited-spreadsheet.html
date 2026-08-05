@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recipe — Explain This Spreadsheet I Inherited · Decoded Futures Cookbook</title>
-<link rel="stylesheet" href="card-styles.css?v=flags1">
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
   <div class="backlink">
@@ -25,13 +25,13 @@
         <span class="pat"><i></i><i></i><i></i></span>
       </div>
       <h1>Explain This Spreadsheet I Inherited</h1>
-      <p class="tagline">Your predecessor left a workbook with 11 tabs, colored cells, and formulas nobody understands — and then left the org. Hand it over and get a plain-language map: what each tab is for, what calculates what, and which cells are load-bearing.</p>
+      <p class="tagline">Your predecessor left a workbook with 11 tabs, colored cells, and formulas nobody understands, and then left the org. Hand it over and get a plain-language map: what each tab is for, what calculates what, and which cells everything else depends on.</p>
 
       <!-- WARNING FLAGS -->
       <div class="flags">
         <span class="clear">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-          Nothing to flag &mdash; no sensitive data in, nothing published out
+          Nothing to flag. No sensitive data goes in, and nothing gets published
         </span>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
         <div>
           <div class="gh">Information you give it</div>
-          <p>The workbook itself — "FY24 MASTER TRACKER v7 (USE THIS ONE).xlsx", exactly as your predecessor left it. Or better, a <b>copy with the dollar figures blanked out</b>: the tabs, formulas, and colored cells are what need explaining, and those aren't the sensitive part. You point at the artifact; you don't have to describe it.</p>
+          <p>The workbook itself, "FY24 MASTER TRACKER v7 (USE THIS ONE).xlsx", exactly as your predecessor left it. Better still, a <b>copy with the dollar figures blanked out</b>. The tabs, formulas, and colored cells are what need explaining, and those aren't the sensitive part. You point at the file rather than describing it.</p>
         </div>
       </div>
 
@@ -53,19 +53,23 @@
         <ol class="steps">
           <li><div>
             <div class="st-h">Make a copy, and decide what to blank</div>
-            <div class="st-b">Save a copy of the workbook first — you'll attach the copy, never the original. If it holds donor gifts, salaries, or client info, select those value columns in the copy and delete the contents (leave the headers and formulas). The skeleton is what you need explained. Not sure whether deleting a number will break a formula? Don't touch it — attach the file as-is and just tell the AI: "the dollar figures are sensitive; explain the structure but don't repeat the numbers back to me."</div>
+            <div class="st-b">Save a copy of the workbook first and attach the copy, never the original. If it holds donor gifts, salaries, or client information, select those value columns in the copy and delete the contents, leaving the headers and formulas in place. The structure is what needs explaining. If you're not sure whether deleting a number will break a formula, leave it alone: attach the file as it is and tell the AI "the dollar figures are sensitive, so explain the structure but don't repeat the numbers back to me.""</div>
           </div></li>
           <li><div>
             <div class="st-h">Open a chat and attach the copy</div>
-            <div class="st-b">Use the paperclip, same as attaching to an email. This is the moment the file leaves your machine — which is why it's the blanked copy.</div>
+            <div class="st-b">Use the paperclip, the same as attaching a file to an email. This is the point where the file leaves your machine, which is why you're sending the blanked copy.</div>
           </div></li>
           <li><div>
             <div class="st-h">Ask for the map</div>
             <div class="st-b">Paste this, with one sentence of context about what the workbook is supposed to track.</div>
-            <p class="prenote">You don't need to understand every word below — it's instructions for the AI, not for you. Swap the [bracketed] parts; copy the rest exactly as-is.</p>
+            <p class="prenote">You don't need to understand every word below. It's written for the AI to read, not for you. Swap in the [bracketed] parts and copy the rest exactly as it is.</p>
             <div class="prompt">
-              <div class="ph"><span>Prompt</span><button class="copy" onclick="navigator.clipboard&&navigator.clipboard.writeText(this.closest('.prompt').querySelector('pre').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1400);">Copy</button></div>
-              <pre>I inherited this workbook from someone who has left the
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">I inherited this workbook from someone who has left the
 organization, and nobody here fully understands it. It's supposed
 to track <span class="tok">[our fundraising pipeline and gift entry for FY24]</span>.
 I've blanked some values — please explain the structure, not the
@@ -87,19 +91,57 @@ spreadsheets but new to THIS one:
    and say plainly when you're guessing.
 
 I'll ask follow-ups about specific cells after I read this.</pre>
-            </div>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are a spreadsheet archaeologist. You explain how a workbook
+is built and where it is fragile — you are not auditing its
+numbers.
+
+<span class="sec">GOAL:</span>
+A plain-language map of this workbook good enough that I can work
+in it without quietly breaking something.
+
+<span class="sec">CONTEXT:</span>
+I inherited this workbook from someone who has left the
+organization, and nobody here fully understands it. It's supposed
+to track <span class="tok">[our fundraising pipeline and gift entry for FY24]</span>. I've blanked some values — explain the
+structure, not the numbers. Assume I'm comfortable with
+spreadsheets but new to THIS one.
+
+<span class="sec">STEPS:</span>
+1. Walk every tab, including hidden ones.
+2. Trace how the tabs feed each other — which ones I type into,
+   and which ones calculate themselves.
+3. Find the load-bearing cells: the ones where a careless edit
+   would quietly break totals elsewhere.
+4. Look for anything broken, orphaned, or suspicious — formula
+   errors, tabs nothing references, a hidden sheet.
+5. Interpret the colors and any cryptic column headers — and say
+   plainly when you're guessing.
+
+<span class="sec">OUTPUT:</span>
+1. One paragraph per tab: what it's for and whether anything else
+   depends on it.
+2. How the tabs feed each other.
+3. The load-bearing cells, each given as tab and cell, with what
+   it does.
+4. The broken / orphaned / suspicious list.
+5. What the colors and cryptic headers seem to mean, guesses
+   labeled as guesses.
+
+I'll ask follow-ups about specific cells after I read this.</pre>
+      </div>
           </div></li>
           <li><div>
             <div class="st-h">Interrogate it while the file is still in view</div>
-            <div class="st-b">This is the good part. "What happens if I add a row to the Gifts tab?" "Why is cell C47 red?" "Which tab does the board report actually pull from?" Ask everything you were embarrassed to ask a human.</div>
+            <div class="st-b">This is where most of the value is. "What happens if I add a row to the Gifts tab?" "Why is cell C47 red?" "Which tab does the board report actually pull from?" Ask everything you'd have felt awkward asking a colleague.</div>
           </div></li>
           <li><div>
             <div class="st-h">Save the map into the workbook itself</div>
-            <div class="st-b">Paste the explanation into a new first tab called "READ ME — how this works." Verify the two or three most load-bearing claims yourself before you rely on them. You've just ended the cycle for the next person.</div>
+            <div class="st-b">Paste the explanation into a new first tab called "READ ME: how this works." Check the two or three most important claims yourself before you rely on them. The next person to inherit this file will start from a map instead of a mystery.</div>
           </div></li>
         </ol>
 
-        <div class="browserline"><b>This file does go to the chat.</b> That's what makes this recipe amber, not green. If the workbook holds donor gifts, salaries, or anything about the people you serve, blank those values in your copy first — the <b>structure</b> is what needs explaining, and the structure survives with the numbers gone. When in doubt, blank it out.</div>
+        <div class="browserline"><b>This file does go to the chat.</b> That's what makes this recipe amber rather than green. If the workbook holds donor gifts, salaries, or anything about the people you serve, blank those values in your copy first. The <b>structure</b> is what needs explaining, and it survives with the numbers gone. When in doubt, blank it out.</div>
 
         <div class="yield">
           <div class="ic">
@@ -107,7 +149,7 @@ I'll ask follow-ups about specific cells after I read this.</pre>
           </div>
           <div>
             <div class="yh">What you walk away with</div>
-            <p>A plain-language owner's manual for a workbook that used to live in one departed person's head — which tabs to touch, which cells never to touch, and what's quietly broken. Plus a READ ME tab so nobody at your org has to inherit a mystery again.</p>
+            <p>A plain-language owner's manual for a workbook that used to live in one departed person's head: which tabs to touch, which cells to leave alone, and what's quietly broken. Plus a READ ME tab so nobody at your org inherits a mystery again.</p>
           </div>
         </div>
       </div>
@@ -115,5 +157,6 @@ I'll ask follow-ups about specific cells after I read this.</pre>
 
     </div>
   </article>
+  <script src="prompt-toggle.js"></script>
 </body>
 </html>

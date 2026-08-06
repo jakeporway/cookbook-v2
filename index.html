@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Nonprofit AI Cookbook · v2 · Curation Draft 3</title>
+<title>The Prompt Cookbook - V2 · Decoded Futures</title>
 <style>
   :root{
     --cream:#FBF6EC; --card:#FFFFFF; --ink:#1A1A1A; --muted:#6B6457;
@@ -77,6 +77,19 @@
   .search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
   .search input::placeholder{color:var(--muted)}
   .search .hint{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+  /* ---- how to use ---- */
+  .howto{margin:26px 0 0;background:var(--card);border:1px solid var(--line);border-radius:13px;max-width:820px}
+  .howto summary{cursor:pointer;padding:14px 18px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:800;color:var(--blue);list-style:none;display:flex;align-items:center;gap:8px}
+  .howto summary::before{content:"▸";transition:transform .12s}
+  .howto[open] summary::before{transform:rotate(90deg)}
+  .howto summary::-webkit-details-marker{display:none}
+  .howto-body{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;padding:0 20px 18px}
+  .howto-col h4{margin:6px 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .howto-col ol,.howto-col ul{margin:0;padding-left:20px;font-size:14px;color:#3a3528}
+  .howto-col li{margin:6px 0}
+  @media(max-width:760px){.howto-body{grid-template-columns:1fr}}
   .noresults{display:none;margin:40px 0;padding:22px;border:1px dashed var(--line);border-radius:12px;
     color:var(--muted);font-size:14.5px;max-width:64ch}
 
@@ -105,12 +118,46 @@
 <div class="wrap">
 
   <section class="hero">
-    <div class="eyebrow">The Nonprofit AI Cookbook · Second Edition · Curation Draft 3</div>
-    <h1>Recipes for getting real work back from AI.</h1>
-    <p class="lede">Every recipe here starts from a problem you already have — a pile of paper sign-in
-    sheets, a spreadsheet nobody understands, a training video nobody has time to film — and shows you
-    how to hand it to an AI assistant and get back something finished: a working tool, a clean file,
-    a system your whole team can use.</p>
+    <div class="eyebrow">The Prompt Cookbook - V2</div>
+    <h1>Practical ways to put AI to work at your nonprofit.</h1>
+    <p class="lede">Turn the files, information, and examples you already have into useful tools,
+    clearer data, reusable content, and repeatable workflows. No coding required.</p>
+    <p class="lede">Welcome to the Prompt Cookbook V2! At Decoded Futures we see nonprofits wrestle
+    daily with what AI can really <em>do</em> for them, so we put together our favorite quick,
+    practical prompts and &ldquo;recipes&rdquo; that we've seen improve daily nonprofit work. After the
+    success of <a href="https://www.decodedfutures.nyc/prompt-cookbook" style="color:var(--blue);text-decoration:underline">the
+    Prompt Cookbook V1</a> that we launched exactly a year ago, we released this new version to
+    showcase some of the new, powerful ways AI can help nonprofits that they couldn't a mere
+    12 months ago. Of course the V1 Cookbook is still relevant today so hop there if you can't find
+    what you're looking for here.</p>
+    <p class="lede">Please send any feedback you have to
+    <a href="mailto:info@decodedfutures.nyc" style="color:var(--blue);text-decoration:underline">info@decodedfutures.nyc</a>
+    and we hope you enjoy!</p>
+
+    <details class="howto">
+      <summary>How to Use This Cookbook</summary>
+      <div class="howto-body">
+        <div class="howto-col">
+          <h4>Step by step</h4>
+          <ol>
+            <li><b>Browse or search</b> — use the sections or the search bar to find a task you actually face.</li>
+            <li><b>Pick a version</b> — each recipe's prompt has a Simple and a Detailed version; start with Simple if you're new to AI.</li>
+            <li><b>Copy the prompt</b> — click Copy and paste it straight into ChatGPT, Claude, Gemini, or Copilot.</li>
+            <li><b>Customize</b> — replace the [PLACEHOLDERS] with your organization's details.</li>
+            <li><b>Send and iterate</b> — refine the result with follow-up questions.</li>
+          </ol>
+        </div>
+        <div class="howto-col">
+          <h4>Tips for success</h4>
+          <ul>
+            <li><b>Be specific</b> — swap the placeholders for your real details.</li>
+            <li><b>Ask for changes</b> — if the first result isn't right, say &ldquo;make it more formal&rdquo; or &ldquo;add detail about X.&rdquo;</li>
+            <li><b>Try another recipe</b> — if one doesn't fit, a neighboring one in the same section might.</li>
+            <li><b>Save what works</b> — keep a copy of prompts that work well for your organization.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
     <div class="search">
       <input type="search" id="recipeSearch" placeholder="Search the recipes — try &quot;receipts&quot;, &quot;board&quot;, or &quot;video&quot;"
         aria-label="Search recipes" autocomplete="off">
@@ -622,7 +669,7 @@
 </script>
 
 <footer><div class="wrap">
-  <div>Decoded Futures · The Nonprofit AI Cookbook, Second Edition — curation draft 3, July 2026.</div>
+  <div>Decoded Futures · The Prompt Cookbook - V2 · August 2026.</div>
   <div>40 recipes · 6 sections · start anywhere.</div>
 </div></footer>
 

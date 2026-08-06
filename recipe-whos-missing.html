@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipe — Who's Missing? (The Three-List Reconcile) · Decoded Futures Cookbook</title>
+<title>Recipe: Who's Missing? (The Three-List Reconcile) · Decoded Futures Cookbook</title>
 <link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
@@ -72,17 +72,17 @@
         <pre class="pv" data-v="simple">I coordinate a <span class="tok">workforce training program</span> and I'm reconciling three
 lists before a quarterly review.
 
-LIST A — people who REGISTERED:
+LIST A: people who REGISTERED:
 <span class="tok">[paste the registration list here]</span>
 
-LIST B — people who ATTENDED:
+LIST B: people who ATTENDED:
 <span class="tok">[paste the attendance list here]</span>
 
-LIST C — people who COMPLETED THE SURVEY:
+LIST C: people who COMPLETED THE SURVEY:
 <span class="tok">[paste the survey-completion list here]</span>
 
 Match people across the lists by email address. Where an email is
-missing, match by name — but FLAG those matches as uncertain rather
+missing, match by name, but FLAG those matches as uncertain rather
 than assuming. Names may be spelled slightly differently between lists.
 
 Give me plain lists of names (please, no pivot tables):
@@ -101,28 +101,28 @@ deciding.
 
 <span class="sec">GOAL:</span>
 Know who fell out of the funnel between registering, attending,
-and finishing the survey — before a quarterly review.
+and finishing the survey, before a quarterly review.
 
 <span class="sec">CONTEXT:</span>
 I coordinate a <span class="tok">workforce training program</span> and I'm reconciling three lists.
 
-LIST A — people who REGISTERED:
+LIST A: people who REGISTERED:
 <span class="tok">[paste the registration list here]</span>
 
-LIST B — people who ATTENDED:
+LIST B: people who ATTENDED:
 <span class="tok">[paste the attendance list here]</span>
 
-LIST C — people who COMPLETED THE SURVEY:
+LIST C: people who COMPLETED THE SURVEY:
 <span class="tok">[paste the survey-completion list here]</span>
 
 <span class="sec">STEPS:</span>
 1. Match people across the lists by email address.
-2. Where an email is missing, match by name — but FLAG those
+2. Where an email is missing, match by name, but FLAG those
    matches as uncertain rather than assuming. Names may be
    spelled slightly differently between lists.
 3. Sort everyone into the five groups below.
 4. Check each list for duplicate rows inside itself.
-5. Give me plain lists of names — please, no pivot tables.
+5. Give me plain lists of names, please, no pivot tables.
 
 <span class="sec">OUTPUT:</span>
 1. Registered but never attended
@@ -168,17 +168,17 @@ like it has duplicate rows inside itself.</pre>
         <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
         <button class="copy" type="button">Copy</button>
       </div>
-        <pre class="pv" data-v="simple">I will NOT paste the data — here are just the column headers of my
+        <pre class="pv" data-v="simple">I will NOT paste the data, here are just the column headers of my
 three lists:
 
-LIST A — REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
-LIST B — ATTENDED: <span class="tok">[Name, Email, Check-in Time]</span>
-LIST C — COMPLETED THE SURVEY: <span class="tok">[Name, Email, Submitted Date]</span>
+LIST A: REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
+LIST B: ATTENDED: <span class="tok">[Name, Email, Check-in Time]</span>
+LIST C: COMPLETED THE SURVEY: <span class="tok">[Name, Email, Submitted Date]</span>
 
 Build me a SINGLE self-contained HTML file (no internet needed, no
 libraries loaded from the web) where I can drop the three CSVs onto
-the page. It must read the files in my browser only — my data should
-never be uploaded anywhere — and show me the same five groups as
+the page. It must read the files in my browser only, my data should
+never be uploaded anywhere, and show me the same five groups as
 before:
 1. Registered but never attended
 2. Attended but never registered (walk-ins)
@@ -189,28 +189,28 @@ before:
 End with a count for each group.</pre>
         <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
 You are building me a small, self-contained tool. I am not a
-coder — assume I will open one file and use it.
+coder, assume I will open one file and use it.
 
 <span class="sec">GOAL:</span>
-The same three-list reconcile as above, but as a page I keep — so
+The same three-list reconcile as above, but as a page I keep, so
 the participant data never leaves my computer.
 
 <span class="sec">CONTEXT:</span>
-I will NOT paste the data — here are just the column headers of
+I will NOT paste the data, here are just the column headers of
 my three lists:
 
-LIST A — REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
-LIST B — ATTENDED: <span class="tok">[Name, Email, Check-in Time]</span>
-LIST C — COMPLETED THE SURVEY: <span class="tok">[Name, Email, Submitted Date]</span>
+LIST A: REGISTERED: <span class="tok">[Name, Email, Registration Date]</span>
+LIST B: ATTENDED: <span class="tok">[Name, Email, Check-in Time]</span>
+LIST C: COMPLETED THE SURVEY: <span class="tok">[Name, Email, Submitted Date]</span>
 
 <span class="sec">STEPS:</span>
 Build a SINGLE self-contained HTML file (no internet needed, no
 libraries loaded from the web) where I drop the three CSVs onto
-the page. It must read the files in my browser only — my data
+the page. It must read the files in my browser only, my data
 should never be uploaded anywhere. It should:
 1. Match people by email address first.
 2. Where an email is missing, match by name, allowing for
-   slightly different spellings — and show those matches as
+   slightly different spellings, and show those matches as
    uncertain rather than merging them.
 3. Sort everyone into the same five groups as before.
 

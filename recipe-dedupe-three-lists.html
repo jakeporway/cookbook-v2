@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipe — Find the Same People Across Your Three Lists · Decoded Futures Cookbook</title>
+<title>Recipe: Find the Same People Across Your Three Lists · Decoded Futures Cookbook</title>
 <link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
@@ -66,22 +66,22 @@
         <button class="copy" type="button">Copy</button>
       </div>
         <pre class="pv" data-v="simple">I have three CSV exports of people, and many people appear on more
-than one list. I will NOT paste the data — here are just the column
+than one list. I will NOT paste the data: here are just the column
 headers of each file:
 
-List 1 — <span class="tok">Eventbrite export</span>: <span class="tok">[First Name, Last Name, Email, Order Date]</span>
-List 2 — <span class="tok">Mailchimp export</span>: <span class="tok">[Email Address, First Name, Last Name, Tags]</span>
-List 3 — <span class="tok">Little Green Light export</span>: <span class="tok">[Name, Email, Phone, Last Gift Date]</span>
+List 1: <span class="tok">Eventbrite export</span>: <span class="tok">[First Name, Last Name, Email, Order Date]</span>
+List 2: <span class="tok">Mailchimp export</span>: <span class="tok">[Email Address, First Name, Last Name, Tags]</span>
+List 3: <span class="tok">Little Green Light export</span>: <span class="tok">[Name, Email, Phone, Last Gift Date]</span>
 
 Build me a SINGLE self-contained HTML file (no internet needed, no
 libraries loaded from the web) where I can drop all three CSVs onto
-the page. It must read the files in my browser only — my data should
-never be uploaded anywhere — and show me:
+the page. It must read the files in my browser only, my data should
+never be uploaded anywhere, and show me:
 
 1. One merged, deduplicated list. Match people by email address first.
-   Where emails differ or are missing, compare names — catch nicknames
+   Where emails differ or are missing, compare names, catch nicknames
    ("Bob"/"Robert"), small typos, and reversed first/last names.
-2. A separate "These might be the same person — you decide" table for
+2. A separate "These might be the same person, you decide" table for
    every uncertain match, showing the rows side by side with a
    "Same person" / "Different people" button on each pair. NEVER
    auto-merge an uncertain match.
@@ -90,7 +90,7 @@ never be uploaded anywhere — and show me:
 4. A button to download the final combined list as a CSV.</pre>
         <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
 You are building me a small, self-contained tool. I am not a
-coder — assume I will open one file and use it.
+coder, assume I will open one file and use it.
 
 <span class="sec">GOAL:</span>
 Merge three exported people-lists into one deduplicated list,
@@ -98,20 +98,20 @@ without ever guessing that two people are the same person.
 
 <span class="sec">CONTEXT:</span>
 I have three CSV exports of people, and many people appear on more
-than one list. I will NOT paste the data — here are just the
+than one list. I will NOT paste the data: here are just the
 column headers of each file:
 
-List 1 — <span class="tok">Eventbrite export</span>: <span class="tok">[First Name, Last Name, Email, Order Date]</span>
-List 2 — <span class="tok">Mailchimp export</span>: <span class="tok">[Email Address, First Name, Last Name, Tags]</span>
-List 3 — <span class="tok">Little Green Light export</span>: <span class="tok">[Name, Email, Phone, Last Gift Date]</span>
+List 1: <span class="tok">Eventbrite export</span>: <span class="tok">[First Name, Last Name, Email, Order Date]</span>
+List 2: <span class="tok">Mailchimp export</span>: <span class="tok">[Email Address, First Name, Last Name, Tags]</span>
+List 3: <span class="tok">Little Green Light export</span>: <span class="tok">[Name, Email, Phone, Last Gift Date]</span>
 
 <span class="sec">STEPS:</span>
 Build a SINGLE self-contained HTML file (no internet needed, no
 libraries loaded from the web) where I drop all three CSVs onto
-the page. It must read the files in my browser only — my data
+the page. It must read the files in my browser only, my data
 should never be uploaded anywhere. It should:
 1. Match people by email address first. Where emails differ or
-   are missing, compare names — catching nicknames ("Bob" /
+   are missing, compare names, catching nicknames ("Bob" /
    "Robert"), small typos, and reversed first/last names.
 2. NEVER auto-merge an uncertain match. Every uncertain pair goes
    to a separate review table instead.
@@ -121,7 +121,7 @@ should never be uploaded anywhere. It should:
 <span class="sec">OUTPUT:</span>
 In the page:
 1. One merged, deduplicated list.
-2. A "These might be the same person — you decide" table showing
+2. A "These might be the same person, you decide" table showing
    each uncertain pair side by side, with "Same person" /
    "Different people" buttons.
 3. The source-list note on every merged row.

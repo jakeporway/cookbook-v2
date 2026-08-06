@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipe — Spreadsheet → Editor · Decoded Futures Cookbook</title>
+<title>Recipe: Spreadsheet → Editor · Decoded Futures Cookbook</title>
 <link rel="stylesheet" href="card-styles.css?v=toggle2">
 </head>
 <body>
@@ -72,34 +72,34 @@
         <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
         <button class="copy" type="button">Copy</button>
       </div>
-        <pre class="pv" data-v="simple">Also make the table <span class="tok">editable</span> — I want to fix values directly in
+        <pre class="pv" data-v="simple">Also make the table <span class="tok">editable</span>, I want to fix values directly in
 the page, add rows, and delete rows. <span class="tok">Highlight any cell that was blank
 or unreadable</span> in my file so I know what to fix, and show a running
 total at the top that updates as I edit.
 
 Add an <span class="tok">"Export clean CSV" button</span> that downloads my edited data as
 a new file. Important: it should <span class="tok">NOT try to save or remember anything
-on its own</span> — I'll export when I'm done.</pre>
+on its own</span>, I'll export when I'm done.</pre>
         <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
 You are extending the viewer page you just built for me. Same
-tool, same file — now it writes as well as reads.
+tool, same file, now it writes as well as reads.
 
 <span class="sec">GOAL:</span>
 Let me fix the messy cells in the page itself and export a clean
 CSV, without the page ever storing my data.
 
 <span class="sec">CONTEXT:</span>
-This adds to the Viewer prompt above — keep everything that
+This adds to the Viewer prompt above, keep everything that
 prompt asked for. My file is messy: blank cells, unreadable
 values, and names spelled two ways.
 
 <span class="sec">STEPS:</span>
-1. Make the table <span class="tok">editable</span> — I want to fix values directly in
+1. Make the table <span class="tok">editable</span>, I want to fix values directly in
    the page, add rows, and delete rows.
 2. <span class="tok">Highlight any cell that was blank or unreadable</span> in my file so I know what to fix.
 3. Show a running total at the top that updates as I edit.
 4. Add an <span class="tok">"Export clean CSV" button</span> that downloads my edited data as a new file.
-5. Important: it should <span class="tok">NOT try to save or remember anything on its own</span> — I'll export when I'm done.
+5. Important: it should <span class="tok">NOT try to save or remember anything on its own</span>, I'll export when I'm done.
 
 <span class="sec">OUTPUT:</span>
 The same single self-contained HTML file, now editable, with the

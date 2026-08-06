@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Card: Decoded Futures Cookbook v2</title>
+<style>
+  :root{
+    --navy:#16205B; --pulse:#0372FF; --stream:#6BAACF; --graphite:#424D60;
+    --cloud:#DAE5EF; --glow:#F1CD69; --cream:#FCFAF3; --black:#151515;
+    --gray:#5B5B5B; --midblue:#358CFB;
+    --ok:#1F299C; --warn:#B26A00; --danger:#A3261C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Open Sans','Helvetica Neue',Arial,sans-serif;
+    background:#E9E4D6; color:var(--black);
+    padding:32px 16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page-note{max-width:880px;margin:0 auto 18px;font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--gray);text-align:center;}
+
+  .card{
+    max-width:880px; margin:0 auto; background:var(--cream);
+    border-radius:4px; overflow:hidden; position:relative;
+    box-shadow:0 18px 50px -20px rgba(22,32,91,.45), 0 2px 0 rgba(22,32,91,.08);
+    display:grid; grid-template-columns:54px 1fr;
+  }
+  .rail{
+    background:var(--pulse); color:#fff; position:relative;
+    display:flex; flex-direction:column; align-items:center;
+    justify-content:space-between; padding:14px 0;
+  }
+  .rail .df{font-weight:800;font-size:15px;letter-spacing:.05em;transform:rotate(180deg);
+    writing-mode:vertical-rl; position:relative;}
+  .rail .df::before,.rail .df::after{content:'';position:absolute;width:5px;height:5px;
+    background:#fff;}
+  .rail .df::before{top:-10px;left:-1px;} .rail .df::after{top:-10px;right:-1px;}
+  .rail .label{writing-mode:vertical-rl;transform:rotate(180deg);
+    font-size:10px;letter-spacing:.25em;text-transform:uppercase;opacity:.92;}
+  .rail .num{font-size:11px;font-weight:700;letter-spacing:.05em;}
+
+  .body{padding:30px 34px 34px;}
+
+  .eyebrow{display:flex;align-items:center;gap:10px;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--pulse);
+    font-weight:700;margin-bottom:12px;}
+  .eyebrow .pat{display:inline-flex;gap:3px;}
+  .eyebrow .pat i{width:6px;height:6px;background:var(--pulse);display:block;}
+  .eyebrow .pat i:nth-child(2){background:var(--glow);}
+  h1{font-size:30px;line-height:1.08;font-weight:800;text-transform:uppercase;
+    color:var(--pulse);letter-spacing:-.01em;margin-bottom:8px;}
+  .tagline{font-size:16px;color:var(--gray);max-width:60ch;margin-bottom:4px;}
+
+  /* ---- TIER 1: SCAN STRIP — now icon-led, text in tooltips ---- */
+  .scan{
+    margin-top:24px;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  }
+  .scan .cell{
+    background:#fff;border:1px solid var(--cloud);border-radius:10px;
+    padding:15px 12px 13px;text-align:center;position:relative;cursor:default;
+    display:flex;flex-direction:column;align-items:center;gap:9px;
+    transition:border-color .15s, box-shadow .15s, transform .15s;
+  }
+  .scan .cell:hover{border-color:var(--pulse);box-shadow:0 6px 18px -8px rgba(3,114,255,.4);
+    transform:translateY(-2px);}
+  .scan .cell .ico{width:34px;height:34px;display:flex;align-items:center;justify-content:center;}
+  .scan .cell .ico svg{width:30px;height:30px;}
+  .scan .cell .k{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gray);font-weight:700;line-height:1.3;}
+  .scan .cell .v{font-size:12.5px;font-weight:800;color:var(--navy);line-height:1.2;}
+  /* status accent dot under the value */
+  .scan .cell .v::after{content:'';display:block;width:18px;height:3px;border-radius:2px;
+    margin:6px auto 0;background:var(--cloud);}
+  .scan .cell.s-green .v::after{background:#5E8B2E;}
+  .scan .cell.s-blue  .v::after{background:var(--pulse);}
+  .scan .cell.s-amber .v::after{background:var(--warn);}
+  .scan .cell.s-red   .v::after{background:var(--danger);}
+
+  /* icon color cues */
+  .ico.green svg{color:#5E8B2E;}
+  .ico.blue svg{color:var(--pulse);}
+  .ico.navy svg{color:var(--navy);}
+  .ico.amber svg{color:var(--warn);}
+  .ico.red svg{color:var(--danger);}
+
+  /* ---- TOOLTIP ---- */
+  .tip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);
+    background:var(--navy);color:#EAF1FF;border-radius:9px;padding:11px 13px;
+    width:210px;font-size:12.5px;line-height:1.45;font-weight:400;text-align:left;
+    opacity:0;visibility:hidden;transition:opacity .16s, transform .16s;z-index:20;
+    box-shadow:0 12px 30px -8px rgba(22,32,91,.55);pointer-events:none;}
+  .tip b{color:#fff;}
+  .tip .scale{display:flex;gap:4px;margin-top:9px;}
+  .tip .scale i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.18);}
+  .tip .scale i.on{background:var(--glow);}
+  .tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+    border:7px solid transparent;border-top-color:var(--navy);}
+  .cell:hover .tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  /* edge tooltips nudge so they don't clip */
+  .cell:first-child .tip{left:0;transform:translateX(0) translateY(4px);}
+  .cell:first-child:hover .tip{transform:translateX(0) translateY(0);}
+  .cell:first-child .tip::after{left:34px;}
+  .cell:last-child .tip{left:auto;right:0;transform:translateX(0) translateY(4px);}
+  .cell:last-child:hover .tip{transform:translateX(0) translateY(0);}
+  .cell:last-child .tip::after{left:auto;right:34px;}
+
+
+  /* ---- WARNING FLAGS (replaces scan strip + meta chips) ---- */
+  .flags{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .flag{position:relative;display:inline-flex;align-items:center;gap:9px;cursor:default;
+    background:#fff;border:1px solid var(--cloud);border-left-width:4px;border-radius:8px;
+    padding:9px 14px 9px 12px;transition:box-shadow .15s, transform .15s;}
+  .flag:hover{transform:translateY(-1px);}
+  .flag svg{width:17px;height:17px;flex:none;}
+  .flag .fl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;line-height:1.25;}
+  .flag.amber{border-left-color:var(--warn);background:#FFFAF0;}
+  .flag.amber svg,.flag.amber .fl{color:var(--warn);}
+  .flag.amber:hover{box-shadow:0 6px 18px -8px rgba(178,106,0,.45);}
+  .flag.red{border-left-color:var(--danger);background:#FDF3F1;}
+  .flag.red svg,.flag.red .fl{color:var(--danger);}
+  .flag.red:hover{box-shadow:0 6px 18px -8px rgba(163,38,28,.45);}
+  .flag .tip{width:250px;}
+  .flag:hover .tip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  .flag:first-child .tip{left:0;transform:translateX(0) translateY(4px);}
+  .flag:first-child:hover .tip{transform:translateX(0) translateY(0);}
+  .flag:first-child .tip::after{left:34px;}
+  .flags .clear{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#5E8B2E;font-weight:600;}
+  .flags .clear svg{width:16px;height:16px;}
+
+  /* ---- TIER 2 ---- */
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--cloud);
+    border-radius:7px;padding:9px 13px;font-size:13px;color:var(--navy);font-weight:600;}
+  .chip svg{width:15px;height:15px;color:var(--pulse);flex:none;}
+  .chip .meter{display:inline-flex;gap:3px;margin-left:2px;}
+  .chip .meter i{width:14px;height:5px;border-radius:2px;background:var(--cloud);}
+  .chip .meter.set i:first-child{background:var(--pulse);}
+
+  /* ---- TIER 3 ---- */
+  .recipe{margin-top:30px;}
+  .sech{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);
+    font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+  .sech::after{content:'';height:1px;background:var(--cloud);flex:1;}
+  .sech .px{display:inline-flex;gap:3px;}
+  .sech .px i{width:6px;height:6px;background:var(--pulse);}
+  .sech .px i:last-child{background:var(--glow);}
+
+  ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:0;}
+  ol.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;
+    gap:16px;padding:0 0 22px;position:relative;}
+  ol.steps li::before{content:counter(s,decimal-leading-zero);
+    font-size:13px;font-weight:800;color:var(--pulse);
+    background:var(--cream);border:1.5px solid var(--pulse);border-radius:50%;
+    width:30px;height:30px;display:flex;align-items:center;justify-content:center;z-index:1;}
+  ol.steps li:not(:last-child)::after{content:'';position:absolute;left:15px;top:30px;
+    bottom:0;width:1.5px;background:var(--cloud);}
+  ol.steps .st-h{font-weight:700;color:var(--navy);font-size:15px;margin-bottom:4px;}
+  ol.steps .st-b{font-size:14px;color:var(--gray);}
+
+  .prompt{background:var(--navy);color:#EAF1FF;border-radius:8px;margin:9px 0 2px;overflow:hidden;}
+  .prompt .ph{display:flex;align-items:center;justify-content:space-between;
+    padding:8px 14px;background:rgba(255,255,255,.06);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--stream);}
+  .prompt .copy{cursor:pointer;border:none;background:var(--pulse);color:#fff;
+    font:inherit;font-size:11px;font-weight:700;padding:4px 12px;border-radius:5px;letter-spacing:.04em;}
+  .prompt .copy:hover{filter:brightness(1.1);}
+  .prompt pre{padding:14px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:12.5px;
+    line-height:1.6;white-space:pre-wrap;color:#EAF1FF;}
+  .prompt .tok{color:var(--glow);}
+
+  .yield{margin-top:8px;background:#fff;border:1px solid var(--cloud);border-radius:9px;
+    padding:18px 20px;display:flex;gap:16px;align-items:flex-start;}
+  .yield .ic{width:42px;height:42px;border-radius:9px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;flex:none;}
+  .yield .ic svg{width:22px;height:22px;color:var(--pulse);}
+  .yield .yh{font-weight:800;color:var(--navy);text-transform:uppercase;font-size:12px;
+    letter-spacing:.14em;margin-bottom:4px;}
+  .yield p{font-size:14px;color:var(--gray);}
+
+  .helper{margin-top:14px;border:1.5px solid var(--pulse);border-radius:12px;overflow:hidden;
+    background:linear-gradient(180deg,#fff, #F7FAFF);}
+  .helper .hh{display:flex;align-items:center;gap:11px;padding:15px 18px;border-bottom:1px solid var(--cloud);}
+  .helper .av{width:34px;height:34px;border-radius:8px;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none;position:relative;}
+  .helper .av i{position:absolute;width:5px;height:5px;background:var(--glow);top:6px;right:6px;}
+  .helper .av span{color:#fff;font-weight:800;font-size:13px;}
+  .helper .ht b{color:var(--navy);font-size:14px;}
+  .helper .ht p{font-size:12px;color:var(--gray);}
+  .helper .conv{padding:16px 18px;display:flex;flex-direction:column;gap:11px;}
+  .bub{font-size:13.5px;padding:10px 13px;border-radius:12px;max-width:84%;line-height:1.45;}
+  .bub.bot{background:var(--cloud);color:var(--navy);border-bottom-left-radius:3px;align-self:flex-start;}
+  .bub.you{background:var(--pulse);color:#fff;border-bottom-right-radius:3px;align-self:flex-end;}
+  .helper .ask{display:flex;gap:9px;padding:13px 18px;border-top:1px solid var(--cloud);background:#fff;}
+  .helper .ask input{flex:1;border:1px solid var(--cloud);border-radius:8px;padding:10px 13px;
+    font:inherit;font-size:13.5px;color:var(--navy);background:var(--cream);}
+  .helper .ask input::placeholder{color:#9aa3b2;}
+  .helper .ask button{border:none;background:var(--pulse);color:#fff;font:inherit;font-weight:700;
+    border-radius:8px;padding:0 18px;cursor:pointer;font-size:13.5px;}
+  .helper .ask button:hover{filter:brightness(1.08);}
+
+  .footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--cloud);
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .footer .lg{height:26px;}
+  .footer .tags{display:flex;gap:7px;flex-wrap:wrap;}
+  .footer .tag{font-size:11px;color:var(--gray);background:#fff;border:1px solid var(--cloud);
+    padding:3px 9px;border-radius:5px;letter-spacing:.03em;}
+
+  @media (max-width:680px){
+    .scan{grid-template-columns:repeat(2,1fr);}
+    h1{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+  <div class="page-note">Recipe card mockup v2 · icon-led scan strip · hover the top row</div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Build a Tool · Shims</span>
+      <span class="num">R-04</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Build a Tool · Code Shim</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>The private transcriber</h1>
+      <p class="tagline">Turn recorded audio into text using a tool that runs entirely on your own computer, so sensitive conversations never touch an outside company's servers.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag. No sensitive data goes in, and nothing gets published
+        </span>
+      </div>
+
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> The recipe</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Open a normal chat</div>
+            <div class="st-b">No special mode to start. Vanilla chat is all you need to get the tool written.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Ask the AI to build the tool</div>
+            <div class="st-b">Paste this. It tells the AI to use only open-source libraries that run locally, so nothing leaves your computer.</div>
+            <div class="prompt">
+              <div class="ph">
+        <span>Prompt</span>
+        <span class="pmode" role="group" aria-label="Prompt detail level"><button type="button" class="on" data-v="simple" aria-pressed="true">Simple</button><button type="button" data-v="detailed" aria-pressed="false">Detailed</button></span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+        <pre class="pv" data-v="simple">Write me a transcription tool I can run on my own computer.
+Requirements: it must use only <span class="tok">open-source libraries</span> that
+run <span class="tok">fully offline</span>: no audio or text is ever sent to any
+outside service. I'll give it an audio file and it should
+return a text transcript. I'm not a coder, so give me the
+exact steps to set it up on <span class="tok">[Mac / Windows]</span>.</pre>
+        <pre class="pv" data-v="detailed" hidden><span class="sec">ROLE:</span>
+You are writing a small tool for someone who is not a coder, and
+walking them through setting it up.
+
+<span class="sec">GOAL:</span>
+A transcription tool I can run on my own computer, turning an
+audio file into a text transcript without any of it leaving the
+machine.
+
+<span class="sec">CONTEXT:</span>
+The recordings are sensitive, so this is the hard requirement:
+use only <span class="tok">open-source libraries</span> that run <span class="tok">fully offline</span>: no audio or text is ever sent to
+any outside service. I work on <span class="tok">[Mac / Windows]</span>.
+
+<span class="sec">STEPS:</span>
+1. Choose libraries that run fully offline and say why you picked
+   them.
+2. Write the tool: I give it an audio file, it returns a text
+   transcript.
+3. Give me the exact setup steps for <span class="tok">[Mac / Windows]</span>: every command, in
+   order, assuming I have installed nothing yet.
+4. Tell me how to check that it is genuinely running offline.
+
+<span class="sec">OUTPUT:</span>
+The code, then numbered setup instructions in plain language, then
+how to run it on one file. No skipped steps, no "simply install
+the dependencies."</pre>
+      </div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Follow the setup steps once</div>
+            <div class="st-b">The AI walks you through installing a free tool and running one command. You only do this part once.</div>
+          </div></li>
+          <li><div>
+            <div class="st-h">Transcribe anything, privately, forever</div>
+            <div class="st-b">Drop in a recording and the transcript appears. The audio never left the room.</div>
+          </div></li>
+        </ol>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A free transcription tool on your own computer that you can reuse on any recording: client interviews, focus groups, sensitive intakes. Nothing is exposed to an outside service.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

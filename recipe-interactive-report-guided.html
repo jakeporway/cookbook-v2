@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: Turn a Report Into an Interactive Web Page (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-interactive-report.html">Read the steps instead</a></span>
+    <span>Remix · Web · Recipe 29 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Remix · Web</span>
+      <span class="num">R-29</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Remix · Web · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Turn a report into an interactive web page</h1>
+      <p class="tagline">For the audiences who will never open a PDF, your annual report or program overview becomes a single web page you send as a link: scrollable, readable on a phone, with your charts rendered live.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <div class="flag amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg>
+          <span class="fl">Public-facing output</span>
+          <div class="tip"><b>The public sees this.</b> The assistant asks whether the report is signed off before it starts, and reminds you at the end that someone reviews the page itself before the link goes out. Nothing here skips your normal sign-off.</div>
+        </div>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>Everyday questions only: what the report is and how it's saved, whether it's the signed-off final version, one thing of yours whose look you want matched (a screenshot of your website is fine), and how you plan to send it. It works out the colors, the typefaces, and the file handling from your answers. You never rewrite a word of the report.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Nothing to fill in. Just have the finished report and a screenshot of something of yours you like the look of somewhere handy: the assistant asks for them when it needs them, checks first whether your AI can read attachments at all, then builds the page and walks you through checking every number against the source.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my setup assistant. I work at a nonprofit. I am not
+technical, and I don't want to become technical today. Your job
+is to build the following FOR me, asking me only questions a
+non-technical person can answer.
+
+WHAT WE'RE MAKING
+A web version of a report we have already finished: one HTML
+file I can double-click, attach to an email, or put at a link.
+Same words, same numbers, same order as the report, except that
+it scrolls on a phone, it looks like the rest of our materials,
+and the key figures show up as simple charts instead of a table
+buried on page nine.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "what are your brand's hex codes and
+  font stack?" Instead ask me to send you a screenshot of one
+  page of ours I already like the look of, our website, a past
+  newsletter, last year's report, and work out the colors and
+  typefaces from that. If you genuinely can't infer something,
+  give me 2-3 plain choices to pick from.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan, then adapt everything
+  that follows to what THIS product can actually do. Check two
+  things now rather than halfway through: whether you can read
+  a document I attach, and whether you can hand me back a
+  finished file. If you can't read attachments, say so now and
+  have me paste the report's text in instead. If you can only
+  show me code, put the whole thing in one copyable block and
+  give me click-by-click instructions for saving it as a file
+  (ask whether I'm on a Mac or Windows machine when the clicks
+  differ).
+- Don't assume what software I use. Ask me what the report was
+  written in and how we normally get things in front of
+  people, and adapt to that.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. What the report is and how it's saved right now, so you can
+   work out how to get its contents to you.
+2. Whether this is the final signed-off version. If it's still
+   a draft, tell me plainly that the page goes out only after
+   the person who signs off on our publications has read it.
+3. One thing of ours whose look I want matched, and whether I
+   have a logo file I can send you.
+4. Who reads this and on what, so you know whether phones or
+   laptops come first.
+5. How I plan to send it: as a link, or as a file attached to
+   an email. Don't assume we have a website I can put files on.
+
+WHAT TO BUILD (this part is for you, not me)
+You are a designer and typesetter here, not an editor. Build
+ONE self-contained HTML page carrying the whole report, with no
+external files and no fonts loaded from the web, so it opens
+correctly on any computer and with no internet. Keep every
+fact, number, and quote exactly as written, and do not
+summarize, rewrite, condense, reorder, or add anything. Keep
+the sections in the same order as the report. Match the colors
+and feel of the example I showed you. Render the key numbers as
+simple charts built only from the report's own figures. Make it
+readable on a phone: real text sizes, nothing that needs
+pinching. When you're done, tell me in one line anything from
+the report you could not represent cleanly on the page.
+
+AFTER YOU BUILD IT, WALK ME THROUGH
+1. Saving the file somewhere I'll find it and opening it, then
+   looking at it on my phone as well as my laptop.
+2. Checking it against the report, section by section. Give me
+   a short list of every number on the page so I can tick them
+   off against the source. If even one is different, we fix it
+   and then re-check all of them, because a page that got one
+   number wrong can have got others wrong.
+3. Revisions, my way: I ask for the exact change I want, like
+   "make the third chart a bar chart," not "make it better."
+   Two rounds, then we stop. A page that is right after two
+   rounds is ready.
+4. Getting it in front of people. Ask what we already use for
+   our website before you suggest anything new, then give me
+   the click-by-click steps for whichever route I pick.
+
+RULES
+- You are typesetting, not editing. If something in the report
+  won't sit cleanly on the page, tell me and let me decide.
+  Never paraphrase it and never trim it to fit.
+- Never invent, round, or fill in a number to make a chart look
+  better. If a figure isn't in the report, it isn't on the page.
+- Before we finish, remind me this one is public. The link goes
+  out only after the person who signs off on our publications
+  has read the page itself, not just the report it came from.
+
+Start now by telling me, in two sentences, what we're going to
+make together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline">
+          <b>The risk here isn't the code, it's drift in the content.</b> A "helpful" rewrite of your numbers is the failure that matters. The assistant is instructed never to rewrite, trim, or invent a figure, and to hand you a list of every number on the page so you can tick them off against the report. The ticking off is yours. Nothing goes to the public unreviewed.
+        </div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A single link that opens the same report on any phone or laptop: scrollable, on-brand, and checked number by number against the source. No PDF viewer required.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: Spreadsheet → Editor (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-spreadsheet-editor.html">Read the steps instead</a></span>
+    <span>Your Data, Handled · Recipe 02b · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Your Data · Convert</span>
+      <span class="num">R-02b</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Code Nibble · Convert · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Spreadsheet → Editor</h1>
+      <p class="tagline">The Viewer showed you the mess. This version lets you fix it in the page itself, editing cells and adding rows, then export a clean file. Still nothing uploaded.</p>
+
+      <a class="demo-cta" href="prototypes/dashboard-nibble/editor.html">
+        <span class="play">▶</span>
+        <span>See the working tool we built<small>Fix the blank weights in the City Harvest log, watch the total update, then Export</small></span>
+      </a>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag. No sensitive data goes in, and nothing gets published
+        </span>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>Whether you already built the Viewer, which columns you actually retype by hand, what a broken cell looks like in your world (blank? "n/a"? a number with the units typed in?), and where the corrected file has to go afterwards. It never asks for a real row, and you never attach the file.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Nothing to fill in. If you already built the Viewer from Recipe 02, paste this into that same chat and it will extend the file you have. If you didn't, paste it into a fresh chat and it will build the whole thing, editing included.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my setup assistant. I work at a nonprofit. I am not
+technical, and I don't want to become technical today. Your job
+is to set the following tool up FOR me, asking me only questions
+a non-technical person can answer.
+
+WHAT WE'RE MAKING
+A worksheet for repairing a messy spreadsheet, running on my own
+computer. It should be a single HTML file I can double-click: I
+drop my exported file on it, every cell that came in blank or
+unreadable is already highlighted, I type the right values
+straight into the page, a running total updates as I go, and one
+button hands me a corrected file I can send to somebody else.
+Nothing is uploaded, and the page remembers nothing on its own.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "should your edits persist between
+  sessions, and do you want an undo history?" Instead ask "if
+  you closed the tab halfway through fixing this, what would
+  you expect to happen to your work?" and set the saving and
+  undo behaviour from my answer. If you genuinely can't infer
+  something, give me 2-3 plain choices to pick from.
+- IMPORTANT: never ask me to paste real rows from my
+  spreadsheet. Column names and made-up example rows only, and
+  say so each time you ask.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan, then adapt everything that
+  follows to what THIS product can actually do. If you can
+  create and hand me a downloadable file here, do that. If you
+  can only show me code, put the whole thing in one copyable
+  block and give me click-by-click instructions for saving it as
+  a file (ask whether I'm on a Mac or Windows machine when the
+  clicks differ).
+- Don't assume what software I use. Ask me what opens the
+  corrected file after I export it, and adapt to that.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. Whether I already built the read-only Viewer version of this
+   tool. If I did, add editing to that same file and keep its
+   charts and totals. If I didn't, build the whole thing.
+2. What the spreadsheet is a list of, and what the words in the
+   top row say. Skip this if I already told you.
+3. Which columns I actually retype by hand, and what a correct
+   value in each of those looks like, using made-up examples.
+4. What a broken cell looks like in my world: blank, "n/a",
+   "unknown", a date somebody typed as words, a number with the
+   units stuck on the end. Made-up examples only.
+5. Where the corrected file goes next and who opens it, so you
+   know what to export and in what shape.
+
+WHAT TO BUILD (this part is for you, not me)
+A SINGLE self-contained HTML file: no internet needed, no
+libraries loaded from the web, everything handled inside the
+browser so my data is never uploaded. It must: let me drop my
+exported file on the page; show every row in a table I can type
+directly into, add rows to, and delete rows from; highlight
+every cell that arrived blank or unreadable, in one colour, and
+mark the cells I have since edited in a different one, so I can
+always see the difference between what came in and what I
+changed; keep a running total of the number I care about pinned
+at the top, updating live as I type; and give me one clearly
+labelled export button that downloads my edited data as a NEW
+file in the shape the receiving software needs. It must NOT
+save, sync, or remember anything on its own: nothing in browser
+storage, nothing sent anywhere, and my original file left
+untouched. Because of that, warn me before I close the tab with
+unsaved edits, and say plainly on the page that exporting is the
+only way my work survives.
+
+AFTER YOU BUILD IT, WALK ME THROUGH
+1. Saving the file somewhere I'll find it and opening it. Point
+   out that it works with the wifi off, which is the point.
+2. A safe first test on made-up data: write me a small practice
+   file in my column layout, with a few broken cells in it,
+   and have me fix two of them and export before anything real.
+3. Opening that exported practice file in whatever software I
+   named, and checking that the columns line up, the fixed
+   values are there, and the rows I didn't touch are unchanged.
+   If any of that is off, we fix the tool before I use it.
+4. The habit: exporting is how I keep my work, and the export
+   is a new file, so my original is still there if I need it.
+
+RULES
+- Never ask me to paste, attach, or type out real rows from my
+  spreadsheet. Made-up examples only.
+- Never build in autosave, browser storage, or a "restore my
+  last session" feature, even if it sounds helpful. I export
+  when I'm done and that is the whole story.
+- Before we finish, remind me that this is a worksheet, not a
+  database. My edits live only on the page until I export, and
+  closing the tab without exporting starts me over from the
+  original.
+
+IF I NEED IT TO REMEMBER EDITS, OR SEVERAL OF US EDITING AT ONCE
+Say so plainly instead of bolting saving onto this page. Once a
+tool has to keep its own records, talk to other systems, or let
+more than one person work at the same time, a single file isn't
+the right shape and pretending otherwise loses somebody's work.
+Tell me what that would actually take, and who I'd need to ask.
+
+Start now by telling me, in two sentences, what we're going to
+make together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline"><b>This is a worksheet, not a database.</b> Your edits exist only on the page until you export. That's the <b>browser line</b>: once a tool needs to remember things on its own, talk to other systems, or serve several people at once, a single file isn't enough, and that's fine. The prompt makes the assistant refuse to add autosave and warn you before you close an unexported tab, but pressing Export is still yours to do.</div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A clean, corrected CSV you can hand to anyone, fixed in minutes without uploading anything. You also keep the worksheet tool itself, and a practical sense of the browser line you'll run into again.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

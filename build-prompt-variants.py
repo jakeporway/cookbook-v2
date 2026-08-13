@@ -81,6 +81,9 @@ def main():
 	check = '--check' in sys.argv
 	total, all_missing, touched = 0, [], 0
 	for path in sorted(glob.glob(os.path.join(HERE, 'recipe-*.html'))):
+		# Guided pages carry one pasteable prompt with no Simple/Detailed split.
+		if path.endswith('-guided.html'):
+			continue
 		n, missing, changed = rebuild(path, check)
 		total += n
 		all_missing += missing

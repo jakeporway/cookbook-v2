@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Prompt Cookbook · Guided · Decoded Futures</title>
+<style>
+  :root{
+    --cream:#FBF6EC; --card:#FFFFFF; --ink:#1A1A1A; --muted:#6B6457;
+    --blue:#1F46FF; --blue-soft:#EAEEFF; --line:#E7E0D2;
+    --green:#1F9D55; --amber:#D98A00; --red:#D1453B; --gold:#F1CD69;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+
+  /* ---- pixel motif ---- */
+  .pix{display:inline-grid;grid-template-columns:repeat(4,6px);grid-auto-rows:6px;gap:2px;vertical-align:middle}
+  .pix i{background:var(--blue);border-radius:1px}
+  .pix i.o{background:transparent}
+
+  /* ---- top bar ---- */
+  .topbar{border-bottom:2px solid var(--ink);background:var(--cream);position:sticky;top:0;z-index:5}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--blue);display:flex;gap:9px;align-items:center}
+  .topnav a{font-size:12.5px;letter-spacing:.04em;color:var(--muted);font-weight:600;margin-left:16px}
+  .topnav a:hover{color:var(--blue)}
+
+  /* ---- hero ---- */
+  .hero{padding:50px 0 26px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--blue)}
+  h1{font-size:44px;line-height:1.06;letter-spacing:-.02em;margin:12px 0 0;max-width:18ch}
+  .lede{font-size:17.5px;color:#3a3528;max-width:72ch;margin-top:16px}
+
+  /* ---- start here strip ---- */
+  .gettingstarted{margin-top:34px}
+  .gettingstarted h3{font-size:25px;margin:0;letter-spacing:-.01em;color:var(--ink)}
+  .gettingstarted .blurb,.badge-note{color:#3a3528;font-size:15px;margin:8px 0 0;max-width:72ch}
+  .badge-note{margin-top:26px}
+  .starthere{margin:18px 0 6px;background:#FFFDF6;border:1px solid var(--gold);border-radius:14px;padding:18px 20px}
+  .starthere h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:800;margin:0 0 4px}
+  .starthere p.sub{margin:0 0 14px;color:#5b5446;font-size:14px;max-width:72ch}
+  .startcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  /* ---- category blocks ---- */
+  .cat{padding:34px 0 8px;border-top:1px solid var(--line);margin-top:30px}
+  .cat .catnum{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:800}
+  .cat h3{font-size:25px;margin:6px 0 0;letter-spacing:-.01em;color:var(--ink)}
+  .cat .blurb{color:#3a3528;font-size:15px;margin:8px 0 0;max-width:72ch}
+  .subhead{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:24px 0 0}
+
+  /* ---- big recipe cards ---- */
+  .cards{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .card{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+    border-radius:13px;padding:17px 18px 14px;transition:border-color .12s,transform .12s;position:relative}
+  a.card{cursor:pointer}
+  a.card:hover{border-color:var(--blue);transform:translateY(-1px)}
+  .card .ttl{font-size:16.5px;font-weight:750;letter-spacing:-.005em;line-height:1.3;padding-right:44px}
+  .card .desc{font-size:13.5px;color:#4a4436;line-height:1.5;flex:1}
+  .card .meta{display:flex;align-items:center;gap:8px;margin-top:4px;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.02em;
+    color:var(--muted);background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+  .chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .dot.g{background:var(--green)} .dot.b{background:var(--blue)} .dot.a{background:var(--amber)} .dot.r{background:var(--red)}
+  .newtag{position:absolute;top:13px;right:13px;font-size:9px;letter-spacing:.1em;font-weight:800;
+    color:var(--blue);border:1px solid #C9D2FF;border-radius:999px;padding:2px 7px;background:var(--blue-soft)}
+  .card.first{border-color:var(--gold);background:#FFFDF6}
+
+  /* ---- privacy key ---- */
+  .key{margin:26px 0 0;display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+  .key .sw{display:flex;align-items:center;gap:6px}
+  .key .sw b{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+  /* ---- search ---- */
+  .search{margin:26px 0 0}
+  .search input{width:100%;font-size:15.5px;padding:13px 18px;border-radius:12px;
+    border:2px solid var(--ink);background:var(--card);color:var(--ink);outline:none;
+    font-family:inherit;transition:border-color .12s,box-shadow .12s}
+  .search input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+  .search input::placeholder{color:var(--muted)}
+  .search .hint{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+  /* ---- how to use ---- */
+  .howto{margin:26px 0 0;background:var(--card);border:1px solid var(--line);border-radius:13px}
+  .howto summary{cursor:pointer;padding:14px 18px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:800;color:var(--blue);list-style:none;display:flex;align-items:center;gap:8px}
+  .howto summary::before{content:"▸";transition:transform .12s}
+  .howto[open] summary::before{transform:rotate(90deg)}
+  .howto summary::-webkit-details-marker{display:none}
+  .howto-body{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;padding:0 20px 18px}
+  .howto-col h4{margin:6px 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .howto-col ol,.howto-col ul{margin:0;padding-left:20px;font-size:14px;color:#3a3528}
+  .howto-col li{margin:6px 0}
+  @media(max-width:760px){.howto-body{grid-template-columns:1fr}}
+  .noresults{display:none;margin:40px 0;padding:22px;border:1px dashed var(--line);border-radius:12px;
+    color:var(--muted);font-size:14.5px;max-width:72ch}
+
+  footer{border-top:2px solid var(--ink);margin-top:46px;padding:26px 0 60px;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+
+  @media(max-width:760px){
+    h1{font-size:33px}
+    .cards,.startcards,.benchlist{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand">
+    <span class="pix"><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i></span>
+    Decoded Futures
+  </div>
+  <nav class="topnav">
+    <a href="#start">Start here</a>
+    <a href="#c1">The recipes</a>
+    <a href="index-v3.html">Step-by-step version</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">The Prompt Cookbook &middot; Guided</div>
+    <h1>Let the AI walk you through it.</h1>
+    <p class="lede">The same recipes, in a different shape. Instead of steps to
+    follow and blanks to fill in, each one is a single block you paste into your AI
+    chat. It then asks you a few plain questions, does the technical part itself,
+    and walks you through checking the result before you use it.</p>
+    <p class="lede">Nothing here assumes you're technical, and nothing assumes which
+    AI you use. Every recipe starts by working out what your product and plan can
+    actually do, and tells you plainly if this one is beyond it rather than letting
+    you find out halfway through.</p>
+    <p class="lede">Prefer to read the steps yourself? Every recipe still has its
+    original version: <a href="index-v3.html" style="color:var(--blue);text-decoration:underline">the
+    step-by-step cookbook</a>. Each page links across to the other, so you can switch
+    at any point.</p>
+    <p class="lede">Please send any feedback you have to
+    <a href="mailto:info@decodedfutures.nyc" style="color:var(--blue);text-decoration:underline">info@decodedfutures.nyc</a>
+    and we hope you enjoy!</p>
+
+    <details class="howto">
+      <summary>How to Use This Cookbook</summary>
+      <div class="howto-body">
+        <div class="howto-col">
+          <h4>Step by step</h4>
+          <ol>
+            <li><b>Browse or search</b>: use the sections or the search bar to find a task you actually face.</li>
+            <li><b>Copy the whole block</b>: there's one per recipe, and nothing to fill in first.</li>
+            <li><b>Paste it into your AI chat</b>: whichever one you use.</li>
+            <li><b>Answer its questions</b>: it asks one at a time, in plain language, and works out the technical details from your answers.</li>
+            <li><b>Check the result</b>: it walks you through this at the end. That part is still yours.</li>
+          </ol>
+        </div>
+        <div class="howto-col">
+          <h4>Tips for success</h4>
+          <ul>
+            <li><b>Answer in your own words</b>: it's built to work from how you'd actually describe your work, not technical terms.</li>
+            <li><b>Ask it questions back</b>: it will answer in plain language and then pick up where you left off.</li>
+            <li><b>Say when something looks different</b>: if an instruction doesn't match your screen, describe what you see and it will adapt.</li>
+            <li><b>Stop if it tells you to stop</b>: several recipes check whether your material is safe to paste. That check is the point.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+    <div class="search">
+      <input type="search" id="recipeSearch" placeholder="Search the recipes, try &quot;receipts&quot;, &quot;board&quot;, or &quot;video&quot;"
+        aria-label="Search recipes" autocomplete="off">
+      <div class="hint" id="searchHint">Type to filter · matches titles and descriptions</div>
+    </div>
+  </section>
+
+  <!-- ===== getting started ===== -->
+  <div class="gettingstarted">
+    <h3>Getting Started</h3>
+    <p class="blurb">Before you begin, we have two quick tricks to increase your safety and privacy.
+    The first walks you through your settings on your software of choice so they're set for minimal
+    data tracking. The second has your AI build you a webpage that removes sensitive data from your
+    files before anything goes into a chat. Both of them now do the work with you, one question at
+    a time.</p>
+  </div>
+
+  <section class="starthere" id="start">
+    <h2>Start with these two, then go anywhere</h2>
+    <p class="sub">These two recipes make every other recipe in the book safer and smoother. After them,
+    there is no required order, find the section that matches your problem and start there.</p>
+    <div class="startcards">
+      <a class="card first" href="recipe-preflight-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Set up your AI the right way</div>
+        <div class="desc">A ten-minute check before anything else: which plan you're on, whether web
+        search is on, what your privacy and training-data settings are, and where Projects live. Half
+        the problems people hit with these recipes trace back to setup.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Nothing sensitive involved</span></div>
+      </a>
+      <a class="card first" href="recipe-redaction-pass-guided.html">
+        <div class="ttl">Remove names and personal details before you paste</div>
+        <div class="desc">A small tool that strips names, emails, phone numbers, and addresses from any
+        text, on your own computer, before anything goes into a chat. It lets you use the rest of this
+        book on real material without exposing the people in it.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Nothing leaves your computer</span></div>
+      </a>
+    </div>
+  </section>
+
+  <p class="blurb badge-note">You'll also notice these colored badges that we've included to help you
+  navigate how much sensitive information could be involved in that recipe depending on what
+  information you choose to put into it. We hope these tags are helpful reminders of when to double
+  check your work but remember, when in doubt, leave it out! You don't have to put data or
+  information into these systems you don't feel comfortable using.</p>
+
+  <div class="key">
+    <span class="sw"><b style="background:var(--green)"></b> Nothing leaves your computer</span>
+    <span class="sw"><b style="background:var(--blue)"></b> Public or non-sensitive material</span>
+    <span class="sw"><b style="background:var(--amber)"></b> Your files go into the chat</span>
+    <span class="sw"><b style="background:var(--red)"></b> Connects to your accounts</span>
+  </div>
+
+  <!-- ===== category 1 ===== -->
+  <section class="cat" id="c1">
+    <div class="catnum">Section 1</div>
+    <h3>Turn one piece of writing into everything you need</h3>
+    <p class="blurb">You already wrote the report, the event description, the training doc. These
+    recipes turn that one finished piece into the other five formats you need, in your organization's
+    voice, because you show it real examples instead of describing what you want.</p>
+    <div class="cards">
+
+      <a class="card" href="recipe-one-event-every-asset-guided.html">
+        <div class="ttl">Write the event description once, get every version</div>
+        <div class="desc">Give it your new event description plus one past example of each channel you
+        liked. Get back the registration blurb, the social caption, the newsletter item, the reminder
+        email, and the day-of signage, all matching how your organization actually sounds.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Public content</span></div>
+      </a>
+
+      <a class="card" href="recipe-plain-language-guided.html">
+        <div class="ttl">Make any document readable for everyone</div>
+        <div class="desc">Turn a dense flyer or intake letter into a plain-language version with the
+        reading level scored, a large-print version, and a first-draft translation. A fluent human
+        reviews any translation before it goes out: that rule is part of the recipe.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Public content</span></div>
+      </a>
+
+      <a class="card" href="recipe-slide-deck-guided.html">
+        <div class="ttl">Turn a report into a real, editable slide deck</div>
+        <div class="desc">Give it your finished report and last year's deck as the design template. Get
+        back an actual PowerPoint file your board can open and edit, not a web page pretending to be
+        one.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Your files go in</span></div>
+      </a>
+
+      <a class="card" href="recipe-interactive-report-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Turn a report into an interactive web page</div>
+        <div class="desc">For the audiences who will never open a PDF: your annual report or program
+        overview becomes a single web page you send as a link, scrollable, clickable, readable on a
+        phone. No website changes and no hosting required to try it.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Public content</span></div>
+      </a>
+
+      <a class="card" href="recipe-caption-burner-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Add captions to any video</div>
+        <div class="desc">Drop a video onto a small tool that runs on your own computer and get it back
+        with captions burned in, for accessibility, for social, for people watching with the sound
+        off. The video never uploads anywhere.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Nothing leaves your computer</span></div>
+      </a>
+
+      <a class="card" href="recipe-avatar-video-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Make a training video without filming anyone</div>
+        <div class="desc">Record yourself once: a photo and a short voice sample, then type any
+        script and your avatar presents it on camera. When the policy changes, you edit the script
+        instead of re-booking a filming afternoon. Works in multiple languages.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Uses a tool you may already have</span></div>
+      </a>
+
+      <a class="card" href="recipe-report-podcast-guided.html">
+        <div class="ttl">Turn a report into a podcast or narrated video</div>
+        <div class="desc">Your public annual report becomes a two-host audio conversation or a narrated
+        video overview that supporters will actually finish. You listen to every minute before it goes
+        anywhere: the tool performs, you approve.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Public content only</span></div>
+      </a>
+
+      <a class="card" href="recipe-annual-report-social-guided.html">
+        <div class="ttl">Mine your annual report for a quarter of social posts</div>
+        <div class="desc">The report you already finished holds months of content: stat callouts,
+        story excerpts, milestone posts, quote graphics. It pulls them out in one pass, labels every
+        one with the page it came from, and helps you check the figures before anything is scheduled.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Public content</span></div>
+      </a>
+
+      <a class="card" href="recipe-quote-card-press-guided.html">
+        <div class="ttl">Turn any quote or statistic into a ready-to-post graphic</div>
+        <div class="desc">A small page on your own computer that makes branded cards from your own
+        colors and logo. You type, click, and download. It never rewords a quote, and it asks who
+        checks a card before it posts.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Public content</span></div>
+      </a>
+
+      <a class="card" href="recipe-training-kit-guided.html">
+        <div class="ttl">Turn a training document into a whole volunteer kit</div>
+        <div class="desc">A facilitator guide, a plain-language handout, and a click-through practice
+        quiz that runs on any laptop or phone with no login. It asks who your volunteers are and
+        writes for them, rather than at a fixed reading level.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Nothing sensitive involved</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== category 2 ===== -->
+  <section class="cat" id="c2">
+    <div class="catnum">Section 2</div>
+    <h3>Get information off paper and out of recordings</h3>
+    <p class="blurb">The information your funders ask for is sitting in sign-in sheets, receipts,
+    whiteboard photos, and recorded conversations. AI can now read handwriting, photos, and audio,
+    these recipes turn the analog pile into files you can actually use.</p>
+    <div class="cards">
+
+      <a class="card" href="recipe-signin-sheets-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Type up handwritten sign-in sheets</div>
+        <div class="desc">Photograph the paper sign-in sheets from every session and get back a clean
+        attendance spreadsheet in your format. This is the attendance data your funder reports need,
+        currently trapped in a binder.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Names go into the chat</span></div>
+      </a>
+
+      <a class="card" href="recipe-receipt-shoebox-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Turn a pile of receipts into an expense report</div>
+        <div class="desc">Photograph the month's receipts, give it your budget categories, and get back
+        a categorized expense table ready for your bookkeeper, with a flag on anything it wasn't sure
+        how to file.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Financial details go in</span></div>
+      </a>
+
+      <a class="card" href="recipe-whiteboard-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Turn whiteboard photos into a real document</div>
+        <div class="desc">The flip-charts and whiteboards from your retreat, photographed and handed
+        over, come back as a structured document: the themes, the decisions, who owns what, and the
+        parking lot, before everyone forgets what the arrows meant.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Internal notes go in</span></div>
+      </a>
+
+      <a class="card" href="recipe-paper-form-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Rebuild a paper form as a digital one</div>
+        <div class="desc">Photograph your paper intake or registration form and get back a working
+        digital version people can fill in, plus a cleaner print version. The form your organization
+        has photocopied for ten years, rebuilt in an afternoon.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Just the blank form goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-private-transcriber-guided.html">
+        <div class="ttl">Transcribe recordings without uploading them</div>
+        <div class="desc">A page that turns a recorded meeting or interview into a transcript entirely
+        on your own computer. The audio never leaves your machine, which makes it usable even for
+        sensitive client conversations recorded with consent.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Nothing leaves your computer</span></div>
+      </a>
+
+      <a class="card" href="recipe-story-bank-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Build a quote library from recorded interviews</div>
+        <div class="desc">Ten-minute recorded conversations with participants, consent is a step in
+        the recipe, not a footnote, become a searchable library of transcribed quotes, tagged by theme
+        and program, that your communications work draws on all year.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Interview content goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-photo-prep-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Prepare photos safely before you publish them</div>
+        <div class="desc">Before photos of clients, volunteers, or kids go on your website: a small
+        tool that removes the hidden location and device data from each file and blurs the faces you
+        select, all on your own computer.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Nothing leaves your computer</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== category 3 ===== -->
+  <section class="cat" id="c3">
+    <div class="catnum">Section 3</div>
+    <h3>Make sense of your spreadsheets and lists</h3>
+    <p class="blurb">The answer is usually already in your data, it's just spread across three
+    exports, buried in an inherited workbook, or sitting in 300 survey answers nobody has read.</p>
+
+    <div class="subhead">Clean up and understand what you have</div>
+    <div class="cards">
+
+      <a class="card" href="recipe-spreadsheet-viewer-guided.html">
+        <div class="ttl">Turn a spreadsheet into a dashboard</div>
+        <div class="desc">Show it two or three made-up rows with your real column names and get back a
+        file you double-click: drag your actual spreadsheet on and see totals, charts, and a searchable
+        table. Your real data never uploads.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Built with fake data, runs locally</span></div>
+      </a>
+
+      <a class="card" href="recipe-inherited-spreadsheet-guided.html">
+        <div class="ttl">Understand a spreadsheet you inherited</div>
+        <div class="desc">The eleven-tab workbook your predecessor left behind, explained in plain
+        language: what each tab is for, what calculates what, and which cells everything else depends
+        on. Works on a copy with the dollar figures blanked out.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Structure goes in; values optional</span></div>
+      </a>
+
+      <a class="card" href="recipe-dedupe-three-lists-guided.html">
+        <div class="ttl">Match the same people across your lists</div>
+        <div class="desc">Your event platform, mailing list, and donor system each have their own
+        version of everyone. Get one combined list, a "these might be the same person, you decide"
+        pile, and the answer to who registered but never attended.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Built with headers, runs locally</span></div>
+      </a>
+
+      <a class="card" href="recipe-survey-themes-guided.html">
+        <div class="ttl">Find the themes in hundreds of survey answers</div>
+        <div class="desc">One open-ended question, 300 answers nobody has read. Get the recurring
+        themes, how often each appears, and three exact quotes per theme, with a required spot-check
+        against the originals before you quote anyone.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Responses go in, redact names first</span></div>
+      </a>
+
+      <a class="card" href="recipe-certificates-from-a-list-guided.html">
+        <div class="ttl">Make certificates, name tags, and letters from a list</div>
+        <div class="desc">Paste your attendee columns and one example of last year's certificate. Get a
+        page that generates print-ready certificates, badges, or personalized letters for the whole
+        list, the afternoon-long task, done in minutes.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Names processed locally</span></div>
+      </a>
+
+      <a class="card" href="recipe-finance-explainer-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Explain your finances in board-ready language</div>
+        <div class="desc">Your budget-versus-actuals export becomes a plain-language summary a board
+        member can absorb in five minutes: where the money went, what's off track and by how much, and
+        the questions worth asking. You verify the numbers; it does the translation.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Financials go in</span></div>
+      </a>
+
+      <a class="card" href="recipe-spreadsheet-editor-guided.html">
+        <div class="ttl">Fix the mess in the page, then export a clean file</div>
+        <div class="desc">The next step after the Viewer: edit cells and add rows in the page itself,
+        then download a corrected file. Still nothing uploaded, and it deliberately won't remember
+        your edits, so the clean export is the thing you keep.</div>
+        <div class="meta"><span class="chip"><span class="dot g"></span>Nothing leaves your computer</span></div>
+      </a>
+
+      <a class="card" href="recipe-whos-missing-guided.html">
+        <div class="ttl">Find who registered, attended, and never finished</div>
+        <div class="desc">Three lists reconciled into plain lists of names rather than a pivot table,
+        so you can see exactly where people fall out. It checks first whether these lists are safe to
+        paste, and offers a version that runs on your own computer if they aren't.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Names go into the chat</span></div>
+      </a>
+
+    </div>
+
+    <div class="subhead">Add information you don't have yet</div>
+    <div class="cards">
+
+      <a class="card" href="recipe-district-lookup-guided.html">
+        <div class="ttl">Find everyone's council district</div>
+        <div class="desc">Paste your list of partner sites or member addresses and get each one's
+        district plus the elected official's name and contact, with a source link on every row, so
+        found data and made-up data can't hide in the same column.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Org addresses are public</span></div>
+      </a>
+
+      <a class="card" href="recipe-990-lookup-guided.html">
+        <div class="ttl">Look up any nonprofit's size and budget</div>
+        <div class="desc">Paste a list of organization names and get back each one's budget size, staff
+        count, and program focus from public tax filings, turning "60 potential partners" into "the 15
+        worth calling first."</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>All public records</span></div>
+      </a>
+
+      <a class="card" href="recipe-matching-gifts-guided.html">
+        <div class="ttl">Check which employers match donations</div>
+        <div class="desc">Your donors' employers, checked against publicly posted matching-gift
+        programs, with a link to each program page and a plain "unknown" where nothing was found. The
+        free version of an expensive fundraising database.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Company names only</span></div>
+      </a>
+
+      <a class="card" href="recipe-volunteer-employers-guided.html">
+        <div class="ttl">Find out where your volunteers work</div>
+        <div class="desc">Their email domains already tell you most of it. Sort your volunteer list by
+        employer from the domain column alone, then search only the ambiguous ones, and spot the
+        companies where a sponsorship conversation is waiting.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Email domains only, strip names</span></div>
+      </a>
+
+      <a class="card" href="recipe-open-data-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Pull public data off hard-to-use websites</div>
+        <div class="desc">The county records, license lookups, and funder directories with no download
+        button: an AI assistant in your browser pages through them for you, while you watch, and hands
+        you a spreadsheet. For public data only: the recipe is explicit about where the lines are.</div>
+        <div class="meta"><span class="chip"><span class="dot r"></span>Works inside your browser</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== category 4 ===== -->
+  <section class="cat" id="c4">
+    <div class="catnum">Section 4</div>
+    <h3>Get answers from documents you don't have time to read</h3>
+    <p class="blurb">Load the document once: the 400-page manual, the contract, the funder's own
+    guidelines, and ask it questions all year. Every recipe here requires cited answers you can
+    verify, because an answer you can't check is an answer you can't use.</p>
+    <div class="cards">
+
+      <a class="card" href="recipe-dread-document-expert-guided.html">
+        <div class="ttl">Ask questions of a manual instead of searching it</div>
+        <div class="desc">The Medicaid manual, the HUD handbook, your state's licensing regulations,
+        loaded once into a Project you question all year. Every answer cites the page it came from, so
+        you verify before you act.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>The document is public</span></div>
+      </a>
+
+      <a class="card" href="recipe-handbook-answerer-guided.html">
+        <div class="ttl">Let staff ask the handbook directly</div>
+        <div class="desc">Your employee handbook, bylaws, and fiscal policies answer "do I get
+        bereavement leave for a grandparent?" with the section quoted, so HR stops being the
+        bottleneck for questions the documents already answer.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Internal documents go in</span></div>
+      </a>
+
+      <a class="card" href="recipe-contract-read-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Review a contract before you sign it</div>
+        <div class="desc">The venue contract, the office lease, the insurance renewal, read closely
+        and returned in plain language: what you're committing to, what's unusual for this kind of
+        agreement, and the three questions to ask before signing. Preparation for a decision, not
+        legal advice.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>The contract goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-rule-change-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Understand what a rule change means for you</div>
+        <div class="desc">A proposed regulation or bill, read against your own program documents: what
+        actually changes for your organization, what doesn't, and a first draft of a public comment if
+        you want to respond. The 60-page federal register notice, made actionable.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Program docs go in</span></div>
+      </a>
+
+      <a class="card" href="recipe-funders-eyes-guided.html">
+        <div class="ttl">Score your draft the way the funder will</div>
+        <div class="desc">A reviewer built from the funder's actual published guidelines and scoring
+        rubric reads your draft the way they will, before they do. It critiques against their criteria
+        ; it doesn't write a word for you.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Your draft goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-announcement-test-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Test how an announcement will land before you send it</div>
+        <div class="desc">Before the difficult announcement goes out: a program closing, a fee
+        increase, a leadership change, it reads your draft as each audience: the worried parent, the
+        longtime donor, the skeptical board member. You hear the objections while you can still edit.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Your draft goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-ask-maria-guided.html">
+        <div class="ttl">Keep a departing colleague's knowledge askable</div>
+        <div class="desc">Before your longtime coordinator leaves, she picks the email threads and
+        conversations where she's actually solving problems, she selects, she redacts, and they
+        become a resource her successor can ask "how did we handle this last time?"</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Her threads, her choice</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== category 5 ===== -->
+  <section class="cat" id="c5">
+    <div class="catnum">Section 5</div>
+    <h3>Make good work repeatable across your team</h3>
+    <p class="blurb">These recipes take something one person does well: a voice, a format, a habit,
+    and turn it into a tool the whole team uses, so quality stops depending on who happened to do the
+    work that day.</p>
+    <div class="cards">
+
+      <a class="card" href="recipe-house-style-guided.html">
+        <div class="ttl">Make everyone's drafts sound like your organization</div>
+        <div class="desc">Your five best published pieces, plus one example of what you never sound
+        like, become a reusable writing tool. The intern's draft and the board chair's draft come out
+        sounding like the same organization, and it improves every time you feed it a new best
+        example.</div>
+        <div class="meta"><span class="chip"><span class="dot b"></span>Published work goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-personal-voice-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Draft personal notes in your own voice</div>
+        <div class="desc">Fifteen or twenty notes you actually sent: thank-yous, condolences, board
+        nudges, teach it how you write. Then the endless personal correspondence an ED owes comes out
+        sounding like you on a good day, in minutes instead of evenings. You still read and send every
+        one.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Your sent notes go in</span></div>
+      </a>
+
+      <a class="card" href="recipe-meeting-follow-through-guided.html">
+        <div class="ttl">Get the same follow-up from every meeting</div>
+        <div class="desc">Any transcript or messy notes come back in your team's exact format:
+        decisions, owners, deadlines, parking lot, plus a draft follow-up message. Follow-through
+        stops depending on who took the notes.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Meeting content goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-intake-normalizer-guided.html">
+        <div class="ttl">Standardize the data your partners send you</div>
+        <div class="desc">Thirty partners, thirty formats. A reusable tool takes whatever they send and
+        returns it in your canonical format, flagging what it couldn't map instead of guessing
+        silently. Every new weird format becomes a training example.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Partner data goes in</span></div>
+      </a>
+
+      <a class="card" href="recipe-board-packet-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Assemble the board packet the same way every quarter</div>
+        <div class="desc">The same inputs every quarter: program numbers, the financial summary, last
+        meeting's minutes, assembled into your board packet format on schedule. The recurring
+        half-day of formatting becomes an hour of reviewing.</div>
+        <div class="meta"><span class="chip"><span class="dot a"></span>Board materials go in</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== category 6 ===== -->
+  <section class="cat" id="c6">
+    <div class="catnum">Section 6</div>
+    <h3>Put AI to work inside your files, inbox, and systems</h3>
+    <p class="blurb">The most powerful recipes and the most careful ones. Each connects an AI
+    assistant to something real: your shared drive, your inbox, a system you log into, with
+    permission granted deliberately, a human approving everything that goes out, and read-only as the
+    default posture.</p>
+    <div class="cards">
+
+      <a class="card" href="recipe-drive-archaeologist-guided.html">
+        <div class="ttl">Find things in a shared drive nobody organized</div>
+        <div class="desc">Which of the six "FINAL" budgets is actually final? Where is the current
+        logo? What did we promise this funder last year? Connect your drive read-only, ask in plain
+        English, and get answers with the file path cited: you open the files yourself.</div>
+        <div class="meta"><span class="chip"><span class="dot r"></span>Connects to your Drive</span></div>
+      </a>
+
+      <a class="card" href="recipe-monday-morning-guided.html">
+        <div class="ttl">Triage a full inbox into a short list</div>
+        <div class="desc">The weekend pileup, sorted: what needs a reply from you, what has a deadline
+        hiding in it, what's just FYI, with draft replies for the routine ones. Drafts only. Nothing
+        sends without your click.</div>
+        <div class="meta"><span class="chip"><span class="dot r"></span>Connects to your inbox</span></div>
+      </a>
+
+      <a class="card" href="recipe-export-button-guided.html">
+        <div class="newtag">NEW</div>
+        <div class="ttl">Get your data out of a system with no export button</div>
+        <div class="desc">The legacy database or portal your organization pays for holds your data but
+        won't let you download it. An AI assistant in your browser logs in as you, while you watch,
+        pages through, and builds the spreadsheet the vendor never gave you. Your account, your data,
+        your supervision: the recipe covers the terms-of-service check too.</div>
+        <div class="meta"><span class="chip"><span class="dot r"></span>Works inside your logins</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="noresults" id="noResults">No recipes match that search. Try a different word, or a
+  problem, like "receipts", "captions", "contract", or "inbox".</div>
+
+</div>
+
+<script>
+(function(){
+  var input = document.getElementById('recipeSearch');
+  var hint = document.getElementById('searchHint');
+  var noResults = document.getElementById('noResults');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.cat, .starthere'));
+  var subheads = Array.prototype.slice.call(document.querySelectorAll('.subhead'));
+  var total = cards.length;
+  var idle = 'Type to filter · matches titles and descriptions';
+  hint.textContent = idle;
+
+  cards.forEach(function(c){
+    c.dataset.text = c.textContent.toLowerCase();
+  });
+
+  function filter(){
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(c){
+      var hit = !q || c.dataset.text.indexOf(q) !== -1;
+      c.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    sections.forEach(function(s){
+      var any = Array.prototype.some.call(s.querySelectorAll('.card'), function(c){
+        return c.style.display !== 'none';
+      });
+      s.style.display = any ? '' : 'none';
+    });
+    subheads.forEach(function(h){
+      var grid = h.nextElementSibling;
+      var any = grid && Array.prototype.some.call(grid.querySelectorAll('.card'), function(c){
+        return c.style.display !== 'none';
+      });
+      h.style.display = any ? '' : 'none';
+      if (grid) grid.style.display = any ? '' : 'none';
+    });
+    noResults.style.display = shown ? 'none' : 'block';
+    hint.textContent = q ? (shown + ' of ' + total + ' cards match') : idle;
+  }
+
+  input.addEventListener('input', filter);
+  input.addEventListener('search', filter);
+})();
+</script>
+
+<footer><div class="wrap">
+  <div>Decoded Futures · The Prompt Cookbook · Guided · August 2026.</div>
+  <div>47 recipes · 6 sections · one paste each.</div>
+</div></footer>
+
+</body>
+</html>

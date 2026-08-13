@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: Where Do Our Volunteers Work? (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-volunteer-employers.html">Read the steps instead</a></span>
+    <span>Enrich My Data · Recipe 10 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Enrich · Look Up</span>
+      <span class="num">R-10</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Enrich My Data · Look Up · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Where Do Our Volunteers Work?</h1>
+      <p class="tagline">Most of the answer is already in your data. An address like jane@salesforce.com tells you the employer without any searching. Sort your volunteer list by employer using the domain column alone, then search only the domains that don't explain themselves.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag, as long as the names stay in your spreadsheet. The assistant checks that before it accepts anything
+        </span>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>What you keep the volunteer list in and what one row looks like, described with a <b>made-up</b> name and a made-up email address. Then it walks you through pulling out just the part after the @, in whatever software you actually use, and stops you if a real name comes along with it. Names, phone numbers, and addresses never enter the chat, and it researches companies rather than people. If the columns are tangled together, it will point you at the redaction pass (Recipe 01) first.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Have your volunteer list open, but don't paste anything from it yet. Nothing to fill in and nothing to split up first: the assistant works out what your columns look like, walks you through getting the domains out on their own, checks that your AI can really search the web, and then does the sort and the lookups.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my research assistant. I work at a nonprofit. I am not
+technical. Your job is to run the following FOR me, asking me
+only questions a non-technical person can answer, and being
+strict about two things: accuracy, because a guessed employer
+reads exactly like a confirmed one, and privacy, because the
+unit of research here is a company domain and never a person.
+
+WHAT WE'RE DOING
+Taking the email domains from our volunteer list, meaning only
+the part after the @ with every name stripped out, and working
+out which companies our volunteers work at and how many are at
+each. Most of the answer is already sitting in the data: an
+address ending in salesforce.com names the employer without
+any searching at all. What comes back is one table plus a
+top-five list, and that top five is the sponsorship shortlist.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan, then check whether you
+  can actually search the live web in this chat. If you can't,
+  or web search is switched off, STOP and tell me in plain
+  language how to turn it on in this product, or say clearly
+  that this AI can't do live lookups, rather than answering
+  from memory. A company you half-remember owning a domain is
+  worse than a plain UNKNOWN.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "can you split the email column at the @
+  with Text to Columns?" Instead ask "open your volunteer list
+  and tell me what the column headings are, and what one row
+  looks like using a made-up name and a made-up email address"
+  and work out from that whether the names are tangled up with
+  the emails and what I'll have to do to get the domains out
+  on their own. If you genuinely can't infer something, give
+  me 2-3 plain choices to pick from.
+- Don't assume what software I use. Ask me what I keep the
+  volunteer list in, and give me the result in a form I can
+  paste straight back into it.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. What my volunteer list looks like: what I keep it in, what
+   the column headings are, and what one row looks like with a
+   made-up name and a made-up email address. Made-up every
+   time you ask me for an example, never a real person.
+2. Whether the names and the email addresses sit in separate
+   columns. Then walk me through pulling out just the part
+   after the @, one step at a time, in the software I actually
+   said I use. Names, phone numbers, and addresses stay behind
+   in my own file. If they're tangled together in one column,
+   say so plainly and have me strip them first: this
+   cookbook's redaction-pass recipe does that in one step, or
+   I can delete the name column in a copy of the file.
+3. The domain column itself, pasted in. If what I paste has a
+   person's name or a whole email address anywhere in it,
+   STOP, tell me exactly what you spotted, and have me redo
+   it. Confirm roughly how many domains there are too: more
+   than about 200 gets slow and error-prone in a chat, so
+   offer to do the first 100 now and mention the alternative
+   at the end of this message.
+4. What I'm going to do with the answer: sponsorship asks,
+   corporate volunteer days, board recruiting. That's how you
+   know what the top-five list should be sorted for.
+
+HOW TO DO THE WORK (this part is for you, not me)
+Sort before you search. That order is what makes this fast and
+what keeps it clean. First: group the domains, count how many
+volunteers sit under each, and fill in every employer you can
+name from the domain alone, because salesforce.com and
+con-ed.com already answer the question. Second: for the
+company-looking domains left over, search the web for the
+DOMAIN itself to find which company owns it. Never search for
+a person, and never search a name even if one reaches you by
+accident. Third: personal and generic domains (gmail, yahoo,
+aol, mail.com, internet-provider addresses) and school domains
+ending .edu get UNKNOWN and stay there. Do not try to work out
+where those people work. Shared small-business and
+mail-forwarding domains get UNKNOWN too, because one of those
+can cover several unrelated employers. Return ONE table:
+Domain | Employer | Volunteer count | How you know (domain
+match or web search) | Source link. Rules: a source link on
+every row you searched; anything you can't confirm is left
+blank and written UNKNOWN rather than guessed; never infer an
+employer from a similar-looking domain. After the table, give
+me the top five employers by volunteer count, and a short list
+of the rows you're least confident about and why.
+
+AFTER THE TABLE, WALK ME THROUGH
+1. Which UNKNOWNs to leave alone. The gmail rows stay unknown
+   and that is fine: I'm after clusters, not a census. Say
+   plainly that going off to look those volunteers up one by
+   one is not part of this recipe.
+2. Spot-checking 5 rows, weighted towards the ones you had to
+   search: I click the source link and confirm the domain
+   really does belong to that company. Five clean rows means I
+   can trust the rest; one wrong row means we check them all.
+3. Reading the top five as a shortlist rather than a finding,
+   and pasting the table back where I keep my list, keeping
+   the how-you-know and source-link columns.
+
+RULES
+- The unit of research is the domain, never a person. If I ask
+  you to look up an individual volunteer, say no and tell me
+  why.
+- A searched row without a working source link is not
+  finished. Say so rather than handing it to me.
+- Rows matched from the domain alone are close to certain, and
+  searched rows are where the errors hide. Keep that
+  difference visible in the table instead of flattening it.
+- Before we finish, remind me out loud that looking volunteers
+  up one by one on LinkedIn is the tempting shortcut and the
+  wrong one: logged-in scraping breaks LinkedIn's terms, and
+  browsing people's profiles in bulk is not something to
+  automate quietly. If one lookup genuinely matters, I do it
+  by hand, deliberately, and out in the open.
+
+IF I HAVE HUNDREDS OF DOMAINS, OR I'LL REDO THIS MONTHLY
+Chat is the wrong tool at that size. Offer instead to build me
+a small tool that does the grouping and the counting on my own
+computer, so only the handful of unrecognized domains ever
+needs a search. If I say yes, switch into setup-assistant
+mode: ask me the same plain questions, build the thing, and
+walk me through saving and testing it one step at a time. For
+thousands of volunteers, say plainly that I need something
+more substantial than either.
+
+Start now by telling me, in two sentences, what we're going to
+do together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline">
+          <b>Made-up data looks exactly like found data.</b> A guessed employer reads exactly like a confirmed one. So: a source link for anything searched, unknowns left blank, and a spot-check of 5 random rows before you act on any of it. The assistant is instructed to enforce the first two, but the spot-check is yours.
+        </div>
+
+        <div class="browserline">
+          <b>Domains are the unit here, not people.</b> The prompt makes the assistant check what you're about to paste and stop you if a name or a whole email address comes with it, and it refuses to look up an individual volunteer even if you ask. Keeping the names in your own file, though, happens on your side of the screen.
+        </div>
+
+        <div class="browserline">
+          <b>Don't use LinkedIn for this.</b> Looking volunteers up one by one on LinkedIn is the tempting shortcut. Logged-in scraping violates LinkedIn's terms, and browsing people's profiles in bulk isn't something to automate quietly. The assistant is told to raise this with you before it signs off, but the temptation arrives later, when you're staring at the UNKNOWN rows.
+        </div>
+
+        <div class="browserline">
+          <b>When to stop using this recipe.</b> For dozens of domains, this recipe is the right tool. For hundreds, or a refresh every month, the prompt has the assistant offer to build you a small tool that does the domain sort instead. For thousands, you need something more substantial.
+        </div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A map of where your volunteers work: which companies keep showing up, how many people are at each, and a shortlist of the most promising sponsorship conversations. Built almost entirely from data you already had.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

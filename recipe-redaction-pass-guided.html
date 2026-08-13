@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: The Redaction Pass (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-redaction-pass.html">Read the steps instead</a></span>
+    <span>Your Data, Handled · Recipe 01 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Your Data · Protect</span>
+      <span class="num">R-01</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Your Data, Handled · Protect · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>The Redaction Pass</h1>
+      <p class="tagline">A small tool on your own computer that strips names, emails, phone numbers, and addresses out of any text you paste in, so you can use every other recipe in this book on real material. Read this one first.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag. No sensitive data goes in, and nothing gets published
+        </span>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>What kind of information would be a problem if it leaked, in your world: it asks about your work ("do you serve clients? kids? patients?") and builds the list of identifying things from your answers, including your internal ID formats. It never asks for a single real name or number.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Nothing to fill in and nothing to prepare. The AI interviews you about what counts as identifying at your org, builds the tool, and then walks you through testing it on made-up text before you trust it with anything real.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my setup assistant. I work at a nonprofit. I am not
+technical, and I don't want to become technical today. Your job
+is to set the following tool up FOR me, asking me only questions
+a non-technical person can answer.
+
+WHAT WE'RE MAKING
+A redaction tool that lives on my own computer: I paste in text,
+it strips out names, phone numbers, addresses, and anything else
+identifying, and I copy out a clean version that's safe to paste
+into an AI chat or share. This is the tool that makes it safe
+for me to use AI on real work material.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask me to "list regex-able patterns." Ask what
+  kind of people and places show up in my documents, and whether
+  my org uses ID or case numbers, and if so what one LOOKS like
+  with made-up digits (like CL-1234). Build the list from that.
+- IMPORTANT: never ask me for a real name, address, number, or
+  any real example. Made-up examples only, and say so each time.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan, then adapt everything that
+  follows to what THIS product can actually do. If you can
+  create and hand me a downloadable file here, do that. If you
+  can only show me code, put the whole thing in one copyable
+  block and give me click-by-click instructions for saving it as
+  a file (ask whether I'm on a Mac or Windows machine when the
+  clicks differ).
+- Don't assume what software I use. Ask me what I write and
+  store these documents in, and adapt to that.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. What my org does and who shows up in our documents (clients,
+   students, patients, donors, staff), so you know what counts
+   as identifying here.
+2. The less obvious identifiers in my world: school names,
+   shelter or site locations, employer names, whatever applies.
+3. Whether we use internal IDs or case numbers, and what the
+   FORMAT looks like, using made-up digits.
+
+WHAT TO BUILD (this part is for you, not me)
+A SINGLE self-contained HTML file, no internet needed and no
+libraries loaded from the web, that works entirely in the
+browser; nothing pasted into it is ever sent anywhere. It must:
+have one big box where I paste text, a Redact button, and the
+cleaned version below with a Copy button; replace each item with
+a consistent placeholder, so the same person becomes [PERSON-1]
+every time and the text still makes sense; highlight everything
+it changed so I can review each one; let me click any word it
+MISSED to redact it by hand and remember that word for next
+time; and include a note on the page reminding me to spot-check
+before pasting the result anywhere.
+
+AFTER YOU BUILD IT, WALK ME THROUGH
+1. Saving the file somewhere I'll find it and opening it. Point
+   out that it works with the wifi off, which is the point.
+2. A real test: help me write a FAKE case note, with made-up
+   names, a made-up phone number, and a made-up ID in my format,
+   and have me run it through. Ask me what it caught and what it
+   missed, and fix the tool if it missed things.
+3. The habit: from now on, real text goes through this tool
+   first and into an AI chat second.
+
+RULES
+- Nothing real ever enters this chat. If I paste something that
+  looks like real client text, stop me and remind me why.
+- Before we finish, remind me that pattern matching is literal:
+  "Dr. J." or a nickname can slip past, so I'm always the last
+  check on anything the tool produces.
+
+Start now by telling me, in two sentences, what we're going to
+make together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline"><b>Test it before you trust it.</b> This tool is what makes the amber recipes in this book usable, so confirm it works. The guided setup ends with a test on made-up text for exactly this reason. Pattern matching is thorough but literal, so "Dr. J." or a nickname can slip past. Spot-check the output every time, because you're the last check.</div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A redaction tool that lives on your own computer and never sends anything out, plus a habit worth keeping. Every recipe in this book that says "paste your text in" now has a safe first step: redact, then paste. This one tool moves whole categories of your work from off-limits to workable.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

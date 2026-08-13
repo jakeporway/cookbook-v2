@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: The Private Transcriber (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-private-transcriber.html">Read the steps instead</a></span>
+    <span>Your Data, Handled · Recipe 03 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Your Data · Transcribe</span>
+      <span class="num">R-03</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Your Data, Handled · Transcribe · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>The Private Transcriber</h1>
+      <p class="tagline">A page that turns a recorded meeting or interview into a transcript entirely on your own computer. The audio never leaves your machine, so you can use it even for sensitive client conversations.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag. No sensitive data goes in, and nothing gets published
+        </span>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>Everyday questions only: what you record on (a phone? a handheld recorder? Zoom?), roughly how long your recordings run, and how many people are usually talking. It works out the technical details, like file formats, from your answers. You never attach a recording.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Nothing to fill in and nothing to prepare. The AI reads it and takes over as your setup assistant: it asks you a few plain questions, one at a time, then builds the tool and walks you through trying it.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my setup assistant. I work at a nonprofit. I am not
+technical, and I don't want to become technical today. Your job
+is to set the following tool up FOR me, asking me only questions
+a non-technical person can answer.
+
+WHAT WE'RE MAKING
+A transcription tool that runs entirely on my own computer, so
+recordings of sensitive conversations never get uploaded
+anywhere. It should be a single HTML file I can double-click: I
+drag an audio file onto it, wait, and get a transcript I can
+copy or download as a text file.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "are your files .m4a or .wav?" Instead ask
+  "what do you use to record: your phone, Zoom, a handheld
+  recorder, something else?" and figure out the likely file
+  format from that. If you genuinely can't infer something, give
+  me 2-3 plain choices to pick from.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan, then adapt everything that
+  follows to what THIS product can actually do. If you can
+  create and hand me a downloadable file here, do that. If you
+  can only show me code, put the whole thing in one copyable
+  block and give me click-by-click instructions for saving it as
+  a file (including the exact menu names on my computer, so ask
+  whether I'm on a Mac or Windows machine when it matters).
+- Don't assume what software I use. Ask me what I use for
+  recording and playing back audio, and adapt to that.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. What I record on, so you can infer the audio format.
+2. Roughly how long a typical recording is.
+3. What language the conversations are in.
+4. Roughly how many people are usually talking.
+
+WHAT TO BUILD (this part is for you, not me)
+A SINGLE self-contained HTML page that transcribes audio
+entirely in the browser, so audio never leaves the computer. Use
+a small speech-recognition model that runs locally, for example
+Whisper via transformers.js. It's OK if the page downloads the
+model the first time it's opened; after that it must work with
+no internet connection. The page must: let me drag an audio file
+onto it; show clear progress and be upfront that long files take
+a while; show the transcript with occasional timestamps; give me
+buttons to copy the transcript and download it as plain text;
+and state plainly on the page that audio never leaves this
+computer.
+
+AFTER YOU BUILD IT, WALK ME THROUGH
+1. Saving and opening the file, and what the one-time model
+   download will look like (and roughly how long it takes).
+2. A safe first test: have me try it on a recording that is NOT
+   sensitive, like me reading a paragraph aloud, and have me
+   check the transcript against what I actually said.
+3. Only then, using it on real recordings. Remind me that local
+   models miss the odd word, so I should skim every transcript,
+   and that transcription can take about as long as the
+   recording itself.
+
+RULES
+- Never ask me to upload or paste a recording, or anything from
+  one, into this chat. Descriptions only.
+- Before we finish, remind me: private isn't the same as
+  permitted. Recording a conversation still requires consent
+  under my org's policy and my state's law.
+
+Start now by telling me, in two sentences, what we're going to
+make together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline"><b>Private isn't the same as permitted.</b> The audio never leaves your machine, but recording a conversation still requires the other person's consent every time, following your org's policy and your state's law. This tool changes where the transcript is made. It doesn't change the rules about making the recording.</div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A transcriber that lives on your own computer, costs nothing per use, and can be trusted with your most sensitive conversations, because there is nowhere for the audio to go. Every hour of recording stops costing you an hour of typing.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

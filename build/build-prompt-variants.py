@@ -19,6 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from detailed_prompts import DETAILED  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+SITE = os.path.join(os.path.dirname(HERE), 'site')
 
 # One .prompt block: header (with label), then one or two <pre> variants.
 BLOCK = re.compile(
@@ -80,7 +81,7 @@ def rebuild(path, check=False):
 def main():
 	check = '--check' in sys.argv
 	total, all_missing, touched = 0, [], 0
-	for path in sorted(glob.glob(os.path.join(HERE, 'recipe-*.html'))):
+	for path in sorted(glob.glob(os.path.join(SITE, 'recipe-*.html'))):
 		# Guided pages carry one pasteable prompt with no Simple/Detailed split.
 		if path.endswith('-guided.html'):
 			continue

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate index-guided.html from index-v3.html.
+"""Generate index-guided.html from index.html.
 
 The guided landing page is the same categories, same cards, same search, with
 every link pointing at the -guided.html twin and the framing copy rewritten for
 the one-paste model. Generating it means the two pages can't drift: re-run this
-after any edit to index-v3.html.
+after any edit to index.html.
 
 	python3 build-guided-index.py [--check]
 
@@ -16,19 +16,20 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, 'index-v3.html')
-OUT = os.path.join(HERE, 'index-guided.html')
+SITE = os.path.join(os.path.dirname(HERE), 'site')
+SRC = os.path.join(SITE, 'index.html')
+OUT = os.path.join(SITE, 'index-guided.html')
 
 LINK = re.compile(r'href="(recipe-[a-z0-9-]+)\.html"')
 
 
 def sub_once(src, old, new, label):
-	"""Replace exactly one occurrence, or fail loudly: index-v3.html changed."""
+	"""Replace exactly one occurrence, or fail loudly: index.html changed."""
 	n = src.count(old)
 	if n != 1:
 		raise SystemExit(
 			'build-guided-index: expected 1 occurrence of %s, found %d.\n'
-			'index-v3.html has changed shape; update this script.' % (label, n))
+			'index.html has changed shape; update this script.' % (label, n))
 	return src.replace(old, new)
 
 
@@ -44,7 +45,7 @@ HERO_NEW = '''    <div class="eyebrow">The Prompt Cookbook &middot; Guided</div>
     actually do, and tells you plainly if this one is beyond it rather than letting
     you find out halfway through.</p>
     <p class="lede">Prefer to read the steps yourself? Every recipe still has its
-    original version: <a href="index-v3.html" style="color:var(--blue);text-decoration:underline">the
+    original version: <a href="index.html" style="color:var(--blue);text-decoration:underline">the
     step-by-step cookbook</a>. Each page links across to the other, so you can switch
     at any point.</p>
     <p class="lede">Please send any feedback you have to
@@ -95,10 +96,10 @@ START_SUB_NEW = ('    <p class="sub">These two recipes make every other recipe i
 NAV_NEW = '''  <nav class="topnav">
     <a href="#start">Start here</a>
     <a href="#c1">The recipes</a>
-    <a href="index-v3.html">Step-by-step version</a>
+    <a href="index.html">Step-by-step version</a>
   </nav>'''
 
-# Five recipes exist as pages but were never listed on index-v3.html. This page
+# Five recipes exist as pages but were never listed on index.html. This page
 # is meant to be all of them, so they get cards here. Badge colours follow the
 # key on the page (green nothing leaves your computer, blue public or
 # non-sensitive, amber your files go in), which is not always the same axis as
@@ -168,7 +169,7 @@ def build():
 		slug = m.group(1)
 		if slug.endswith('-guided'):
 			return m.group(0)
-		if not os.path.exists(os.path.join(HERE, slug + '-guided.html')):
+		if not os.path.exists(os.path.join(SITE, slug + '-guided.html')):
 			raise SystemExit('build-guided-index: no guided twin for %s.html' % slug)
 		return 'href="%s-guided.html"' % slug
 
@@ -180,7 +181,8 @@ def build():
 	               '<title>The Prompt Cookbook · Guided · Decoded Futures</title>', '<title>')
 	out = sub_once(out,
 	               '  <nav class="topnav">\n    <a href="#start">Start here</a>\n'
-	               '    <a href="#c1">The recipes</a>\n  </nav>',
+	               '    <a href="#c1">The recipes</a>\n'
+	               '    <a href="index-guided.html">Guided</a>\n  </nav>',
 	               NAV_NEW, 'topnav')
 
 	# 3. Hero copy: replace everything from the eyebrow to the </details>.
@@ -196,7 +198,7 @@ def build():
 	out = sub_once(out, '<h2>Start with these two, then go anywhere</h2>',
 	               '<h2>Start with these two, then go anywhere</h2>', 'start heading')
 
-	# 5. The five recipes index-v3.html never listed.
+	# 5. The five recipes index.html never listed.
 	for (section_id, grid_index), cards in MISSING.items():
 		out = append_cards(out, section_id, grid_index, cards)
 

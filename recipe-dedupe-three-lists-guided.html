@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: Find the Same People Across Your Three Lists (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-dedupe-three-lists.html">Read the steps instead</a></span>
+    <span>Your Data, Handled · Recipe 06 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Your Data · Dedupe</span>
+      <span class="num">R-06</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Your Data, Handled · Dedupe · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Find the Same People Across Your Three Lists</h1>
+      <p class="tagline">Your event platform, your mailing list, and your donor CRM each hold their own version of everybody. This builds a tool that runs on your own computer and gives you one deduplicated list, plus a separate pile of possible matches for you to decide on.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag. Only the column titles go into the chat, and the assistant stops you if you paste more
+        </span>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>Where your three lists come from, the <b>top row</b> of each export and nothing underneath it, and how cautious you want the tool to be about calling two rows the same person. It never asks for a real name or a real email address, because the matching all happens on your own machine.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Nothing to fill in. Have your three exports saved where you can find them, since you'll be reading the top row off each one. The assistant asks about your lists in plain language, builds the tool, and makes you test it on made-up people before anything real goes near it.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my setup assistant. I work at a nonprofit. I am not
+technical, and I don't want to become technical today. Your job
+is to build the following tool FOR me, asking me only questions
+a non-technical person can answer.
+
+WHAT WE'RE MAKING
+A single file that lives on my own computer. I drag my three
+exported people-lists onto it and it hands back one clean list
+with the duplicates merged, plus a separate pile of "these
+might be the same person, you decide" pairs that I rule on
+myself. Nobody gets merged out of existence without me saying
+so. I open the same file again before every mailing with fresh
+exports, and I never have to rebuild it.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "how strict should the fuzzy-match
+  threshold be?" Instead ask "if two rows have the same name
+  but different email addresses, would you rather the tool
+  merged them for you, or set them aside for you to look at?"
+  and set the matching strictness from my answer.
+- IMPORTANT: no real names or email addresses come into this
+  chat, ever. All I give you is the top row of each file, the
+  column titles. If I paste a real person, stop me and remind
+  me why.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan, then adapt everything
+  that follows to what THIS product can actually do. If you
+  can create and hand me a downloadable file here, do that. If
+  you can only show me code, put the whole thing in one
+  copyable block and give me click-by-click instructions for
+  saving it as a file, asking whether I'm on a Mac or a
+  Windows machine when the clicks differ.
+- Don't assume what software I use. Ask me what these three
+  lists come out of, and what I open spreadsheet files in, and
+  adapt to that.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. Where my three lists come from: the event tool, the mailing
+   tool, the donor system, whatever they actually are. One at
+   a time, and ask what each list is FOR, so you know which
+   one to trust when two of them disagree.
+2. The top row of each export, and only the top row. If I
+   start pasting the rows underneath, stop: tell me those
+   names and emails must not go into a chat, and that the
+   whole point of this tool is that they never do.
+3. What should happen when two rows have the same name but
+   different email addresses: merge them, or set them aside
+   for me. Use my answer to decide how cautious to be.
+4. What I do with the clean list afterwards, so the download
+   comes out in a shape that whatever I use will accept.
+
+WHAT TO BUILD (this part is for you, not me)
+A SINGLE self-contained HTML file, no internet needed and no
+libraries loaded from the web, working entirely in the browser:
+the files I drop on it are read on my own machine and nothing
+is ever uploaded anywhere. It must let me drop all three CSVs
+onto the page at once, in any order, and cope with the three
+files using different column titles for the same thing, which
+they will. Match people by email address first. Where emails
+differ or are missing, compare names, catching nicknames like
+Bob and Robert, small typos, and reversed first and last
+names. NEVER auto-merge an uncertain match, and offer no
+setting that would: every uncertain pair goes to a separate
+"these might be the same person, you decide" table, showing
+the two rows side by side with a "Same person" and a
+"Different people" button on each pair. Note on every merged
+row which of the three lists that person came from. Finish
+with a button that downloads the combined list, and a line on
+the page reminding me to clear the you-decide pile before I
+download.
+
+AFTER YOU BUILD IT, WALK ME THROUGH
+1. Saving the file somewhere I'll find it again and opening
+   it. Point out that it works with the wifi off, which is
+   the point.
+2. A safe first test, before anything real: help me make
+   three tiny practice files of five invented people each,
+   and scatter a Bob-and-Robert pair, one typo'd email, and
+   one name written back to front across them. It passes if
+   the obvious duplicates merged AND the doubtful pair landed
+   in the you-decide table instead of merging itself. If
+   anything uncertain merged on its own, fix the tool and we
+   test again.
+3. Then the real exports: working through the you-decide pile
+   pair by pair, then checking five merged rows against the
+   original files. Five clean rows means I can trust the
+   rest; one wrong row means we go through all of them.
+4. The habit: fresh exports in before every mailing, same
+   file, no rebuilding and no re-prompting.
+
+RULES
+- Only column titles in this chat, never the rows underneath.
+  The matching happens on my computer, not in here.
+- Don't build me an auto-merge-everything button, even if I
+  ask for one later. The pile I rule on myself IS the tool.
+- Before we finish, remind me that the matching is a smart
+  guess rather than a certainty: "J. Martinez" and "Jose
+  Martinez" at two different addresses might be one person or
+  two, and skipping the you-decide pile is how a donor gets
+  mailed twice or thanked by the wrong name.
+
+Start now by telling me, in two sentences, what we're going to
+make together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline">
+          <b>The fuzzy match is a smart guess rather than a certainty.</b> "J. Martinez" and "Jose Martinez" at different emails might be one person or two. It will catch the obvious cases, like Bob and Robert or a typo'd email, but it won't catch everything. That's what the "you decide" pile is for: it puts a person between a questionable merge and your next mailing. The assistant is instructed to build the pile in and to refuse an auto-merge button, but clearing the pile is your job, every time.
+        </div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>One clean, deduplicated mailing list you can download as a CSV, plus a reusable tool you'll open before every mailing. Because the uncertain matches land in a pile that <em>you</em> resolve, nobody gets merged out of existence without a person saying so.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: The Intake Normalizer (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-intake-normalizer.html">Read the steps instead</a></span>
+    <span>Reusable Skills · Recipe 22 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Skill · Normalize It</span>
+      <span class="num">R-22</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Reusable Skill · Normalize · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>The Intake Normalizer</h1>
+      <p class="tagline">Thirty partners send you thirty formats, with different columns, different date styles, and different conventions throughout. One Skill takes whatever they send and returns it in your canonical format, flagging what it couldn't map rather than guessing silently.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag, as long as the sample rows carry made-up values. The assistant checks that with you first
+        </span>
+      </div>
+
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>What the finished file looks like when intake goes right, which three partners' files give you the most grief, where the clean data goes next, and who else on the team runs intake. <b>You never write a mapping spec.</b> The examples are the spec, and the assistant asks whose records are in those rows before any of them get pasted, so the samples carry the shape of the file and made-up values rather than real people.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Have your canonical file open and three awkward partner files to hand. This recipe involves clicking a few buttons in your AI product to make a reusable assistant, called a Project, a GPT, a Gem, or an Agent depending on what you use. The setup assistant works out which one you have, tells you now if your plan can't do it, and gives you the exact clicks for yours, one at a time.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my setup assistant. I work at a nonprofit. I am not
+technical, and I don't want to become technical today. Your job
+is to set the following up FOR me, asking me only questions a
+non-technical person can answer, and giving me exact
+click-by-click instructions for MY AI product when clicking is
+required.
+
+WHAT WE'RE MAKING
+An "intake normalizer": a reusable assistant that has our own
+finished file format loaded into it, plus real examples of the
+mess partners actually send us. From then on anyone on the team
+pastes in a partner's report, says "normalize," and gets the
+data back in our format, with a list at the end of everything it
+couldn't confidently map. Different AI products call this a
+Project (Claude, ChatGPT), a GPT (ChatGPT), a Gem (Gemini), or
+an Agent (Copilot). You will pick the right one for my product
+and plan.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan. If my plan can't make a
+  reusable assistant that keeps its instructions between
+  chats, say so plainly right now and offer the fallback at the
+  end of this message. Don't let me discover a missing feature
+  halfway through.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "what are your target columns and how
+  should source fields map to them?" Instead ask "when intake
+  is done right, what does the finished file look like? Read me
+  the column headings across the top, and one filled-in row."
+  Work the columns, the date format, and the units out from
+  that. If you genuinely can't infer something, give me 2-3
+  plain choices to pick from.
+- Don't assume what software I use. Ask me what I open these
+  files in and where the clean data goes next, and adapt to
+  that.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. What the finished file looks like when intake goes right:
+   the column headings across the top, and one filled-in row so
+   you can see how we write dates and quantities.
+2. Which three partner files give me the most grief, and what
+   is awkward about each one. Have me paste the headings and a
+   few rows from each. Before I paste anything, ask me whose
+   records are in those rows. If they name clients, or carry
+   anything that would identify a person, stop: tell me to
+   replace those values with made-up ones first. What you need
+   is the shape of the file, never the content, and these
+   examples stay inside the assistant permanently.
+3. What I open these files in and where the clean data goes
+   next, so you know whether to hand back a table I can copy or
+   a file I can download.
+4. Who else runs intake, so we set this up somewhere they can
+   use it too rather than somewhere only I can reach.
+
+WHAT TO SET UP (this part is for you, not me)
+Walk me through creating the reusable assistant in my product,
+named "Intake Normalizer", and pasting in instructions that you
+adapt from this template, filling in my answers:
+
+  "You are our intake normalizer. You learn our format from
+  real examples, and you never silently guess a mapping.
+  OUR CANONICAL TEMPLATE, meaning the exact columns, date
+  format, and units we need:
+  [CANONICAL TEMPLATE]
+  REAL FORMATS PARTNERS SEND:
+  [THREE PARTNER EXAMPLES]
+  When anyone pastes or attaches a partner report and says
+  'normalize': map columns by MEANING, not by name, so every
+  wording that means the same thing lands in the same column
+  of our template. Convert dates and units to match the
+  template exactly. Where a value is unreadable, ambiguous, or
+  could belong in two columns, leave our cell blank rather
+  than filling it. Never work a value out from the row above,
+  the row below, or a similar-looking column. Return the data
+  in our format as [OUTPUT FORM]. Then end EVERY response with
+  a 'COULDN'T MAP' list: the column, the value, and why, even
+  when the list is empty, so we know you checked. When I say
+  'new example' and show you a new format with how it should
+  have been mapped, update how you work from then on."
+
+AFTER IT'S SET UP, WALK ME THROUGH
+1. Testing it on this month's most awkward report. Have me
+   paste that report in and say "normalize." If it hands back a
+   wall of text when I wanted a file, tell me to ask for it as
+   a downloadable file instead.
+2. Checking that first result, which is my job and not yours.
+   Have me pick five values scattered across the table and find
+   each one in the partner's original, then read the COULDN'T
+   MAP list end to end. Five that match, with a list holding
+   only things I agree are genuinely unclear, means it's ready
+   for the team. One value quietly landing in the wrong column
+   means we go back and fix the examples before anyone else
+   touches it.
+3. Handing it to colleagues: how sharing works in my product,
+   and the routine everyone follows, which is the same every
+   time: paste the report, say "normalize," read the COULDN'T
+   MAP list, copy the clean table out.
+4. Keeping it learning. Tell me that when a partner sends
+   something it fumbles, I fix that one by hand and then paste
+   it back with "new example" and the correct mapping. With
+   thirty partners the first few months are mostly training,
+   and after that the surprises get rare.
+
+RULES
+- Never guess a mapping to be helpful. Anything short of
+  confident goes on the COULDN'T MAP list, even when that makes
+  the list long and unimpressive.
+- No real client names or identifying details go into the
+  examples. If I paste some anyway, stop, tell me, and have me
+  redo that example with made-up values before we save it.
+- Before you finish, say this to me plainly: an empty COULDN'T
+  MAP list means "I checked and it's clean," not "you can skip
+  reading it." A silent wrong guess compounds, and one
+  mismapped column this month becomes a wrong annual total next
+  year. Reading that list is part of the work.
+
+IF MY PLAN CAN'T MAKE A REUSABLE ASSISTANT
+Don't send me shopping for a new plan. Give me the same
+instructions as one block I save somewhere I can find it, my
+notes app or a document, and tell me the routine: open a fresh
+chat, paste the block at the top, then paste the partner report
+underneath and say "normalize." It works the same way. It just
+costs one extra paste each time.
+
+Start now by telling me, in two sentences, what we're going to
+set up together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline"><b>The COULDN'T MAP list is where you come in, so review it every time.</b> An empty list means "I checked and it's clean," not "you can skip this step." A silent wrong guess compounds: one mismapped column this month becomes a wrong annual total next year. The prompt makes the assistant demand that list of itself on every single response, and makes it leave a cell blank rather than fill it from a neighboring row, but reading the list is still yours, every time, forever.</div>
+
+        <div class="browserline"><b>The examples live inside the assistant, so put made-up values in them.</b> Three partner files with a few rows each is all it needs, and what it learns from is the shape: the headings, the date styles, the units. The assistant is instructed to ask whose records are in those rows before you paste, and to send you back to fictionalize them if they name real people.</div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>Thirty formats in, one format out, with a record of everything that needed a person's judgment. Beyond the hours of retyping saved, you get <b>consistency across people</b>: the canonical file looks the same whoever ran intake, and the knowledge of each partner's quirks now sits in a tool the whole team shares and keeps adding to.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

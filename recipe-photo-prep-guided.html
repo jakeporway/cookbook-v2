@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: Prepare Photos Safely Before You Publish Them (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-photo-prep.html">Read the steps instead</a></span>
+    <span>Off Paper · Photos · Recipe 37 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Off Paper · Photos</span>
+      <span class="num">R-37</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Off Paper · Photos · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Prepare photos safely before you publish them</h1>
+      <p class="tagline">Before photos of clients, volunteers, or kids go on your website, run them through a small local tool that strips the hidden location and device data from each file and blurs the faces you choose, all on your own computer.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <span class="clear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Nothing to flag. No sensitive data goes in, and nothing gets published
+        </span>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>Everyday questions only: what you take the photos on, where they end up once they're cleaned, how many you usually handle at a time, and how your org keeps track of who has signed a photo release. It works out the technical parts, like which hidden data is in your files and how hard the blur has to be, from your answers. You never attach a photo to the chat.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Nothing to fill in and nothing to prepare. The AI takes over as your setup assistant: a few plain questions, one at a time, then it builds the tool and walks you through proving that the location data really is gone before you trust it with a program photo.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my setup assistant. I work at a nonprofit. I am not
+technical, and I don't want to become technical today. Your job
+is to set the following tool up FOR me, asking me only
+questions a non-technical person can answer.
+
+WHAT WE'RE MAKING
+A tool that gets photos ready to publish, running entirely on
+my own computer so the photos never get uploaded anywhere. It
+should be a single HTML file I can double-click: I drag photos
+onto it, it strips out the hidden data every photo carries
+about where and when it was taken, it puts a box around each
+face so I can click the ones to blur, and it hands me clean
+copies to download while my originals stay exactly as they are.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "do you need EXIF and IPTC stripped, and
+  what blur radius do you want?" Instead ask what I take these
+  photos on and where they end up: our website, a printed
+  newsletter, a grant report, social media. Work out from that
+  which hidden data is likely in the files and how strong the
+  blur has to be to survive someone zooming in. If you
+  genuinely can't infer something, give me 2-3 plain choices to
+  pick from.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
+  whether I'm on a free or paid plan, then adapt everything
+  that follows to what THIS product can actually do. If you can
+  create and hand me a downloadable file here, do that. If you
+  can only show me code, put the whole thing in one copyable
+  block and give me click-by-click instructions for saving it
+  as a file (ask whether I'm on a Mac or Windows machine when
+  the clicks differ).
+- Don't assume what software I use. Ask me what I keep photos
+  in, what I publish them with, and how we record who has
+  signed a photo release, and adapt to that.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. What I take these photos on: a staff phone, volunteers'
+   phones, a donated camera, a mix. Infer the file types from
+   that, and tell me plainly if one of them needs converting
+   before the tool can read it.
+2. Where the cleaned photos end up, so you know how much blur
+   is enough and what size the copies should come out at.
+3. Roughly how many photos I clean at a sitting, so you can
+   warn me honestly if a batch that size will be slow.
+4. How we keep track of who has signed a photo release, so you
+   can remind me to check it against the faces on screen.
+
+WHAT TO BUILD (this part is for you, not me)
+A SINGLE self-contained HTML page that does everything in the
+browser, so photos never leave the computer. If a face-detection
+model has to download the first time the page is opened, say so
+up front; after that it must work with no internet connection.
+The page must: let me drag one or many photos onto it; remove
+ALL hidden metadata from each, including GPS coordinates, camera
+and phone make and model, and timestamps, and list per photo
+exactly what it removed, so I can see what was in there; detect
+faces and draw a box on each so I click which ones to blur;
+blur strongly enough that the face is unrecognizable, not merely
+softened; let me draw a box by hand over any face or detail the
+detector missed; let me download the cleaned copies while
+leaving my originals untouched, never overwriting the source
+file; include a verify view where I can drop a cleaned file back
+in and be told what hidden data, if any, is still in it; and
+state plainly on the page that photos never leave this computer.
+
+AFTER YOU BUILD IT, WALK ME THROUGH
+1. Saving and opening the file, and what the first-time model
+   download will look like if there is one.
+2. A safe first test: a photo of me, taken on my own phone
+   outdoors. Have me read the location it shows before
+   cleaning, then run the cleaned copy back through the verify
+   view and confirm the location is gone. If anything still
+   shows, we fix the tool before it touches a program photo.
+3. A blur test: blur one face, download it, open the copy, and
+   zoom all the way in. If I can still tell who it is, the blur
+   isn't strong enough and you make it stronger.
+4. The habit: originals stay in our own files, only cleaned
+   copies get published, and every face without a signed
+   release gets blurred before anything goes out.
+
+RULES
+- Never ask me to attach a program photo, or anything from one,
+  to this chat. The tool handles photos; this chat doesn't.
+- Face detection is good but not perfect. It misses faces at
+  sharp angles, and faces in mirrors, windows, and photos on a
+  wall behind someone. Tell me that plainly, and make the
+  click-to-choose step the moment where a person looks at every
+  face in every photo.
+- Before we finish, remind me that blurring doesn't solve a
+  consent problem. No release, no publishing, blurred or not.
+
+Start now by telling me, in two sentences, what we're going to
+make together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline">
+          <b>Face detection is good but not perfect.</b> It misses faces at sharp angles and in mirrors and windows. The assistant is instructed to tell you that and to keep the click-to-choose step, so someone looks at every face in every photo before it publishes, and that pass is also where you catch the reflection nobody noticed. The looking is still yours to do. Blurring doesn't solve a consent problem either: no release, no publishing, blurred or not.
+        </div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>Clean copies ready to publish, with the hidden location and device data stripped and every face you selected blurred beyond recognition. Your originals stay untouched in your own files.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

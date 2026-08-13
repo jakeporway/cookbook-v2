@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe: Pull Public Data Off Hard-to-Use Websites (Guided) · Decoded Futures Cookbook</title>
+<link rel="stylesheet" href="card-styles.css?v=toggle2">
+</head>
+<body>
+  <div class="backlink">
+    <span><a href="index.html">← The Cookbook</a> · <a href="recipe-open-data.html">Read the steps instead</a></span>
+    <span>Your Data · Enrich · Recipe 39 · Guided</span>
+  </div>
+
+  <article class="card">
+    <div class="rail">
+      <span class="df">DF</span>
+      <span class="label">Your Data · Enrich</span>
+      <span class="num">R-39</span>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">
+        <span>Your Data · Enrich · Guided setup</span>
+        <span class="pat"><i></i><i></i><i></i></span>
+      </div>
+      <h1>Pull public data off hard-to-use websites</h1>
+      <p class="tagline">The county records, license lookups, and funder directories that have no download button. An AI assistant in your browser works through them while you watch and hands you a spreadsheet. For public data only.</p>
+
+      <!-- WARNING FLAGS -->
+      <div class="flags">
+        <div class="flag amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v3.5a5 5 0 0 1-10 0V8z"/><path d="M12 16.5V21"/></svg>
+          <span class="fl">Connects to your accounts</span>
+          <div class="tip"><b>Whatever site you send it to.</b> There are no integrations to set up, just the extension's permission for that one site. The assistant confirms the site is public and reads its terms before it touches anything.</div>
+        </div>
+      </div>
+
+      <!-- WHAT IT WILL ASK YOU -->
+      <div class="give">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <div>
+          <div class="gh">What it will ask you</div>
+          <p>Which website, and whether a stranger with the link would see the same pages without typing a password, which is how it works out whether this recipe applies at all. What you want in each column, in your own words. Your list of things to look up, and roughly how many. You don't need to know what an API is or how to read terms of service: it checks for a download and reads the terms itself, tells you what it found, and waits for you to say go.</p>
+        </div>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="recipe">
+        <div class="sech"><span class="px"><i></i><i></i></span> How to use this</div>
+        <ol class="steps">
+          <li><div>
+            <div class="st-h">Copy the whole block below and paste it into your AI chat</div>
+            <div class="st-b">Paste it into whichever AI you use to work in your browser. Nothing to fill in first: the assistant checks that it can actually open web pages for you, works out with you whether the site is public and whether an easier download already exists, and only then starts collecting, pausing so you can watch.</div>
+          </div></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="ph">
+            <span>The whole recipe, in one paste</span>
+            <button class="copy" type="button" style="margin-left:auto">Copy</button>
+          </div>
+          <pre>You are my research assistant. I work at a nonprofit. I am not
+technical. Your job is to run the following FOR me, asking me
+only questions a non-technical person can answer, and being a
+polite guest on someone else's website throughout: slow,
+visible, and read-only.
+
+WHAT WE'RE DOING
+Collecting public information off a website that has no
+download button, one item at a time, and turning it into a
+table I can keep. The page address each fact came from sits in
+a column on that row, so anyone here can check it later. This
+runs while I watch, not overnight, and it covers public
+records only: nothing behind a login, nothing behind a
+paywall.
+
+HOW TO WORK WITH ME
+- Ask me ONE question at a time and wait for my answer before
+  asking the next. Tell me how many questions to expect.
+- First, find out which AI product I'm talking to you in (for
+  example ChatGPT, Claude, Microsoft Copilot, or Gemini),
+  whether I'm on a free or paid plan, and whether you can
+  actually open and read web pages for me here, rather than
+  only talking. If you can't reach the live web at all, STOP
+  and say so plainly, and tell me what I'd need instead. Do
+  not answer from memory and do not produce rows you did not
+  read off a page: an invented record with a plausible source
+  link is the worst possible outcome here.
+- Never ask me a technical question directly. Ask the everyday
+  version and work out the technical answer yourself. For
+  example: do NOT ask "is this data behind an authenticated
+  session?" Instead ask "if you sent me that link, would I see
+  the same page you see, without typing a password?" and work
+  out from that whether this is public data this recipe can
+  touch at all. If you genuinely can't infer something, give
+  me 2-3 plain choices to pick from.
+- Don't assume what software I use. Ask me what I keep tables
+  in, and give me the result in a form I can paste straight
+  into it.
+- If I ask you a question at any point, answer it in plain
+  language, then pick up exactly where we left off.
+- If an instruction doesn't match what I'm seeing, ask me to
+  describe what's on my screen and work from that.
+- When you give me instructions to do outside this chat, give
+  ONE step at a time and check that it worked before the next.
+
+QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
+1. Which website, and whether a stranger with the link would
+   see the same pages I see without typing a password. If I
+   have to log in with my own account, STOP: tell me this is
+   the wrong recipe and that this cookbook has one for getting
+   data out of a system I already have an account in. If it
+   sits behind someone else's login or a paywall, STOP
+   completely; that is not something we work around.
+2. What I want to end up with in each column, in my own words:
+   the name, the address, the license date, the amount,
+   whatever it is. Turn that into the list of fields yourself.
+3. My list of things to look up, and roughly how many. Dozens
+   is comfortable, a few hundred is slow but workable, and
+   past that see the note at the end of this message.
+4. What I keep tables in, so the result comes back in a shape
+   I can paste in without retyping it.
+
+HOW TO DO THE WORK (this part is for you, not me)
+Before you touch my list: check whether the site already
+publishes a bulk download, a dataset page, or an API, and read
+its terms of service for anything about automated access.
+Tell me plainly what you found and wait for me to say go, even
+if what you found makes the rest of this unnecessary, which is
+the best outcome available. If the terms say no, say so and
+stop there.
+Then, for each item on my list: search it, read the result
+page, record the fields I asked for, and put that page's
+address in a source column on that row. Leave anything you
+cannot find blank; never fill a blank with a guess and never
+carry a value across from a neighboring record. Work at a
+human pace, one record at a time; we are a guest on someone
+else's server, and a small county system is not built for
+speed. Pause every 15 records, show me the table so far, and
+wait for me. Stay read-only the whole way: never submit a form
+that changes anything and never create an account. If the site
+errors, rate-limits you, shows a captcha, or asks for a login,
+STOP and tell me rather than retrying or finding a way round
+it. After the table, tell me which rows you're least confident
+about and why.
+
+AFTER THE TABLE, WALK ME THROUGH
+1. Filling the blanks and the low-confidence rows by hand, and
+   saying which of them are genuinely not published on that
+   site rather than just missed. Those two are different and I
+   need to know which is which.
+2. Spot-checking 5 random rows: I open the source link and
+   confirm that what's on that page matches what's in my
+   table. Five clean rows means I can trust the rest; one
+   wrong row means we check them all.
+3. Getting the table into whatever I said I keep tables in,
+   keeping the source-link column, and writing today's date on
+   it, because these sites change and a sourced table with no
+   date on it goes quietly stale.
+
+RULES
+- The terms check and the download check come first, always.
+  Never start collecting before you've told me what you found
+  and I have said go.
+- Public does not mean unlimited. Human pace, read-only, and
+  stop rather than working around an error, a captcha, or a
+  rate limit.
+- Never fill a blank with a guess, and treat a row with no
+  working source link as unfinished rather than handing it to
+  me.
+- Before we finish, remind me out loud that this only ever
+  runs while I'm watching it: nothing overnight, nothing
+  unattended, and I stay on the screen from the first record
+  to the last.
+
+IF THERE ARE THOUSANDS OF ITEMS, OR THE SITE SAYS NO
+Don't work through it page by page. Tell me plainly that the
+agency or organization very often has the whole dataset
+already and will send it if asked, and help me write that
+request: who we are, what we need, and what for. If the terms
+of service rule out collecting this way, or the pages sit
+behind someone else's login, say clearly that this is where
+the recipe stops rather than looking for a way around it.
+
+Start now by telling me, in two sentences, what we're going to
+do together, then ask your first question.</pre>
+        </div>
+
+        <div class="browserline">
+          <b>Two separate concerns here: what's permitted, and what's accurate.</b> Public doesn't mean unlimited, and hammering a small county server is rude at best. The prompt makes the assistant read the terms and look for a real download before it collects anything, work at a human pace, and stop rather than push through a captcha. Separately, collected fields follow the same accuracy rule as every lookup recipe: a source link per row, blanks left blank, and a spot-check of 5 rows, which is still yours to do.
+        </div>
+
+        <div class="browserline">
+          <b>Supervision is the part that can't be delegated.</b> The assistant is told to pause every 15 records and to raise this with you before it signs off, but staying at the screen is the whole safeguard. Nothing here should run overnight or unattended.
+        </div>
+
+        <div class="yield">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+          </div>
+          <div>
+            <div class="yh">What you walk away with</div>
+            <p>A spreadsheet the site never offered you, with each row sourced back to the page it came from, built while you watched rather than overnight and unsupervised.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </article>
+  <script src="prompt-toggle.js"></script>
+</body>
+</html>

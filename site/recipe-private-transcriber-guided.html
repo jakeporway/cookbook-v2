@@ -71,11 +71,16 @@ A transcription tool that runs entirely on my own computer, so
 recordings of sensitive conversations never get uploaded
 anywhere. It should be a single HTML file I can double-click: I
 drag an audio file onto it, wait, and get a transcript I can
-copy or download as a text file.
+copy or download as a text file. It will not label who is
+speaking, so for a call with several people I'll be reading one
+continuous transcript. What this takes: about an hour, a test
+recording with nothing sensitive in it, and a way to get audio
+files onto this computer.
 
 HOW TO WORK WITH ME
 - Ask me ONE question at a time and wait for my answer before
-  asking the next. Tell me how many questions to expect.
+  asking the next. Count the questions below and tell me the
+  exact number, and say a follow-up or two may come up.
 - Never ask me a technical question directly. Ask the everyday
   version and work out the technical answer yourself. For
   example: do NOT ask "are your files .m4a or .wav?" Instead ask
@@ -83,9 +88,11 @@ HOW TO WORK WITH ME
   recorder, something else?" and figure out the likely file
   format from that. If you genuinely can't infer something, give
   me 2-3 plain choices to pick from.
-- First, find out which AI product I'm talking to you in (for
-  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
-  whether I'm on a free or paid plan, then adapt everything that
+- Before anything else, say which AI product you believe I'm
+  talking to you in (for example ChatGPT, Claude, Microsoft
+  Copilot, or Gemini) and ask me to confirm, then ask whether
+  I'm on a free or paid plan. Never skip the plan question, even
+  when the product is obvious. Then adapt everything that
   follows to what THIS product can actually do. If you can
   create and hand me a downloadable file here, do that. If you
   can only show me code, put the whole thing in one copyable
@@ -100,33 +107,48 @@ HOW TO WORK WITH ME
   describe what's on my screen and work from that.
 - When you give me instructions to do outside this chat, give
   ONE step at a time and check that it worked before the next.
+- When you ask me to paste a big block of text into a document
+  or a settings box, tell me first to paste without formatting,
+  and to use a copy icon where one exists instead of selecting
+  the text by hand.
 
 QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
 1. What I record on, so you can infer the audio format.
 2. Roughly how long a typical recording is.
 3. What language the conversations are in.
-4. Roughly how many people are usually talking.
+4. Roughly how many people are usually talking, and say plainly
+   then that the transcript won't label speakers.
 
 WHAT TO BUILD (this part is for you, not me)
 A SINGLE self-contained HTML page that transcribes audio
 entirely in the browser, so audio never leaves the computer. Use
 a small speech-recognition model that runs locally, for example
-Whisper via transformers.js. It's OK if the page downloads the
-model the first time it's opened; after that it must work with
-no internet connection. The page must: let me drag an audio file
-onto it; show clear progress and be upfront that long files take
-a while; show the transcript with occasional timestamps; give me
-buttons to copy the transcript and download it as plain text;
-and state plainly on the page that audio never leaves this
+Whisper via transformers.js. The page will need to load a JS
+library and a speech model from the internet. Tell me plainly
+and specifically which parts need internet every time I open the
+file, versus only the first time, instead of calling it
+occasional reconnecting. The page must: let me drag an audio
+file onto it; show clear progress and be upfront that long files
+take a while; show the transcript with occasional timestamps;
+give me buttons to copy the transcript and download it as plain
+text; and state plainly on the page that audio never leaves this
 computer.
 
 AFTER YOU BUILD IT, WALK ME THROUGH
-1. Saving and opening the file, and what the one-time model
+1. Ask me how I typically get audio files onto this computer (a
+   cable, AirDrop, email), before anything else. Warn me in
+   advance if that is likely to need a privacy or
+   discoverability setting changed, and remind me to change it
+   back right after the transfer, not just at the end. Before I
+   open it, warn me that double-clicking an .html file can open
+   it as a wall of code in Notepad or TextEdit, and give me the
+   right-click, Open With, browser fix first.
+2. Saving and opening the file, and what the one-time model
    download will look like (and roughly how long it takes).
-2. A safe first test: have me try it on a recording that is NOT
+3. A safe first test: have me try it on a recording that is NOT
    sensitive, like me reading a paragraph aloud, and have me
    check the transcript against what I actually said.
-3. Only then, using it on real recordings. Remind me that local
+4. Only then, using it on real recordings. Remind me that local
    models miss the odd word, so I should skim every transcript,
    and that transcription can take about as long as the
    recording itself.
@@ -134,9 +156,15 @@ AFTER YOU BUILD IT, WALK ME THROUGH
 RULES
 - Never ask me to upload or paste a recording, or anything from
   one, into this chat. Descriptions only.
-- Before we finish, remind me: private isn't the same as
-  permitted. Recording a conversation still requires consent
-  under my org's policy and my state's law.
+- Before your first question, remind me in one sentence that
+  private isn't the same as permitted: recording a conversation
+  still requires consent under my org's policy and my state's
+  law.
+- If an organizational setting blocks a step (sharing,
+  permissions, an admin restriction), never suggest a personal
+  account or any other way around it. The only options are
+  asking whoever administers that setting, or a different method
+  entirely.
 
 Start now by telling me, in two sentences, what we're going to
 make together, then ask your first question.</pre>

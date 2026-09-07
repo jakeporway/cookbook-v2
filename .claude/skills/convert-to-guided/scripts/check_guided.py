@@ -20,10 +20,10 @@ PRODUCTS = re.compile(r'\b(ChatGPT|Claude|Gemini|Copilot)\b')
 # (label, regex) -- every one required in the prompt body.
 CLAUSES = [
 	('one question at a time', r'ONE question at a time'),
-	('question count announced', r'how many questions to expect'),
+	('question count announced', r'(?:how many questions to expect|tell me the exact number)'),
 	('no technical questions', r'[Nn]ever ask me a technical question directly'),
 	('recipe-specific example pair', r'do NOT ask'),
-	('product detection', r"which AI product I'?m talking to you in"),
+	('product detection', r"which AI product (?:you believe )?I'?m talking to you in"),
 	('plan detection', r'free or paid plan'),
 	("don't assume software", r"[Dd]on'?t assume what software I use"),
 	('answers my questions', r'answer it in plain language'),

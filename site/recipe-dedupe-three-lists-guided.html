@@ -69,15 +69,18 @@ a non-technical person can answer.
 WHAT WE'RE MAKING
 A single file that lives on my own computer. I drag my three
 exported people-lists onto it and it hands back one clean list
-with the duplicates merged, plus a separate pile of "these
-might be the same person, you decide" pairs that I rule on
-myself. Nobody gets merged out of existence without me saying
-so. I open the same file again before every mailing with fresh
-exports, and I never have to rebuild it.
+with the duplicates merged, plus a separate pile of "these might
+be the same person, you decide" pairs that I rule on myself.
+Nobody gets merged out of existence without me saying so. I open
+the same file again before every mailing with fresh exports, and
+I never have to rebuild it. What this takes: about an hour the
+first time and three exported lists; every later mailing takes a
+few minutes plus a review of the maybe-matches.
 
 HOW TO WORK WITH ME
 - Ask me ONE question at a time and wait for my answer before
-  asking the next. Tell me how many questions to expect.
+  asking the next. Count the questions below and tell me the
+  exact number, and say a follow-up or two may come up.
 - Never ask me a technical question directly. Ask the everyday
   version and work out the technical answer yourself. For
   example: do NOT ask "how strict should the fuzzy-match
@@ -89,15 +92,17 @@ HOW TO WORK WITH ME
   chat, ever. All I give you is the top row of each file, the
   column titles. If I paste a real person, stop me and remind
   me why.
-- First, find out which AI product I'm talking to you in (for
-  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
-  whether I'm on a free or paid plan, then adapt everything
-  that follows to what THIS product can actually do. If you
-  can create and hand me a downloadable file here, do that. If
-  you can only show me code, put the whole thing in one
-  copyable block and give me click-by-click instructions for
-  saving it as a file, asking whether I'm on a Mac or a
-  Windows machine when the clicks differ.
+- Before anything else, say which AI product you believe I'm
+  talking to you in (for example ChatGPT, Claude, Microsoft
+  Copilot, or Gemini) and ask me to confirm, then ask whether
+  I'm on a free or paid plan. Never skip the plan question, even
+  when the product is obvious. Then adapt everything that
+  follows to what THIS product can actually do. If you can
+  create and hand me a downloadable file here, do that. If you
+  can only show me code, put the whole thing in one copyable
+  block and give me click-by-click instructions for saving it as
+  a file, asking whether I'm on a Mac or a Windows machine when
+  the clicks differ.
 - Don't assume what software I use. Ask me what these three
   lists come out of, and what I open spreadsheet files in, and
   adapt to that.
@@ -107,6 +112,10 @@ HOW TO WORK WITH ME
   describe what's on my screen and work from that.
 - When you give me instructions to do outside this chat, give
   ONE step at a time and check that it worked before the next.
+- When you ask me to paste a big block of text into a document
+  or a settings box, tell me first to paste without formatting,
+  and to use a copy icon where one exists instead of selecting
+  the text by hand.
 
 QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
 1. Where my three lists come from: the event tool, the mailing
@@ -126,27 +135,32 @@ QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
 WHAT TO BUILD (this part is for you, not me)
 A SINGLE self-contained HTML file, no internet needed and no
 libraries loaded from the web, working entirely in the browser:
-the files I drop on it are read on my own machine and nothing
-is ever uploaded anywhere. It must let me drop all three CSVs
-onto the page at once, in any order, and cope with the three
-files using different column titles for the same thing, which
-they will. Match people by email address first. Where emails
-differ or are missing, compare names, catching nicknames like
-Bob and Robert, small typos, and reversed first and last
-names. NEVER auto-merge an uncertain match, and offer no
-setting that would: every uncertain pair goes to a separate
-"these might be the same person, you decide" table, showing
-the two rows side by side with a "Same person" and a
-"Different people" button on each pair. Note on every merged
-row which of the three lists that person came from. Finish
-with a button that downloads the combined list, and a line on
-the page reminding me to clear the you-decide pile before I
-download.
+the files I drop on it are read on my own machine and nothing is
+ever uploaded anywhere. It must let me drop all three CSVs onto
+the page at once, in any order, and cope with the three files
+using different column titles for the same thing, which they
+will. Match people by email address first. Where emails differ
+or are missing, compare names, catching nicknames like Bob and
+Robert, small typos, and reversed first and last names. NEVER
+auto-merge an uncertain match, and offer no setting that would:
+every uncertain pair goes to a separate "these might be the same
+person, you decide" table, showing the two rows side by side
+with a "Same person" and a "Different people" button on each
+pair, sorted with the most confident matches at the top and an
+"Accept all above this line" button above it, so a recurring
+mailing is not two dozen clicks even though every merge still
+needs one. Note on every merged row which of the three lists
+that person came from. Finish with a button that downloads the
+combined list, and a line on the page reminding me to clear the
+you-decide pile before I download.
 
 AFTER YOU BUILD IT, WALK ME THROUGH
-1. Saving the file somewhere I'll find it again and opening
-   it. Point out that it works with the wifi off, which is
-   the point.
+1. Saving the file somewhere I'll find it again and opening it.
+   Point out that it works with the wifi off, which is the
+   point. Before I open it, warn me that double-clicking an
+   .html file can open it as a wall of code in Notepad or
+   TextEdit, and give me the right-click, Open With, browser fix
+   first.
 2. A safe first test, before anything real: help me make
    three tiny practice files of five invented people each,
    and scatter a Bob-and-Robert pair, one typo'd email, and
@@ -172,6 +186,11 @@ RULES
   Martinez" at two different addresses might be one person or
   two, and skipping the you-decide pile is how a donor gets
   mailed twice or thanked by the wrong name.
+- If an organizational setting blocks a step (sharing,
+  permissions, an admin restriction), never suggest a personal
+  account or any other way around it. The only options are
+  asking whoever administers that setting, or a different method
+  entirely.
 
 Start now by telling me, in two sentences, what we're going to
 make together, then ask your first question.</pre>

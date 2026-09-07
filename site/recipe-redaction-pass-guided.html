@@ -69,13 +69,16 @@ a non-technical person can answer.
 WHAT WE'RE MAKING
 A redaction tool that lives on my own computer: I paste in text,
 it strips out names, phone numbers, addresses, and anything else
-identifying, and I copy out a clean version that's safe to paste
-into an AI chat or share. This is the tool that makes it safe
-for me to use AI on real work material.
+identifying, and I copy out a clean, safe-to-paste version. This
+is a first-pass filter, not a certified system, and it's what
+makes it safe for me to use AI on real work material. What this
+takes: about an hour to build and test, and a habit of reading
+every cleaned note yourself, every time.
 
 HOW TO WORK WITH ME
 - Ask me ONE question at a time and wait for my answer before
-  asking the next. Tell me how many questions to expect.
+  asking the next. Count the questions below and tell me the
+  exact number, and say a follow-up or two may come up.
 - Never ask me a technical question directly. Ask the everyday
   version and work out the technical answer yourself. For
   example: do NOT ask me to "list regex-able patterns." Ask what
@@ -84,14 +87,14 @@ HOW TO WORK WITH ME
   with made-up digits (like CL-1234). Build the list from that.
 - IMPORTANT: never ask me for a real name, address, number, or
   any real example. Made-up examples only, and say so each time.
-- First, find out which AI product I'm talking to you in (for
-  example ChatGPT, Claude, Microsoft Copilot, or Gemini) and
-  whether I'm on a free or paid plan, then adapt everything that
-  follows to what THIS product can actually do. If you can
-  create and hand me a downloadable file here, do that. If you
-  can only show me code, put the whole thing in one copyable
-  block and give me click-by-click instructions for saving it as
-  a file (ask whether I'm on a Mac or Windows machine when the
+- Before anything else, say which AI product you believe I'm
+  talking to you in (for example ChatGPT, Claude, Microsoft
+  Copilot, or Gemini) and confirm, then ask free or paid plan;
+  never skip that. Adapt everything that follows to what THIS
+  product can do. If you can give me a Download button for the
+  file (an artifact, a canvas, a code file), always use it and
+  say where it is; otherwise fall back to one copyable block
+  with click-by-click saving steps (ask Mac or Windows when the
   clicks differ).
 - Don't assume what software I use. Ask me what I write and
   store these documents in, and adapt to that.
@@ -101,6 +104,10 @@ HOW TO WORK WITH ME
   describe what's on my screen and work from that.
 - When you give me instructions to do outside this chat, give
   ONE step at a time and check that it worked before the next.
+- When you ask me to paste a big block of text into a document
+  or a settings box, tell me first to paste without formatting,
+  and to use a copy icon where one exists instead of selecting
+  the text by hand.
 
 QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
 1. What my org does and who shows up in our documents (clients,
@@ -110,27 +117,40 @@ QUESTIONS YOU'LL NEED ANSWERED (in your own words, one at a time)
    shelter or site locations, employer names, whatever applies.
 3. Whether we use internal IDs or case numbers, and what the
    FORMAT looks like, using made-up digits.
+4. Whether notes ever include email addresses or birth dates,
+   and what a made-up example of each would look like.
 
 WHAT TO BUILD (this part is for you, not me)
 A SINGLE self-contained HTML file, no internet needed and no
 libraries loaded from the web, that works entirely in the
-browser; nothing pasted into it is ever sent anywhere. It must:
-have one big box where I paste text, a Redact button, and the
-cleaned version below with a Copy button; replace each item with
-a consistent placeholder, so the same person becomes [PERSON-1]
-every time and the text still makes sense; highlight everything
-it changed so I can review each one; let me click any word it
-MISSED to redact it by hand and remember that word for next
-time; and include a note on the page reminding me to spot-check
-before pasting the result anywhere.
+browser; nothing pasted into it is sent anywhere. It must: have
+a paste box, a Redact button, and a cleaned version below with a
+Copy button; replace each item with a consistent placeholder, so
+the same person is [PERSON-1] every time, later lone first names
+get that placeholder too, and a name after "son," "daughter,"
+"husband," "wife," or "partner" counts; catch phone numbers in
+every common written form, including a parenthesized area code
+like (253) 555-0142, and ones using dots, dashes, or spaces;
+strip a title word in front of a name (Landlord, Dr., Ms., Mr.,
+Case Manager, Officer) before the name rule runs, so "Landlord
+Robert Kessler" redacts the whole name, not just the first word;
+give emails and birth dates their own placeholders ([EMAIL-1],
+[DOB-1]) if question 4 says they appear; highlight everything
+changed; let me click any MISSED word to redact it by hand and
+remember it under a key unique to this tool; and note on the
+page to spot-check before pasting anywhere.
 
 AFTER YOU BUILD IT, WALK ME THROUGH
-1. Saving the file somewhere I'll find it and opening it. Point
-   out that it works with the wifi off, which is the point.
-2. A real test: help me write a FAKE case note, with made-up
-   names, a made-up phone number, and a made-up ID in my format,
-   and have me run it through. Ask me what it caught and what it
-   missed, and fix the tool if it missed things.
+1. Before I open the file, warn me some computers open .html
+   files as plain text in Notepad or TextEdit, not a browser,
+   and give the fix first: right-click, Open With, Safari or
+   Chrome. Save and open the file; it works with wifi off, and
+   the remembered-word list only survives in this same file,
+   place, and browser.
+2. A real test: help me write a FAKE case note with made-up
+   names, a phone number, an email, a birth date, and an ID in
+   my format, and run it through. Ask what it caught and missed,
+   and fix the tool if it missed things.
 3. The habit: from now on, real text goes through this tool
    first and into an AI chat second.
 
@@ -140,6 +160,11 @@ RULES
 - Before we finish, remind me that pattern matching is literal:
   "Dr. J." or a nickname can slip past, so I'm always the last
   check on anything the tool produces.
+- If an organizational setting blocks a step (sharing,
+  permissions, an admin restriction), never suggest a personal
+  account or any other way around it. The only options are
+  asking whoever administers that setting, or a different method
+  entirely.
 
 Start now by telling me, in two sentences, what we're going to
 make together, then ask your first question.</pre>

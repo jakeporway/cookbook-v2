@@ -256,3 +256,9 @@ ol.steps .st-b{font-size:14px;color:var(--gray);}
 .flag:first-child .tip::after{left:34px;}
 .flags .clear{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#5E8B2E;font-weight:600;}
 .flags .clear svg{width:16px;height:16px;}
+
+/* ===== guided pages: no side rail, one-line paste note instead of a step list ===== */
+.card.norail{grid-template-columns:1fr;}
+.card.norail h1{margin-top:0;}
+.pastenote{font-size:14px;color:var(--gray);margin-bottom:14px;}
+.pastenote b{color:var(--navy);}
